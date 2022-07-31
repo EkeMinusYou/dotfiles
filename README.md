@@ -3,6 +3,7 @@
 ### Contents
 
 - Brewfile
+- Fish setting
 
 ### Package Manager
 
@@ -11,4 +12,3 @@
 ### Shell
 
 - [fish](https://fishshell.com/)
-
