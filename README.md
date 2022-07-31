@@ -6,6 +6,7 @@ EkeMinusYou's Dotfiles
 - Brewfile
 - Fish setting
 - Git config
+- VSCode setting
 
 ### Package Manager
 
