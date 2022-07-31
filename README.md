@@ -7,6 +7,7 @@ EkeMinusYou's Dotfiles
 - Fish setting
 - Git config
 - VSCode setting
+- Neovim
 
 ### Package Manager
 
