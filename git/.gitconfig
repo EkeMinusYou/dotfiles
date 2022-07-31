@@ -1,0 +1,20 @@
+[user]
+        name = EkeMinusYou
+        email = euonymuslke+develop@gmail.com
+[core]
+        editor = code --wait
+[alias]
+        pl = pull
+        st = stash -u
+        sta = stash apply
+        co = checkout
+        ps = push
+        psf = push --force-with-lease
+        rbi = rebase -i HEAD~10
+        lgo = log --oneline
+[init]
+        defaultBranch = main
+[pull]
+        rebase = false
+[ghq]
+        root = ~/src

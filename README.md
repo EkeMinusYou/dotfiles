@@ -4,6 +4,7 @@
 
 - Brewfile
 - Fish setting
+- Git config
 
 ### Package Manager
 
@@ -12,3 +13,5 @@
 ### Shell
 
 - [fish](https://fishshell.com/)
+- [fzf](https://github.com/junegunn/fzf)
+  - [install key bindings](https://github.com/junegunn/fzf#using-homebrew)
