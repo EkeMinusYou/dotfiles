@@ -1,13 +1,20 @@
 ## dotfiles
 
 EkeMinusYou's Dotfiles
+
+### Usage
+
+```sh
+$ curl -sf https://raw.githubusercontent.com/EkeMinusYou/dotfiles/main/install.sh | sh -s
+```
+
 ### Contents
 
 - Brewfile
 - Fish setting
 - Git config
 - VSCode setting
-- Neovim
+- Neovim setting
 
 ### Package Manager
 
@@ -17,7 +24,6 @@ EkeMinusYou's Dotfiles
 
 - [fish](https://fishshell.com/) - shell
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
-  - [install key bindings](https://github.com/junegunn/fzf#using-homebrew)
 - [zoxide](https://github.com/ajeetdsouza/zoxide) - smarter cd command
 
 ### Version Manager
