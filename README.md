@@ -5,7 +5,7 @@ EkeMinusYou's Dotfiles
 ### Usage
 
 ```sh
-$ curl -sf https://raw.githubusercontent.com/EkeMinusYou/dotfiles/main/install.sh | sh -s
+$ curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/main/install.sh
 ```
 
 ### Contents
