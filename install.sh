@@ -1,11 +1,18 @@
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install git
+if [ "$(uname)" == 'Darwin' ]; then
+  sudo apt install git
+  test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+  test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+  echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+fi
 
 # Clone dotfiles
 DOT_DIR="$HOME/src/dotfiles"
 git clone https://github.com/EkeMinusYou/dotfiles ${DOT_DIR}
+ln -sf $DOT_DIR/.gitconfig ~/.gitconfig
 
 # Install packages by brew
 brew bundle --file "$DOT_DIR/Brewfile"

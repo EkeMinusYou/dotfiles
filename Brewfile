@@ -1,4 +1,5 @@
 if OS.mac?
+  brew "git"
   tap "homebrew/cask"
 elsif OS.linux?
 end
@@ -9,7 +10,6 @@ brew "neovim"
 brew "fish"
 brew "fzf"
 brew "ghq"
-brew "git"
 brew "nodebrew"
 brew "pyenv"
 brew "rbenv"
