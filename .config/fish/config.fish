@@ -16,4 +16,4 @@ alias e='code -a .'
 zoxide init fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.fish.inc' ]; . '$HOME/google-cloud-sdk/path.fish.inc'; end
+. $HOME/google-cloud-sdk/path.fish.inc
