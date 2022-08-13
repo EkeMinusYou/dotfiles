@@ -13,7 +13,6 @@ $ curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/main/install
 - Brewfile
 - Fish setting
 - Git config
-- VSCode setting
 - Neovim setting
 
 ### Package Manager
