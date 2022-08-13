@@ -9,6 +9,9 @@ set -x PATH $HOME/.nodebrew/current/bin $PATH
 # set -x PATH  $PYENV_ROOT/bin $PATH
 # pyenv init - | source
 
+# protoc compiler
+set -x PATH $PATH:$(go env GOPATH)/bin $PATH
+
 # VSCode
 alias e='code -a .'
 
@@ -16,4 +19,4 @@ alias e='code -a .'
 zoxide init fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.fish.inc' ]; . '$HOME/google-cloud-sdk/path.fish.inc'; end
+. $HOME/google-cloud-sdk/path.fish.inc
