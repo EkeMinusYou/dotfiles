@@ -1,3 +1,6 @@
+# Suppress Welcome message
+set fish_greeting
+
 # Node.js
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 
