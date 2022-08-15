@@ -1,6 +1,9 @@
 # Suppress Welcome message
 set fish_greeting
 
+# Git
+alias g="git"
+
 # Node.js
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 
