@@ -20,3 +20,6 @@ alias e='code -a .'
 
 # zoxide
 zoxide init fish | source
+
+# gcloud
+source $HOME/google-cloud-sdk/path.fish.inc
