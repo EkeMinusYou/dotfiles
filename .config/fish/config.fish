@@ -22,4 +22,8 @@ alias e='code -a .'
 zoxide init fish | source
 
 # gcloud
-source $HOME/google-cloud-sdk/path.fish.inc
+if test (uname -s) = "Darwin"
+	source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc'
+else
+  source $HOME/google-cloud-sdk/path.fish.inc
+end
