@@ -8,8 +8,8 @@ alias g="git"
 set -x PATH $HOME/.nodebrew/current/bin $PATH
 
 # Python
-# set -x PYENV_ROOT $HOME/.pyenv
-# set -x PATH  $PYENV_ROOT/bin $PATH
+# set -Ux PYENV_ROOT $HOME/.pyenv
+# set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 # pyenv init - | source
 
 # protoc compiler
