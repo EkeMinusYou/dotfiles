@@ -27,3 +27,6 @@ if test (uname -s) = "Darwin"
 else
   source $HOME/google-cloud-sdk/path.fish.inc
 end
+
+# gRPC
+set -x PATH $PATH:$(go env GOPATH)/bin $PATH
