@@ -23,3 +23,5 @@
 	helper = store
 [push]
 	default = current
+[rebase]
+	autosquash = true
