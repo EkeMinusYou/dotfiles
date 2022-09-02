@@ -3,7 +3,7 @@ set fish_greeting
 
 # Git
 alias g="git"
-alias gpr="git pull --rebase origin master"
+alias gpr="git pull --rebase origin"
 alias gcf="git commit --fixup HEAD"
 
 # Node.js
