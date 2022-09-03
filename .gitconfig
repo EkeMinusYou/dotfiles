@@ -1,6 +1,14 @@
 [user]
         name = EkeMinusYou
         email = euonymuslke@gmail.com
+
+[ghq]
+        root = ~/src
+	user = EkeMinusYou
+
+[includeIf "gitdir:~/src/github.com/global-mobility-service/"]
+        path = ~/.gitconfig-gms
+
 [core]
         editor = code --wait
 [alias]
@@ -16,9 +24,6 @@
         defaultBranch = main
 [pull]
         rebase = false
-[ghq]
-        root = ~/src
-	user = EkeMinusYou
 [credential]
 	helper = store
 [push]
