@@ -1,10 +1,14 @@
 # Suppress Welcome message
 set fish_greeting
 
+# Vim
+alias vim="nvim"
+
 # Git
 alias g="git"
 
 # Kubernetes
+kubectl completion fish | source
 alias k="kubectl"
 
 # Node.js
