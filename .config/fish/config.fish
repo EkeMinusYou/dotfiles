@@ -3,6 +3,8 @@ set fish_greeting
 
 # Git
 alias g="git"
+
+# Kubernetes
 alias k="kubectl"
 
 # Node.js
