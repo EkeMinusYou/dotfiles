@@ -3,8 +3,7 @@ set fish_greeting
 
 # Git
 alias g="git"
-alias gpr="git pull --rebase origin"
-alias gcf="git commit --fixup HEAD"
+alias k="kubectl"
 
 # Node.js
 set -x PATH $HOME/.nodebrew/current/bin $PATH
