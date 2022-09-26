@@ -4,6 +4,9 @@ set fish_greeting
 # Vim
 alias vim="nvim"
 
+# Default Editor
+set -x EDITOR $(which nvim)
+
 # Git
 alias g="git"
 
