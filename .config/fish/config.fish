@@ -1,10 +1,18 @@
 # Suppress Welcome message
 set fish_greeting
 
+# Vim
+alias vim="nvim"
+
+# Default Editor
+set -x EDITOR $(which nvim)
+
 # Git
 alias g="git"
-alias gpr="git pull --rebase origin"
-alias gcf="git commit --fixup HEAD"
+
+# Kubernetes
+kubectl completion fish | source
+alias k="kubectl"
 
 # Node.js
 set -x PATH $HOME/.nodebrew/current/bin $PATH
