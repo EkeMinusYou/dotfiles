@@ -1,6 +1,15 @@
 # Suppress Welcome message
 set fish_greeting
 
+# Homebrew
+if test -d (brew --prefix)"/share/fish/completions"
+    set -gx fish_complete_path $fish_complete_path (brew --prefix)/share/fish/completions
+end
+
+if test -d (brew --prefix)"/share/fish/vendor_completions.d"
+    set -gx fish_complete_path $fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+end
+
 # Vim
 alias vim="nvim"
 
