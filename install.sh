@@ -25,7 +25,8 @@ fisher install edc/bass
 ln -sfn $DOT_DIR/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 ln -sfn $DOT_DIR/dotfiles/.config/fish/functions/select_ghq_cd.fish ~/.config/fish/functions/select_ghq_cd.fish
 ln -sfn $DOT_DIR/dotfiles/.config/fish/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
-ln -sfn $DOT_DIR/dotfiles/.zshrc ~/.zshrc
+ln -sfn $DOT_DIR/dotfiles/.bashrc ~/.bashrc
+ln -sfn $DOT_DIR/dotfiles/.bash_profile ~/.bash_profile
 
 # Setup neovim
 ln -sfn $DOT_DIR/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
