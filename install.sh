@@ -25,6 +25,8 @@ fisher install edc/bass
 ln -sfn $DOT_DIR/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 ln -sfn $DOT_DIR/dotfiles/.config/fish/functions/select_ghq_cd.fish ~/.config/fish/functions/select_ghq_cd.fish
 ln -sfn $DOT_DIR/dotfiles/.config/fish/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
+ln -sfn $DOT_DIR/dotfiles/.config/fish/completions/aws.fish ~/.config/fish/completions/aws.fish
+ln -sfn $DOT_DIR/dotfiles/.config/fish/completions/tccli.fish ~/.config/fish/completions/tccli.fish
 ln -sfn $DOT_DIR/dotfiles/.bashrc ~/.bashrc
 ln -sfn $DOT_DIR/dotfiles/.bash_profile ~/.bash_profile
 
