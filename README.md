@@ -17,7 +17,7 @@ $ curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/main/install
 
 ### Package Manager
 
-- [Homebrew](https://brew.sh/index_ja) - install first
+- [Homebrew](https://brew.sh/index_ja)
 
 ### Shell
 

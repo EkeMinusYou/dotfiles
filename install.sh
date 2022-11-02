@@ -22,7 +22,7 @@ brew bundle --file "$DOT_DIR/dotfiles/Brewfile"
 # Setup fish
 $(brew --prefix)/opt/fzf/install
 fisher install edc/bass
-fisher install aliz-ai/google-cloud-sdk-fish-completion
+fisher install lgathy/google-cloud-sdk-fish-completion
 ln -sfn $DOT_DIR/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 ln -sfn $DOT_DIR/dotfiles/.config/fish/functions/select_ghq_cd.fish ~/.config/fish/functions/select_ghq_cd.fish
 ln -sfn $DOT_DIR/dotfiles/.config/fish/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
