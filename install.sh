@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 if [ "$(uname)" == 'Linux' ]; then
   sudo apt install git
   test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
