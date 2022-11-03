@@ -44,11 +44,7 @@ alias e='code -a .'
 zoxide init fish | source
 
 # gcloud
-if test (uname -s) = "Darwin"
-	source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc
-else
-  source $HOME/google-cloud-sdk/path.fish.inc
-end
+source $HOME/google-cloud-sdk/path.fish.inc
 
 # gRPC
 set -x PATH $PATH:$(go env GOPATH)/bin $PATH
