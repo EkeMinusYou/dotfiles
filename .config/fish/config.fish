@@ -2,6 +2,7 @@
 set fish_greeting
 
 # Homebrew
+set PATH /opt/homebrew/bin $PATH
 if test -d (brew --prefix)"/share/fish/completions"
     set -gx fish_complete_path $fish_complete_path (brew --prefix)/share/fish/completions
 end
