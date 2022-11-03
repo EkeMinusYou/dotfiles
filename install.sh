@@ -10,7 +10,7 @@ fi
 
 # Clone dotfiles
 DOT_DIR="$HOME/src/github.com/EkeMinusYou"
-git clone https://github.com/EkeMinusYou/dotfiles ${DOT_DIR}
+git clone https://github.com/EkeMinusYou/dotfiles ${DOT_DIR}/dotfiles
 ln -sfn $DOT_DIR/dotfiles/.gitconfig ~/.gitconfig
 
 # Install packages by brew
