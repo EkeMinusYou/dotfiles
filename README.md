@@ -2,6 +2,12 @@
 
 EkeMinusYou's Dotfiles
 
+## Pre-Setup
+
+install
+
+- [Homebrew](https://brew.sh/index_ja)
+
 ### Usage
 
 ```bash
@@ -14,10 +20,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/mai
 - Fish setting
 - Git config
 - Neovim setting
-
-### Package Manager
-
-- [Homebrew](https://brew.sh/index_ja)
 
 ### Shell
 
