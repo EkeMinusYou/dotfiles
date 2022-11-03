@@ -33,3 +33,6 @@ ln -sfn $DOT_DIR/dotfiles/.bash_profile ~/.bash_profile
 
 # Setup neovim
 ln -sfn $DOT_DIR/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
+
+# Setup karabiner
+ln -sfn $DOT_DIR/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
