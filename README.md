@@ -4,8 +4,8 @@ EkeMinusYou's Dotfiles
 
 ### Usage
 
-```sh
-$ curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/main/install.sh
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/main/install.sh)"
 ```
 
 ### Contents
