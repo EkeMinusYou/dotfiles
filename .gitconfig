@@ -25,7 +25,7 @@
 [pull]
         rebase = false
 [credential]
-	helper = store
+	helper = osxkeychain
 [push]
 	default = current
 [rebase]
