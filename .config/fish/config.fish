@@ -25,7 +25,7 @@ kubectl completion fish | source
 alias k="kubectl"
 
 # Node.js
-set -x PATH $HOME/.nodebrew/current/bin $PATH
+set -gx PATH $HOME/.nodebrew/current/bin $PATH
 
 # Terraform
 alias tf="terraform"
@@ -35,8 +35,9 @@ alias tf="terraform"
 # set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 # pyenv init - | source
 
-# protoc compiler
-set -x PATH $PATH:$(go env GOPATH)/bin $PATH
+# Go
+set -gx GOPATH $HOME/go
+set -gx PATH $PATH $GOPATH/bin
 
 # VSCode
 alias e='code -a .'
@@ -46,6 +47,3 @@ zoxide init fish | source
 
 # gcloud
 source $HOME/google-cloud-sdk/path.fish.inc
-
-# gRPC
-set -x PATH $PATH:$(go env GOPATH)/bin $PATH
