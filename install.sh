@@ -28,8 +28,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/fish/completions/tccli.fish ~/.config/fish/com
 ln -sfn $DOT_DIR/dotfiles/.bashrc ~/.bashrc
 ln -sfn $DOT_DIR/dotfiles/.bash_profile ~/.bash_profile
 
-# Setup neovim
-ln -sfn $DOT_DIR/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
+# Setup nvim
+curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+ln -sfn $DOT_DIR/dotfiles/.config/nvim ~/.config/nvim
 
 # Setup karabiner
 ln -sfn $DOT_DIR/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
