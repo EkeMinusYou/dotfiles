@@ -1,3 +1,3 @@
+require('plugins')
 require('editor')
 require('keymap')
-require('plugins')

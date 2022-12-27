@@ -9,6 +9,7 @@ require('jetpack.packer').add {
   { 'lukas-reineke/indent-blankline.nvim' },
   { 'nvim-tree/nvim-tree.lua', require = { 'nvim-tree/nvim-web-devicons' } },
   { 'nvim-tree/nvim-web-devicons' },
+  { 'folke/tokyonight.nvim', branch = 'main' },
 }
 
 require('rc.nvim-tree')
