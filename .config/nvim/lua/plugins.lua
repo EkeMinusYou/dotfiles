@@ -16,3 +16,4 @@ require('jetpack.packer').add {
 
 require('rc.fern')
 require('rc.nvim-treesitter')
+require('rc.indent-blankline')
