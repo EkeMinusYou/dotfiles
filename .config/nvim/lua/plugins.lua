@@ -17,6 +17,8 @@ require('jetpack.packer').add {
   { 'nathanaelkane/vim-indent-guides' },
   { 'lambdalisue/glyph-palette.vim' },
   { 'lambdalisue/fern-hijack.vim' },
+  { 'tomasiser/vim-code-dark' },
 }
 
 require('rc.fern')
+require('rc.vim-indent-guides')
