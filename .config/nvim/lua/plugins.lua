@@ -6,14 +6,7 @@ require('jetpack.packer').add {
   { 'lambdalisue/fern-git-status.vim' },
   { 'lambdalisue/nerdfont.vim' },
   { 'lambdalisue/fern-renderer-nerdfont.vim' },
-  { 'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function()
-      require 'nvim-treesitter.configs'.setup {
-        highlight = { enable = true }
-      }
-    end
-  },
+  { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
   { 'nathanaelkane/vim-indent-guides' },
   { 'lambdalisue/glyph-palette.vim' },
   { 'lambdalisue/fern-hijack.vim' },
@@ -22,3 +15,4 @@ require('jetpack.packer').add {
 
 require('rc.fern')
 require('rc.vim-indent-guides')
+require('rc.nvim-treesitter')
