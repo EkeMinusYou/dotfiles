@@ -1,1 +1,4 @@
-vim.opt.clipboard:append({unnamedeplus = true})
+vim.g.mapleader = " "
+
+-- Fern
+vim.keymap.set({'n'}, '<Leader>e', '<Cmd>Fern . -drawer -reveal=% -toggle<CR>')
