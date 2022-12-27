@@ -1,4 +1,4 @@
 vim.g.mapleader = " "
 
--- Fern
-vim.keymap.set({'n'}, '<Leader>e', '<Cmd>Fern . -drawer -reveal=% -toggle<CR>')
+-- nvim-tree
+vim.keymap.set({'n'}, '<Leader>e', '<Cmd>NvimTreeToggle<CR>')
