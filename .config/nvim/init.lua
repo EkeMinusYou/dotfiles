@@ -1,4 +1,4 @@
-require('language')
+require('editor')
 require('keymap')
 require('plugins')
 
