@@ -8,12 +8,10 @@ require('jetpack.packer').add {
   { 'lambdalisue/fern-renderer-nerdfont.vim' },
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
   { 'nvim-treesitter/nvim-treesitter-context', require = {'nvim-treesitter/nvim-treesitter'}},
-  { 'nathanaelkane/vim-indent-guides' },
   { 'lambdalisue/glyph-palette.vim' },
   { 'lambdalisue/fern-hijack.vim' },
   { 'tomasiser/vim-code-dark' },
 }
 
 require('rc.fern')
-require('rc.vim-indent-guides')
 require('rc.nvim-treesitter')
