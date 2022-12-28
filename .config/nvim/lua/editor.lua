@@ -1,8 +1,8 @@
-vim.cmd.colorscheme('tokyonight')
+vim.cmd.colorscheme('codedark')
 
 vim.opt.clipboard = "unnamedplus"
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 vim.opt.number = true
 vim.opt.wrap = false
 vim.opt.hlsearch = true
