@@ -5,6 +5,7 @@ require('jetpack.packer').add {
 
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
   { 'nvim-treesitter/nvim-treesitter-context', require = { 'nvim-treesitter/nvim-treesitter' } },
+  { 'p00f/nvim-ts-rainbow' },
   { 'lukas-reineke/indent-blankline.nvim' },
   { 'nvim-tree/nvim-tree.lua', require = { 'nvim-tree/nvim-web-devicons' } },
   { 'nvim-tree/nvim-web-devicons' },
