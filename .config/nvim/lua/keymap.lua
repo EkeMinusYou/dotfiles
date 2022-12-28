@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
 
--- nvim-tree
-vim.keymap.set({'n'}, '<Leader>e', '<Cmd>NvimTreeToggle<CR>')
+require('which-key').register({
+  ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+}, { prefix = "<leader>" })
