@@ -13,6 +13,7 @@ require('jetpack.packer').add {
   { 'nvim-lua/plenary.nvim' },
   { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, tag = '0.1.x' },
   { 'folke/which-key.nvim' },
+  { "akinsho/toggleterm.nvim" },
 
   -- theme plugins
   { 'tomasiser/vim-code-dark' },
@@ -25,3 +26,4 @@ require('rc.nvim-treesitter')
 require('rc.indent-blankline')
 require('rc.lualine')
 require('rc.which-key')
+require('rc.toggleterm')
