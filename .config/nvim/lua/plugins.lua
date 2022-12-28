@@ -16,6 +16,7 @@ require('jetpack.packer').add {
   -- theme plugins
   { 'tomasiser/vim-code-dark' },
   { 'rebelot/kanagawa.nvim' },
+  { 'folke/tokyonight.nvim' },
 }
 
 require('rc.nvim-tree')
