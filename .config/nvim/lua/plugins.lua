@@ -10,6 +10,8 @@ require('jetpack.packer').add {
   { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } },
   { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
   { 'nvim-tree/nvim-web-devicons' },
+  { 'nvim-lua/plenary.nvim' },
+  { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, tag = '0.1.x' },
 
   -- theme plugins
   { 'tomasiser/vim-code-dark' },
