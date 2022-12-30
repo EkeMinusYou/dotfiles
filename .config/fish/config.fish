@@ -25,7 +25,7 @@ kubectl completion fish | source
 alias k="kubectl"
 
 # Node.js
-set -gx PATH $HOME/.nodebrew/current/bin $PATH
+fish_add_path $HOME/.nodebrew/current/bin
 
 # Terraform
 alias tf="terraform"
@@ -37,7 +37,10 @@ alias tf="terraform"
 
 # Go
 set -gx GOPATH $HOME/go
-set -gx PATH $PATH $GOPATH/bin
+fish_add_path $GOPATH/bin
+
+# Java
+fish_add_path /opt/homebrew/opt/openjdk@11/bin
 
 # VSCode
 alias e='code -a .'
@@ -49,4 +52,4 @@ zoxide init fish | source
 source $HOME/google-cloud-sdk/path.fish.inc
 
 # lunarvim
-set -gx PATH $HOME/.local/bin $PATH
+fish_add_path $HOME/.local/bin
