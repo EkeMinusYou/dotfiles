@@ -20,6 +20,9 @@ set -x EDITOR $(which nvim)
 # Git
 alias g="git"
 
+# lazygit
+set -x XDG_CONFIG_HOME "$HOME/.config"
+
 # Kubernetes
 kubectl completion fish | source
 alias k="kubectl"

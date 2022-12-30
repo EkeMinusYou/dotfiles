@@ -4,7 +4,7 @@
 
 [ghq]
         root = ~/src
-	user = EkeMinusYou
+        user = EkeMinusYou
 
 [includeIf "gitdir:~/src/github.com/global-mobility-service/"]
         path = ~/.gitconfig-gms
@@ -25,8 +25,23 @@
 [pull]
         rebase = false
 [credential]
-	helper = osxkeychain
+        helper = osxkeychain
 [push]
-	default = current
+        default = current
 [rebase]
-	autosquash = true
+        autosquash = true
+
+[pager]
+        diff = delta
+        log = delta
+        reflog = delta
+        show = delta
+
+[delta]
+        plus-style = "syntax #012800"
+        minus-style = "syntax #340001"
+        side-by-side = true
+        navigate = true
+
+[interactive]
+        diffFilter = delta --color-only

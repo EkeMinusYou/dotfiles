@@ -7,7 +7,7 @@ wk.register({
   e = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
   g = { "<cmd>lua Lazygit_toggle()<CR>", "Git" },
   f = { "<CMD>Telescope find_files<CR>", "Find files"},
-  t = { "<CMD>Telescope live_grep<CR>", "Grep"}
+  F = { "<CMD>Telescope live_grep<CR>", "Grep"}
 }, { prefix = "<leader>", mode = "n" })
 
 -- window movement
