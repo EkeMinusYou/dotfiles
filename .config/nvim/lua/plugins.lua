@@ -22,7 +22,10 @@ require('jetpack.packer').add {
   { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
   { 'nvim-tree/nvim-web-devicons' },
   { 'nvim-lua/plenary.nvim' },
+
+	-- finder
   { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, tag = '0.1.x' },
+	{'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 
   -- keybinding
   { 'folke/which-key.nvim' },
