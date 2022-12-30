@@ -41,6 +41,7 @@ fish_add_path $GOPATH/bin
 
 # Java
 fish_add_path /opt/homebrew/opt/openjdk@11/bin
+set -gx CPPFLAGS "-I/opt/homebrew/opt/openjdk@11/include"
 
 # VSCode
 alias e='code -a .'
