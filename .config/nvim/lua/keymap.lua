@@ -1,11 +1,17 @@
 vim.g.mapleader = " "
 
+-- disable unused keymap
+vim.keymap.set('n', '<ZZ>', '<Nop>')
+vim.keymap.set('n', '<ZQ>', '<Nop>')
+vim.keymap.set('n', '<Q>', '<Nop>')
+
 local wk = require('which-key')
 wk.setup()
 
 wk.register({
-  e = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-  g = { "<cmd>lua Lazygit_toggle()<CR>", "Git" },
+  e = { "<CMD>NvimTreeToggle<CR>", "Explorer" },
+  g = { "<CMD>lua Toggle_lazygit()<CR>", "Git" },
+  k = { "<CMD>lua Toggle_k9s()<CR>", "Git" },
   f = { "<CMD>Telescope find_files<CR>", "Find files"},
   F = { "<CMD>Telescope live_grep<CR>", "Grep"}
 }, { prefix = "<leader>", mode = "n" })
