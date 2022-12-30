@@ -8,6 +8,8 @@ require('jetpack.packer').add {
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
   { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/nvim-cmp" },
+  { "hrsh7th/vim-vsnip" },
 
   -- treesitter
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
@@ -25,6 +27,9 @@ require('jetpack.packer').add {
   -- keybinding
   { 'folke/which-key.nvim' },
 
+  -- terminal
+  { 'akinsho/toggleterm.nvim' },
+
   -- theme plugins
   { 'folke/tokyonight.nvim' },
   { 'christianchiarulli/nvcode-color-schemes.vim' },
@@ -36,3 +41,4 @@ require('rc.nvim-tree')
 require('rc.nvim-treesitter')
 require('rc.indent-blankline')
 require('rc.lualine')
+require('rc.toggleterm')
