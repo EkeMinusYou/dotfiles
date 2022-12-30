@@ -1,2 +1,2 @@
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('xoria')
+vim.cmd.colorscheme('tokyonight')
