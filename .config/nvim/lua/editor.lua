@@ -7,4 +7,4 @@ vim.opt.hlsearch = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.showcmd = false
-vim.opt.shortmess:append "I"
+-- vim.opt.shortmess:append "I"
