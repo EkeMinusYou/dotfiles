@@ -16,9 +16,9 @@ require('jetpack.packer').add {
   { "akinsho/toggleterm.nvim" },
 
   -- theme plugins
-  { 'tomasiser/vim-code-dark' },
-  { 'rebelot/kanagawa.nvim' },
   { 'folke/tokyonight.nvim' },
+  { 'christianchiarulli/nvcode-color-schemes.vim' },
+  { 'glepnir/zephyr-nvim' },
 }
 
 require('rc.nvim-tree')
