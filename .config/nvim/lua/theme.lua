@@ -1,2 +1,2 @@
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('aurora')
+vim.cmd.colorscheme('tokyonight-moon')

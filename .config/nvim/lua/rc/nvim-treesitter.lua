@@ -16,6 +16,7 @@ require 'nvim-treesitter.configs'.setup {
 		"perl",
 		"fish",
 		"make",
+		"vim",
 	},
   auto_install = true,
 

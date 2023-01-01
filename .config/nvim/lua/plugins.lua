@@ -11,6 +11,10 @@ require('jetpack.packer').add {
   { "hrsh7th/nvim-cmp" },
   { "hrsh7th/vim-vsnip" },
 
+	-- coding support
+	{ 'windwp/nvim-autopairs' },
+	{ 'lewis6991/gitsigns.nvim' },
+
   -- treesitter
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
   { 'nvim-treesitter/nvim-treesitter-context', requires = { 'nvim-treesitter/nvim-treesitter' } },
@@ -33,7 +37,7 @@ require('jetpack.packer').add {
   -- terminal
   { 'akinsho/toggleterm.nvim' },
 
-  -- theme plugins
+	-- theme
   { 'folke/tokyonight.nvim' },
   { 'christianchiarulli/nvcode-color-schemes.vim' },
   { 'glepnir/zephyr-nvim' },
@@ -45,6 +49,7 @@ require('jetpack.packer').add {
 }
 
 require('rc.lsp')
+require('rc.gitsigns')
 require('rc.nvim-tree')
 require('rc.nvim-treesitter')
 require('rc.indent-blankline')
@@ -53,3 +58,4 @@ require('rc.toggleterm')
 require('rc.telescope')
 require('rc.nvim-cmp')
 require('rc.noice')
+require('rc.nvim-autopairs')
