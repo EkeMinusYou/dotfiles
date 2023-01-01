@@ -17,6 +17,7 @@ require 'nvim-treesitter.configs'.setup {
 		"fish",
 		"make",
 		"vim",
+		"markdown",
 	},
   auto_install = true,
 
