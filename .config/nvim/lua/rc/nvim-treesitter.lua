@@ -1,5 +1,22 @@
 require 'nvim-treesitter.configs'.setup {
-  ensure_installed = 'all',
+  ensure_installed = {
+		"lua",
+		"dockerfile",
+		"javascript",
+		"typescript",
+		"json",
+		"html",
+		"kotlin",
+		"python",
+		"sql",
+		"toml",
+		"ruby",
+		"rust",
+		"php",
+		"perl",
+		"fish",
+		"make",
+	},
   auto_install = true,
 
   highlight = {
