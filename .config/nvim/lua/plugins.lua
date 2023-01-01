@@ -14,6 +14,7 @@ require('jetpack.packer').add {
 	-- coding support
 	{ 'windwp/nvim-autopairs' },
 	{ 'lewis6991/gitsigns.nvim' },
+	{ 'machakann/vim-sandwich'},
 
   -- treesitter
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
