@@ -29,6 +29,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/mai
 
 ### Version Manager
 
-- [pyenv] - Python
-- [nodebrew] - Node.js
-- [rbenv] - Ruby
+- pyenv - Python
+- nodebrew - Node.js
+- rbenv - Ruby
