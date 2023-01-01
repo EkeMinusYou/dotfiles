@@ -1,6 +1,4 @@
-require("toggleterm").setup({
-	size = 60,
-})
+require("toggleterm").setup()
 
 -- See https://github.com/akinsho/toggleterm.nvim#custom-terminal-usage
 local Terminal = require('toggleterm.terminal').Terminal

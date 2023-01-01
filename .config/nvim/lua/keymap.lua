@@ -12,22 +12,19 @@ wk.register({
   e = { "<CMD>NvimTreeToggle<CR>", "Explorer" },
   g = { "<CMD>lua Toggle_lazygit()<CR>", "Git" },
   k = { "<CMD>lua Toggle_k9s()<CR>", "Git" },
-  t = { "<CMD>ToggleTerm direction=vertical<CR>", "Terminal" },
+  t = { "<CMD>ToggleTerm direction=float<CR>", "Terminal" },
   f = { "<CMD>Telescope find_files<CR>", "Find files"},
   F = { "<CMD>Telescope live_grep<CR>", "Grep"}
 }, { prefix = "<leader>", mode = "n" })
+
+-- terminal toggle
+vim.keymap.set('t', '<C-q>', '<CMD>ToggleTerm direction=float<CR>')
 
 -- window movement
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
-
--- terminal window navigation
-vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-w>h')
-vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w>j')
-vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w>k')
-vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l')
 
 -- lsp
 vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
