@@ -23,9 +23,9 @@ require('jetpack.packer').add {
   { 'nvim-tree/nvim-web-devicons' },
   { 'nvim-lua/plenary.nvim' },
 
-	-- finder
+  -- finder
   { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, tag = '0.1.x' },
-	{'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+  { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 
   -- keybinding
   { 'folke/which-key.nvim' },
@@ -37,6 +37,11 @@ require('jetpack.packer').add {
   { 'folke/tokyonight.nvim' },
   { 'christianchiarulli/nvcode-color-schemes.vim' },
   { 'glepnir/zephyr-nvim' },
+
+  -- others
+  { 'folke/noice.nvim', requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' } },
+  { 'MunifTanjim/nui.nvim' },
+  { 'rcarriga/nvim-notify' },
 }
 
 require('rc.lsp')
@@ -47,3 +52,4 @@ require('rc.lualine')
 require('rc.toggleterm')
 require('rc.telescope')
 require('rc.nvim-cmp')
+require('rc.noice')
