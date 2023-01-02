@@ -5,6 +5,7 @@ require 'nvim-treesitter.configs'.setup {
 		"javascript",
 		"typescript",
 		"json",
+		"go",
 		"html",
 		"kotlin",
 		"python",
