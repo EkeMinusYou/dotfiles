@@ -14,7 +14,7 @@ require('jetpack.packer').add {
 	{ "hrsh7th/cmp-path" },
 	{ "hrsh7th/cmp-cmdline" },
 
-	-- formatter
+	-- linter/formatter
 	{ 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' } },
 
 	-- coding support
@@ -32,15 +32,15 @@ require('jetpack.packer').add {
 
 	-- explorer
 	{ 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } },
+
+	-- statusline
 	{ 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
-	{ 'nvim-tree/nvim-web-devicons' },
-	{ 'nvim-lua/plenary.nvim' },
 
 	-- finder
 	{ 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, tag = '0.1.x' },
 	{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 	{ 'nvim-telescope/telescope-frecency.nvim', requires = { "kkharji/sqlite.lua" } },
-	{ 'kkharji/sqlite.lua' },
+
 	-- keybinding
 	{ 'folke/which-key.nvim' },
 
@@ -52,11 +52,16 @@ require('jetpack.packer').add {
 	{ 'christianchiarulli/nvcode-color-schemes.vim' },
 	{ 'glepnir/zephyr-nvim' },
 
-	-- others
+	-- notification
 	{ 'folke/noice.nvim', requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' } },
 	{ 'MunifTanjim/nui.nvim' },
 	{ 'rcarriga/nvim-notify' },
-	{ 'folke/trouble.nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
+	{ 'folke/trouble.nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
+
+	-- dependencies
+	{ 'nvim-tree/nvim-web-devicons' },
+	{ 'nvim-lua/plenary.nvim' },
+	{ 'kkharji/sqlite.lua' },
 }
 
 require('rc.lsp')
