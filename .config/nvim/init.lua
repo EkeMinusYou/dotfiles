@@ -1,4 +1,4 @@
 require('plugins')
 require('theme')
-require('editor')
+require('options')
 require('keymap')
