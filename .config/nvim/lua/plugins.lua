@@ -49,6 +49,7 @@ require('jetpack.packer').add {
   { 'folke/noice.nvim', requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' } },
   { 'MunifTanjim/nui.nvim' },
   { 'rcarriga/nvim-notify' },
+	{ 'folke/trouble.nvim', requires = { 'nvim-tree/nvim-web-devicons' }}
 }
 
 require('rc.lsp')
@@ -64,3 +65,4 @@ require('rc.telescope')
 require('rc.nvim-cmp')
 require('rc.noice')
 require('rc.nvim-autopairs')
+require('rc.trouble')
