@@ -9,12 +9,17 @@ local wk = require('which-key')
 wk.setup()
 
 wk.register({
-  e = { "<CMD>NvimTreeToggle<CR>", "Explorer" },
-  g = { "<CMD>lua Toggle_lazygit()<CR>", "Git" },
-  k = { "<CMD>lua Toggle_k9s()<CR>", "Git" },
-  t = { "<CMD>ToggleTerm direction=float<CR>", "Terminal" },
-  f = { "<CMD>Telescope find_files<CR>", "Find files"},
-  F = { "<CMD>Telescope live_grep<CR>", "Grep"}
+	e = { "<CMD>NvimTreeToggle<CR>", "Explorer" },
+	g = { "<CMD>lua Toggle_lazygit()<CR>", "Git" },
+	k = { "<CMD>lua Toggle_k9s()<CR>", "Git" },
+	t = { "<CMD>ToggleTerm direction=float<CR>", "Terminal" },
+	f = {
+		name = "Find",
+		f = { "<CMD>Telescope find_files<CR>", "Files" },
+		g = { "<CMD>Telescope live_grep<CR>", "Grep" },
+		b = { "<CMD>Telescope buffers<CR>", "Buffers" },
+		r = { "<CMD>Telescope frecency<CR>", "Frencency" },
+	},
 }, { prefix = "<leader>", mode = "n" })
 
 -- terminal toggle
@@ -27,7 +32,7 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- lsp
-vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>')
 vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')

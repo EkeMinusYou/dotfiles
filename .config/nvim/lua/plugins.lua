@@ -39,7 +39,8 @@ require('jetpack.packer').add {
 	-- finder
 	{ 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, tag = '0.1.x' },
 	{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-
+	{ 'nvim-telescope/telescope-frecency.nvim', requires = { "kkharji/sqlite.lua" } },
+	{ 'kkharji/sqlite.lua' },
 	-- keybinding
 	{ 'folke/which-key.nvim' },
 
