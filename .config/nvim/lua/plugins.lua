@@ -15,6 +15,7 @@ require('jetpack.packer').add {
 	{ 'windwp/nvim-autopairs' },
 	{ 'lewis6991/gitsigns.nvim' },
 	{ 'machakann/vim-sandwich'},
+	{ 'numToStr/Comment.nvim' },
 
   -- treesitter
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
@@ -51,6 +52,7 @@ require('jetpack.packer').add {
 
 require('rc.lsp')
 require('rc.gitsigns')
+require('rc.comment')
 require('rc.nvim-tree')
 require('rc.nvim-treesitter')
 require('rc.indent-blankline')
