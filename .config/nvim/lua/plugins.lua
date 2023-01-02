@@ -26,8 +26,6 @@ require('jetpack.packer').add {
 
 	-- treesitter
 	{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
-	{ 'nvim-treesitter/nvim-treesitter-context', requires = { 'nvim-treesitter/nvim-treesitter' } },
-	{ 'p00f/nvim-ts-rainbow' },
 	{ 'lukas-reineke/indent-blankline.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } },
 
 	-- explorer
