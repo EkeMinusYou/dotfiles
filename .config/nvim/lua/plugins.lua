@@ -16,6 +16,7 @@ require('jetpack.packer').add {
 	{ 'lewis6991/gitsigns.nvim' },
 	{ 'machakann/vim-sandwich'},
 	{ 'numToStr/Comment.nvim' },
+	{ 'unblevable/quick-scope' },
 
   -- treesitter
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
@@ -53,6 +54,7 @@ require('jetpack.packer').add {
 require('rc.lsp')
 require('rc.gitsigns')
 require('rc.comment')
+require('rc.quick-scope')
 require('rc.nvim-tree')
 require('rc.nvim-treesitter')
 require('rc.indent-blankline')
