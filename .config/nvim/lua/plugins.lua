@@ -1,8 +1,4 @@
-vim.cmd.packadd('vim-jetpack')
-
-require('jetpack.packer').add {
-	{ 'tani/vim-jetpack', opt = 1 },
-
+require('lazy').setup {
 	-- lsp
 	{ 'neovim/nvim-lspconfig' },
 	{ 'williamboman/mason.nvim' },
@@ -15,31 +11,31 @@ require('jetpack.packer').add {
 	{ "hrsh7th/cmp-cmdline" },
 
 	-- linter/formatter
-	{ 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' } },
+	{ 'jose-elias-alvarez/null-ls.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
 
 	-- coding support
 	{ 'windwp/nvim-autopairs' },
 	{ 'lewis6991/gitsigns.nvim' },
 	{ 'machakann/vim-sandwich' },
 	{ 'numToStr/Comment.nvim' },
-	{ 'unblevable/quick-scope' },
 
 	-- treesitter
-	{ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' },
-	{ 'lukas-reineke/indent-blankline.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } },
+	{ 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+	{ 'lukas-reineke/indent-blankline.nvim', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
 
 	-- explorer
-	{ 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } },
+	{ 'nvim-tree/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' } },
 
 	-- statusline
-	{ 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
+	{ 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } },
 
 	-- bufferline
-	{ 'akinsho/bufferline.nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
+	{ 'akinsho/bufferline.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' }, version = 'v3.x' },
 
 	-- finder
-	{ 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, tag = '0.1.x' },
-	{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+	{ 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, version = '0.1.x' },
+	{ 'nvim-telescope/telescope-fzf-native.nvim',
+		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" }, build = 'make' },
 
 	-- keybinding
 	{ 'folke/which-key.nvim' },
@@ -53,15 +49,14 @@ require('jetpack.packer').add {
 	{ 'glepnir/zephyr-nvim' },
 
 	-- notification
-	{ 'folke/noice.nvim', requires = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' } },
+	{ 'folke/noice.nvim', dependencies = { 'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify' } },
 	{ 'MunifTanjim/nui.nvim' },
 	{ 'rcarriga/nvim-notify' },
-	{ 'folke/trouble.nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
+	{ 'folke/trouble.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } },
 
 	-- dependencies
 	{ 'nvim-tree/nvim-web-devicons' },
 	{ 'nvim-lua/plenary.nvim' },
-	{ 'kkharji/sqlite.lua' },
 }
 
 require('rc.lsp')
@@ -69,7 +64,6 @@ require('rc.null-ls')
 require('rc.gitsigns')
 require('rc.comment')
 require('rc.bufferline')
-require('rc.quick-scope')
 require('rc.nvim-tree')
 require('rc.nvim-treesitter')
 require('rc.indent-blankline')
