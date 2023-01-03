@@ -34,6 +34,9 @@ require('jetpack.packer').add {
 	-- statusline
 	{ 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
 
+	-- bufferline
+	{ 'akinsho/bufferline.nvim', requires = { 'nvim-tree/nvim-web-devicons' } },
+
 	-- finder
 	{ 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, tag = '0.1.x' },
 	{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
@@ -65,6 +68,7 @@ require('rc.lsp')
 require('rc.null-ls')
 require('rc.gitsigns')
 require('rc.comment')
+require('rc.bufferline')
 require('rc.quick-scope')
 require('rc.nvim-tree')
 require('rc.nvim-treesitter')

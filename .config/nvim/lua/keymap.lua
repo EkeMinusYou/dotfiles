@@ -19,6 +19,13 @@ wk.register({
 		g = { "<CMD>Telescope live_grep<CR>", "Grep" },
 		b = { "<CMD>Telescope buffers<CR>", "Buffers" },
 	},
+	b = {
+		name = "Buffers",
+		j = { "<cmd>BufferLinePick<cr>", "Jump" },
+		b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+		n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+		c = { "<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>", "Close others" },
+	},
 }, { prefix = "<leader>", mode = "n" })
 
 -- terminal toggle
