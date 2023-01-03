@@ -1,4 +1,4 @@
-require('lazy').setup {
+require('lazy').setup({
 	-- lsp
 	{ 'neovim/nvim-lspconfig' },
 	{ 'williamboman/mason.nvim' },
@@ -44,7 +44,7 @@ require('lazy').setup {
 	{ 'akinsho/toggleterm.nvim' },
 
 	-- theme
-	{ 'folke/tokyonight.nvim' },
+	{ 'folke/tokyonight.nvim', lazy = false },
 	{ 'christianchiarulli/nvcode-color-schemes.vim' },
 	{ 'glepnir/zephyr-nvim' },
 
@@ -57,7 +57,11 @@ require('lazy').setup {
 	-- dependencies
 	{ 'nvim-tree/nvim-web-devicons' },
 	{ 'nvim-lua/plenary.nvim' },
-}
+}, {
+	defaults = {
+		lazy = true,
+	},
+})
 
 require('rc.lsp')
 require('rc.null-ls')
