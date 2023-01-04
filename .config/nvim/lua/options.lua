@@ -7,3 +7,14 @@ vim.opt.hlsearch = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.showcmd = false
+
+-- lualine
+vim.opt.laststatus = 3
+
+-- nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- theme
+vim.opt.termguicolors = true
+vim.cmd.colorscheme('tokyonight-moon')

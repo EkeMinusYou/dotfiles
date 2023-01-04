@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 -- disable unused keymap
 vim.keymap.set('n', '<ZZ>', '<Nop>')
 vim.keymap.set('n', '<ZQ>', '<Nop>')
