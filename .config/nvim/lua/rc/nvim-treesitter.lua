@@ -1,5 +1,5 @@
 require 'nvim-treesitter.configs'.setup {
-  ensure_installed = {
+	ensure_installed = {
 		"tsx",
 		"help",
 		"lua",
@@ -22,9 +22,9 @@ require 'nvim-treesitter.configs'.setup {
 		"vim",
 		"markdown",
 	},
-  auto_install = true,
+	auto_install = true,
 
-  highlight = {
-    enable = true,
-  },
+	highlight = {
+		enable = true,
+	},
 }
