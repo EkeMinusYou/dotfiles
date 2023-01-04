@@ -57,10 +57,6 @@ require('lazy').setup({
 	-- dependencies
 	{ 'nvim-tree/nvim-web-devicons' },
 	{ 'nvim-lua/plenary.nvim' },
-}, {
-	defaults = {
-		lazy = true,
-	},
 })
 
 require('rc.lsp')
