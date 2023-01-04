@@ -11,7 +11,7 @@ wk.setup()
 wk.register({
 	e = { "<CMD>NvimTreeToggle<CR>", "Explorer" },
 	g = { "<CMD>lua Toggle_lazygit()<CR>", "Git" },
-	k = { "<CMD>lua Toggle_k9s()<CR>", "Git" },
+	k = { "<CMD>lua Toggle_k9s()<CR>", "Kubernetes" },
 	t = { "<CMD>ToggleTerm direction=float<CR>", "Terminal" },
 	f = {
 		name = "Find",
