@@ -5,6 +5,9 @@ return {
 			ensured_installed = {
 				'bash-language-server',
 				'dockerfile-language-server',
+				'buf',
+				'buf-language-server',
+				'clang-format',
 				'goimports',
 				'gopls',
 				'json-lsp',

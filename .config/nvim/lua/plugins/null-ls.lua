@@ -10,6 +10,11 @@ return {
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.gofmt,
 				null_ls.builtins.formatting.goimports,
+				null_ls.builtins.formatting.clang_format.with({
+					filetypes = { 'proto' },
+					extra_args = { '--style={BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 120, SpaceBeforeParens: Always}' },
+				}),
+				null_ls.builtins.diagnostics.buf,
 				null_ls.builtins.diagnostics.staticcheck,
 				null_ls.builtins.formatting.lua_format.with {
 					extra_args = {

@@ -9,6 +9,7 @@ return {
 					'help',
 					'lua',
 					'dockerfile',
+					'proto',
 					'javascript',
 					'typescript',
 					'json',
