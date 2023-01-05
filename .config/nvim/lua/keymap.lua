@@ -7,22 +7,22 @@ local wk = require('which-key')
 wk.setup()
 
 wk.register({
-  e = {"<CMD>NvimTreeToggle<CR>", "Explorer"},
-  t = {"<CMD>ToggleTerm direction=float<CR>", "Terminal"},
-  f = {
-    name = "Find",
-    f = {"<CMD>Telescope find_files<CR>", "Files"},
-    g = {"<CMD>Telescope live_grep<CR>", "Grep"},
-    b = {"<CMD>Telescope buffers<CR>", "Buffers"}
-  },
-  b = {
-    name = "Buffers",
-    j = {"<cmd>BufferLinePick<cr>", "Jump"},
-    b = {"<cmd>BufferLineCyclePrev<cr>", "Previous"},
-    n = {"<cmd>BufferLineCycleNext<cr>", "Next"},
-    c = {"<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>", "Close others"}
-  }
-}, {prefix = "<leader>", mode = "n"})
+	e = { '<CMD>NvimTreeToggle<CR>', 'Explorer' },
+	t = { '<CMD>ToggleTerm direction=float<CR>', 'Terminal' },
+	f = {
+		name = 'Find',
+		f = { '<CMD>Telescope find_files<CR>', 'Files' },
+		g = { '<CMD>Telescope live_grep<CR>', 'Grep' },
+		b = { '<CMD>Telescope buffers<CR>', 'Buffers' },
+	},
+	b = {
+		name = 'Buffers',
+		j = { '<cmd>BufferLinePick<cr>', 'Jump' },
+		b = { '<cmd>BufferLineCyclePrev<cr>', 'Previous' },
+		n = { '<cmd>BufferLineCycleNext<cr>', 'Next' },
+		c = { '<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>', 'Close others' },
+	},
+}, { prefix = '<leader>', mode = 'n' })
 
 -- terminal toggle
 vim.keymap.set('t', '<C-q>', '<CMD>ToggleTerm direction=float<CR>')

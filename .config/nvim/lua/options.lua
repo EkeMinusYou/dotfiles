@@ -1,4 +1,4 @@
-vim.opt.clipboard:append "unnamedplus"
+vim.opt.clipboard:append 'unnamedplus'
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.number = true
