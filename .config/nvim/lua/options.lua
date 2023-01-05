@@ -7,6 +7,8 @@ vim.opt.hlsearch = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.showcmd = false
+vim.opt.signcolumn = 'yes'
+vim.opt.fixendofline = false
 
 -- lualine
 vim.opt.laststatus = 3
