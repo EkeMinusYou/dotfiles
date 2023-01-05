@@ -3,5 +3,16 @@ return {
   dependencies = {'nvim-tree/nvim-web-devicons'},
   event = 'VeryLazy',
   version = 'v3.x',
-  config = {options = {offsets = {{filetype = 'NvimTree', text = 'Explorer', highlight = 'PanelHeading', padding = 1}}}},
+  config = {
+    options = {
+      offsets = {
+        {
+          filetype = 'NvimTree',
+          text = 'File Explorer',
+          highlight = 'Directory',
+          separator = true,
+        },
+      },
+    },
+  },
 }
