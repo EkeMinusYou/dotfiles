@@ -9,6 +9,7 @@ vim.opt.smartindent = true
 vim.opt.showcmd = false
 vim.opt.signcolumn = 'yes'
 vim.opt.fixendofline = false
+vim.opt.shortmess:append 'I'
 
 -- lualine
 vim.opt.laststatus = 3
