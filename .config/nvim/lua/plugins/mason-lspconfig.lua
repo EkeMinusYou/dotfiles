@@ -1,6 +1,6 @@
 return {
   'williamboman/mason-lspconfig.nvim',
-  dependencies = {'neovim/nvim-lspconfig', 'williamboman/mason.nvim'},
+  dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' },
   config = function()
     require('mason-lspconfig').setup {
       ensure_installed = {
@@ -22,7 +22,7 @@ return {
         require('lspconfig')[server_name].setup {}
       end,
       ['sumneko_lua'] = function()
-        require('lspconfig').sumneko_lua.setup {settings = {Lua = {diagnostics = {globals = {'vim'}}}}}
+        require('lspconfig').sumneko_lua.setup { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }
       end,
     }
   end,
