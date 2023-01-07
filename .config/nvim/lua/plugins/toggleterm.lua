@@ -1,8 +1,8 @@
 return {
   'akinsho/toggleterm.nvim',
-	event = "VeryLazy",
+  event = "VeryLazy",
   keys = {
-    {'<leader>t', '<CMD>ToggleTerm direction=float<CR>'},
+    { '<leader>t', '<CMD>ToggleTerm direction=float<CR>' },
     {
       '<leader>g',
       '<CMD>lua require(\'toggleterm.terminal\').Terminal:new({cmd = \'lazygit\', hidden = true, direction = \'float\'}):toggle()<CR>',
