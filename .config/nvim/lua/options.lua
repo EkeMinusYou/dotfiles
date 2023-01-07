@@ -12,6 +12,10 @@ vim.opt.showcmd = false
 vim.opt.signcolumn = 'yes'
 vim.opt.fixendofline = false
 vim.opt.shortmess:append 'I'
+vim.opt.ignorecase = true
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.autoread = true
 
 -- lualine
 vim.opt.laststatus = 3
@@ -22,4 +26,4 @@ vim.g.loaded_netrwPlugin = 1
 
 -- theme
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('tokyonight-moon')
+vim.cmd.colorscheme('dracula')
