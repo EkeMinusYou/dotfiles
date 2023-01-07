@@ -22,7 +22,13 @@ return {
         require('lspconfig')[server_name].setup {}
       end,
       ['sumneko_lua'] = function()
-        require('lspconfig').sumneko_lua.setup { settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }
+        require('lspconfig').sumneko_lua.setup {
+          settings = {
+            Lua = {
+              diagnostics = { globals = { 'vim' } },
+            },
+          },
+        }
       end,
     }
   end,
