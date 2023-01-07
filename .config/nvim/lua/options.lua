@@ -1,4 +1,4 @@
-vim.opt.clipboard:append 'unnamedplus'
+vim.opt.clipboard:append('unnamedplus')
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
@@ -11,7 +11,7 @@ vim.opt.smartindent = true
 vim.opt.showcmd = false
 vim.opt.signcolumn = 'yes'
 vim.opt.fixendofline = false
-vim.opt.shortmess:append 'I'
+vim.opt.shortmess:append('I')
 vim.opt.ignorecase = true
 vim.opt.backup = false
 vim.opt.swapfile = false

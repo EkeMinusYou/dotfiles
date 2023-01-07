@@ -2,9 +2,9 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    event = "VeryLazy",
+    event = 'VeryLazy',
     config = function()
-      require 'nvim-treesitter.configs'.setup {
+      require('nvim-treesitter.configs').setup({
         ensure_installed = {
           'tsx',
           'help',
@@ -32,7 +32,7 @@ return {
         auto_install = true,
 
         highlight = { enable = true },
-      }
+      })
     end,
   },
   {
@@ -40,7 +40,7 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     event = 'BufReadPost',
     config = function()
-      require('indent_blankline').setup { show_current_context = true, show_current_context_start = true }
+      require('indent_blankline').setup({ show_current_context = true, show_current_context_start = true })
     end,
   },
 }

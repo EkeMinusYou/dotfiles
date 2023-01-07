@@ -1,35 +1,24 @@
 return {
   'jose-elias-alvarez/null-ls.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
-  event = 'VeryLazy',
+  -- event = 'VeryLazy',
   config = function()
     local null_ls = require('null-ls')
-    null_ls.setup {
+    null_ls.setup({
       sources = {
+        -- js,ts
         null_ls.builtins.formatting.eslint_d,
         null_ls.builtins.diagnostics.eslint_d,
-        null_ls.builtins.formatting.prettier_d,
+        null_ls.builtins.formatting.prettierd,
+        -- go
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.goimports,
-        null_ls.builtins.diagnostics.buf,
         null_ls.builtins.diagnostics.staticcheck,
-        null_ls.builtins.formatting.lua_format.with {
-          extra_args = {
-            '--column-limit=120',
-            '--indent-width=2',
-            '--no-use-tab',
-            '--continuation-indent-width=2',
-            '--chop-down-table',
-            '--chop-down-kv-table',
-            '--chop-down-parameter',
-            '--no-keep-simple-control-block-one-line',
-            '--no-keep-simple-function-one-line',
-            '--extra-sep-at-table-end',
-            '--double-quote-to-single-quote',
-            '--align-table-field',
-          },
-        },
+        -- proto
+        null_ls.builtins.diagnostics.buf,
+        -- lua
+        null_ls.builtins.formatting.stylua,
       },
-    }
+    })
   end,
 }
