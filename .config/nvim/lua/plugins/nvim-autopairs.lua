@@ -1,1 +1,5 @@
-return { 'windwp/nvim-autopairs', event = 'BufReadPost', config = true }
+return {
+  'windwp/nvim-autopairs',
+  event = 'BufReadPost',
+  config = true,
+}

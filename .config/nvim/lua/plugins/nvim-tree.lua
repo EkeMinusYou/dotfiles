@@ -10,7 +10,11 @@ return {
       view = {
         width = 40,
         mappings = {
-          list = { { key = 'l', action = 'edit' }, { key = 'h', action = 'close_node' }, { key = 'C', action = 'cd' } },
+          list = {
+            { key = 'l', action = 'edit' },
+            { key = 'h', action = 'close_node' },
+            { key = 'C', action = 'cd' },
+          },
         },
       },
     })
