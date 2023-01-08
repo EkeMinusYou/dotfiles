@@ -13,6 +13,7 @@ end
 
 # Vim
 alias vim="nvim"
+alias v="vim"
 
 # Default Editor
 set -x EDITOR $(which nvim)
