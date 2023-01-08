@@ -17,8 +17,8 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.autoread = true
 
--- lualine
-vim.opt.laststatus = 3
+-- set 3 when lualine setup
+vim.opt.laststatus = 0
 
 -- nvim-tree
 vim.g.loaded_netrw = 1
