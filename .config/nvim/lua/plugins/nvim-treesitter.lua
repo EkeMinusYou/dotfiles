@@ -2,7 +2,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    event = 'VeryLazy',
+    event = 'BufReadPost',
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
@@ -37,7 +37,7 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    event = 'VeryLazy',
+    event = 'BufReadPost',
     config = function()
       require('nvim-treesitter.configs').setup({
         incremental_selection = {
