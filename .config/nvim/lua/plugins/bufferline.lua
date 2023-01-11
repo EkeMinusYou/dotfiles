@@ -4,10 +4,10 @@ return {
   event = 'BufReadPost',
   version = 'v3.x',
   keys = {
-    { '<leader>j', '<cmd>BufferLinePick<cr>' },
-    { '<leader>b', '<cmd>BufferLineCyclePrev<cr>' },
-    { '<leader>n', '<cmd>BufferLineCycleNext<cr>' },
-    { '<leader>c', '<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>' },
+    { '<leader>bj', '<cmd>BufferLinePick<cr>' },
+    { '<leader>bb', '<cmd>BufferLineCyclePrev<cr>' },
+    { '<leader>bn', '<cmd>BufferLineCycleNext<cr>' },
+    { '<leader>bc', '<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>' },
   },
   config = {
     options = {
