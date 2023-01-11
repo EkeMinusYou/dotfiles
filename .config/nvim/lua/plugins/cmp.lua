@@ -7,9 +7,11 @@ return {
     { 'hrsh7th/cmp-path' },
     { 'hrsh7th/cmp-cmdline' },
     { 'hrsh7th/vim-vsnip' },
+    { 'onsails/lspkind.nvim' },
   },
   config = function()
     local cmp = require('cmp')
+    local lspkind = require('lspkind')
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -25,6 +27,11 @@ return {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
       }),
+      formatting = {
+        format = lspkind.cmp_format({
+          mode = 'symbol_text',
+        }),
+      },
     })
   end,
 }
