@@ -2,6 +2,11 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = { { 'nvim-lua/plenary.nvim' }, { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' } },
   event = 'VeryLazy',
+  keys = {
+    { '<leader>f', '<CMD>Telescope find_files<CR>' },
+    { '<leader>g', '<CMD>Telescope live_grep<CR>' },
+    { '<leader>b', '<CMD>Telescope buffers<CR>' },
+  },
   config = function()
     local telescope = require('telescope')
     telescope.setup({

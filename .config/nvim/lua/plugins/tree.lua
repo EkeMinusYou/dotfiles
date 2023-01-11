@@ -2,6 +2,9 @@ return {
   'nvim-tree/nvim-tree.lua',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   event = 'VeryLazy',
+  keys = {
+    { '<leader>e', '<CMD>NvimTreeToggle<CR>' },
+  },
   config = function()
     require('nvim-tree').setup({
       respect_buf_cwd = true,
