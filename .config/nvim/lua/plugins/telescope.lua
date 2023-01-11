@@ -3,7 +3,6 @@ return {
   dependencies = {
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    { 'nvim-telescope/telescope-ghq.nvim' },
   },
   event = 'VeryLazy',
   keys = {
@@ -36,6 +35,5 @@ return {
       },
     })
     telescope.load_extension('fzf')
-    telescope.load_extension('ghq')
   end,
 }
