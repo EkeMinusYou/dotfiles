@@ -40,6 +40,15 @@ return {
     event = 'BufReadPost',
     config = function()
       require('nvim-treesitter.configs').setup({
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = 'gnn',
+            node_incremental = '+',
+            scope_incremental = '<Nop>',
+            node_decremental = '-',
+          },
+        },
         textobjects = {
           select = {
             enable = true,
