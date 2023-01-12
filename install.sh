@@ -33,7 +33,6 @@ mkdir ~/.config/lazygit
 ln -sfn $DOT_DIR/dotfiles/.config/lazygit/config.yml ~/.config/lazygit/config.yml
 
 # Setup nvim
-curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
 ln -sfn $DOT_DIR/dotfiles/.config/nvim ~/.config/nvim
 
 # Setup karabiner
