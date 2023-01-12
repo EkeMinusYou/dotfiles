@@ -5,6 +5,13 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'help' },
+  callback = function()
+    vim.api.nvim_command('wincmd L')
+  end,
+})
+
 -- See https://www.reddit.com/r/neovim/comments/zy5s0l/you_dont_need_vimrooter_usually_or_how_to_set_up/
 local root_names = { '.git' }
 local root_cache = {}
