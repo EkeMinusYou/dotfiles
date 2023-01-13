@@ -1,12 +1,22 @@
 vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = { '*.js', '*.jsx', '*.ts', '*.tsx', '*.go' },
+  pattern = {
+    '*.lua',
+    '*.js',
+    '*.jsx',
+    '*.ts',
+    '*.tsx',
+    '*.go',
+  },
   callback = function()
     vim.lsp.buf.format({ async = false })
   end,
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'help' },
+  pattern = {
+    'help',
+    'trouble',
+  },
   callback = function()
     vim.api.nvim_command('wincmd L')
   end,
