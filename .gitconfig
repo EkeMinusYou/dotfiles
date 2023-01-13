@@ -10,7 +10,7 @@
         path = ~/.gitconfig-gms
 
 [core]
-        editor = code --wait
+        editor = nvim
 [alias]
         pl = pull
         st = stash -u
