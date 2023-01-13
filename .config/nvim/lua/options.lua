@@ -16,6 +16,8 @@ vim.opt.ignorecase = true
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.autoread = true
+vim.opt.spell = true
+vim.opt.spelllang = 'en_us'
 
 -- set 3 when lualine setup
 vim.opt.laststatus = 0
