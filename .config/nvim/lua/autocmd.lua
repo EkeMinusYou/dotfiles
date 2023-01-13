@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- See https://www.reddit.com/r/neovim/comments/zy5s0l/you_dont_need_vimrooter_usually_or_how_to_set_up/
-local root_names = { '.git' }
+local root_names = { '.git', 'package.json', 'go.mod' }
 local root_cache = {}
 local set_root = function()
   local path = vim.api.nvim_buf_get_name(0)

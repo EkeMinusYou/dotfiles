@@ -9,7 +9,11 @@ return {
         -- js,ts
         null_ls.builtins.formatting.eslint_d,
         null_ls.builtins.diagnostics.eslint_d,
-        null_ls.builtins.formatting.prettierd,
+        null_ls.builtins.formatting.prettierd.with({
+          condition = function(utils)
+            return utils.root_has_file({ '.prettierrc' })
+          end,
+        }),
         -- go
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.goimports,
