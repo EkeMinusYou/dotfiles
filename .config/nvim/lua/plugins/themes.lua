@@ -1,5 +1,6 @@
 return {
-  { 'folke/tokyonight.nvim', priority = 1000 },
+  { 'folke/tokyonight.nvim' },
   { 'christianchiarulli/nvcode-color-schemes.vim' },
   { 'glepnir/zephyr-nvim' },
+  { 'EdenEast/nightfox.nvim' },
 }

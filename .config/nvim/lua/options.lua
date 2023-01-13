@@ -26,4 +26,4 @@ vim.g.loaded_netrwPlugin = 1
 
 -- theme
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('tokyonight-moon')
+vim.cmd.colorscheme('nightfox')
