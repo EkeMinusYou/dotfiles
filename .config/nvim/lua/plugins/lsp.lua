@@ -46,4 +46,15 @@ return {
       })
     end,
   },
+  {
+    'glepnir/lspsaga.nvim',
+    event = 'BufRead',
+    keys = {
+      { 'gr', '<cmd>Lspsaga lsp_finder<CR>' },
+      { 'ga', '<cmd>Lspsaga code_action<CR>' },
+    },
+    config = function()
+      require('lspsaga').setup({})
+    end,
+  },
 }
