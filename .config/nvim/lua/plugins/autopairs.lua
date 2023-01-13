@@ -1,5 +1,7 @@
 return {
   'windwp/nvim-autopairs',
   event = 'BufReadPost',
-  config = true,
+  config = function()
+    require('nvim-autopairs').setup()
+  end,
 }
