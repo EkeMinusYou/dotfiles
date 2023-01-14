@@ -2,10 +2,6 @@
 
 if [ "$(uname)" == 'Linux' ]; then
   sudo apt install git
-  test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-  test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
-  echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
 fi
 
 # Clone dotfiles
@@ -25,8 +21,6 @@ ln -sfn $DOT_DIR/dotfiles/.config/fish/functions/select_ghq_cd.fish ~/.config/fi
 ln -sfn $DOT_DIR/dotfiles/.config/fish/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
 ln -sfn $DOT_DIR/dotfiles/.config/fish/completions/aws.fish ~/.config/fish/completions/aws.fish
 ln -sfn $DOT_DIR/dotfiles/.config/fish/completions/tccli.fish ~/.config/fish/completions/tccli.fish
-ln -sfn $DOT_DIR/dotfiles/.bashrc ~/.bashrc
-ln -sfn $DOT_DIR/dotfiles/.bash_profile ~/.bash_profile
 
 # lazygit
 mkdir ~/.config/lazygit
