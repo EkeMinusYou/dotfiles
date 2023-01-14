@@ -190,6 +190,9 @@ eval "$(zoxide init zsh)"
 source $HOME/google-cloud-sdk/path.zsh.inc
 source $HOME/google-cloud-sdk/completion.zsh.inc
 
+# tccli
+complete -C 'tccli_completer' tccli
+
 # lunarvim
 export PATH=$HOME/.local/bin:$PATH
 
