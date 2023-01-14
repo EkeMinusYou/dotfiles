@@ -23,7 +23,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/mai
 
 ### Shell
 
-- [fish](https://fishshell.com/) - shell
+- zsh - shell
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
 - [zoxide](https://github.com/ajeetdsouza/zoxide) - smarter cd command
 
