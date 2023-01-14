@@ -204,7 +204,3 @@ function ghq-fzf() {
 }
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
-
-# completion
-autoload -Uz compinit
-compinit
