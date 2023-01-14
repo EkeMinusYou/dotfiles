@@ -12,6 +12,10 @@ ln -sfn $DOT_DIR/dotfiles/.gitconfig ~/.gitconfig
 # Install packages by brew
 brew bundle --file "$DOT_DIR/dotfiles/Brewfile"
 
+# Setup zsh
+ln -sfn $DOT_DIR/dotfiles/.zimrc ~/.zimrc
+ln -sfn $DOT_DIR/dotfiles/.zshrc ~/.zshrc
+
 # Setup fish
 $(brew --prefix)/opt/fzf/install
 fisher install edc/bass
