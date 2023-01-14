@@ -54,7 +54,11 @@ return {
       { 'ga', '<cmd>Lspsaga code_action<CR>' },
     },
     config = function()
-      require('lspsaga').setup({})
+      require('lspsaga').setup({
+        lightbulb = {
+          enable = false,
+        },
+      })
     end,
   },
 }
