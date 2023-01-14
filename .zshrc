@@ -128,3 +128,66 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
+# ------------------------------
+# My Settings
+# ------------------------------
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# brew
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# vim
+alias vim="nvim"
+alias v="vim"
+
+# Default Editor
+export EDITOR=$(which nvim)
+
+# Git
+alias g="git"
+
+# lazygit
+export XDG_CONFIG_HOME=$HOME/.config
+
+# Kubernetes
+alias k="kubectl"
+
+# Node.js
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# Terraform
+alias tf="terraform"
+
+# Python
+# set -Ux PYENV_ROOT $HOME/.pyenv
+# set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+# pyenv init - | source
+
+# Go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
+# Java
+export PATH=/opt/homebrew/opt/openjdk@11/bin:$PATH
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
+
+# VSCode
+alias e='code -a .'
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# gcloud
+source $HOME/google-cloud-sdk/path.zsh.inc
+source $HOME/google-cloud-sdk/completion.zsh.inc
+
+# lunarvim
+export PATH=$HOME/.local/bin:$PATH
