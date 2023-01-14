@@ -128,10 +128,6 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-# ------------------------------
-# My Settings
-# ------------------------------
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -157,8 +153,13 @@ alias g="git"
 # lazygit
 export XDG_CONFIG_HOME=$HOME/.config
 
+# docker
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+
 # Kubernetes
 alias k="kubectl"
+source <(kubectl completion zsh)
 
 # Node.js
 export PATH=$HOME/.nodebrew/current/bin:$PATH
