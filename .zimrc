@@ -55,5 +55,5 @@ zmodule zsh-users/zsh-autosuggestions
 # }}} End configuration added by Zim install
 
 # Theme
-zmodule eriner
-zmodule git-info
+zmodule gitster
+zmodule prompt-pwd
