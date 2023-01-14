@@ -136,8 +136,6 @@ if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-  autoload -Uz compinit
-  compinit
 fi
 
 # vim
@@ -155,7 +153,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 # docker
 fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
 
 # Kubernetes
 alias k="kubectl"
@@ -207,3 +204,7 @@ function ghq-fzf() {
 }
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
+
+# completion
+autoload -Uz compinit
+compinit
