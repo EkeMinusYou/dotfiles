@@ -131,11 +131,11 @@ unset key
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# brew
+# homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
 fi
 
 # vim
