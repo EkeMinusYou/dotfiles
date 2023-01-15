@@ -6,7 +6,7 @@
 eval $(/opt/homebrew/bin/brew shellenv)
 if type brew &>/dev/null
 then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fi
 
 # docker
