@@ -3,7 +3,7 @@ return {
   version = 'v2.x',
   event = 'BufReadPost',
   keys = {
-    { '<leader><leader>', '<cmd>HopWord<CR>' },
+    { '<leader><leader>', '<cmd>HopWord<CR>', mode = { 'n', 'v' } },
   },
   config = function()
     require('hop').setup({ keys = 'etovxqpdygfblzhckisuran' })
