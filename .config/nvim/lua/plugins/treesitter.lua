@@ -24,7 +24,6 @@ return {
           'rust',
           'php',
           'perl',
-          'fish',
           'make',
           'vim',
           'markdown',

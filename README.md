@@ -17,7 +17,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/mai
 ### Contents
 
 - Brewfile
-- Fish setting
+- zsh setting
 - Git config
 - Neovim setting
 

@@ -6,8 +6,6 @@ end
 
 tap "homebrew/bundle"
 tap "homebrew/core"
-brew "fish"
-brew "fisher"
 brew "neovim"
 brew "fzf"
 brew "ghq"
