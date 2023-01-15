@@ -53,6 +53,9 @@ bindkey -M emacs '^N' history-substring-search-down
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# lsd
+alias ls="lsd"
+
 # vim
 alias vim="nvim"
 alias v="vim"
