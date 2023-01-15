@@ -3,6 +3,9 @@ vim.keymap.set('n', '<ZZ>', '<Nop>')
 vim.keymap.set('n', '<ZQ>', '<Nop>')
 vim.keymap.set('n', '<Q>', '<Nop>')
 
+-- workaround https://github.com/equalsraf/neovim-qt/issues/259
+vim.keymap.set('t', '<s-space>', '<space>')
+
 -- window movement
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
