@@ -1,65 +1,27 @@
-# Start configuration added by Zim install {{{
-#
-# User configuration sourced by interactive shells
-#
+# ------------------
+# Adding fpath
+# ------------------
 
-# -----------------
-# Zsh configuration
-# -----------------
+# homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+fi
 
-#
-# History
-#
+# docker
+fpath=(~/.zsh/completion $fpath)
 
-# Remove older command from the history if a duplicate is to be added.
+# ------------------
+# Initialize zim
+# ------------------
 setopt HIST_IGNORE_ALL_DUPS
-
-#
-# Input/output
-#
-
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -e
-
-# Prompt for spelling correction of commands.
 setopt CORRECT
-
-# Customize spelling correction prompt.
-SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
-
-# Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
-
-# --------------------
-# Module configuration
-# --------------------
-
-#
-# input
-#
-
-# Append `../` to your input for each `.` you type after an initial `..`
 zstyle ':zim:input' double-dot-expand yes
-
-#
-# zsh-autosuggestions
-#
-
-# Disable automatic widget re-binding on each precmd. This can be set when
-# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
-#
-# zsh-syntax-highlighting
-#
-
-# Set what highlighters will be used.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-# ------------------
-# Initialize modules
-# ------------------
 
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Download zimfw plugin manager if missing.
@@ -79,32 +41,17 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-# ------------------------------
-# Post-init module configuration
-# ------------------------------
+bindkey $terminfo[kcuu1] history-substring-search-up
+bindkey $terminfo[kcud1] history-substring-search-down
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
 
-#
-# zsh-history-substring-search
-#
-
-zmodload -F zsh/terminfo +p:terminfo
-# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
-for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
-for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
-for key ('k') bindkey -M vicmd ${key} history-substring-search-up
-for key ('j') bindkey -M vicmd ${key} history-substring-search-down
-unset key
-# }}} End configuration added by Zim install
+# ------------------
+# User Settings
+# ------------------
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
 
 # vim
 alias vim="nvim"
@@ -119,8 +66,6 @@ alias g="git"
 # lazygit
 export XDG_CONFIG_HOME=$HOME/.config
 
-# docker
-fpath=(~/.zsh/completion $fpath)
 
 # Kubernetes
 alias k="kubectl"
