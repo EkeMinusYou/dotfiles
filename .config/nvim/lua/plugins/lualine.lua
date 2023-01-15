@@ -5,9 +5,12 @@ return {
   config = function()
     vim.opt.laststatus = 3
     require('lualine').setup({
+      extensions = {
+        'nvim-tree',
+        'toggleterm',
+      },
       options = {
         globalstatus = true,
-        disabled_filetypes = { 'NvimTree', 'alpha' },
       },
     })
   end,
