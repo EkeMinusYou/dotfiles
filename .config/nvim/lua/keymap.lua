@@ -5,6 +5,9 @@ vim.keymap.set('n', '<Q>', '<Nop>')
 
 -- workaround https://github.com/equalsraf/neovim-qt/issues/259
 vim.keymap.set('t', '<s-space>', '<space>')
+vim.keymap.set('t', '<s-backspace>', '<backspace>')
+vim.keymap.set('t', '<c-space>', '<space>')
+vim.keymap.set('t', '<c-backspace>', '<backspace>')
 
 -- window movement
 vim.keymap.set('n', '<C-h>', '<C-w>h')
