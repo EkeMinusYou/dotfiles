@@ -51,6 +51,7 @@ return {
     event = 'BufRead',
     keys = {
       { 'gr', '<cmd>Lspsaga lsp_finder<CR>' },
+      { 'gn', '<cmd>Lspsaga rename<CR>' },
     },
     config = function()
       require('lspsaga').setup({
