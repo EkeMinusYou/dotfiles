@@ -9,16 +9,18 @@ return {
     { '<leader>bn', '<cmd>BufferLineCycleNext<cr>' },
     { '<leader>bc', '<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>' },
   },
-  config = {
-    options = {
-      offsets = {
-        {
-          filetype = 'NvimTree',
-          text = 'File Explorer',
-          highlight = 'Directory',
-          separator = true,
+  config = function()
+    require('bufferline').setup({
+      options = {
+        offsets = {
+          {
+            filetype = 'NvimTree',
+            text = 'File Explorer',
+            highlight = 'Directory',
+            separator = true,
+          },
         },
       },
-    },
-  },
+    })
+  end,
 }
