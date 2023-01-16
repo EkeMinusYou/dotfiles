@@ -51,7 +51,6 @@ return {
     event = 'BufRead',
     keys = {
       { 'gr', '<cmd>Lspsaga lsp_finder<CR>' },
-      { 'ga', '<cmd>Lspsaga code_action<CR>' },
     },
     config = function()
       require('lspsaga').setup({
@@ -63,5 +62,9 @@ return {
         },
       })
     end,
+  },
+  {
+    'stevearc/dressing.nvim',
+    event = 'VeryLazy',
   },
 }
