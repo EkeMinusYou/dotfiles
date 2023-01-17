@@ -52,6 +52,7 @@ return {
     keys = {
       { 'gr', '<cmd>Lspsaga lsp_finder<CR>' },
       { 'gn', '<cmd>Lspsaga rename<CR>' },
+      { 'ga', '<cmd>Lspsaga code_action<CR>' },
     },
     config = function()
       require('lspsaga').setup({
