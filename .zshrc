@@ -102,6 +102,7 @@ eval "$(zoxide init zsh)"
 # gcloud
 source $HOME/google-cloud-sdk/path.zsh.inc
 source $HOME/google-cloud-sdk/completion.zsh.inc
+export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 
 # tccli
 complete -C 'tccli_completer' tccli
