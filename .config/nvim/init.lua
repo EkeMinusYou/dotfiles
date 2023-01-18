@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+vim.g.termwinkey = '<C-g>'
 
 -- installation lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
