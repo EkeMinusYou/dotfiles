@@ -4,10 +4,10 @@ return {
   event = 'BufReadPost',
   version = 'v3.x',
   keys = {
-    { '<leader>bj', '<cmd>BufferLinePick<cr>' },
-    { '<leader>bb', '<cmd>BufferLineCyclePrev<cr>' },
-    { '<leader>bn', '<cmd>BufferLineCycleNext<cr>' },
-    { '<leader>bc', '<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>' },
+    { '<C-S-u>', '<cmd>BufferLinePick<cr>' },
+    { '<C-S-o>', '<cmd>BufferLineCyclePrev<cr>' },
+    { '<C-S-i>', '<cmd>BufferLineCycleNext<cr>' },
+    { '<C-S-p>', '<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>' },
   },
   config = function()
     require('bufferline').setup({
