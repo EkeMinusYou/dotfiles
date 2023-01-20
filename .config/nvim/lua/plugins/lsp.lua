@@ -2,7 +2,9 @@ return {
   {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
-    dependencies = { 'williamboman/mason-lspconfig.nvim' },
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+    },
   },
   {
     'williamboman/mason.nvim',
@@ -13,8 +15,13 @@ return {
   {
     'williamboman/mason-lspconfig.nvim',
     event = 'VeryLazy',
-    dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' },
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'williamboman/mason.nvim',
+      'folke/neodev.nvim',
+    },
     config = function()
+      require('neodev').setup()
       require('mason-lspconfig').setup({
         ensure_installed = {
           'bashls',
