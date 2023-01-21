@@ -15,6 +15,7 @@ fpath=(~/.zsh/completion $fpath)
 # ------------------
 # Initialize zim
 # ------------------
+
 setopt HIST_IGNORE_ALL_DUPS
 bindkey -e
 setopt CORRECT
