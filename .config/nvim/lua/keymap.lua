@@ -1,8 +1,3 @@
--- disable unused keymap
-vim.keymap.set('n', '<ZZ>', '<Nop>')
-vim.keymap.set('n', '<ZQ>', '<Nop>')
-vim.keymap.set('n', '<Q>', '<Nop>')
-
 -- workaround https://github.com/equalsraf/neovim-qt/issues/259
 vim.keymap.set('t', '<s-space>', '<space>')
 vim.keymap.set('t', '<s-backspace>', '<backspace>')
