@@ -11,7 +11,6 @@ return {
       { '<leader>ff', '<CMD>Telescope frecency workspace=CWD<CR>' },
       { '<leader>fg', '<CMD>Telescope live_grep<CR>' },
       { '<leader>fb', '<CMD>Telescope buffers<CR>' },
-      { '<leader>fp', '<CMD>Telescope ghq list<CR>' },
     },
     config = function()
       local telescope = require('telescope')
