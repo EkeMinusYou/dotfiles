@@ -4,11 +4,10 @@ return {
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-      { 'nvim-telescope/telescope-frecency.nvim', dependencies = { 'kkharji/sqlite.lua' } },
     },
     event = 'VeryLazy',
     keys = {
-      { '<leader>ff', '<CMD>Telescope frecency workspace=CWD<CR>' },
+      { '<leader>ff', '<CMD>Telescope find_files<CR>' },
       { '<leader>fg', '<CMD>Telescope live_grep<CR>' },
       { '<leader>fb', '<CMD>Telescope buffers<CR>' },
     },
@@ -36,7 +35,6 @@ return {
         },
       })
       telescope.load_extension('fzf')
-      telescope.load_extension('frecency')
     end,
   },
 }
