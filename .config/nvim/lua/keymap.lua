@@ -16,6 +16,12 @@ vim.keymap.set('t', '<C-S-j>', '<C-\\><C-N><C-w>j')
 vim.keymap.set('t', '<C-S-k>', '<C-\\><C-N><C-w>k')
 vim.keymap.set('t', '<C-S-l>', '<C-\\><C-N><C-w>l')
 
+-- emacs keybinding in insert-mode
+vim.keymap.set('i', '<c-b>', '<Left>')
+vim.keymap.set('i', '<c-f>', '<Right>')
+vim.keymap.set('i', '<c-p>', '<Up>')
+vim.keymap.set('i', '<c-n>', '<Down>')
+
 -- lsp
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format({async = true, timeout_ms=2000})<CR>')
