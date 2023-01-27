@@ -1,7 +1,7 @@
 return {
-  'numToStr/Comment.nvim',
+  'echasnovski/mini.nvim',
   event = 'BufReadPost',
   config = function()
-    require('Comment').setup()
+    require('mini.comment').setup({})
   end,
 }
