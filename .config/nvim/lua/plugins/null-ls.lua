@@ -14,6 +14,8 @@ return {
             return utils.root_has_file({ '.prettierrc' })
           end,
         }),
+        -- python
+        null_ls.builtins.formatting.black,
         -- go
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.goimports,
