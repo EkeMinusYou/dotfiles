@@ -1,5 +1,5 @@
 return {
-  'echasnovski/mini.nvim',
+  'echasnovski/mini.comment',
   event = 'BufReadPost',
   config = function()
     require('mini.comment').setup({})
