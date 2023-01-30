@@ -1,6 +1,9 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
     build = ':TSUpdate',
     event = 'BufReadPost',
     config = function()
@@ -29,16 +32,8 @@ return {
           'markdown',
         },
         auto_install = true,
-
         highlight = { enable = true },
-      })
-    end,
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    event = 'BufReadPost',
-    config = function()
-      require('nvim-treesitter.configs').setup({
+
         textobjects = {
           select = {
             enable = true,
@@ -47,7 +42,6 @@ return {
               ['af'] = '@function.outer',
               ['if'] = '@function.inner',
             },
-            include_surrounding_whitespace = true,
           },
           swap = {
             enable = true,
