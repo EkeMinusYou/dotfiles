@@ -12,6 +12,12 @@ return {
   config = function()
     local cmp = require('cmp')
     local lspkind = require('lspkind')
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' },
+      },
+    })
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -22,12 +28,11 @@ return {
         { name = 'nvim_lsp' },
         { name = 'buffer' },
         { name = 'path' },
-        { name = 'cmdline' },
       },
       mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-l>'] = cmp.mapping.complete(),
+        ['<C-l>'] = cmp.mapping.complete({}),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       }),
