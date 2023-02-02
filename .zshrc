@@ -56,7 +56,6 @@ source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias zi="z"
 
 # lsd
 alias ls="lsd"
@@ -103,6 +102,7 @@ alias e='code -a .'
 
 # zoxide
 eval "$(zoxide init zsh)"
+alias z="zi"
 
 # gcloud
 source $HOME/google-cloud-sdk/path.zsh.inc
