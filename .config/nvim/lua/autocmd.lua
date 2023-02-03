@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     '*.go',
   },
   callback = function()
-    vim.lsp.buf.format({ async = false })
+    vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
   end,
 })
 
