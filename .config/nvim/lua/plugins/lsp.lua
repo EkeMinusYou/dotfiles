@@ -31,7 +31,6 @@ return {
           'gopls',
           'jsonls',
           'sumneko_lua',
-          'tailwindcss',
           'terraformls',
           'tsserver',
         },
