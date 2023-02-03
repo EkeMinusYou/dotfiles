@@ -7,13 +7,13 @@ return {
     null_ls.setup({
       sources = {
         -- js,ts
-        null_ls.builtins.formatting.eslint_d,
-        null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.formatting.prettierd.with({
           condition = function(utils)
             return utils.root_has_file({ '.prettierrc' })
           end,
         }),
+        null_ls.builtins.formatting.eslint_d,
+        null_ls.builtins.diagnostics.eslint_d,
         -- python
         null_ls.builtins.formatting.black,
         -- go
