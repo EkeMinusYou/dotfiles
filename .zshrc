@@ -102,7 +102,6 @@ alias e='code -a .'
 
 # zoxide
 eval "$(zoxide init zsh)"
-alias z="zi"
 
 # gcloud
 source $HOME/google-cloud-sdk/path.zsh.inc
