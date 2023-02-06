@@ -51,11 +51,19 @@ return {
       { 'gr', '<cmd>Lspsaga lsp_finder<CR>' },
       { 'gn', '<cmd>Lspsaga rename<CR>' },
       { 'ga', '<cmd>Lspsaga code_action<CR>' },
+      { '<leader>o', '<cmd>Lspsaga outline<CR>' },
     },
     config = function()
       require('lspsaga').setup({
         lightbulb = {
           enable = false,
+        },
+        outline = {
+          win_width = 50,
+          keys = {
+            jump = '<CR>',
+            quit = 'q',
+          },
         },
       })
     end,
