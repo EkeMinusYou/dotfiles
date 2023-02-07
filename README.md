@@ -2,6 +2,8 @@
 
 EkeMinusYou's Dotfiles
 
+<img width="1904" alt="Screenshot 2023-02-07 at 23 56 02" src="https://user-images.githubusercontent.com/41781157/217281141-c6572aef-7cef-4faa-b602-05ec87684a3f.png">
+
 ## Pre-Setup
 
 install
