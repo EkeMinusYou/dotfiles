@@ -73,7 +73,6 @@ alias g="git"
 # lazygit
 export XDG_CONFIG_HOME=$HOME/.config
 
-
 # Kubernetes
 alias k="kubectl"
 source <(kubectl completion zsh)
@@ -125,3 +124,6 @@ function ghq-fzf() {
 }
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
+
+# iterm2
+test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
