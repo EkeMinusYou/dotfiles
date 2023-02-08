@@ -14,7 +14,13 @@ return {
     local telescope = require('telescope')
     telescope.setup({
       defaults = {
-        file_ignore_patterns = { 'node_modules/', '.git/' },
+        file_ignore_patterns = {
+          'node_modules/',
+          '.git/',
+          '%.pb.go',
+          '%.gen.go',
+          '%.gw.go',
+        },
       },
       pickers = {
         find_files = { hidden = true },
