@@ -7,14 +7,14 @@ vim.keymap.set('t', '<c-backspace>', '<backspace>')
 vim.keymap.set('t', '<c-enter>', '<enter>')
 
 -- window movement
-vim.keymap.set('n', '<c-s-h>', '<c-w>h')
-vim.keymap.set('n', '<c-s-j>', '<c-w>j')
-vim.keymap.set('n', '<c-s-k>', '<c-w>k')
-vim.keymap.set('n', '<c-s-l>', '<c-w>l')
-vim.keymap.set('t', '<c-s-h>', '<c-\\><c-n><c-w>h')
-vim.keymap.set('t', '<c-s-j>', '<c-\\><c-n><c-w>j')
-vim.keymap.set('t', '<c-s-k>', '<c-\\><c-n><c-w>k')
-vim.keymap.set('t', '<c-s-l>', '<c-\\><c-n><c-w>l')
+vim.keymap.set('n', '<m-h>', '<c-w>h')
+vim.keymap.set('n', '<m-j>', '<c-w>j')
+vim.keymap.set('n', '<m-k>', '<c-w>k')
+vim.keymap.set('n', '<m-l>', '<c-w>l')
+vim.keymap.set('t', '<m-h>', '<c-\\><c-n><c-w>h')
+vim.keymap.set('t', '<m-j>', '<c-\\><c-n><c-w>j')
+vim.keymap.set('t', '<m-k>', '<c-\\><c-n><c-w>k')
+vim.keymap.set('t', '<m-l>', '<c-\\><c-n><c-w>l')
 
 -- emacs keybinding in insert-mode
 vim.keymap.set('i', '<c-b>', '<left>')
