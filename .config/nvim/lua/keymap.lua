@@ -21,8 +21,8 @@ vim.keymap.set('i', '<c-b>', '<left>')
 vim.keymap.set('i', '<c-f>', '<right>')
 vim.keymap.set('i', '<c-p>', '<up>')
 vim.keymap.set('i', '<c-n>', '<down>')
-vim.keymap.set('i', '<c-s-b>', '<c-o>b')
-vim.keymap.set('i', '<c-s-f>', '<c-o>w')
+vim.keymap.set('i', '<m-b>', '<c-o>b')
+vim.keymap.set('i', '<m-f>', '<c-o>w')
 
 -- lsp
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
