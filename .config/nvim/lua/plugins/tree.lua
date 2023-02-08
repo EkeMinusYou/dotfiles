@@ -19,7 +19,7 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   event = 'VeryLazy',
   keys = {
-    { '<leader>ee', '<CMD>NvimTreeToggle<CR>' },
+    { '<leader>ee', '<cmd>NvimTreeToggle<cr>' },
     {
       '<leader>ef',
       function()

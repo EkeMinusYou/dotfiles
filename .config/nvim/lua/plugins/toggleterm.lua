@@ -2,8 +2,8 @@ return {
   'akinsho/toggleterm.nvim',
   event = 'VeryLazy',
   keys = {
-    { '<leader>t', '<CMD>ToggleTerm direction=horizontal size=15<CR>' },
-    { '<c-q>', '<CMD>ToggleTerm direction=horizontal size=15<CR>', mode = 't' },
+    { '<leader>t', '<cmd>ToggleTerm direction=horizontal size=15<cr>' },
+    { '<c-q>', '<cmd>ToggleTerm direction=horizontal size=15<cr>', mode = 't' },
     {
       '<leader>g',
       function()

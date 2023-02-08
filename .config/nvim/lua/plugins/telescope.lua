@@ -6,9 +6,9 @@ return {
   },
   event = 'VeryLazy',
   keys = {
-    { '<leader>ff', '<CMD>Telescope find_files<CR>' },
-    { '<leader>fg', '<CMD>Telescope live_grep<CR>' },
-    { '<leader>fb', '<CMD>Telescope buffers<CR>' },
+    { '<leader>ff', '<cmd>Telescope find_files<cr>' },
+    { '<leader>fg', '<cmd>Telescope live_grep<cr>' },
+    { '<leader>fb', '<cmd>Telescope buffers<cr>' },
   },
   config = function()
     local telescope = require('telescope')

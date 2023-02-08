@@ -48,10 +48,10 @@ return {
     'glepnir/lspsaga.nvim',
     event = 'BufRead',
     keys = {
-      { 'gr', '<cmd>Lspsaga lsp_finder<CR>' },
-      { 'gn', '<cmd>Lspsaga rename<CR>' },
-      { 'ga', '<cmd>Lspsaga code_action<CR>' },
-      { '<leader>o', '<cmd>Lspsaga outline<CR>' },
+      { 'gr', '<cmd>Lspsaga lsp_finder<cr>' },
+      { 'gn', '<cmd>Lspsaga rename<cr>' },
+      { 'ga', '<cmd>Lspsaga code_action<cr>' },
+      { '<leader>o', '<cmd>Lspsaga outline<cr>' },
     },
     config = function()
       require('lspsaga').setup({
@@ -61,7 +61,7 @@ return {
         outline = {
           win_width = 50,
           keys = {
-            jump = '<CR>',
+            jump = '<cr>',
             quit = 'q',
           },
         },
