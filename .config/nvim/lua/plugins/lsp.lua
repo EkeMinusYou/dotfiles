@@ -30,7 +30,7 @@ return {
           'bufls',
           'gopls',
           'jsonls',
-          'sumneko_lua',
+          'lua_ls',
           'terraformls',
           'tsserver',
         },
