@@ -3,7 +3,15 @@
 # ------------------
 
 # homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
+case ${OSTYPE} in
+  darwin*)
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    ;;
+  linux*)
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    ;;
+esac
+
 if type brew &>/dev/null
 then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
@@ -127,3 +135,4 @@ bindkey '^]' ghq-fzf
 
 # iterm2
 test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
+
