@@ -12,6 +12,7 @@ ln -sfn $DOT_DIR/dotfiles/.gitconfig ~/.gitconfig
 # Setup zsh
 ln -sfn $DOT_DIR/dotfiles/.zimrc ~/.zimrc
 ln -sfn $DOT_DIR/dotfiles/.zshrc ~/.zshrc
+mkdir -p ~/.zsh/
 ln -sfn $DOT_DIR/dotfiles/.zsh/completion ~/.zsh/
 
 # lazygit
@@ -22,6 +23,7 @@ ln -sfn $DOT_DIR/dotfiles/.config/lazygit/config.yml ~/.config/lazygit/config.ym
 ln -sfn $DOT_DIR/dotfiles/.config/nvim ~/.config/
 
 # Setup karabiner
+mkdir -p ~/.config/karabiner
 ln -sfn $DOT_DIR/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 
 # Install packages by brew
