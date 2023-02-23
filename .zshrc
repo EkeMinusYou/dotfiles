@@ -111,8 +111,8 @@ alias e='code -a .'
 eval "$(zoxide init zsh)"
 
 # gcloud
-source $HOME/google-cloud-sdk/path.zsh.inc
-source $HOME/google-cloud-sdk/completion.zsh.inc
+test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/path.zsh.inc || true
+test -e $HOME/google-cloud-sdk/completion.zsh.inc && source $HOME/google-cloud-sdk/completion.zsh.inc || true
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 
 # tccli
