@@ -2,6 +2,7 @@ if OS.mac?
   brew "git"
   tap "homebrew/cask"
 elsif OS.linux?
+  brew "zsh"
 end
 
 tap "homebrew/bundle"
@@ -21,7 +22,7 @@ brew "jq"
 brew "yq"
 brew "k9s"
 brew "tfenv"
-brew "riggrep"
+brew "ripgrep"
 brew "java11"
 brew "lazygit"
 brew "lazydocker"
