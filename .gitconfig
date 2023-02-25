@@ -1,11 +1,12 @@
 [user]
         name = EkeMinusYou
         email = euonymuslke@gmail.com
-
 [ghq]
         root = ~/src
         user = EkeMinusYou
 
+[include]
+        path = ~/.gitconfig-os
 [includeIf "gitdir:~/src/github.com/global-mobility-service/"]
         path = ~/.gitconfig-gms
 
@@ -18,14 +19,11 @@
         co = checkout
         ps = push
         psf = push --force-with-lease
-        rbi = rebase -i HEAD~10
         lgo = log --oneline
 [init]
         defaultBranch = main
 [pull]
         rebase = false
-[credential]
-        helper = osxkeychain
 [push]
         default = current
 [rebase]

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$(uname)" == 'Linux' ]; then
+if [ `uname` == 'Linux' ]; then
   sudo apt install git
 fi
 
@@ -8,6 +8,12 @@ fi
 DOT_DIR="$HOME/src/github.com/EkeMinusYou"
 git clone https://github.com/EkeMinusYou/dotfiles ${DOT_DIR}/dotfiles
 ln -sfn $DOT_DIR/dotfiles/.gitconfig ~/.gitconfig
+
+if [ `uname` == 'Darwin' ]; then
+  ln -sfn $DOT_DIR/dotfiles/.gitconfig-mac ~/.gitconfig-os
+elif [ `uname` = "Linux" ]; then
+  ln -sfn $DOT_DIR/dotfiles/.gitconfig-linux ~/.gitconfig-os
+fi
 
 # Setup zsh
 ln -sfn $DOT_DIR/dotfiles/.zimrc ~/.zimrc
