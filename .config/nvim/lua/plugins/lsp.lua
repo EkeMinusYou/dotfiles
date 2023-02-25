@@ -32,7 +32,7 @@ return {
           'jsonls',
           'lua_ls',
           'terraformls',
-          'tsserver',
+          'vtsls',
         },
         automatic_installation = true,
       })
