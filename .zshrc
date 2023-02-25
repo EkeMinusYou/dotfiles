@@ -136,3 +136,5 @@ bindkey '^]' ghq-fzf
 # iterm2
 test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
 
+# wsl
+export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
