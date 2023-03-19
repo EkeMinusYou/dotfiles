@@ -12,8 +12,21 @@ return {
             return utils.root_has_file({ '.prettierrc' })
           end,
         }),
-        null_ls.builtins.formatting.eslint_d,
-        null_ls.builtins.diagnostics.eslint_d,
+        null_ls.builtins.formatting.eslint_d.with({
+          condition = function(utils)
+            return utils.root_has_file({ '.eslintrc.js' })
+          end,
+        }),
+        null_ls.builtins.formatting.rome.with({
+          condition = function(utils)
+            return utils.root_has_file({ 'rome.json' })
+          end,
+        }),
+        null_ls.builtins.diagnostics.eslint_d.with({
+          condition = function(utils)
+            return utils.root_has_file({ '.eslintrc.js' })
+          end,
+        }),
         -- python
         null_ls.builtins.formatting.black,
         -- go
