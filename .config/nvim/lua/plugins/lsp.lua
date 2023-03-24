@@ -22,7 +22,9 @@ return {
       'folke/neodev.nvim',
     },
     config = function()
-      require('neodev').setup()
+      require('neodev').setup({
+        pathStrict = true,
+      })
       require('mason-lspconfig').setup({
         ensure_installed = {
           'bashls',
@@ -61,9 +63,9 @@ return {
     'glepnir/lspsaga.nvim',
     event = 'BufRead',
     keys = {
-      { 'gr', '<cmd>Lspsaga lsp_finder<cr>' },
-      { 'gn', '<cmd>Lspsaga rename<cr>' },
-      { 'ga', '<cmd>Lspsaga code_action<cr>' },
+      { 'gr',        '<cmd>Lspsaga lsp_finder<cr>' },
+      { 'gn',        '<cmd>Lspsaga rename<cr>' },
+      { 'ga',        '<cmd>Lspsaga code_action<cr>' },
       { '<leader>o', '<cmd>Lspsaga outline<cr>' },
     },
     config = function()
