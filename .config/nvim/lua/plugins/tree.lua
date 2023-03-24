@@ -37,7 +37,13 @@ return {
     require('nvim-tree').setup({
       respect_buf_cwd = true,
       sync_root_with_cwd = true,
-      update_focused_file = { enable = true, update_root = true },
+      update_focused_file = {
+        enable = true,
+        update_root = true,
+        ignore_list = {
+          'toggleterm',
+        },
+      },
       view = {
         width = 40,
         mappings = {
