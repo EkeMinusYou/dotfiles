@@ -14,7 +14,7 @@ return {
         }),
         null_ls.builtins.formatting.eslint_d.with({
           condition = function(utils)
-            return utils.root_has_file({ '.eslintrc.js' })
+            return utils.root_has_file({ '.eslintrc.js', '.eslintrc.cjs' })
           end,
         }),
         null_ls.builtins.formatting.rome.with({
