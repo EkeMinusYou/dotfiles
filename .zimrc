@@ -4,7 +4,8 @@ zmodule utility
 zmodule fzf
 zmodule git-info
 zmodule zsh-users/zsh-completions --fpath src
-zmodule completion
+# completion has bug
+# zmodule completion
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 zmodule marlonrichert/zsh-autocomplete
