@@ -59,6 +59,28 @@ bindkey -M emacs '^N' history-substring-search-down
 # User Settings
 # ------------------
 
+# history
+zshaddhistory() {
+  local line=${1%%$'\n'}
+  local cmd=${line%% *}
+
+  # Only those that satisfy all of the following conditions are added to the history
+  [[ ${#line} -ge 5
+     && ${cmd} != ls
+     && ${cmd} != z
+     && ${cmd} != cd
+     && ${cmd} != v
+     && ${cmd} != vim
+     && ${cmd} != nvim
+     && ${cmd} != more
+     && ${cmd} != less
+     && ${cmd} != ping
+     && ${cmd} != which
+     && ${cmd} != cat
+     && ${cmd} != bat
+  ]]
+}
+
 # autopair
 source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 
