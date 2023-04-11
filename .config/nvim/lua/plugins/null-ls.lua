@@ -29,7 +29,12 @@ return {
           diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
         -- python
-        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.black.with({
+          prefer_local = '.venv/bin',
+        }),
+        null_ls.builtins.formatting.mypy.with({
+          prefer_local = '.venv/bin',
+        }),
         -- go
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.goimports,
