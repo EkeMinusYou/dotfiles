@@ -24,15 +24,18 @@ return {
         }),
         null_ls.builtins.diagnostics.eslint_d.with({
           condition = function(utils)
-            return utils.root_has_file({ '.eslintrc.js' })
+            return utils.root_has_file({ '.eslintrc.js', '.eslintrc.cjs' })
           end,
+          diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
         -- python
         null_ls.builtins.formatting.black,
         -- go
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.goimports,
-        null_ls.builtins.diagnostics.staticcheck,
+        null_ls.builtins.diagnostics.staticcheck.with({
+          diagnostics_format = '[staticcheck] #{m}\n(#{c})',
+        }),
         -- proto
         null_ls.builtins.diagnostics.buf,
         -- lua
