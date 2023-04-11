@@ -160,3 +160,8 @@ test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integr
 
 # wsl
 export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
+
+# lovot
+if [ $commands[lovot] ]; then
+  source <(lovot completion zsh)
+fi
