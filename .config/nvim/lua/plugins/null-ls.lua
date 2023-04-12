@@ -32,7 +32,7 @@ return {
         null_ls.builtins.formatting.black.with({
           prefer_local = '.venv/bin',
         }),
-        null_ls.builtins.formatting.mypy.with({
+        null_ls.builtins.diagnostics.mypy.with({
           prefer_local = '.venv/bin',
         }),
         -- go
