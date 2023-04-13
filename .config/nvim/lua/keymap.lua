@@ -24,6 +24,9 @@ vim.keymap.set('i', '<c-n>', '<down>')
 vim.keymap.set('i', '<m-b>', '<c-o>b')
 vim.keymap.set('i', '<m-f>', '<c-o>w')
 
+-- terminal
+vim.keymap.set('t', '<Esc>', '<c-\\><c-n>')
+
 -- lsp
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
 vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format({async = true, timeout_ms=5000})<cr>')
