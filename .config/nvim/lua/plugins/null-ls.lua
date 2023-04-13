@@ -29,22 +29,22 @@ return {
       sources = {
         -- js,ts
         null_ls.builtins.formatting.prettierd.with({
-          condition = function(utils)
+          condition = function()
             return local_has_file({ '.prettierrc' })
           end,
         }),
         null_ls.builtins.formatting.eslint_d.with({
-          condition = function(utils)
+          condition = function()
             return local_has_file({ '.eslintrc.js', '.eslintrc.cjs' })
           end,
         }),
         null_ls.builtins.formatting.rome.with({
-          condition = function(utils)
+          condition = function()
             return local_has_file({ 'rome.json' })
           end,
         }),
         null_ls.builtins.diagnostics.eslint_d.with({
-          condition = function(utils)
+          condition = function()
             return local_has_file({ '.eslintrc.js', '.eslintrc.cjs' })
           end,
           diagnostics_format = '[eslint] #{m}\n(#{c})',
