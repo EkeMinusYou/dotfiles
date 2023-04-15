@@ -14,6 +14,11 @@ local function local_has_file(filenames)
     end
     dir = vim.fn.fnamemodify(dir, ':h')
   until dir == '' or dir == cwd
+  for _, filename in ipairs(filenames) do
+    if exists_in_dir(filename, cwd) then
+      return true
+    end
+  end
   return false
 end
 
