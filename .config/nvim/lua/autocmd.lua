@@ -1,5 +1,5 @@
 -- See: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
-function lsp_formatting(config)
+function Lsp_Formatting(config)
   vim.lsp.buf.format({
     filter = function(client)
       return client.name == 'null-ls'
@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     '*.go',
   },
   callback = function()
-    lsp_formatting({ async = false, timeout_ms = 5000 })
+    Lsp_Formatting({ async = false, timeout_ms = 5000 })
   end,
 })
 
