@@ -1,3 +1,14 @@
+-- See: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
+function lsp_formatting(config)
+  vim.lsp.buf.format({
+    filter = function(client)
+      return client.name == 'null-ls'
+    end,
+    async = config.async,
+    timeout_ms = config.timeout_ms,
+  })
+end
+
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = {
     '*.lua',
@@ -8,7 +19,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     '*.go',
   },
   callback = function()
-    vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
+    lsp_formatting({ async = false, timeout_ms = 5000 })
   end,
 })
 
