@@ -3,19 +3,17 @@ local function exists_in_dir(filename, dir)
   return vim.tbl_contains(files, filename)
 end
 
-local function local_has_file(filenames, levels_up)
-  if levels_up == nil then
-    levels_up = 5
-  end
+local function local_has_file(filenames)
   local dir = vim.fn.expand('%:p:h')
-  for i = 1, levels_up + 1 do
+  local cwd = vim.fn.getcwd()
+  repeat
     for _, filename in ipairs(filenames) do
       if exists_in_dir(filename, dir) then
         return true
       end
     end
     dir = vim.fn.fnamemodify(dir, ':h')
-  end
+  until dir == '' or dir == cwd
   return false
 end
 
