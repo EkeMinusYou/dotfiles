@@ -1,3 +1,16 @@
+-- See https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach
+local function on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
+  vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
+  vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
+end
+
 -- See https://github.com/LunarVim/LunarVim/blob/master/lua/lvim/core/nvimtree.lua#L285
 local function start_telescope(telescope_mode)
   local basedir = vim.fn.getcwd()
@@ -35,6 +48,7 @@ return {
   },
   config = function()
     require('nvim-tree').setup({
+      on_attach = on_attach,
       respect_buf_cwd = true,
       sync_root_with_cwd = true,
       update_focused_file = {
@@ -46,13 +60,6 @@ return {
       },
       view = {
         width = 40,
-        mappings = {
-          list = {
-            { key = 'l', action = 'edit' },
-            { key = 'h', action = 'close_node' },
-            { key = 'C', action = 'cd' },
-          },
-        },
       },
     })
   end,
