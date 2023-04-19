@@ -32,5 +32,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/nvim ~/.config/
 mkdir -p ~/.config/karabiner
 ln -sfn $DOT_DIR/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 
+# Setup WezTerm
+mkdir -p ~/.config/wezterm
+ln -sfn $DOT_DIR/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+
 # Install packages by brew
 brew bundle --file "$DOT_DIR/dotfiles/Brewfile"
