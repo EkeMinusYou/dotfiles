@@ -365,6 +365,8 @@
 	<string>DFC5B808-4F83-4251-A5F8-56BA368F9F3F</string>
 	<key>DisableFullscreenTransparency</key>
 	<true/>
+	<key>DwcLineCache</key>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
@@ -618,6 +620,8 @@
 			<string>No</string>
 			<key>Description</key>
 			<string>Default</string>
+			<key>Disable Smcup Rmcup</key>
+			<true/>
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Draw Powerline Glyphs</key>
@@ -1042,6 +1046,8 @@
 			<string>/Users/mineo</string>
 		</dict>
 	</array>
+	<key>OpenBookmark</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
