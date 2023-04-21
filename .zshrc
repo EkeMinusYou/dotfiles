@@ -108,7 +108,9 @@ alias k="kubectl"
 source <(kubectl completion zsh)
 
 # Node.js
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 
 # Terraform
 alias tf="terraform"
@@ -123,7 +125,7 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
 # Java
-export PATH=/opt/homebrew/opt/openjdk@11/bin:$PATH
+export PATH=$(brew --prefix)/opt/openjdk@11/bin:$PATH
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 
 # VSCode
