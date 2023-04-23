@@ -6,20 +6,18 @@ end
 local function local_has_file(filenames)
   local dir = vim.fn.expand('%:p:h')
   local cwd = vim.fn.getcwd()
-  repeat
+  while true do
     for _, filename in ipairs(filenames) do
       if exists_in_dir(filename, dir) then
         return true
       end
     end
-    dir = vim.fn.fnamemodify(dir, ':h')
-  until dir == '' or dir == cwd
-  for _, filename in ipairs(filenames) do
-    if exists_in_dir(filename, cwd) then
-      return true
+    if dir == '' or dir == cwd or dir == '/' then
+      break
     end
+    dir = vim.fn.fnamemodify(dir, ':h')
   end
-  return false
+  return exists_in_dir(filenames, cwd)
 end
 
 return {
