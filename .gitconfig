@@ -17,6 +17,7 @@
         st = stash -u
         sta = stash apply
         co = checkout
+        sw = switch
         ps = push
         psf = push --force-with-lease
         lgo = log --oneline
