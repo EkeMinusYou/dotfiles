@@ -88,11 +88,12 @@ source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # lsd
+alias l="ls"
 alias ls="lsd"
 
 # vim
-alias vim="nvim"
 alias v="vim"
+alias vim="nvim"
 
 # Default Editor
 export EDITOR=$(which nvim)
