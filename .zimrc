@@ -7,7 +7,7 @@ zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
-zmodule marlonrichert/zsh-autocomplete --tag 86ffb11c7186664a71fd36742f3148628c4b85cb
+zmodule marlonrichert/zsh-autocomplete
 
 # theme
 zmodule gitster
