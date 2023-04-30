@@ -21,6 +21,9 @@ ln -sfn $DOT_DIR/dotfiles/.zshrc ~/.zshrc
 mkdir -p ~/.zsh/
 ln -sfn $DOT_DIR/dotfiles/.zsh/completion ~/.zsh/
 
+# fzf
+$(brew --prefix)/opt/fzf/install
+
 # lazygit
 mkdir -p ~/.config/lazygit
 ln -sfn $DOT_DIR/dotfiles/.config/lazygit/config.yml ~/.config/lazygit/config.yml
