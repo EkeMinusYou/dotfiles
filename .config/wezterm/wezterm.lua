@@ -13,5 +13,5 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	use_ime = true,
 	font = wezterm.font("HackGen35 Console NFJ"),
-	font_size = 16.0,
+	font_size = 13.0,
 }
