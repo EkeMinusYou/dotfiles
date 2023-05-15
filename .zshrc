@@ -138,6 +138,9 @@ test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/pat
 test -e $HOME/google-cloud-sdk/completion.zsh.inc && source $HOME/google-cloud-sdk/completion.zsh.inc || true
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 
+# tencent
+export PATH=$HOME/.tencent/bin:$PATH
+
 # tccli
 complete -C 'tccli_completer' tccli
 
@@ -163,6 +166,7 @@ test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integr
 export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 
 # lovot
+export PATH=$HOME/.lovot/bin:$PATH
 if [ $commands[lovot] ]; then
   source <(lovot completion zsh)
 fi
