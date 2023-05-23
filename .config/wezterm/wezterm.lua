@@ -12,6 +12,6 @@ return {
 	native_macos_fullscreen_mode = true,
 	hide_tab_bar_if_only_one_tab = true,
 	use_ime = true,
-	font = wezterm.font("HackGen35 Console NFJ"),
+	font = wezterm.font("HackGen35 Console NF"),
 	font_size = 13.0,
 }
