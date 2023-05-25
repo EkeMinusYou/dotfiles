@@ -371,6 +371,8 @@
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>IRMemory</key>
+	<integer>4</integer>
 	<key>NeverWarnAboutShortLivedSessions_DFC5B808-4F83-4251-A5F8-56BA368F9F3F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_DFC5B808-4F83-4251-A5F8-56BA368F9F3F_selection</key>
@@ -969,7 +971,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>HackGen35ConsoleNFJ-Regular 14</string>
+			<string>HackGen35ConsoleNF-Regular 11</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
