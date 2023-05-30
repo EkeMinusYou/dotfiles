@@ -67,6 +67,9 @@ return {
         null_ls.builtins.diagnostics.buf,
         -- lua
         null_ls.builtins.formatting.stylua,
+        -- terraform
+        null_ls.builtins.diagnostics.terraform_validate,
+        null_ls.builtins.formatting.terraform_fmt,
       },
     })
   end,
