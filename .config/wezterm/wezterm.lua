@@ -7,7 +7,7 @@ wezterm.on("gui-startup", function()
 end)
 
 return {
-	color_scheme = "OneHalfDark",
+	color_scheme = "Afterglow",
 	window_close_confirmation = "NeverPrompt",
 	native_macos_fullscreen_mode = true,
 	hide_tab_bar_if_only_one_tab = true,
