@@ -144,6 +144,9 @@ export PATH=$HOME/.tencent/bin:$PATH
 # tccli
 complete -C 'tccli_completer' tccli
 
+# terraform
+complete -C terraform terraform
+
 # lunarvim
 export PATH=$HOME/.local/bin:$PATH
 
