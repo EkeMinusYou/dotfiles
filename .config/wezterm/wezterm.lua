@@ -17,6 +17,11 @@ return {
 	font = wezterm.font("HackGen35 Console NF"),
 	font_size = 13.0,
 
+	inactive_pane_hsb = {
+		saturation = 0.5,
+		brightness = 0.8,
+	},
+
 	keys = {
 		{ key = "n", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(1) },
 		{ key = "p", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
