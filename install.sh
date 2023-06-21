@@ -28,6 +28,9 @@ $(brew --prefix)/opt/fzf/install
 mkdir -p ~/.config/lazygit
 ln -sfn $DOT_DIR/dotfiles/.config/lazygit/config.yml ~/.config/lazygit/config.yml
 
+# Setup sheldon
+ln -sfn $DOT_DIR/dotfiles/.config/sheldon/plugins.toml ~/.config/sheldon/plugins.toml
+
 # Setup nvim
 ln -sfn $DOT_DIR/dotfiles/.config/nvim ~/.config/
 
