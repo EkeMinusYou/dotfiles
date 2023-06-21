@@ -31,6 +31,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/lazygit/config.yml ~/.config/lazygit/config.ym
 # Setup nvim
 ln -sfn $DOT_DIR/dotfiles/.config/nvim ~/.config/
 
+# Setup starship
+ln -sfn $DOT_DIR/dotfiles/.config/starship.toml ~/.config/starship.toml
+
 # Setup karabiner
 mkdir -p ~/.config/karabiner
 ln -sfn $DOT_DIR/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json

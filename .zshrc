@@ -173,3 +173,6 @@ export PATH=$HOME/.lovot/bin:$PATH
 if [ $commands[lovot] ]; then
   source <(lovot completion zsh)
 fi
+
+# starship
+eval "$(starship init zsh)"

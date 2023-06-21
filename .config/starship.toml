@@ -1,0 +1,15 @@
+add_newline = false
+
+[golang]
+format ='[$symbol($version )]($style)'
+symbol = ' '
+
+[gcloud]
+format = '[$symbol$account(@$domain)(\($region\))]($style) '
+symbol = '󱇶 '
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+
+[git_status]
+disabled = true
