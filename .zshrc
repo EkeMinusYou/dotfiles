@@ -21,16 +21,14 @@ fi
 fpath=(~/.zsh/completion $fpath)
 
 # ------------------
+# Enable Completion
+# ------------------
+autoload -U compinit
+compinit
+
+# ------------------
 # Initialize zim
 # ------------------
-
-setopt HIST_IGNORE_ALL_DUPS
-bindkey -e
-setopt CORRECT
-WORDCHARS=${WORDCHARS//[\/]}
-zstyle ':zim:input' double-dot-expand yes
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Download zimfw plugin manager if missing.
@@ -50,16 +48,22 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-bindkey $terminfo[kcuu1] history-substring-search-up
-bindkey $terminfo[kcud1] history-substring-search-down
-bindkey -M emacs '^P' history-substring-search-up
-bindkey -M emacs '^N' history-substring-search-down
+# ------------------
+# Other Settings
+# ------------------
 
-# ------------------
-# User Settings
-# ------------------
+bindkey -e
+
+# suppress prompt
+export LISTMAX=-1
 
 # history
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey -M emacs '^P' history-beginning-search-backward-end
+bindkey -M emacs '^N' history-beginning-search-forward-end
+
 zshaddhistory() {
   local line=${1%%$'\n'}
   local cmd=${line%% *}
@@ -89,6 +93,7 @@ source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 
 # lsd
 alias l="ls"
+alias ll="ls -l"
 alias ls="lsd"
 
 # vim
