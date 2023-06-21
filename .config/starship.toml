@@ -1,7 +1,12 @@
 add_newline = false
 
 [directory]
-style = 'bold'
+style = 'bold yellow'
+read_only = " "
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
 
 [golang]
 format ='[$symbol($version )]($style)'
