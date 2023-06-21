@@ -23,6 +23,7 @@ fpath=(~/.zsh/completion $fpath)
 # ------------------
 # Enable Completion
 # ------------------
+
 autoload -U compinit
 compinit
 
