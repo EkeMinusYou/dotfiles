@@ -22,6 +22,8 @@ return {
 		brightness = 0.8,
 	},
 
+	audible_bell = "Disabled",
+
 	keys = {
 		{ key = "n", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(1) },
 		{ key = "p", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
