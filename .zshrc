@@ -27,6 +27,13 @@ autoload -U compinit
 compinit
 
 # ------------------
+# Plugin Settings
+# ------------------
+
+# zsh-autocomplete
+zstyle ':autocomplete:*' delay 0
+
+# ------------------
 # Initialize zim
 # ------------------
 
@@ -55,7 +62,7 @@ source ${ZIM_HOME}/init.zsh
 bindkey -e
 
 # suppress prompt
-export LISTMAX=-1
+export LISTMAX=10000
 
 # history
 autoload -U history-search-end
