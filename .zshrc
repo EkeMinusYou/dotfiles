@@ -34,32 +34,16 @@ autoload -U compinit
 compinit
 
 # ------------------
-# Plugin Settings
+# Other Settings
 # ------------------
 
 # zsh-autocomplete
 zstyle ':autocomplete:*' delay 0
-zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
-
-# ------------------
-# Load Plugins
-# ------------------
-
-eval "$(sheldon source)"
-
-# ------------------
-# Other Settings
-# ------------------
 
 # suppress prompt
 export LISTMAX=10000
 
 # history
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey -M emacs '^P' history-beginning-search-backward-end
-bindkey -M emacs '^N' history-beginning-search-forward-end
 
 zshaddhistory() {
   local line=${1%%$'\n'}
@@ -116,11 +100,6 @@ eval "$(fnm env --use-on-cd)"
 # Terraform
 alias tf="terraform"
 
-# Python
-# set -Ux PYENV_ROOT $HOME/.pyenv
-# set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-# pyenv init - | source
-
 # Go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
@@ -176,5 +155,14 @@ if [ $commands[lovot] ]; then
   source <(lovot completion zsh)
 fi
 
+# ------------------
+# Load Plugins
+# ------------------
+
+eval "$(sheldon source)"
+
+# ------------------
 # starship
+# ------------------
+
 eval "$(starship init zsh)"
