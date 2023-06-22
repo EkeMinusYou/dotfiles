@@ -31,7 +31,7 @@ return {
 		{ key = "v", mods = "CTRL|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 		{ key = "s", mods = "CTRL|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 
-		{ key = "x", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = true }) },
+		{ key = "c", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = true }) },
 
 		{ key = "h", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
 		{ key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
