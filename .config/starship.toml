@@ -13,7 +13,7 @@ format ='[$symbol($version )]($style)'
 symbol = ' '
 
 [gcloud]
-format = '[$symbol$account(@$domain)(\($region\))]($style) '
+format = '[$symbol$project]($style) '
 symbol = '󱇶 '
 
 [git_branch]
