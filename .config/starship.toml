@@ -21,3 +21,7 @@ format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [git_status]
 disabled = true
+
+[terraform]
+format = '[$symbol$version]($style) '
+symbol = ' '
