@@ -112,11 +112,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 alias e='code -a .'
 
 # zoxide
-eval "$(zoxide init --no-cmd zsh)"
-# Fixes https://github.com/ajeetdsouza/zoxide/issues/565
-function z() {
-  __zoxide_z "$@"
-}
+eval "$(zoxide init zsh)"
 
 # gcloud
 test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/path.zsh.inc || true
