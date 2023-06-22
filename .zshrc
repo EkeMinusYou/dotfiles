@@ -1,12 +1,12 @@
-# ------------------
+# -------------------
 # General Settings
-# ------------------
+# -------------------
 
 bindkey -e
 
-# ------------------
+# --------------------
 # Adding fpath
-# ------------------
+# --------------------
 
 # homebrew
 case ${OSTYPE} in
@@ -26,16 +26,16 @@ fi
 # docker
 fpath=(~/.zsh/completion $fpath)
 
-# ------------------
+# -------------------
 # Enable Completion
-# ------------------
+# -------------------
 
 autoload -U compinit
 compinit
 
-# ------------------
+# -------------------
 # Other Settings
-# ------------------
+# -------------------
 
 # zsh-autocomplete
 zstyle ':autocomplete:*' delay 0
@@ -44,7 +44,6 @@ zstyle ':autocomplete:*' delay 0
 export LISTMAX=10000
 
 # history
-
 zshaddhistory() {
   local line=${1%%$'\n'}
   local cmd=${line%% *}
@@ -159,14 +158,23 @@ if [ $commands[lovot] ]; then
   source <(lovot completion zsh)
 fi
 
-# ------------------
+# -------------------
+# Before Load Plugins
+# -------------------
+
+# zsh-autocomplete
+zstyle ':autocomplete:*' fzf-completion yes
+zstyle ':autocomplete:*' recent-dirs zoxide
+zstyle ':autocomplete:*' list-lines 100
+
+# -------------------
 # Load Plugins
-# ------------------
+# -------------------
 
 eval "$(sheldon source)"
 
-# ------------------
-# starship
-# ------------------
+# -------------------
+# Starship
+# -------------------
 
 eval "$(starship init zsh)"
