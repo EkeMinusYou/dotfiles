@@ -119,6 +119,10 @@ test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/pat
 test -e $HOME/google-cloud-sdk/completion.zsh.inc && source $HOME/google-cloud-sdk/completion.zsh.inc || true
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 
+# direnv
+eval "$(direnv hook zsh)"
+export DIRENV_LOG_FORMAT=
+
 # tencent
 export PATH=$HOME/.tencent/bin:$PATH
 
