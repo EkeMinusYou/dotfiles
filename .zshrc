@@ -37,9 +37,6 @@ compinit
 # Other Settings
 # -------------------
 
-# suppress prompt
-export LISTMAX=10000
-
 # history
 zshaddhistory() {
   local line=${1%%$'\n'}
@@ -164,6 +161,7 @@ zstyle ':autocomplete:*' fzf-completion yes
 zstyle ':autocomplete:*' recent-dirs zoxide
 zstyle ':autocomplete:*' list-lines 100
 zstyle ':autocomplete:*' delay 0
+zstyle ':autocomplete:*' min-input 0
 
 # -------------------
 # Load Plugins
