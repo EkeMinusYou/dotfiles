@@ -30,15 +30,12 @@ fpath=(~/.zsh/completion $fpath)
 # Enable Completion
 # -------------------
 
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 # -------------------
 # Other Settings
 # -------------------
-
-# zsh-autocomplete
-zstyle ':autocomplete:*' delay 0
 
 # suppress prompt
 export LISTMAX=10000
@@ -166,6 +163,7 @@ fi
 zstyle ':autocomplete:*' fzf-completion yes
 zstyle ':autocomplete:*' recent-dirs zoxide
 zstyle ':autocomplete:*' list-lines 100
+zstyle ':autocomplete:*' delay 0
 
 # -------------------
 # Load Plugins
