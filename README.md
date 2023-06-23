@@ -32,4 +32,3 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/mai
 ### Version Manager
 
 - fnm - Node.js
-- rbenv - Ruby
