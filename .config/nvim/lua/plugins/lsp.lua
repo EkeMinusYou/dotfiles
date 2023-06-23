@@ -76,7 +76,6 @@ return {
         outline = {
           win_width = 50,
           keys = {
-            expand_or_jump = '<cr>',
             quit = 'q',
           },
         },
