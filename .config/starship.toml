@@ -8,6 +8,9 @@ read_only = " "
 success_symbol = "[➜](bold green)"
 error_symbol = "[✗](bold red)"
 
+[docker_context]
+format = '[$symbol$context]($style) '
+
 [golang]
 format ='[$symbol($version )]($style)'
 symbol = ' '
