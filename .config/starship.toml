@@ -25,6 +25,14 @@ format = '[$symbol$branch(:$remote_branch)]($style) '
 [git_status]
 disabled = true
 
+[kubernetes]
+format = '[$symbol$context]($style) '
+symbol = '⎈ '
+disabled = false
+[kubernetes.context_aliases]
+'gke_(?P<var_env>.+)_asia-northeast1_.+' = '$var_env'
+'cls-(?P<var_env>.+)-context-default' = '$var_env'
+
 [terraform]
 format = '[$symbol$version]($style) '
 symbol = ' '
