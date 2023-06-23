@@ -37,6 +37,9 @@ compinit
 # Other Settings
 # -------------------
 
+# suppress prompt
+export LISTMAX=10000
+
 # history
 zshaddhistory() {
   local line=${1%%$'\n'}
@@ -160,7 +163,8 @@ fi
 # zsh-autocomplete
 zstyle ':autocomplete:*' fzf-completion yes
 zstyle ':autocomplete:*' recent-dirs zoxide
-zstyle ':autocomplete:*' list-lines 30
+zstyle ':autocomplete:*' list-lines 50
+zstyle ':autocomplete:history-*:*' list-lines 5
 zstyle ':autocomplete:*' delay 0
 zstyle ':autocomplete:*' min-input 0
 
