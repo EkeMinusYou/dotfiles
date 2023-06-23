@@ -1,52 +1,52 @@
 [user]
-        name = EkeMinusYou
-        email = euonymuslke@gmail.com
+  name = EkeMinusYou
+  email = euonymuslke@gmail.com
 [ghq]
-        root = ~/src
-        user = EkeMinusYou
+  root = ~/src
+  user = EkeMinusYou
 
 [include]
-        path = ~/.gitconfig-os
+  path = ~/.gitconfig-os
 [includeIf "gitdir:~/src/github.com/global-mobility-service/"]
-        path = ~/.gitconfig-gms
+  path = ~/.gitconfig-gms
 
 [core]
-        editor = nvim
+  editor = nvim
 [alias]
-        pl = pull
-        st = stash -u
-        sta = stash apply
-        co = checkout
-        sw = switch
-        ps = push
-        psf = push --force-with-lease
-        lgo = log --oneline
+  pl = pull
+  st = stash -u
+  sta = stash apply
+  co = checkout
+  sw = switch
+  ps = push
+  psf = push --force-with-lease
+  lgo = log --oneline
 [init]
-        defaultBranch = main
+  defaultBranch = main
 [pull]
-        rebase = false
+  rebase = false
 [push]
-        default = current
+  default = current
 [rebase]
-        autosquash = true
+  autosquash = true
 
 [pager]
-        diff = delta
-        log = delta
-        reflog = delta
-        show = delta
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
 
 [delta]
-        plus-style = "syntax #012800"
-        minus-style = "syntax #340001"
-        side-by-side = true
-        navigate = true
+  plus-style = "syntax #012800"
+  minus-style = "syntax #340001"
+  side-by-side = true
+  navigate = true
 
 [interactive]
-        diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
+  clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
