@@ -159,7 +159,7 @@ fi
 # zsh-autocomplete
 zstyle ':autocomplete:*' fzf-completion yes
 zstyle ':autocomplete:*' recent-dirs zoxide
-zstyle ':autocomplete:*' list-lines 100
+zstyle ':autocomplete:*' list-lines 30
 zstyle ':autocomplete:*' delay 0
 zstyle ':autocomplete:*' min-input 0
 
