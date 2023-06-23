@@ -79,6 +79,7 @@ export EDITOR=$(which nvim)
 
 # Git
 alias g="git"
+alias zg='cd "$(git rev-parse --show-toplevel)"'
 
 # lazygit
 export XDG_CONFIG_HOME=$HOME/.config
