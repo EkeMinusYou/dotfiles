@@ -19,6 +19,11 @@ vim.opt.autoread = true
 vim.opt.spell = true
 vim.opt.spelllang = 'en_us'
 
+-- disable newline auto comment
+vim.opt.fo = vim.opt.fo - 'c'
+vim.opt.fo = vim.opt.fo - 'r'
+vim.opt.fo = vim.opt.fo - 'o'
+
 -- set 3 when lualine setup
 vim.opt.laststatus = 0
 
