@@ -41,6 +41,11 @@ compinit
 export LISTMAX=10000
 
 # history
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
+
 zshaddhistory() {
   local line=${1%%$'\n'}
   local cmd=${line%% *}
