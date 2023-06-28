@@ -29,6 +29,7 @@ mkdir -p ~/.config/lazygit
 ln -sfn $DOT_DIR/dotfiles/.config/lazygit/config.yml ~/.config/lazygit/config.yml
 
 # Setup sheldon
+mkdir -p ~/.config/sheldon
 ln -sfn $DOT_DIR/dotfiles/.config/sheldon/plugins.toml ~/.config/sheldon/plugins.toml
 
 # Setup nvim
