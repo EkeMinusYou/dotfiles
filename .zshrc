@@ -79,7 +79,7 @@ source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 
 # lsd
 alias l="ls"
-alias ll="ls -l"
+alias ll="ls -la"
 alias ls="lsd"
 
 # vim
