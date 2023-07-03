@@ -15,7 +15,7 @@ return {
 	use_ime = true,
 
 	font = wezterm.font("HackGen35 Console NF"),
-	font_size = 13.0,
+	font_size = 12.0,
 
 	inactive_pane_hsb = {
 		saturation = 0.5,
