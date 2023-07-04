@@ -1,11 +1,5 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local mux = wezterm.mux
-
-wezterm.on("gui-startup", function()
-	local _, _, window = mux.spawn_window({})
-	window:gui_window():toggle_fullscreen()
-end)
 
 return {
 	color_scheme = "Afterglow",
