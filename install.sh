@@ -46,5 +46,15 @@ ln -sfn $DOT_DIR/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/k
 mkdir -p ~/.config/wezterm
 ln -sfn $DOT_DIR/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 
+if [ `uname` == 'Darwin']; then
+  # Setup yabai and skhd
+  mkdir -p ~/.config/yabai
+  ln -sfn $DOT_DIR/dotfiles/.config/yabai/yabairc ~/.config/yabai/yabairc
+  mkdir -p ~/.config/skhd
+  ln -sfn $DOT_DIR/dotfiles/.config/skhd/skhdrc ~/.config/skhd/skhdrc
+fi
+
+
+
 # Install packages by brew
 brew bundle --file "$DOT_DIR/dotfiles/Brewfile"

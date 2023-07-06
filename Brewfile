@@ -1,6 +1,8 @@
 if OS.mac?
   brew "git"
   tap "homebrew/cask"
+  brew "koekeishiya/formulae/yabai"
+  brew "koekeishiya/formulae/skhd"
 elsif OS.linux?
   brew "zsh"
 end
