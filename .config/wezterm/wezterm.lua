@@ -3,6 +3,9 @@ local act = wezterm.action
 
 return {
 	color_scheme = "Afterglow",
+	window_decorations = "RESIZE",
+	tab_bar_at_bottom = true,
+
 	window_close_confirmation = "NeverPrompt",
 	native_macos_fullscreen_mode = true,
 	hide_tab_bar_if_only_one_tab = true,
