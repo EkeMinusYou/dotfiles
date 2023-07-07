@@ -5,6 +5,9 @@ return {
   config = function()
     -- See https://github.com/folke/noice.nvim#-installation
     require('noice').setup({
+      messages = {
+        view = 'mini',
+      },
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
