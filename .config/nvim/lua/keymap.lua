@@ -1,23 +1,5 @@
 local helper = require('utils.helper')
 
--- window movement
-vim.keymap.set('n', '<m-h>', '<c-w>h')
-vim.keymap.set('n', '<m-j>', '<c-w>j')
-vim.keymap.set('n', '<m-k>', '<c-w>k')
-vim.keymap.set('n', '<m-l>', '<c-w>l')
-vim.keymap.set({ 'n' }, '<m-s-k>', function()
-  vim.cmd('resize -2')
-end)
-vim.keymap.set({ 'n' }, '<m-s-j>', function()
-  vim.cmd('resize +2')
-end)
-vim.keymap.set({ 'n' }, '<m-s-h>', function()
-  vim.cmd('vertical resize -2')
-end)
-vim.keymap.set({ 'n' }, '<m-s-l>', function()
-  vim.cmd('vertical resize +2')
-end)
-
 -- emacs keybinding in insert-mode
 vim.keymap.set('i', '<c-b>', '<left>')
 vim.keymap.set('i', '<c-f>', '<right>')
