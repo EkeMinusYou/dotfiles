@@ -1,13 +1,4 @@
--- See: https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
-function Lsp_Formatting(config)
-  vim.lsp.buf.format({
-    filter = function(client)
-      return client.name == 'null-ls'
-    end,
-    async = config.async,
-    timeout_ms = config.timeout_ms,
-  })
-end
+local helper = require('utils.helper')
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = {
@@ -19,7 +10,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     '*.go',
   },
   callback = function()
-    Lsp_Formatting({ async = false, timeout_ms = 5000 })
+    helper.lsp_formatting({ async = false, timeout_ms = 5000 })
   end,
 })
 
