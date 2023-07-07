@@ -1,3 +1,4 @@
+local helper = require('utils.helper')
 return {
   {
     'neovim/nvim-lspconfig',
@@ -51,6 +52,13 @@ return {
                   },
                 },
               },
+            })
+          elseif server_name == 'helm_ls' then
+            lspconfig.helm_ls.setup({
+              filetypes = { 'helm', 'yaml' },
+              root_dir = function(fname)
+                return lspconfig.util.root_pattern('Chart.yaml')(fname)
+              end,
             })
           else
             lspconfig[server_name].setup({})
