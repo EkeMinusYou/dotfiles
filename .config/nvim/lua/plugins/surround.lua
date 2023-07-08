@@ -9,7 +9,7 @@ return {
         find = '',
         find_left = '',
         highlight = '',
-        replace = 'rs',
+        replace = 'cs',
         update_n_lines = '',
 
         suffix_last = '',
