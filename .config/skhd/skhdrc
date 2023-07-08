@@ -7,7 +7,7 @@ alt - k : yabai -m window --focus north || yabai -m display --focus north
 alt - l : yabai -m window --focus east  || yabai -m display --focus east
 
 # reset window space
-alt - r : yabai -m space --balance
+shift + alt - r : yabai -m space --balance
 
 # swap window
 shift + alt - h : yabai -m window --swap west
@@ -22,4 +22,4 @@ shift + alt - a : yabai -m window --resize left:-50:0  || yabai -m window --resi
 shift + alt - d : yabai -m window --resize right:50:0  || yabai -m window --resize left:50:0
 
 # toggle window fullscreen zoom
-alt - f : yabai -m window --toggle zoom-fullscreen
+shift + alt - f : yabai -m window --toggle zoom-fullscreen
