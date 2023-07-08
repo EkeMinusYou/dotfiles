@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+yabai -m config                              \
+    mouse_follows_focus         off          \
+    focus_follows_mouse         autoraise    \
+    split_ratio                 0.50         \
+    split_type                  auto         \
+    auto_balance                off          \
+    top_padding                 0            \
+    left_padding                0            \
+    right_padding               0            \
+    bottom_padding              0            \
+    window_gap                  0            \
+    layout                      bsp
+
+# disable management for specific apps
+yabai -m rule --add app="^Mail$" manage=off
+yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+
+# return focus to last focused window when current window is closed
+yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"
+# return focus to last focused window when current window is minimized
+yabai -m signal --add event=window_minimized active=yes action="if \$(yabai -m query --windows --window \$YABAI_WINDOW_ID | jq -r '.\"is-floating\"'); then yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null; fi"
+
+echo "yabai configuration loaded.."
