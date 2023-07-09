@@ -1,13 +1,18 @@
 #!/usr/bin/env sh
 
-# open chrome
-# thinking... : open -n -a "Google Chrome" --args --profile-directory="Default"
+# open application
+cmd + shift + ctrl + alt - m : open -a "Music"
+cmd + shift + ctrl + alt - l : open -a "Logseq"
+cmd + shift + ctrl + alt - y : open -a "Youtube"
+cmd + shift + ctrl + alt - t : open -a "WezTerm"
+cmd + shift + ctrl + alt - c : open -n -a "Google Chrome" --args --profile-directory="Default"
 
 # focus window
-ctrl + alt - h : yabai -m window --focus west  || yabai -m display --focus west
-ctrl + alt - j : yabai -m window --focus south || yabai -m display --focus south
-ctrl + alt - k : yabai -m window --focus north || yabai -m display --focus north
-ctrl + alt - l : yabai -m window --focus east  || yabai -m display --focus east
+ctrl + alt - x : yabai -m window --focus recent || yabai -m display --focus recent
+ctrl + alt - h : yabai -m window --focus west   || yabai -m display --focus west
+ctrl + alt - j : yabai -m window --focus south  || yabai -m display --focus south
+ctrl + alt - k : yabai -m window --focus north  || yabai -m display --focus north
+ctrl + alt - l : yabai -m window --focus east   || yabai -m display --focus east
 
 # reset window space
 ctrl + alt - r : yabai -m space --balance
