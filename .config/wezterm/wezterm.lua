@@ -12,7 +12,7 @@ return {
 	use_ime = true,
 
 	font = wezterm.font("HackGen35 Console NF"),
-	font_size = 12.0,
+	font_size = 16.0,
 
 	inactive_pane_hsb = {
 		saturation = 0.5,
@@ -35,9 +35,9 @@ return {
 		{ key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
 		{ key = "j", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
 
-		{ key = "h", mods = "CTRL|SHIFT|ALT", action = act.AdjustPaneSize({ "Left", 10 }) },
-		{ key = "l", mods = "CTRL|SHIFT|ALT", action = act.AdjustPaneSize({ "Right", 10 }) },
-		{ key = "k", mods = "CTRL|SHIFT|ALT", action = act.AdjustPaneSize({ "Up", 5 }) },
-		{ key = "j", mods = "CTRL|SHIFT|ALT", action = act.AdjustPaneSize({ "Down", 5 }) },
+		{ key = "w", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
+		{ key = "s", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
+		{ key = "a", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Left", 10 }) },
+		{ key = "d", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Right", 10 }) },
 	},
 }
