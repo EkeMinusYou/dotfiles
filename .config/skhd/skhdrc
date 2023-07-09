@@ -1,25 +1,32 @@
 #!/usr/bin/env sh
 
+# open chrome
+# thinking... : open -n -a "Google Chrome" --args --profile-directory="Default"
+
 # focus window
-alt - h : yabai -m window --focus west  || yabai -m display --focus west
-alt - j : yabai -m window --focus south || yabai -m display --focus south
-alt - k : yabai -m window --focus north || yabai -m display --focus north
-alt - l : yabai -m window --focus east  || yabai -m display --focus east
+ctrl + alt - h : yabai -m window --focus west  || yabai -m display --focus west
+ctrl + alt - j : yabai -m window --focus south || yabai -m display --focus south
+ctrl + alt - k : yabai -m window --focus north || yabai -m display --focus north
+ctrl + alt - l : yabai -m window --focus east  || yabai -m display --focus east
 
 # reset window space
-shift + alt - r : yabai -m space --balance
+ctrl + alt - r : yabai -m space --balance
 
 # swap window
-shift + alt - h : yabai -m window --swap west
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - l : yabai -m window --swap east
+shift + ctrl + alt - h : yabai -m window --swap west
+shift + ctrl + alt - j : yabai -m window --swap south
+shift + ctrl + alt - k : yabai -m window --swap north
+shift + ctrl + alt - l : yabai -m window --swap east
+
+# move window to next/prev display
+ctrl + alt - n : yabai -m window --display next && yabai -m display --focus next
+ctrl + alt - p : yabai -m window --display prev && yabai -m display --focus prev
 
 # resize
-shift + alt - w : yabai -m window --resize top:0:-20   || yabai -m window --resize bottom:0:-20
-shift + alt - s : yabai -m window --resize bottom:0:20 || yabai -m window --resize top:0:20
-shift + alt - a : yabai -m window --resize left:-50:0  || yabai -m window --resize right:-50:0
-shift + alt - d : yabai -m window --resize right:50:0  || yabai -m window --resize left:50:0
+ctrl + alt - w : yabai -m window --resize top:0:-20   || yabai -m window --resize bottom:0:-20
+ctrl + alt - s : yabai -m window --resize bottom:0:20 || yabai -m window --resize top:0:20
+ctrl + alt - a : yabai -m window --resize left:-50:0  || yabai -m window --resize right:-50:0
+ctrl + alt - d : yabai -m window --resize right:50:0  || yabai -m window --resize left:50:0
 
 # toggle window fullscreen zoom
-shift + alt - f : yabai -m window --toggle zoom-fullscreen
+ctrl + alt - f : yabai -m window --toggle zoom-fullscreen

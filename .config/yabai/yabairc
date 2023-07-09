@@ -11,7 +11,12 @@ yabai -m config                              \
     right_padding               0            \
     bottom_padding              0            \
     window_gap                  0            \
-    layout                      bsp
+    layout                      bsp          \
+    window_border               on           \
+    window_border_width         4            \
+    active_window_border_color  0xff775759   \
+    normal_window_border_color  0xff555555   \
+    insert_feedback_color       0xffd75f5f
 
 # disable management for specific apps
 yabai -m rule --add app="^Mail$" manage=off
