@@ -21,14 +21,18 @@ return {
 
 	audible_bell = "Disabled",
 
+	leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 },
+
 	keys = {
+		{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+		{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+
 		{ key = "n", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(1) },
 		{ key = "p", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
 
-		{ key = "v", mods = "CTRL|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-		{ key = "s", mods = "CTRL|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-
 		{ key = "c", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = true }) },
+
+		{ key = "z", mods = "CTRL|SHIFT", action = act.TogglePaneZoomState },
 
 		{ key = "h", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
 		{ key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
