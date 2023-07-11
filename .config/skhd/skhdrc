@@ -5,6 +5,8 @@ cmd + shift + ctrl + alt - m : open -a "Music"
 cmd + shift + ctrl + alt - l : open -a "Logseq"
 cmd + shift + ctrl + alt - y : open -a "Youtube"
 cmd + shift + ctrl + alt - t : open -a "WezTerm"
+cmd + shift + ctrl + alt - s : open -a "Slack"
+cmd + shift + ctrl + alt - a : open -a "Google Chrome"
 cmd + shift + ctrl + alt - c : open -n -a "Google Chrome" --args --profile-directory="Default"
 
 # focus window
