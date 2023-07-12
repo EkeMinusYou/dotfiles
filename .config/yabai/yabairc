@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 yabai -m config                              \
-    mouse_follows_focus         off          \
+    mouse_follows_focus         on           \
     focus_follows_mouse         autoraise    \
     split_ratio                 0.50         \
     split_type                  auto         \
