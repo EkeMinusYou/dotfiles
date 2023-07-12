@@ -25,6 +25,9 @@ shift + ctrl + alt - j : yabai -m window --swap south
 shift + ctrl + alt - k : yabai -m window --swap north
 shift + ctrl + alt - l : yabai -m window --swap east
 
+# toggle split type
+ctrl + alt - t : yabai -m window --toggle split
+
 # move window to next/prev display
 ctrl + alt - n : yabai -m window --display next && yabai -m display --focus next
 ctrl + alt - p : yabai -m window --display prev && yabai -m display --focus prev
