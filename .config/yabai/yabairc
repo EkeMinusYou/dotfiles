@@ -2,7 +2,7 @@
 
 yabai -m config                              \
     mouse_follows_focus         on           \
-    focus_follows_mouse         autoraise    \
+    focus_follows_mouse         autofocus    \
     split_ratio                 0.50         \
     split_type                  auto         \
     auto_balance                off          \
