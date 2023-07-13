@@ -23,7 +23,7 @@ then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fi
 
-# docker
+# import completions
 fpath=(~/.zsh/completion $fpath)
 
 # -------------------
