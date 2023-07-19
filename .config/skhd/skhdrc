@@ -19,11 +19,11 @@ ctrl + alt - l : yabai -m window --focus east   || yabai -m display --focus east
 # reset window space
 ctrl + alt - r : yabai -m space --balance
 
-# swap window
-shift + ctrl + alt - h : yabai -m window --swap west
-shift + ctrl + alt - j : yabai -m window --swap south
-shift + ctrl + alt - k : yabai -m window --swap north
-shift + ctrl + alt - l : yabai -m window --swap east
+# move window
+shift + ctrl + alt - h : yabai -m window --warp west
+shift + ctrl + alt - j : yabai -m window --warp south
+shift + ctrl + alt - k : yabai -m window --warp north
+shift + ctrl + alt - l : yabai -m window --warp east
 
 # toggle split type
 ctrl + alt - t : yabai -m window --toggle split
