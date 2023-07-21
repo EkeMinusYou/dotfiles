@@ -30,8 +30,8 @@ fpath=(~/.zsh/completion $fpath)
 # Enable Completion
 # -------------------
 
-autoload -Uz compinit
-compinit
+autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 
 # -------------------
 # Other Settings
@@ -136,7 +136,7 @@ export PATH=$HOME/.tencent/bin:$PATH
 complete -C 'tccli_completer' tccli
 
 # terraform
-complete -C terraform terraform
+complete -o nospace -C terraform terraform
 
 # ghq
 function ghq-fzf() {
