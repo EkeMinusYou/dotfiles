@@ -35,6 +35,10 @@ ln -sfn $DOT_DIR/dotfiles/.config/sheldon/plugins.toml ~/.config/sheldon/plugins
 # Setup nvim
 ln -sfn $DOT_DIR/dotfiles/.config/nvim ~/.config/
 
+# Setup GitHub CLI
+mkdir -p ~/.config/gh
+ln -sfn $DOT_DIR/dotfiles/.config/gh/config.yml ~/.config/gh/config.yml
+
 # Setup starship
 ln -sfn $DOT_DIR/dotfiles/.config/starship.toml ~/.config/starship.toml
 
