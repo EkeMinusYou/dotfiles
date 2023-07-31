@@ -126,6 +126,7 @@ eval "$(zoxide init zsh)"
 test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/path.zsh.inc || true
 test -e $HOME/google-cloud-sdk/completion.zsh.inc && source $HOME/google-cloud-sdk/completion.zsh.inc || true
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
+export CLOUDSDK_PYTHON=$(which python3.9)
 
 # direnv
 eval "$(direnv hook zsh)"
