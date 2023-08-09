@@ -14,6 +14,7 @@
   editor = nvim
 [alias]
   pl = pull
+  plr = pull --rebase origin
   st = stash -u
   sta = stash apply
   co = checkout
@@ -51,3 +52,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[branch]
+	sort = -authordate
