@@ -36,3 +36,6 @@ disabled = false
 [terraform]
 format = '[$symbol$version]($style) '
 symbol = ' '
+
+[battery]
+disabled = true
