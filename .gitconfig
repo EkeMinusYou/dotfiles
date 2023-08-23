@@ -12,6 +12,7 @@
 
 [core]
   editor = nvim
+	ignorecase = false
 [alias]
   pl = pull
   plr = pull --rebase origin
