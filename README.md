@@ -26,6 +26,12 @@ brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/BrewfileEssential"
 brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/Brewfile"
 ```
 
+#### Setup fzf
+
+```bash
+$(brew --prefix)/opt/fzf/install
+```
+
 ### Contents
 
 - Brewfile
