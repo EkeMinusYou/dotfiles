@@ -98,7 +98,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 # Kubernetes
 alias k="kubectl"
-source <(kubectl completion zsh)
+type kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
 
 # Node.js
 eval "$(fnm env --use-on-cd)"
