@@ -1,3 +1,6 @@
+if OS.linux?
+  brew "zsh"
+end
 tap "homebrew/bundle"
 brew "neovim"
 brew "fzf"
