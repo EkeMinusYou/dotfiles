@@ -8,12 +8,22 @@ EkeMinusYou's Dotfiles
 
 install
 
-- [Homebrew](https://brew.sh/index_ja)
+- [Homebrew](https://brew.sh/)
 
 ### Usage
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/main/install.sh)"
+```
+
+#### Install Brew Packages
+
+```bash
+brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/BrewfileEssential"
+```
+
+```bash
+brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/Brewfile"
 ```
 
 ### Contents
