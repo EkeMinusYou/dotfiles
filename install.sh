@@ -16,7 +16,6 @@ elif [ `uname` = "Linux" ]; then
 fi
 
 # Setup zsh
-ln -sfn $DOT_DIR/dotfiles/.zimrc ~/.zimrc
 ln -sfn $DOT_DIR/dotfiles/.zshrc ~/.zshrc
 mkdir -p ~/.zsh/
 ln -sfn $DOT_DIR/dotfiles/.zsh/completion ~/.zsh/
