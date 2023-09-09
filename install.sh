@@ -57,7 +57,5 @@ if [ `uname` == 'Darwin']; then
   ln -sfn $DOT_DIR/dotfiles/.config/skhd/skhdrc ~/.config/skhd/skhdrc
 fi
 
-
-
 # Install packages by brew
 brew bundle --file "$DOT_DIR/dotfiles/Brewfile"
