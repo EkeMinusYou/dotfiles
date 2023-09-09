@@ -4,6 +4,7 @@ end
 tap "homebrew/bundle"
 brew "neovim"
 brew "fzf"
+brew "go"
 brew "ghq"
 brew "fnm"
 brew "zoxide"
