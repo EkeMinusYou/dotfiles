@@ -34,7 +34,6 @@ return {
           'gopls',
           'jsonls',
           'lua_ls',
-          'terraformls',
           'vtsls',
         },
         automatic_installation = true,
