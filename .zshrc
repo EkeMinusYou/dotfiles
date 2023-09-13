@@ -49,6 +49,9 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt SHARE_HISTORY
+setopt AUTO_PUSHD
+setopt AUTO_CD
+setopt PUSHD_IGNORE_DUPS
 
 zshaddhistory() {
   local line=${1%%$'\n'}
