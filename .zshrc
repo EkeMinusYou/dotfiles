@@ -62,15 +62,10 @@ zshaddhistory() {
      && ${cmd} != ls
      && ${cmd} != z
      && ${cmd} != cd
-     && ${cmd} != v
-     && ${cmd} != vim
-     && ${cmd} != nvim
      && ${cmd} != more
      && ${cmd} != less
      && ${cmd} != ping
      && ${cmd} != which
-     && ${cmd} != cat
-     && ${cmd} != bat
   ]]
 }
 
