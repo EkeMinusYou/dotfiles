@@ -127,7 +127,7 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 export CLOUDSDK_PYTHON=$(which python3.9)
 
 # direnv
-eval "$(direnv hook zsh)"
+type direnv >/dev/null 2>&1 && source <(direnv hook zsh)
 export DIRENV_LOG_FORMAT=
 
 # tencent
