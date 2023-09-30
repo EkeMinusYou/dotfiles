@@ -33,6 +33,9 @@ disabled = false
 'gke_(?P<var_env>.+)_asia-northeast.+' = '$var_env'
 'cls-(?P<var_env>.+)-context-default' = '$var_env'
 
+[hostname]
+disabled = false
+
 [terraform]
 format = '[$symbol$version]($style) '
 symbol = ' '
