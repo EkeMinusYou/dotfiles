@@ -68,7 +68,7 @@ return {
   },
   {
     'glepnir/lspsaga.nvim',
-    event = 'BufRead',
+    event = 'LspAttach',
     keys = {
       { 'gr', '<cmd>Lspsaga finder<cr>' },
       { 'gn', '<cmd>Lspsaga rename<cr>' },
