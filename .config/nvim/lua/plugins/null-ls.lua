@@ -1,7 +1,7 @@
 local helper = require('utils.helper')
 
 return {
-  'jose-elias-alvarez/null-ls.nvim',
+  'nvimtools/none-ls.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
   event = 'VeryLazy',
   config = function()
@@ -13,16 +13,19 @@ return {
           condition = function()
             return helper.local_has_file({ '.prettierrc' })
           end,
+          diagnostics_format = '[prettier] #{m}\n(#{c})',
         }),
         null_ls.builtins.formatting.eslint_d.with({
           condition = function()
             return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs' })
           end,
+          diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
-        null_ls.builtins.formatting.rome.with({
+        null_ls.builtins.formatting.biome.with({
           condition = function()
-            return helper.local_has_file({ 'rome.json' })
+            return helper.local_has_file({ 'biome.json' })
           end,
+          diagnostics_format = '[biome] #{m}\n(#{c})',
         }),
         null_ls.builtins.diagnostics.eslint_d.with({
           condition = function()
