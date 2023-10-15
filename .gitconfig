@@ -14,10 +14,12 @@
   editor = nvim
 	ignorecase = false
 [alias]
+  a = add
   pl = pull
   plr = pull --rebase origin
   st = stash -u
   sta = stash apply
+  cm = commit -m
   co = checkout
   sw = switch
   ps = push
