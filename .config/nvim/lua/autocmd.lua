@@ -24,6 +24,14 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Highlight on yank
+-- See https://github.com/LazyVim/LazyVim/blob/53e1637a864cb7e8f21af107b8073bc8b24acd11/lua/lazyvim/config/autocmds.lua#L7
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
 -- See https://www.reddit.com/r/neovim/comments/zy5s0l/you_dont_need_vimrooter_usually_or_how_to_set_up/
 local root_names = { '.git' }
 local root_cache = {}
