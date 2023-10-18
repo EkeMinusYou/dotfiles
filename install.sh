@@ -46,6 +46,10 @@ ln -sfn $DOT_DIR/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/k
 mkdir -p ~/.config/wezterm
 ln -sfn $DOT_DIR/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 
+# Setup gh dash
+mkdir -p ~/.config/gh-dash
+ln -sfn $DOT_DIR/dotfiles/.config/gh-dash/config.yml ~/.config/gh-dash/config.yml
+
 if [ `uname` == 'Darwin']; then
   # Setup yabai and skhd
   mkdir -p ~/.config/yabai
