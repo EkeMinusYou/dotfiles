@@ -7,6 +7,7 @@ vim.keymap.set('i', '<c-p>', '<up>')
 vim.keymap.set('i', '<c-n>', '<down>')
 vim.keymap.set('i', '<c-a>', '<c-o>0')
 vim.keymap.set('i', '<c-e>', '<c-o>$')
+vim.keymap.set('i', '<c-s>', '<cmd>update<cr>')
 vim.keymap.set('i', '<m-b>', '<c-o>b')
 vim.keymap.set('i', '<m-f>', '<c-o>w')
 
