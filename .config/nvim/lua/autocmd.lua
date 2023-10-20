@@ -56,3 +56,11 @@ local set_root = function()
 end
 
 vim.api.nvim_create_autocmd('BufEnter', { callback = set_root })
+
+local disable_ime = function()
+  if vim.fn.has('mac') == 1 then
+    vim.fn.system('im-select com.apple.keylayout.ABC')
+  end
+end
+
+vim.api.nvim_create_autocmd('InsertLeave', { callback = disable_ime })
