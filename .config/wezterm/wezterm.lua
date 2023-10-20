@@ -27,6 +27,8 @@ return {
 		{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 		{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 
+		{ key = "q", mods = "CTRL|SHIFT", action = act.QuickSelect },
+
 		{ key = "n", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(1) },
 		{ key = "p", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
 
