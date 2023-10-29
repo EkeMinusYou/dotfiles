@@ -75,4 +75,4 @@ local enable_ime = function()
 end
 
 vim.api.nvim_create_autocmd('InsertLeave', { callback = disable_ime })
-vim.api.nvim_create_autocmd('InsertEnter', { callback = enable_ime })
+-- vim.api.nvim_create_autocmd('InsertEnter', { callback = enable_ime })
