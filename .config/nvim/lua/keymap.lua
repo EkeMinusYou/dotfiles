@@ -27,3 +27,6 @@ vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 -- vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<cr>')
 -- vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 -- vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+
+-- kensaku
+vim.keymap.set('c', '<CR>', '<Plug>(kensaku-search-replace)<CR>')
