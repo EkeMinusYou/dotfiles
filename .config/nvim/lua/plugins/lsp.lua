@@ -1,4 +1,3 @@
-local helper = require('utils.helper')
 return {
   {
     'neovim/nvim-lspconfig',
