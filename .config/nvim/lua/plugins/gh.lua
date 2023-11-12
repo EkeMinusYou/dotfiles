@@ -8,5 +8,5 @@ local install = function(spec)
 end
 
 return {
-  { 'dlvhdr/gh-dash', build = { 'go build', install } },
+  { 'dlvhdr/gh-dash', build = { 'go build', install }, lazy = true },
 }
