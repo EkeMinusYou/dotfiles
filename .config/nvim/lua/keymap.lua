@@ -27,6 +27,3 @@ vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 -- vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<cr>')
 -- vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 -- vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-
--- ime
--- vim.keymap.set('n', '<c-j>', '<cmd>lua require("utils.ime").toggle_ime_auto_enable()<cr>')
