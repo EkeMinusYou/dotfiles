@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 return {
-	color_scheme = "Afterglow",
+	color_scheme = "kanagawabones",
 	window_decorations = "RESIZE",
 	tab_bar_at_bottom = true,
 
