@@ -15,6 +15,10 @@ elif [ `uname` = "Linux" ]; then
   ln -sfn $DOT_DIR/dotfiles/.gitconfig-linux ~/.gitconfig-os
 fi
 
+# gitignore
+mkdir -p ~/.config/git
+ln -sfn $DOT_DIR/dotfiles/.config/git/ignore ~/.config/git/ignore
+
 # Setup zsh
 ln -sfn $DOT_DIR/dotfiles/.zshrc ~/.zshrc
 mkdir -p ~/.zsh/
