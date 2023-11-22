@@ -11,6 +11,9 @@ vim.keymap.set('i', '<c-s>', '<cmd>update<cr>')
 vim.keymap.set('i', '<m-b>', '<c-o>b')
 vim.keymap.set('i', '<m-f>', '<c-o>w')
 
+-- tab
+vim.keymap.set('n', '<leader>c', '<cmd>tabclose<cr>')
+
 -- lsp
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
 vim.keymap.set('n', 'gf', function()
