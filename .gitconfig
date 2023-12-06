@@ -13,20 +13,6 @@
 [core]
   editor = nvim
 	ignorecase = false
-[alias]
-  a = add
-  pl = pull
-  plr = pull --rebase origin
-  st = stash -u
-  sta = stash apply
-  cm = commit -m
-  co = checkout
-  sw = switch
-  ps = push
-  psf = push --force-with-lease
-  lgo = log --oneline
-  com = !git switch $(gh repo view --json "defaultBranchRef" --jq ".defaultBranchRef.name")
-  plrm = !git pull --rebase origin $(gh repo view --json "defaultBranchRef" --jq ".defaultBranchRef.name")
 [init]
   defaultBranch = main
 [pull]

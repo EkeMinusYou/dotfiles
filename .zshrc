@@ -93,6 +93,19 @@ export EDITOR=$(which nvim)
 # Git
 alias g="git"
 alias zg='cd "$(git rev-parse --show-toplevel)"'
+alias "ga"="git add"
+alias "gpl"="git pull"
+alias "gplr"="git pull --rebase origin"
+alias "gst"="git stash -u"
+alias "gsta"="git stash apply"
+alias "gcm"="git commit -m"
+alias "gco"="git checkout"
+alias "gsw"="git switch"
+alias "gps"="git push"
+alias "gpsf"="git push --force-with-lease"
+alias "glgo"="git log --oneline"
+alias "gcom"="git switch $(gh repo view --json "defaultBranchRef" --jq ".defaultBranchRef.name")"
+alias "gplrm"="git pull --rebase origin $(gh repo view --json "defaultBranchRef" --jq ".defaultBranchRef.name")"
 
 # lazygit
 export XDG_CONFIG_HOME=$HOME/.config
