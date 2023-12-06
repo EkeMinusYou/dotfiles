@@ -84,11 +84,14 @@ alias ll="ls -la"
 alias ls="lsd"
 
 # vim
-alias v="vim"
+alias v="nvim"
 alias vim="nvim"
 
 # Default Editor
 export EDITOR=$(which nvim)
+
+# XDG
+export XDG_CONFIG_HOME=$HOME/.config
 
 # Git
 alias g="git"
@@ -106,9 +109,6 @@ alias "gpsf"="git push --force-with-lease"
 alias "glgo"="git log --oneline"
 alias "gcom"="git switch $(gh repo view --json "defaultBranchRef" --jq ".defaultBranchRef.name")"
 alias "gplrm"="git pull --rebase origin $(gh repo view --json "defaultBranchRef" --jq ".defaultBranchRef.name")"
-
-# lazygit
-export XDG_CONFIG_HOME=$HOME/.config
 
 # Kubernetes
 alias k="kubectl"
