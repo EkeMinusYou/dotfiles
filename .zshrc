@@ -166,6 +166,18 @@ if [ $commands[lovot] ]; then
   source <(lovot completion zsh)
 fi
 
+# expand alias
+function expand-alias() {
+  local words=(${(z)LBUFFER})
+  local word="${words[1]}"
+  if [[ "$word" != "ls" && "$word" != "ll" && "$word" != "z" ]]; then
+    zle _expand_alias
+  fi
+  zle self-insert
+}
+zle -N expand-alias
+bindkey -M main ' ' expand-alias
+
 # -------------------
 # Before Load Plugins
 # -------------------
