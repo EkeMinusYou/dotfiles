@@ -112,6 +112,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 # Kubernetes
 alias k="kubectl"
+alias kg="kubectl get"
+alias kd="kubectl describe"
+alias kl="kubectl logs"
+alias kt="kubectl top"
 type kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
 
 # Node.js
