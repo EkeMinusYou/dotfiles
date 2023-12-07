@@ -110,6 +110,10 @@ alias glgo="git log --oneline"
 alias gcom="git switch \$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)"
 alias gplrm="git pull --rebase origin \$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)"
 
+# GitHub
+alias ghb="gh browse"
+alias ghpw="gh pr view --web"
+
 # Kubernetes
 alias k="kubectl"
 alias kg="kubectl get"
