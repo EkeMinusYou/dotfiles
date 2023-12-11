@@ -192,9 +192,11 @@ fi
 
 # expand alias
 function expand-alias() {
+  local no_expand_commands=("ls" "ll" "z")
+
   local words=(${(z)LBUFFER})
-  local word="${words[1]}"
-  if [[ "$word" != "ls" && "$word" != "ll" && "$word" != "z" ]]; then
+  local word="${words[-1]}"
+  if [[ ! "${no_expand_commands[(r)$word]}" ]]; then
     zle _expand_alias
   fi
   zle self-insert
