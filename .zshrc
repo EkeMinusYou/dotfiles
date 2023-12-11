@@ -78,8 +78,13 @@ source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# coreutils
+alias ln="gln"
+alias wc="gwc"
+
 # pipe
 alias -g G='| grep'
+alias -g C='| wc -l'
 
 # lsd
 alias l="ls"
