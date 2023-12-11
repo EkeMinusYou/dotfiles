@@ -85,6 +85,10 @@ alias wc="gwc"
 # pipe
 alias -g G='| grep'
 alias -g C='| wc -l'
+alias -g T='| tail'
+alias -g H='| head'
+alias -g L='| less'
+alias -g M='| more'
 
 # lsd
 alias l="ls"
