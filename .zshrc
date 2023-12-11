@@ -78,6 +78,9 @@ source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# pipe
+alias -g G='| grep'
+
 # lsd
 alias l="ls"
 alias ll="ls -la"
