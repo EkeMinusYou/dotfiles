@@ -79,8 +79,6 @@ zshaddhistory() {
   # Only those that satisfy all of the following conditions are added to the history
   [[ ${#line} -ge 5
      && ${cmd} != ls
-     && ${cmd} != z
-     && ${cmd} != zi
      && ${cmd} != cd
      && ${cmd} != cdr
      && ${cmd} != cdd
@@ -126,7 +124,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 # Git
 alias g="git"
-alias zg='cd "$(git rev-parse --show-toplevel)"'
+alias cr='cd "$(git rev-parse --show-toplevel)"'
 alias ga="git add"
 alias gpl="git pull"
 alias gplr="git pull --rebase origin"
@@ -172,9 +170,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 
 # VSCode
 alias e='code -a .'
-
-# zoxide
-eval "$(zoxide init zsh)"
 
 # gcloud
 test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/path.zsh.inc || true
@@ -231,7 +226,7 @@ alias cdd="fzf-cdr"
 
 # expand alias
 function expand-alias() {
-  local no_expand_commands=("ls" "ll" "z" "zi" "cdd" "ln" "wc" "zi")
+  local no_expand_commands=("ls" "ll" "cdd" "ln" "wc")
 
   local words=(${(z)LBUFFER})
   local word="${words[-1]}"
@@ -249,7 +244,6 @@ bindkey -M main ' ' expand-alias
 
 # zsh-autocomplete
 zstyle ':autocomplete:*' fzf-completion yes
-zstyle ':autocomplete:*' recent-dirs zoxide
 zstyle ':autocomplete:*' list-lines 50
 zstyle ':autocomplete:history-*:*' list-lines 5
 zstyle ':autocomplete:*' delay 0

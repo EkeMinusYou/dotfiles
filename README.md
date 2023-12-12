@@ -43,7 +43,6 @@ $(brew --prefix)/opt/fzf/install
 
 - zsh - shell
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
-- [zoxide](https://github.com/ajeetdsouza/zoxide) - smarter cd command
 
 ### Version Manager
 
