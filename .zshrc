@@ -202,7 +202,7 @@ fi
 
 # expand alias
 function expand-alias() {
-  local no_expand_commands=("ls" "ll" "z")
+  local no_expand_commands=("ls" "ll" "z" "ln" "wc")
 
   local words=(${(z)LBUFFER})
   local word="${words[-1]}"
