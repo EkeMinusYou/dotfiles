@@ -10,10 +10,8 @@ return {
     { 'hrsh7th/cmp-nvim-lsp-signature-help' },
     { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
     { 'hrsh7th/vim-vsnip-integ' },
-    { 'hrsh7th/vim-vsnip' },
+    { 'EkeMinusYou/vim-vsnip' },
     { 'onsails/lspkind.nvim' },
-    -- for snippets
-    { 'golang/vscode-go' },
   },
   config = function()
     local cmp = require('cmp')
