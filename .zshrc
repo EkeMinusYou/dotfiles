@@ -34,6 +34,22 @@ autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 # -------------------
+# Add Zsh Hook
+# -------------------
+
+autoload -Uz add-zsh-hook
+
+# -------------------
+# Recent Directories
+# -------------------
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-prune parent
+
+autoload -Uz chpwd_recent_dirs cdr
+add-zsh-hook chpwd chpwd_recent_dirs
+
+# -------------------
 # Other Settings
 # -------------------
 
@@ -64,7 +80,9 @@ zshaddhistory() {
   [[ ${#line} -ge 5
      && ${cmd} != ls
      && ${cmd} != z
+     && ${cmd} != zi
      && ${cmd} != cd
+     && ${cmd} != cdr
      && ${cmd} != more
      && ${cmd} != less
      && ${cmd} != ping
@@ -202,7 +220,7 @@ fi
 
 # expand alias
 function expand-alias() {
-  local no_expand_commands=("ls" "ll" "z" "ln" "wc")
+  local no_expand_commands=("ls" "ll" "z" "zi" "ln" "wc" "zi")
 
   local words=(${(z)LBUFFER})
   local word="${words[-1]}"
