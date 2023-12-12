@@ -125,6 +125,7 @@ alias gplrm="git pull --rebase origin \$(gh repo view --json defaultBranchRef --
 # GitHub
 alias ghb="gh browse"
 alias ghpw="gh pr view --web"
+alias ghpc="gh pr create"
 
 # Kubernetes
 alias k="kubectl"
