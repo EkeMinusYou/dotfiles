@@ -116,6 +116,9 @@ alias ls="lsd"
 alias v="nvim"
 alias vim="nvim"
 
+# trash
+alias rm="trash"
+
 # Default Editor
 export EDITOR=$(which nvim)
 
@@ -226,7 +229,7 @@ alias cdd="fzf-cdr"
 
 # expand alias
 function expand-alias() {
-  local no_expand_commands=("ls" "ll" "cdd" "ln" "wc")
+  local no_expand_commands=("ls" "ll" "cdd" "ln" "wc" "rm")
 
   local words=(${(z)LBUFFER})
   local word="${words[-1]}"
