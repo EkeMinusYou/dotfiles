@@ -12,6 +12,8 @@ return {
     { 'hrsh7th/vim-vsnip-integ' },
     { 'hrsh7th/vim-vsnip' },
     { 'onsails/lspkind.nvim' },
+    -- for snippets
+    { 'golang/vscode-go' },
   },
   config = function()
     local cmp = require('cmp')
