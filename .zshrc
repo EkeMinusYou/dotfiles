@@ -83,6 +83,7 @@ zshaddhistory() {
      && ${cmd} != zi
      && ${cmd} != cd
      && ${cmd} != cdr
+     && ${cmd} != cdd
      && ${cmd} != more
      && ${cmd} != less
      && ${cmd} != ping
@@ -218,9 +219,19 @@ if [ $commands[lovot] ]; then
   source <(lovot completion zsh)
 fi
 
+# fzf-cdr
+function fzf-cdr() {
+  target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
+  target_dir=`echo ${target_dir/\~/$HOME}`
+  if [ -n "$target_dir" ]; then
+      cd $target_dir
+  fi
+}
+alias cdd="fzf-cdr"
+
 # expand alias
 function expand-alias() {
-  local no_expand_commands=("ls" "ll" "z" "zi" "ln" "wc" "zi")
+  local no_expand_commands=("ls" "ll" "z" "zi" "cdd" "ln" "wc" "zi")
 
   local words=(${(z)LBUFFER})
   local word="${words[-1]}"
