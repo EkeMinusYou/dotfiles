@@ -20,6 +20,7 @@ return {
       'neovim/nvim-lspconfig',
       'williamboman/mason.nvim',
       'folke/neodev.nvim',
+      'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
       require('neodev').setup({
@@ -41,8 +42,11 @@ return {
       require('mason-lspconfig').setup_handlers({
         function(server_name)
           local lspconfig = require('lspconfig')
+          local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
           if server_name == 'lua_ls' then
             lspconfig.lua_ls.setup({
+              capabilities = capabilities,
               settings = {
                 Lua = {
                   completion = {
@@ -53,13 +57,16 @@ return {
             })
           elseif server_name == 'helm_ls' then
             lspconfig.helm_ls.setup({
+              capabilities = capabilities,
               filetypes = { 'helm', 'yaml' },
               root_dir = function(fname)
                 return lspconfig.util.root_pattern('Chart.yaml')(fname)
               end,
             })
           else
-            lspconfig[server_name].setup({})
+            lspconfig[server_name].setup({
+              capabilities = capabilities,
+            })
           end
         end,
       })
