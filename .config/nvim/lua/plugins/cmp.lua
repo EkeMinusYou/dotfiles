@@ -10,7 +10,7 @@ return {
     { 'hrsh7th/cmp-nvim-lsp-signature-help' },
     { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
     { 'hrsh7th/vim-vsnip-integ' },
-    { 'EkeMinusYou/vim-vsnip' },
+    { 'hrsh7th/vim-vsnip' },
     { 'onsails/lspkind.nvim' },
   },
   config = function()

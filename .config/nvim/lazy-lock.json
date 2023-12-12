@@ -47,7 +47,7 @@
   "trouble.nvim": { "branch": "main", "commit": "f1168feada93c0154ede4d1fe9183bf69bac54ea" },
   "vim-vsnip": { "branch": "master", "commit": "1621659dc7ef106b76e233ed13a92495942ef779" },
   "vim-vsnip-integ": { "branch": "master", "commit": "1914e72cf3de70df7f5dde476cd299aba2440aef" },
-  "vscode": { "branch": "main", "commit": "cb0ff849b874492a8783aacbe2d54147e8d11c3e" },
+  "vscode": { "branch": "main", "commit": "dc3b949a175d12f1621adff080da0c6e0b4a880f" },
   "vscode-go": { "branch": "master", "commit": "d6fb20289a8484e57dc4fa21a2f44094de7f1a5b" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
   "yanky.nvim": { "branch": "main", "commit": "6bb9ffd3cad4c9876bda54e19d0659de28a4f84f" }
