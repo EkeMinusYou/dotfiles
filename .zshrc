@@ -217,15 +217,15 @@ if [ $commands[lovot] ]; then
   source <(lovot completion zsh)
 fi
 
-# fzf-cdr
-function fzf-cdr() {
-  target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf --height 40% --reverse`
-  target_dir=`echo ${target_dir/\~/$HOME}`
-  if [ -n "$target_dir" ]; then
-      cd $target_dir
+# cdr-fzf
+function cdr-fzf() {
+  local src=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf --height 40% --reverse`
+  src=`echo ${src/\~/$HOME}`
+  if [ -n "$src" ]; then
+    cd $src
   fi
 }
-alias cdd="fzf-cdr"
+alias cdd="cdr-fzf"
 
 # expand alias
 function expand-alias() {
