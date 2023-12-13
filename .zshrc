@@ -116,9 +116,6 @@ alias ls="lsd"
 alias v="nvim"
 alias vim="nvim"
 
-# trash
-alias rm="trash"
-
 # Default Editor
 export EDITOR=$(which nvim)
 
