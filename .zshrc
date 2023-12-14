@@ -206,7 +206,6 @@ fi
 # Functions
 # -------------------
 
-# ghq
 function ghq-fzf() {
   local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
   if [ -n "$src" ]; then
@@ -218,17 +217,17 @@ function ghq-fzf() {
 zle -N ghq-fzf
 bindkey '^]' ghq-fzf
 
-# cdr-fzf
 function cdr-fzf() {
-  local src=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf --height 40% --reverse`
-  src=`echo ${src/\~/$HOME}`
+  local src=$(cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf --height 40% --reverse)
   if [ -n "$src" ]; then
-    cd $src
+    BUFFER="cd $src"
+    zle accept-line
   fi
+  zle -R -c
 }
-alias cdd="cdr-fzf"
+zle -N cdr-fzf
+bindkey '^[' cdr-fzf
 
-# expand alias
 function expand-alias() {
   local no_expand_commands=("ls" "ll" "cdd" "ln" "wc" "rm")
 
@@ -242,7 +241,6 @@ function expand-alias() {
 zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
-# paste-as-yank
 function paste-as-yank() {
   pbpaste
 }
