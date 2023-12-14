@@ -190,18 +190,6 @@ complete -C 'tccli_completer' tccli
 # terraform
 complete -o nospace -C terraform terraform
 
-# ghq
-function ghq-fzf() {
-  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
-  if [ -n "$src" ]; then
-    BUFFER="cd $(ghq root)/$src"
-    zle accept-line
-  fi
-  zle -R -c
-}
-zle -N ghq-fzf
-bindkey '^]' ghq-fzf
-
 # iterm2
 test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
 
@@ -213,6 +201,22 @@ export PATH=$HOME/.lovot/bin:$PATH
 if [ $commands[lovot] ]; then
   source <(lovot completion zsh)
 fi
+
+# -------------------
+# Functions
+# -------------------
+
+# ghq
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^]' ghq-fzf
 
 # cdr-fzf
 function cdr-fzf() {
