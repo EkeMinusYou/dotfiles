@@ -6,6 +6,7 @@ return {
     { '<c-n>', '<Plug>(YankyCycleForward)', mode = { 'n', 'x' } },
     { '<c-p>', '<Plug>(YankyCycleBackward)', mode = { 'n', 'x' } },
   },
+  event = { 'VeryLazy' },
   config = function()
     require('yanky').setup()
   end,
