@@ -238,6 +238,13 @@ function expand-alias() {
 zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
+# paste-as-yank
+function paste-as-yank() {
+  pbpaste
+}
+zle -N paste-as-yank
+bindkey "^y" paste-as-yank
+
 # -------------------
 # Before Load Plugins
 # -------------------
