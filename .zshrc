@@ -242,7 +242,9 @@ zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
 function paste-as-yank() {
-  pbpaste
+  BUFFER=$(pbpaste) 
+  CURSOR=$#BUFFER 
+  zle redisplay
 }
 zle -N paste-as-yank
 bindkey "^y" paste-as-yank
