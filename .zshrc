@@ -218,7 +218,7 @@ zle -N ghq-fzf
 bindkey '^]' ghq-fzf
 
 function cdr-fzf() {
-  local src=$(cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf --height 40% --reverse)
+  local src=$(cdr -l | awk '{print $2}' | fzf --height 40% --reverse)
   if [ -n "$src" ]; then
     BUFFER="cd $src"
     zle accept-line
