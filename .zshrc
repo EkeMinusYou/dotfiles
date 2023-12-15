@@ -107,6 +107,10 @@ alias -g H='| head'
 alias -g L='| less'
 alias -g M='| more'
 
+# cd
+alias c="cd"
+alias ...="cd ../.."
+
 # lsd
 alias l="ls"
 alias ll="ls -la"
@@ -229,7 +233,7 @@ zle -N cdr-fzf
 bindkey '^[' cdr-fzf
 
 function expand-alias() {
-  local no_expand_commands=("ls" "ll" "cdd" "ln" "wc" "rm")
+  local no_expand_commands=("ls" "ll" "c" "ln" "wc" "rm")
 
   local words=(${(z)LBUFFER})
   local word="${words[-1]}"
