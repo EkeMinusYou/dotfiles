@@ -244,6 +244,19 @@ function expand-alias() {
 zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
+function expand-alias-accept-line() {
+  local no_expand_commands=("ls" "ll" "ln" "wc" "rm")
+
+  local words=(${(z)LBUFFER})
+  local word="${words[-1]}"
+  if [[ ! "${no_expand_commands[(r)$word]}" ]]; then
+    zle _expand_alias
+  fi
+  zle .reset-prompt
+  zle .accept-line
+}
+zle -N accept-line expand-alias-accept-line
+
 function paste-as-yank() {
   BUFFER=$(pbpaste) 
   CURSOR=$#BUFFER 
