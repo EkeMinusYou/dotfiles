@@ -230,7 +230,7 @@ function cdr-fzf() {
   zle -R -c
 }
 zle -N cdr-fzf
-bindkey '^[' cdr-fzf
+bindkey '^z' cdr-fzf
 
 function expand-alias() {
   local no_expand_commands=("ls" "ll" "c" "ln" "wc" "rm")
