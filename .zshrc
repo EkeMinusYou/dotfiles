@@ -81,7 +81,6 @@ zshaddhistory() {
      && ${cmd} != ls
      && ${cmd} != cd
      && ${cmd} != cdr
-     && ${cmd} != cdd
      && ${cmd} != more
      && ${cmd} != less
      && ${cmd} != ping
@@ -233,7 +232,7 @@ zle -N cdr-fzf
 bindkey '^z' cdr-fzf
 
 function expand-alias() {
-  local no_expand_commands=("ls" "ll" "c" "ln" "wc" "rm")
+  local no_expand_commands=("ls" "ll" "ln" "wc" "rm")
 
   local words=(${(z)LBUFFER})
   local word="${words[-1]}"
