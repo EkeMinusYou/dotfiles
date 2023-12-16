@@ -3,16 +3,17 @@ local act = wezterm.action
 
 return {
 	color_scheme = "kanagawabones",
-	window_decorations = "RESIZE",
 	tab_bar_at_bottom = true,
-
+	window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW",
+	window_background_opacity = 0.9,
+	macos_window_background_blur = 9,
 	window_close_confirmation = "NeverPrompt",
 	native_macos_fullscreen_mode = true,
 	hide_tab_bar_if_only_one_tab = true,
 	use_ime = true,
 
 	font = wezterm.font("HackGen35 Console NF"),
-	font_size = 16.0,
+	font_size = 20.0,
 
 	inactive_pane_hsb = {
 		saturation = 0.5,
