@@ -231,9 +231,9 @@ function cdr-fzf() {
 zle -N cdr-fzf
 bindkey '^z' cdr-fzf
 
-function expand-alias() {
-  local no_expand_commands=("ls" "ll" "ln" "wc" "rm")
+local no_expand_commands=("ls" "ll" "ln" "wc" "rm")
 
+function expand-alias() {
   local words=(${(z)LBUFFER})
   local word="${words[-1]}"
   if [[ ! "${no_expand_commands[(r)$word]}" ]]; then
@@ -245,8 +245,6 @@ zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
 function expand-alias-accept-line() {
-  local no_expand_commands=("ls" "ll" "ln" "wc" "rm")
-
   local words=(${(z)LBUFFER})
   local word="${words[-1]}"
   if [[ ! "${no_expand_commands[(r)$word]}" ]]; then
