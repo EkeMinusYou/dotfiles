@@ -99,12 +99,12 @@ alias ln="gln"
 alias wc="gwc"
 
 # pipe
-alias -g G='| grep'
 alias -g C='| wc -l'
-alias -g T='| tail'
+alias -g G='| grep'
 alias -g H='| head'
 alias -g L='| less'
 alias -g M='| more'
+alias -g T='| tail'
 
 # cd
 alias c="cd"
