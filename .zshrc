@@ -231,7 +231,7 @@ function cdr-fzf() {
 zle -N cdr-fzf
 bindkey '^z' cdr-fzf
 
-local no_expand_commands=("ls" "ll" "ln" "wc" "rm")
+local no_expand_commands=("ls" "ll" "ln" "wc")
 
 function expand-alias() {
   local words=(${(z)LBUFFER})
