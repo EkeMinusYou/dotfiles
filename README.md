@@ -19,10 +19,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/mai
 #### Install Brew Packages
 
 ```bash
-brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/BrewfileEssential"
-```
-
-```bash
 brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/Brewfile"
 ```
 
