@@ -92,6 +92,9 @@ return {
             quit = 'q',
           },
         },
+        rename = {
+          auto_save = true,
+        },
       })
     end,
   },
