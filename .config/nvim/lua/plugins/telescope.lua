@@ -3,11 +3,12 @@ return {
   dependencies = {
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { 'nvim-telescope/telescope-live-grep-args.nvim' },
   },
   event = 'VeryLazy',
   keys = {
     { '<leader>ff', '<cmd>Telescope find_files<cr>' },
-    { '<leader>fg', '<cmd>Telescope live_grep<cr>' },
+    { '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" },
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fs', '<cmd>Telescope git_status<cr>' },
   },
@@ -40,6 +41,8 @@ return {
         },
       },
     })
+
     telescope.load_extension('fzf')
+    telescope.load_extension('live_grep_args')
   end,
 }

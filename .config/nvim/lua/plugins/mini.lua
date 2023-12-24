@@ -57,4 +57,14 @@ return {
       require('mini.comment').setup({})
     end,
   },
+  {
+    'echasnovski/mini.files',
+    keys = {
+      { '<leader>ee', ':lua MiniFiles.open()<cr>' },
+    },
+    event = 'VeryLazy',
+    config = function()
+      require('mini.files').setup()
+    end,
+  },
 }
