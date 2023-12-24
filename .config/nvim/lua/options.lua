@@ -33,4 +33,3 @@ vim.g.loaded_netrwPlugin = 1
 
 -- theme
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('kanagawa-wave')
