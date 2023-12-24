@@ -60,7 +60,7 @@ return {
   {
     'echasnovski/mini.files',
     keys = {
-      { '<leader>ee', ':lua MiniFiles.open()<cr>' },
+      { '<leader>e', ':lua MiniFiles.open()<cr>' },
     },
     event = 'VeryLazy',
     config = function()
