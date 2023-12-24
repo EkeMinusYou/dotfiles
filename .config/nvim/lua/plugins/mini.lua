@@ -64,7 +64,18 @@ return {
     },
     event = 'VeryLazy',
     config = function()
-      require('mini.files').setup()
+      require('mini.files').setup({
+        options = {
+          permanent_delete = false,
+        },
+
+        windows = {
+          preview = true,
+          width_focus = 20,
+          width_nofocus = 20,
+          width_preview = 100,
+        },
+      })
     end,
   },
 }
