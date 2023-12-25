@@ -22,6 +22,9 @@ return {
 
 	audible_bell = "Disabled",
 
+	-- See: https://github.com/wez/wezterm/issues/4051
+	send_composed_key_when_left_alt_is_pressed = true,
+
 	leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 },
 
 	keys = {
