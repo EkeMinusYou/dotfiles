@@ -60,7 +60,7 @@ return {
   {
     'echasnovski/mini.files',
     keys = {
-      { '<leader>e', ':lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>' },
+      { '<leader>e', '<cmd>:lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>' },
     },
     event = 'VeryLazy',
     config = function()

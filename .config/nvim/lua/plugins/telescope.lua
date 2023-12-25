@@ -8,7 +8,7 @@ return {
   event = 'VeryLazy',
   keys = {
     { '<leader>ff', '<cmd>Telescope find_files<cr>' },
-    { '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" },
+    { '<leader>fg', "<cmd>:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" },
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fs', '<cmd>Telescope git_status<cr>' },
   },
