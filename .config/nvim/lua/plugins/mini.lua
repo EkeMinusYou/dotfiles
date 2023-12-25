@@ -57,29 +57,4 @@ return {
       require('mini.comment').setup({})
     end,
   },
-  {
-    'echasnovski/mini.files',
-    keys = {
-      { '<leader>e', '<cmd>:lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<cr>' },
-    },
-    event = 'VeryLazy',
-    config = function()
-      require('mini.files').setup({
-        mappings = {
-          go_in = 'L',
-          go_in_plus = 'l',
-          go_out_plus = '-',
-        },
-        options = {
-          permanent_delete = false,
-        },
-        windows = {
-          preview = true,
-          width_focus = 40,
-          width_nofocus = 40,
-          width_preview = 100,
-        },
-      })
-    end,
-  },
 }
