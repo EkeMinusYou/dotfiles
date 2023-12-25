@@ -27,6 +27,10 @@ return {
           '%.gen.go',
           '%.gw.go',
         },
+        sorting_strategy = 'ascending',
+        layout_strategy = 'horizontal',
+        layout_config = { prompt_position = 'top' },
+        border = true,
       },
       pickers = {
         find_files = { hidden = true },
@@ -66,6 +70,7 @@ return {
         },
         file_browser = {
           hidden = { file_browser = true, folder_browser = true },
+          grouped = true,
           mappings = {
             ['i'] = {
               ['<A-c>'] = fb_actions.create,
