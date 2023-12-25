@@ -65,6 +65,11 @@ return {
     event = 'VeryLazy',
     config = function()
       require('mini.files').setup({
+        mappings = {
+          go_in = 'L',
+          go_in_plus = 'l',
+          go_out_plus = '-',
+        },
         options = {
           permanent_delete = false,
         },
