@@ -8,12 +8,12 @@ return {
   },
   event = 'VeryLazy',
   keys = {
-    { '<leader>f', '<cmd>Telescope find_files<cr>' },
+    { '<leader>ff', '<cmd>Telescope find_files<cr>' },
     { '<leader>e', '<cmd>Telescope file_browser<cr>' },
     { '<leader>c', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>' },
-    { '<leader>tg', "<cmd>:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" },
-    { '<leader>tb', '<cmd>Telescope buffers<cr>' },
-    { '<leader>ts', '<cmd>Telescope git_status<cr>' },
+    { '<leader>fg', "<cmd>:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" },
+    { '<leader>fb', '<cmd>Telescope buffers<cr>' },
+    { '<leader>fs', '<cmd>Telescope git_status<cr>' },
   },
   config = function()
     local telescope = require('telescope')
