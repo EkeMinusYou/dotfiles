@@ -129,6 +129,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 alias g="git"
 alias cr='cd "$(git rev-parse --show-toplevel)"'
 alias ga="git add"
+alias gbr="git branch --all | fzf --reverse --height 50% | xargs git switch"
 alias gpl="git pull"
 alias gplr="git pull --rebase origin"
 alias gst="git stash -u"
