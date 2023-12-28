@@ -273,7 +273,7 @@ zstyle ':autocomplete:*' fzf-completion yes
 zstyle ':autocomplete:*' list-lines 50
 zstyle ':autocomplete:history-*:*' list-lines 5
 zstyle ':autocomplete:*' delay 0
-zstyle ':autocomplete:*' min-input 0
+zstyle ':autocomplete:*' min-input 1
 
 # -------------------
 # Load Plugins
