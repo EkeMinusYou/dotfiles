@@ -1,8 +1,5 @@
 local helper = require('utils.helper')
 
--- general
-vim.keymap.set('n', '<c-a>', 'ggVG')
-
 -- emacs keybinding in insert-mode
 vim.keymap.set('i', '<c-b>', '<left>')
 vim.keymap.set('i', '<c-f>', '<right>')
