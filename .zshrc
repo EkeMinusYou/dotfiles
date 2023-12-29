@@ -161,6 +161,10 @@ eval "$(fnm env --use-on-cd)"
 
 # Terraform
 alias tf="terraform"
+alias tff="terraform fmt"
+alias tfp="terraform plan"
+alias tfa="terraform apply"
+alias tfs="terraform state"
 export TF_CLI_ARGS_plan="--parallelism=30"
 export TF_CLI_ARGS_apply="--parallelism=30"
 
