@@ -11,7 +11,7 @@ return {
         -- js,ts
         null_ls.builtins.formatting.prettierd.with({
           condition = function()
-            return helper.local_has_file({ '.prettierrc' })
+            return helper.local_has_file({ '.prettierrc', '.prettierrc.js' })
           end,
           diagnostics_format = '[prettier] #{m}\n(#{c})',
         }),
