@@ -29,9 +29,12 @@ disabled = true
 format = '[$symbol$context]($style) '
 symbol = '⎈ '
 disabled = false
-[kubernetes.context_aliases]
-'gke_(?P<var_env>.+)_asia-northeast.+' = '$var_env'
-'cls-(?P<var_env>.+)-context-default' = '$var_env'
+[[kubernetes.contexts]]
+context_pattern = 'gke_(?P<var_env>.+)_asia-northeast.+'
+context_alias =  '$var_env'
+[[kubernetes.contexts]]
+context_pattern = 'cls-(?P<var_env>.+)-context-default'
+context_alias =  '$var_env'
 
 [terraform]
 format = '[$symbol$version]($style) '
