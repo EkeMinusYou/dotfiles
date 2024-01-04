@@ -5,12 +5,14 @@ return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { 'nvim-telescope/telescope-live-grep-args.nvim' },
     { 'nvim-telescope/telescope-file-browser.nvim' },
+    { 'nvim-telescope/telescope-frecency.nvim' },
   },
   event = 'VeryLazy',
   keys = {
-    { '<leader>ff', '<cmd>Telescope find_files<cr>' },
     { '<leader>e', '<cmd>Telescope file_browser<cr>' },
     { '<leader>c', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>' },
+    { '<leader>ff', '<cmd>Telescope find_files<cr>' },
+    { '<leader>fr', '<cmd>Telescope frecency workspace=CWD<cr>' },
     { '<leader>fg', "<cmd>:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" },
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fs', '<cmd>Telescope git_status<cr>' },
@@ -113,5 +115,6 @@ return {
     telescope.load_extension('fzf')
     telescope.load_extension('live_grep_args')
     telescope.load_extension('file_browser')
+    telescope.load_extension('frecency')
   end,
 }
