@@ -5,6 +5,7 @@ if OS.mac?
   brew "wezterm"
   brew "koekeishiya/formulae/yabai"
   brew "koekeishiya/formulae/skhd"
+  brew "avrdude"
 elsif OS.linux?
   brew "zsh"
 end
@@ -45,3 +46,5 @@ brew tap "daipeihust/tap"
 brew "im-select"
 brew "trash"
 brew "deno"
+tap tinygo-org/tools
+brew "tinygo"
