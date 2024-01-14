@@ -6,6 +6,7 @@ return {
     { 'nvim-telescope/telescope-live-grep-args.nvim' },
     { 'nvim-telescope/telescope-file-browser.nvim' },
     { 'nvim-telescope/telescope-frecency.nvim' },
+    { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
   },
   event = 'VeryLazy',
   keys = {
@@ -116,5 +117,6 @@ return {
     telescope.load_extension('live_grep_args')
     telescope.load_extension('file_browser')
     telescope.load_extension('frecency')
+    telescope.load_extension('cmdline')
   end,
 }
