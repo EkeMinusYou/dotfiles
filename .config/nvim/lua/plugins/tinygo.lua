@@ -3,7 +3,10 @@ return {
   event = 'VeryLazy',
   config = function()
     require('tinygo').setup()
-    local defaultTarget = 'arduino'
-    vim.api.nvim_command('TinyGoSetTarget ' .. defaultTarget)
+
+    local defaultTarget = os.getenv('TINYGO_TARGET')
+    if defaultTarget ~= nil then
+      vim.api.nvim_command('TinyGoSetTarget ' .. defaultTarget)
+    end
   end,
 }
