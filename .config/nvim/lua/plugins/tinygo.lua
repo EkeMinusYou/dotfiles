@@ -2,11 +2,10 @@ return {
   'pcolladosoto/tinygo.nvim',
   event = 'VeryLazy',
   config = function()
-    require('tinygo').setup()
-
-    local defaultTarget = os.getenv('TINYGO_TARGET')
-    if defaultTarget ~= nil then
-      vim.api.nvim_command('TinyGoSetTarget ' .. defaultTarget)
+    local target = os.getenv('TINYGO_TARGET')
+    if target ~= nil then
+      require('tinygo').setup()
+      vim.api.nvim_command('TinyGoSetTarget ' .. target)
     end
   end,
 }
