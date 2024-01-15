@@ -66,3 +66,17 @@ local disable_ime = function()
 end
 
 vim.api.nvim_create_autocmd('InsertLeave', { callback = disable_ime })
+
+-- terminal
+vim.api.nvim_create_autocmd('TermOpen', {
+  callback = function()
+    vim.api.nvim_command('startinsert')
+    vim.api.nvim_command('setlocal nonumber norelativenumber')
+  end,
+})
+-- See: https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
+vim.api.nvim_create_autocmd('TermClose', {
+  callback = function()
+    vim.api.nvim_command('bdelete!')
+  end,
+})

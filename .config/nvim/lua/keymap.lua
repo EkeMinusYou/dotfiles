@@ -30,3 +30,6 @@ vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 
 -- kensaku
 vim.keymap.set('c', '<CR>', '<Plug>(kensaku-search-replace)<CR>')
+
+-- terminal
+vim.keymap.set('n', '<leader>g', '<cmd>terminal lazygit<cr>')
