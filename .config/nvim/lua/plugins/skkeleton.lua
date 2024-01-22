@@ -7,6 +7,7 @@ return {
     },
     dependencies = {
       'vim-denops/denops.vim',
+      'skk-dev/dict',
     },
     config = function()
       local dict = vim.fn.stdpath('data') .. '/lazy/dict'
@@ -20,9 +21,5 @@ return {
         },
       })
     end,
-  },
-  {
-    'skk-dev/dict',
-    event = 'VeryLazy',
   },
 }
