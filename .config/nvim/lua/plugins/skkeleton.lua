@@ -11,7 +11,8 @@ return {
     },
     config = function()
       local dict = vim.fn.stdpath('data') .. '/lazy/dict'
-      vim.fn['skkeleton#config']({
+      local config = vim.fn['skkeleton#config']
+      config({
         globalDictionaries = {
           dict .. '/SKK-JISYO.L',
           dict .. '/SKK-JISYO.jinmei',
@@ -20,6 +21,8 @@ return {
           dict .. '/SKK-JISYO.propernoun',
         },
       })
+      local register_kanatable = vim.fn['skkeleton#register_kanatable']
+      register_kanatable('rom', require('skkeleton.azik'))
     end,
   },
 }

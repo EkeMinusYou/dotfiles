@@ -45,6 +45,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "140edfcf25093e8b321d13e154cbce89ee868ca0" },
   "plenary.nvim": { "branch": "master", "commit": "663246936325062427597964d81d30eaa42ab1e4" },
   "skkeleton": { "branch": "main", "commit": "8d0b7337013e466c578e024b7c8e5b5d297f0a3e" },
+  "skkeleton-azik": { "branch": "master", "commit": "4ce39d12ec20fe174fec8f8eb1a7b8eb698654a3" },
   "telescope-cmdline.nvim": { "branch": "main", "commit": "38dfa6620fdf7308d795981d34aac3ff0c742001" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "6f735a63dc24b9aed527cd505a31864223c8a6d8" },
   "telescope-frecency.nvim": { "branch": "master", "commit": "9c18474d0a4b82435ce141c2a21d9bd7b9189272" },
