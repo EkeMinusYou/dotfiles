@@ -44,6 +44,14 @@ return {
           local lspconfig = require('lspconfig')
           local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+          lspconfig.sourcekit.setup({
+            capabilities = capabilities,
+            cmd = {
+              'sourcekit-lsp',
+            },
+            filetypes = { 'swift' },
+          })
+
           if server_name == 'lua_ls' then
             lspconfig.lua_ls.setup({
               capabilities = capabilities,
