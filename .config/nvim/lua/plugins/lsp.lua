@@ -1,25 +1,20 @@
 return {
   {
-    'williamboman/mason.nvim',
-    lazy = true,
-    config = function()
-      require('mason').setup()
-    end,
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
-    event = 'VeryLazy',
+    'neovim/nvim-lspconfig',
+    event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
     dependencies = {
-      'neovim/nvim-lspconfig',
-      'williamboman/mason.nvim',
       'folke/neodev.nvim',
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
       require('neodev').setup({
         pathStrict = true,
       })
-      require('mason-lspconfig').setup({
+      require('mason').setup()
+      local mason_lspconfig = require('mason-lspconfig')
+      mason_lspconfig.setup({
         ensure_installed = {
           'bashls',
           'dockerls',
@@ -32,9 +27,9 @@ return {
         automatic_installation = true,
       })
 
-      require('mason-lspconfig').setup_handlers({
+      local lspconfig = require('lspconfig')
+      mason_lspconfig.setup_handlers({
         function(server_name)
-          local lspconfig = require('lspconfig')
           local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
           lspconfig.sourcekit.setup({
@@ -101,6 +96,6 @@ return {
   },
   {
     'stevearc/dressing.nvim',
-    event = 'VeryLazy',
+    event = 'LspAttach',
   },
 }
