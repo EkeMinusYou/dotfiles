@@ -1,6 +1,8 @@
 local helper = require('utils.helper')
 
+vim.api.nvim_create_augroup('format', {})
 vim.api.nvim_create_autocmd('BufWritePre', {
+  group = 'format',
   pattern = {
     '*.lua',
     '*.js',
@@ -14,6 +16,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
+vim.api.nvim_create_augroup('wincmdl', {})
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'help',
@@ -56,7 +59,11 @@ local set_root = function()
   vim.fn.chdir(root)
 end
 
-vim.api.nvim_create_autocmd('BufEnter', { callback = set_root })
+vim.api.nvim_create_augroup('setroot', {})
+vim.api.nvim_create_autocmd('BufEnter', {
+  group = 'setroot',
+  callback = set_root,
+})
 
 -- IME Auto Switch
 local disable_ime = function()
@@ -65,10 +72,16 @@ local disable_ime = function()
   end
 end
 
-vim.api.nvim_create_autocmd('InsertLeave', { callback = disable_ime })
+vim.api.nvim_create_augroup('ime', {})
+vim.api.nvim_create_autocmd('InsertLeave', {
+  group = 'ime',
+  callback = disable_ime,
+})
 
 -- terminal
+vim.api.nvim_create_augroup('terminal', {})
 vim.api.nvim_create_autocmd('TermOpen', {
+  group = 'terminal',
   callback = function()
     vim.api.nvim_command('startinsert')
     vim.api.nvim_command('setlocal nonumber norelativenumber')
@@ -76,6 +89,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
 })
 -- See: https://github.com/neovim/neovim/issues/14986#issuecomment-902705190
 vim.api.nvim_create_autocmd('TermClose', {
+  group = 'terminal',
   callback = function()
     vim.api.nvim_command('bdelete!')
   end,
