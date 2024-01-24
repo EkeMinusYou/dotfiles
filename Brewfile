@@ -6,6 +6,7 @@ if OS.mac?
   brew "koekeishiya/formulae/yabai"
   brew "koekeishiya/formulae/skhd"
   brew "avrdude"
+  brew "swift-format"
 elsif OS.linux?
   brew "zsh"
 end
