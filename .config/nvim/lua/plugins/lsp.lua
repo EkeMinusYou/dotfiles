@@ -59,6 +59,8 @@ return {
                 return lspconfig.util.root_pattern('Chart.yaml')(fname)
               end,
             })
+          elseif server_name == 'biome' then
+            -- do nothing. only use null-ls
           else
             lspconfig[server_name].setup({
               capabilities = capabilities,
