@@ -27,9 +27,5 @@ vim.opt.fo = vim.opt.fo - 'o'
 -- set 3 when lualine setup
 vim.opt.laststatus = 0
 
--- nvim-tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- theme
 vim.opt.termguicolors = true
