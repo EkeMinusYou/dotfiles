@@ -7,10 +7,9 @@ return {
     },
     dependencies = {
       'vim-denops/denops.vim',
-      'skk-dev/dict',
     },
     config = function()
-      local dict = vim.fn.stdpath('data') .. '/lazy/dict'
+      local dict = os.getenv('HOME') .. '/src/github.com/skk-dev/dict'
       local config = vim.fn['skkeleton#config']
       config({
         globalDictionaries = {
