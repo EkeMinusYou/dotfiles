@@ -29,3 +29,7 @@ vim.opt.laststatus = 0
 
 -- theme
 vim.opt.termguicolors = true
+
+-- nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
