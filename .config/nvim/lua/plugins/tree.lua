@@ -57,6 +57,9 @@ return {
         enable = true,
         update_root = true,
       },
+      live_filter = {
+        always_show_folders = false,
+      },
       view = {
         float = {
           enable = true,
