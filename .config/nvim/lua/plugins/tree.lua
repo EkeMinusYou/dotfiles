@@ -61,6 +61,9 @@ return {
         always_show_folders = false,
       },
       filters = { custom = { '^.git$' } },
+      view = {
+        width = 35,
+      },
     })
   end,
 }
