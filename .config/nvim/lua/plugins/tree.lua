@@ -51,6 +51,12 @@ return {
   config = function()
     require('nvim-tree').setup({
       on_attach = on_attach,
+      sort_by = 'extension',
+      renderer = {
+        highlight_opened_files = 'name',
+        highlight_diagnostics = 'all',
+        highlight_modified = 'all',
+      },
       respect_buf_cwd = true,
       sync_root_with_cwd = true,
       update_focused_file = {
