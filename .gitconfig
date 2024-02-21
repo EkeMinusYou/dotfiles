@@ -45,3 +45,6 @@
 
 [branch]
 	sort = -authordate
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
