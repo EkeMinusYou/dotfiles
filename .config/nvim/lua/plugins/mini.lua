@@ -20,13 +20,6 @@ return {
     end,
   },
   {
-    'echasnovski/mini.cursorword',
-    event = 'BufReadPost',
-    config = function()
-      require('mini.cursorword').setup({})
-    end,
-  },
-  {
     'echasnovski/mini.animate',
     event = 'VeryLazy',
     config = function()
