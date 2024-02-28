@@ -2,7 +2,10 @@ local helper = require('utils.helper')
 
 return {
   'nvimtools/none-ls.nvim',
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvimtools/none-ls-extras.nvim',
+  },
   event = 'LspAttach',
   config = function()
     local null_ls = require('null-ls')
@@ -15,7 +18,7 @@ return {
           end,
           diagnostics_format = '[prettier] #{m}\n(#{c})',
         }),
-        null_ls.builtins.formatting.eslint_d.with({
+        require('none-ls.formatting.eslint_d').with({
           condition = function()
             return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs' })
           end,
@@ -27,7 +30,7 @@ return {
           end,
           diagnostics_format = '[biome] #{m}\n(#{c})',
         }),
-        null_ls.builtins.diagnostics.eslint_d.with({
+        require('none-ls.diagnostics.eslint_d').with({
           condition = function()
             return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs' })
           end,
