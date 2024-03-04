@@ -13,7 +13,7 @@ end
 
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = { 'nvim-tree/nvim-web-devicons', 'lewis6991/gitsigns.nvim' },
   event = 'BufReadPost',
   config = function()
     vim.opt.laststatus = 3
@@ -40,15 +40,33 @@ return {
             symbols = { modified = ' 󰷥', alternate_file = ' ', directory = ' ' },
           },
         },
+        lualine_c = {
+          {
+            'diagnostics',
+            sources = { 'nvim_diagnostic' },
+            sections = { 'error', 'warn', 'info', 'hint' },
+            diagnostics_color = {
+              error = 'DiagnosticError',
+              warn = 'DiagnosticWarn',
+              info = 'DiagnosticInfo',
+              hint = 'DiagnosticHint',
+            },
+            symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+            colored = true,
+            update_in_insert = false,
+            always_visible = false,
+          },
+        },
         lualine_x = {
           {
             'diff',
+            colored = true,
             symbols = { added = ' ', modified = ' ', removed = ' ' },
             source = diff_source,
           },
         },
         lualine_y = {
-          'branch',
+          { 'b:gitsigns_head', icon = { '' } },
         },
       },
       sections = {
