@@ -30,46 +30,59 @@ local function start_telescope(telescope_mode)
 end
 
 return {
-  'nvim-tree/nvim-tree.lua',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
-  event = 'VeryLazy',
-  keys = {
-    { '<leader>ee', '<cmd>NvimTreeToggle<cr>' },
-    {
-      '<leader>ef',
-      function()
-        start_telescope('find_files')
-      end,
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    event = 'VeryLazy',
+    keys = {
+      { '<leader>ee', '<cmd>NvimTreeToggle<cr>' },
+      {
+        '<leader>ef',
+        function()
+          start_telescope('find_files')
+        end,
+      },
+      {
+        '<leader>eg',
+        function()
+          start_telescope('live_grep')
+        end,
+      },
     },
-    {
-      '<leader>eg',
-      function()
-        start_telescope('live_grep')
-      end,
-    },
+    config = function()
+      require('nvim-tree').setup({
+        on_attach = on_attach,
+        sort_by = 'extension',
+        renderer = {
+          highlight_opened_files = 'name',
+          highlight_diagnostics = 'all',
+          highlight_modified = 'all',
+        },
+        respect_buf_cwd = true,
+        sync_root_with_cwd = true,
+        update_focused_file = {
+          enable = true,
+          update_root = true,
+        },
+        live_filter = {
+          always_show_folders = false,
+        },
+        filters = { custom = { '^.git$' } },
+        view = {
+          width = 35,
+        },
+      })
+    end,
   },
-  config = function()
-    require('nvim-tree').setup({
-      on_attach = on_attach,
-      sort_by = 'extension',
-      renderer = {
-        highlight_opened_files = 'name',
-        highlight_diagnostics = 'all',
-        highlight_modified = 'all',
-      },
-      respect_buf_cwd = true,
-      sync_root_with_cwd = true,
-      update_focused_file = {
-        enable = true,
-        update_root = true,
-      },
-      live_filter = {
-        always_show_folders = false,
-      },
-      filters = { custom = { '^.git$' } },
-      view = {
-        width = 35,
-      },
-    })
-  end,
+  {
+    'antosha417/nvim-lsp-file-operations',
+    event = 'VeryLazy',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-tree.lua',
+    },
+    config = function()
+      require('lsp-file-operations').setup()
+    end,
+  },
 }
