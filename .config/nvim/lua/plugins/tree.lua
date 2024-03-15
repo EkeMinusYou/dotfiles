@@ -65,7 +65,7 @@ return {
           update_root = true,
         },
         live_filter = {
-          always_show_folders = false,
+          always_show_folders = true,
         },
         filters = { custom = { '^.git$' } },
         view = {
