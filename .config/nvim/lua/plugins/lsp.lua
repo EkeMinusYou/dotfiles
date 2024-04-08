@@ -1,3 +1,5 @@
+local helper = require('utils.helper')
+
 return {
   {
     'neovim/nvim-lspconfig',
@@ -32,14 +34,6 @@ return {
         function(server_name)
           local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-          lspconfig.sourcekit.setup({
-            capabilities = capabilities,
-            cmd = {
-              'sourcekit-lsp',
-            },
-            filetypes = { 'swift' },
-          })
-
           if server_name == 'lua_ls' then
             lspconfig.lua_ls.setup({
               capabilities = capabilities,
@@ -51,12 +45,35 @@ return {
                 },
               },
             })
+          elseif server_name == 'sourcekit' then
+            lspconfig.sourcekit.setup({
+              capabilities = capabilities,
+              cmd = {
+                'sourcekit-lsp',
+              },
+              filetypes = { 'swift' },
+            })
           elseif server_name == 'helm_ls' then
             lspconfig.helm_ls.setup({
               capabilities = capabilities,
               filetypes = { 'helm', 'yaml' },
               root_dir = function(fname)
                 return lspconfig.util.root_pattern('Chart.yaml')(fname)
+              end,
+            })
+          elseif server_name == 'vtsls' then
+            lspconfig.vtsls.setup({
+              capabilities = capabilities,
+              root_dir = function(fname)
+                return lspconfig.util.root_pattern('package.json')(fname)
+              end,
+              single_file_support = false,
+            })
+          elseif server_name == 'denols' then
+            lspconfig.denols.setup({
+              capabilities = capabilities,
+              root_dir = function(fname)
+                return lspconfig.util.root_pattern('deno.json')(fname)
               end,
             })
           elseif server_name == 'biome' then
