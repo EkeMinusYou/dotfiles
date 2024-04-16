@@ -92,9 +92,6 @@ zshaddhistory() {
 # autopair
 source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # coreutils
 alias ln="gln"
 alias wc="gwc"
@@ -291,3 +288,9 @@ eval "$(sheldon source)"
 # -------------------
 
 eval "$(starship init zsh)"
+
+# -------------------
+# fzf
+# -------------------
+
+eval "$(fzf --zsh)"
