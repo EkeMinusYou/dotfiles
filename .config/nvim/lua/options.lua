@@ -17,7 +17,7 @@ vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.autoread = true
 vim.opt.spell = true
-vim.opt.spelllang = 'en_us'
+vim.opt.spelllang = { 'en_us', 'cjk' }
 
 -- disable newline auto comment
 vim.opt.fo = vim.opt.fo - 'c'
