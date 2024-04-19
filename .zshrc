@@ -152,6 +152,7 @@ alias kg="kubectl get"
 alias kd="kubectl describe"
 alias kl="kubectl logs"
 alias kt="kubectl top"
+alias kr="kubectl rollout"
 type kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
 
 # Node.js
