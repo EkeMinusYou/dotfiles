@@ -273,7 +273,7 @@ bindkey "^y" paste-as-yank
 
 # zsh-autocomplete
 zstyle ':autocomplete:*' fzf-completion yes
-zstyle ':autocomplete:*' list-lines 50
+zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
 zstyle ':autocomplete:history-*:*' list-lines 5
 zstyle ':autocomplete:*' delay 0
 zstyle ':autocomplete:*' min-input 1
