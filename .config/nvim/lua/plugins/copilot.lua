@@ -1,3 +1,8 @@
+local function ShowCopilotChatActionPrompt()
+  local actions = require('CopilotChat.actions')
+  require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
+end
+
 return {
   {
     'zbirenbaum/copilot.lua',
@@ -26,6 +31,15 @@ return {
     dependencies = {
       { 'zbirenbaum/copilot.lua' },
       { 'nvim-lua/plenary.nvim' },
+    },
+    keys = {
+      {
+        '<leader>ccp',
+        function()
+          ShowCopilotChatActionPrompt()
+        end,
+        mode = { 'n', 'v' },
+      },
     },
     config = function()
       local select = require('CopilotChat.select')

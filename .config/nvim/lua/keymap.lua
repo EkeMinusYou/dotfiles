@@ -33,16 +33,3 @@ vim.keymap.set('c', '<CR>', '<Plug>(kensaku-search-replace)<CR>')
 
 -- terminal
 vim.keymap.set('n', '<leader>g', '<cmd>terminal lazygit<cr>')
-
--- copilot
-function ShowCopilotChatActionPrompt()
-  local actions = require('CopilotChat.actions')
-  require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
-end
-
-vim.keymap.set(
-  { 'n', 'v' },
-  '<leader>ccp',
-  '<cmd>lua ShowCopilotChatActionPrompt()<cr>',
-  { noremap = true, silent = true }
-)
