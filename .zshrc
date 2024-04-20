@@ -175,6 +175,9 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=$(brew --prefix)/opt/openjdk@11/bin:$PATH
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 
+# deno
+export PATH=$HOME/.deno/bin:$PATH
+
 # VSCode
 alias e='code -a .'
 
