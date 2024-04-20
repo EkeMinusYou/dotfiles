@@ -178,6 +178,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 # deno
 export PATH=$HOME/.deno/bin:$PATH
 
+# deno tools
+if [ $commands[switchbot] ]; then
+  source <(switchbot completions zsh)
+fi
+
 # VSCode
 alias e='code -a .'
 
