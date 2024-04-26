@@ -16,6 +16,22 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
+-- denolscache
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = 'format',
+  pattern = {
+    '*.js',
+    '*.jsx',
+    '*.ts',
+    '*.tsx',
+  },
+  callback = function()
+    if helper.is_lsp_active('denols') then
+      vim.api.nvim_command('DenolsCache')
+    end
+  end,
+})
+
 vim.api.nvim_create_augroup('wincmdl', {})
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
