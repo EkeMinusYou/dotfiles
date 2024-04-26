@@ -45,14 +45,6 @@ return {
                 },
               },
             })
-          elseif server_name == 'sourcekit' then
-            lspconfig.sourcekit.setup({
-              capabilities = capabilities,
-              cmd = {
-                'sourcekit-lsp',
-              },
-              filetypes = { 'swift' },
-            })
           elseif server_name == 'helm_ls' then
             lspconfig.helm_ls.setup({
               capabilities = capabilities,
