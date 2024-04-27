@@ -1,5 +1,5 @@
 local function live_grep()
-  require('telescope').extensions.live_grep_args.live_grep_args({
+  require('telescope').extensions.egrepify.egrepify({
     on_input_filter_cb = function(prompt)
       return {
         prompt = vim.fn['kensaku#query'](prompt, {
@@ -15,7 +15,7 @@ return {
   dependencies = {
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    { 'nvim-telescope/telescope-live-grep-args.nvim' },
+    { 'fdschmidt93/telescope-egrepify.nvim' },
     { 'nvim-telescope/telescope-frecency.nvim' },
     { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
   },
@@ -29,7 +29,6 @@ return {
   },
   config = function()
     local telescope = require('telescope')
-    local lga_actions = require('telescope-live-grep-args.actions')
     telescope.setup({
       defaults = {
         file_ignore_patterns = {
@@ -47,9 +46,7 @@ return {
       pickers = {
         find_files = { hidden = true },
         live_grep = {
-          additional_args = function()
-            return { '--hidden' }
-          end,
+          hidden = true,
         },
       },
       extensions = {
@@ -59,32 +56,11 @@ return {
           override_file_sorter = true,
           case_mode = 'smart_case',
         },
-        live_grep_args = {
-          auto_quoting = true,
-          mappings = {
-            i = {
-              ['<C-k>'] = lga_actions.quote_prompt(),
-              ['<C-i>'] = lga_actions.quote_prompt({ postfix = ' --iglob ' }),
-            },
-          },
-          vimgrep_arguments = {
-            {
-              'rg',
-              '--hidden',
-              '--color=never',
-              '--no-heading',
-              '--with-filename',
-              '--line-number',
-              '--column',
-              '--smart-case',
-            },
-          },
-        },
       },
     })
 
     telescope.load_extension('fzf')
-    telescope.load_extension('live_grep_args')
+    telescope.load_extension('egrepify')
     telescope.load_extension('frecency')
     telescope.load_extension('cmdline')
   end,
