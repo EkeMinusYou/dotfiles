@@ -1,3 +1,15 @@
+local function live_grep()
+  require('telescope').extensions.live_grep_args.live_grep_args({
+    on_input_filter_cb = function(prompt)
+      return {
+        prompt = vim.fn['kensaku#query'](prompt, {
+          rxop = vim.g['kensaku#rxop#javascript'],
+        }),
+      }
+    end,
+  })
+end
+
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
@@ -11,7 +23,7 @@ return {
   keys = {
     { '<leader>ff', '<cmd>Telescope find_files<cr>' },
     { '<leader>fr', '<cmd>Telescope frecency workspace=CWD<cr>' },
-    { '<leader>fg', "<cmd>:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>" },
+    { '<leader>fg', live_grep },
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fs', '<cmd>Telescope git_status<cr>' },
   },
