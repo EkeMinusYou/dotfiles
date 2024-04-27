@@ -1,4 +1,4 @@
-local function live_grep()
+local function grep_by_kensaku()
   require('telescope').extensions.egrepify.egrepify({
     on_input_filter_cb = function(prompt)
       return {
@@ -23,7 +23,13 @@ return {
   keys = {
     { '<leader>ff', '<cmd>Telescope find_files<cr>' },
     { '<leader>fr', '<cmd>Telescope frecency workspace=CWD<cr>' },
-    { '<leader>fg', live_grep },
+    {
+      '<leader>fg',
+      function()
+        require('telescope').extensions.egrepify.egrepify()
+      end,
+    },
+    { '<leader>fk', grep_by_kensaku },
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fs', '<cmd>Telescope git_status<cr>' },
   },
