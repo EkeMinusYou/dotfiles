@@ -17,6 +17,11 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
   command = 'setlocal filetype=json',
 })
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '.swift-format',
+  group = 'filetype',
+  command = 'setlocal filetype=json',
+})
 
 -- CocoaPods
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
