@@ -57,9 +57,7 @@ return {
         null_ls.builtins.diagnostics.terraform_validate,
         null_ls.builtins.formatting.terraform_fmt,
         -- swift
-        null_ls.builtins.formatting.swiftformat.with({
-          command = 'swift-format',
-        }),
+        null_ls.builtins.formatting.swift_format,
       },
     })
   end,
