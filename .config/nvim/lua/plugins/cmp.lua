@@ -68,6 +68,9 @@ return {
           mode = 'symbol_text',
         }),
       },
+      performance = {
+        max_view_entries = 50,
+      },
     })
   end,
 }
