@@ -7,26 +7,6 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   command = 'setlocal filetype=gitconfig',
 })
 
--- Swift
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  group = 'filetype',
-  pattern = '*.swift',
-  callback = function()
-    if vim.fn.executable('sourcekit-lsp') == 1 then
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local root_dir = vim.fs.dirname(vim.fs.find({
-        'Package.swift',
-        '.git',
-      }, { upward = true })[1])
-      vim.lsp.start({
-        name = 'sourcekit-lsp',
-        capabilities = capabilities,
-        cmd = { 'sourcekit-lsp' },
-        root_dir = root_dir,
-      })
-    end
-  end,
-})
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = 'Package.resolved',
   group = 'filetype',

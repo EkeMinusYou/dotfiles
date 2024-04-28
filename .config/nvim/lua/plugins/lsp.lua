@@ -30,6 +30,9 @@ return {
       })
 
       local lspconfig = require('lspconfig')
+      -- Setup LSP
+      lspconfig.sourcekit.setup({})
+      -- Setup LSP by mason
       mason_lspconfig.setup_handlers({
         function(server_name)
           local capabilities = require('cmp_nvim_lsp').default_capabilities()
