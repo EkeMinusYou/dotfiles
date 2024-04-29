@@ -34,6 +34,16 @@ helper.lsp_formatting = function(config)
   })
 end
 
+helper.file_exists = function(path)
+  local f = io.open(path, 'r')
+  if f ~= nil then
+    io.close(f)
+    return true
+  else
+    return false
+  end
+end
+
 -- 特定のLSPサーバーがアクティブかどうかをチェックする関数
 helper.is_lsp_active = function(server_name)
   local lsp = vim.lsp.get_active_clients()

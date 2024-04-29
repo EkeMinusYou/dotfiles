@@ -59,7 +59,17 @@ return {
         -- swift
         null_ls.builtins.diagnostics.swiftlint,
         null_ls.builtins.formatting.swiftlint,
-        null_ls.builtins.formatting.swift_format,
+        null_ls.builtins.formatting.swift_format.with({
+          extra_args = function(params)
+            local local_swiftformat = params.cwd .. '/.swift-format'
+
+            if helper.file_exists(local_swiftformat) ~= nil then
+              return { '--configuration', local_swiftformat }
+            end
+
+            return {}
+          end,
+        }),
       },
     })
   end,
