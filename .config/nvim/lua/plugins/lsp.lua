@@ -30,13 +30,14 @@ return {
       })
 
       local lspconfig = require('lspconfig')
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
       -- Setup LSP
-      lspconfig.sourcekit.setup({})
+      lspconfig.sourcekit.setup({
+        capabilities = capabilities,
+      })
       -- Setup LSP by mason
       mason_lspconfig.setup_handlers({
         function(server_name)
-          local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
           if server_name == 'lua_ls' then
             lspconfig.lua_ls.setup({
               capabilities = capabilities,
