@@ -32,6 +32,18 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
+vim.api.nvim_create_augroup('indent', {})
+-- swift rewrite indent
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'indent',
+  pattern = {
+    'swift',
+  },
+  callback = function()
+    vim.api.nvim_command('setlocal shiftwidth=2 tabstop=2 softtabstop=2')
+  end,
+})
+
 vim.api.nvim_create_augroup('wincmdl', {})
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
