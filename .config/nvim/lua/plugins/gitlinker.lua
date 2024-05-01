@@ -3,6 +3,8 @@ return {
   event = 'VeryLazy',
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
-    require('gitlinker').setup()
+    require('gitlinker').setup({
+      mappings = '<leader>pl',
+    })
   end,
 }
