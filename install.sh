@@ -35,6 +35,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/sheldon/plugins.toml ~/.config/sheldon/plugins
 # Setup nvim
 ln -sfn $DOT_DIR/dotfiles/.config/nvim ~/.config/
 
+# Setup snippets
+ln -sfn $DOT_DIR/dotfiles/.vsnip ~/.vsnip
+
 # Setup GitHub CLI
 mkdir -p ~/.config/gh
 ln -sfn $DOT_DIR/dotfiles/.config/gh/config.yml ~/.config/gh/config.yml

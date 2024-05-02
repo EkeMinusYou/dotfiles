@@ -5,7 +5,7 @@ return {
     { 'rafamadriz/friendly-snippets' },
   },
   config = function()
-    local dirs = {}
+    local dirs = { '~/.vsnip' }
     local snippetsDir = vim.fn.stdpath('data') .. '/lazy/friendly-snippets/snippets'
     table.insert(dirs, snippetsDir)
     vim.g.vsnip_snippet_dirs = dirs
