@@ -19,9 +19,6 @@ return {
       dir = 'git_dir',
       hidden = true,
       direction = 'float',
-      on_open = function(term)
-        vim.api.nvim_buf_set_keymap(term.bufnr, 't', 'q', '<CMD>close<CR>', { noremap = true, silent = true })
-      end,
     })
   end,
 }
