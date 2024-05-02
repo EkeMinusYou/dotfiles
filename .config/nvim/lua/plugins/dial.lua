@@ -32,12 +32,6 @@ return {
           word = true,
           cyclic = true,
         }),
-        augend.paren.new({
-          patterns = { { "'", "'" }, { '"', '"' } },
-          nested = false,
-          escape_char = [[\]],
-          cyclic = true,
-        }),
       },
     })
 
