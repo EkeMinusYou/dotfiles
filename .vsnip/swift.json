@@ -1,0 +1,12 @@
+{
+    "hstack": {
+        "prefix": "hs",
+        "body": ["HStack {", "\t$0", "}"],
+        "description": "HStack statement"
+    },
+    "vstack": {
+        "prefix": "vs",
+        "body": ["VStack {", "\t$0", "}"],
+        "description": "VStack statement"
+    }
+}
