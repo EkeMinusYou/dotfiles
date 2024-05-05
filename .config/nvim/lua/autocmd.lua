@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     '*.ts',
     '*.tsx',
     '*.go',
+    '*.swift',
   },
   callback = function()
     helper.lsp_formatting({ async = false, timeout_ms = 5000 })
