@@ -25,6 +25,9 @@ return {
           'jsonls',
           'lua_ls',
           'vtsls',
+          'denols',
+          'biome',
+          'terraformls',
         },
         automatic_installation = true,
       })
