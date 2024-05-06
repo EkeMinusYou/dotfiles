@@ -101,6 +101,26 @@ return {
     end,
   },
   {
+    'shellRaining/hlchunk.nvim',
+    event = { 'UIEnter' },
+    config = function()
+      require('hlchunk').setup({
+        chunk = {
+          enable = false,
+        },
+        line_num = {
+          enable = true,
+        },
+        blank = {
+          enable = false,
+        },
+        indent = {
+          enable = false,
+        },
+      })
+    end,
+  },
+  {
     'Wansmer/treesj',
     keys = { '<space>m' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
