@@ -17,6 +17,7 @@ return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { 'fdschmidt93/telescope-egrepify.nvim' },
     { 'nvim-telescope/telescope-frecency.nvim' },
+    { 'stevearc/aerial.nvim' },
     { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
   },
   event = 'VeryLazy',
@@ -32,6 +33,7 @@ return {
     { '<leader>fk', grep_by_kensaku },
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fs', '<cmd>Telescope git_status<cr>' },
+    { '<leader>fo', '<cmd>Telescope aerial<cr>' },
   },
   config = function()
     local telescope = require('telescope')
@@ -86,5 +88,6 @@ return {
     telescope.load_extension('egrepify')
     telescope.load_extension('frecency')
     telescope.load_extension('cmdline')
+    telescope.load_extension('aerial')
   end,
 }
