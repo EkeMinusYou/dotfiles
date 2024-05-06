@@ -91,7 +91,6 @@ return {
       { 'gr', '<cmd>Lspsaga finder<cr>' },
       { 'gn', '<cmd>Lspsaga rename<cr>' },
       { 'ga', '<cmd>Lspsaga code_action<cr>' },
-      { '<leader>o', '<cmd>Lspsaga outline<cr>' },
     },
     config = function()
       require('lspsaga').setup({
@@ -99,10 +98,7 @@ return {
           enable = false,
         },
         outline = {
-          win_width = 50,
-          keys = {
-            quit = 'q',
-          },
+          enable = false,
         },
         rename = {
           auto_save = true,
