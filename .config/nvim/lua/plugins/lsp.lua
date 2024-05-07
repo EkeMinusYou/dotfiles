@@ -35,6 +35,13 @@ return {
       -- Setup LSP
       lspconfig.sourcekit.setup({
         capabilities = capabilities,
+        root_dir = function(filename, _)
+          local util = require('lspconfig.util')
+          -- prefer Package.swift for multi module with swift package manager
+          return util.root_pattern('Package.swift')(filename)
+            or util.root_pattern('buildServer.json', '*.xcodeproj')(filename)
+            or util.find_git_ancestor(filename)
+        end,
       })
       -- Setup LSP by mason
       mason_lspconfig.setup_handlers({

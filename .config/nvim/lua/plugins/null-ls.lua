@@ -57,7 +57,9 @@ return {
         null_ls.builtins.diagnostics.terraform_validate,
         null_ls.builtins.formatting.terraform_fmt,
         -- swift
-        null_ls.builtins.diagnostics.swiftlint,
+        null_ls.builtins.diagnostics.swiftlint.with({
+          diagnostics_format = '[swiftlint] #{m}\n(#{c})',
+        }),
         null_ls.builtins.formatting.swiftlint,
         null_ls.builtins.formatting.swift_format.with({
           extra_args = function(params)
