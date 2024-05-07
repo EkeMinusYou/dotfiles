@@ -26,4 +26,17 @@ return {
       require('mini.comment').setup({})
     end,
   },
+  {
+    'echasnovski/mini.splitjoin',
+    event = 'BufReadPost',
+    config = function()
+      require('mini.splitjoin').setup({
+        mappings = {
+          toggle = '<leader>m',
+          split = '',
+          join = '',
+        },
+      })
+    end,
+  },
 }
