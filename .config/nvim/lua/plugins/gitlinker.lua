@@ -4,7 +4,7 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     require('gitlinker').setup({
-      mappings = '<leader>pl',
+      mappings = '<leader>l',
     })
   end,
 }
