@@ -18,7 +18,7 @@ return {
     { 'fdschmidt93/telescope-egrepify.nvim' },
     { 'nvim-telescope/telescope-frecency.nvim' },
     { 'stevearc/aerial.nvim' },
-    { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
+    { 'jonarrien/telescope-cmdline.nvim' },
   },
   event = 'VeryLazy',
   keys = {
@@ -34,6 +34,7 @@ return {
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fs', '<cmd>Telescope git_status<cr>' },
     { '<leader>fo', '<cmd>Telescope aerial<cr>' },
+    { ':', '<cmd>Telescope cmdline<cr>' },
   },
   config = function()
     local telescope = require('telescope')
@@ -79,6 +80,13 @@ return {
               '--smart-case',
               '--hidden',
             },
+          },
+        },
+        cmdline = {
+          mappings = {
+            complete = '<tab>',
+            run_selection = '<cr>',
+            run_input = '<c-cr>',
           },
         },
       },
