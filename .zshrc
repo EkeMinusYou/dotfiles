@@ -140,6 +140,7 @@ alias gpsf="git push --force-with-lease"
 alias glgo="git log --oneline"
 alias gcom="git switch \$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)"
 alias gplrm="git pull --rebase origin \$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)"
+alias ghs="gh api -X GET /user/starred --paginate --cache 24h | jq '.[].full_name' -r | fzf --reverse --height 50% | xargs gh repo view --web"
 
 # GitHub
 alias ghb="gh browse"
