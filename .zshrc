@@ -17,7 +17,6 @@ case ${OSTYPE} in
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     ;;
 esac
-export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 if type brew &>/dev/null
 then
