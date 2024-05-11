@@ -21,6 +21,9 @@ return {
     { 'jonarrien/telescope-cmdline.nvim' },
   },
   event = 'VeryLazy',
+  cmd = {
+    'Telescope',
+  },
   keys = {
     { '<leader>ff', '<cmd>Telescope find_files<cr>' },
     { '<leader>fr', '<cmd>Telescope frecency workspace=CWD<cr>' },
