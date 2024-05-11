@@ -71,6 +71,9 @@ return {
           override_file_sorter = true,
           case_mode = 'smart_case',
         },
+        frecency = {
+          db_safe_mode = false,
+        },
         egrepify = {
           vimgrep_arguments = {
             {
