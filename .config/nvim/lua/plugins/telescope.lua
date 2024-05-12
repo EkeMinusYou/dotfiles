@@ -18,6 +18,7 @@ return {
     { 'fdschmidt93/telescope-egrepify.nvim' },
     { 'nvim-telescope/telescope-frecency.nvim' },
     { 'stevearc/aerial.nvim' },
+    { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
   },
   event = 'VeryLazy',
@@ -103,5 +104,6 @@ return {
     telescope.load_extension('frecency')
     telescope.load_extension('cmdline')
     telescope.load_extension('aerial')
+    telescope.load_extension('ui-select')
   end,
 }
