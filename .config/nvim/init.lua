@@ -1,5 +1,8 @@
-vim.g.mapleader = ' '
-vim.g.termwinkey = '<C-g>'
+require('options')
+require('keymap')
+require('autocmd')
+require('filetype')
+require('functions')
 
 -- installation lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -16,9 +19,3 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('plugins')
-
-require('options')
-require('keymap')
-require('autocmd')
-require('filetype')
-require('functions')

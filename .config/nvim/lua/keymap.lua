@@ -1,5 +1,9 @@
 local helper = require('utils.helper')
 
+-- global
+vim.g.mapleader = ' '
+vim.g.termwinkey = '<C-g>'
+
 -- emacs keybinding in insert-mode
 vim.keymap.set('i', '<c-b>', '<left>')
 vim.keymap.set('i', '<c-f>', '<right>')
