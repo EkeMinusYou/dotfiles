@@ -65,6 +65,7 @@ return {
       { 'stevearc/aerial.nvim' },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
+      { dir = '~/.config/nvim/lua/internal/telescope-ghq.nvim' },
     },
     event = 'VeryLazy',
     cmd = {
@@ -84,12 +85,7 @@ return {
       { '<leader>fs', '<cmd>Telescope git_status<cr>' },
       { '<leader>fo', '<cmd>Telescope aerial<cr>' },
       -- { ':', '<cmd>Telescope cmdline<cr>' }, -- experimental
-      {
-        '<leader>fm',
-        function()
-          ghq_list()
-        end,
-      },
+      { '<leader>fm', '<cmd>Telescope ghq list<cr>' },
     },
     config = function()
       local telescope = require('telescope')
@@ -156,6 +152,8 @@ return {
       telescope.load_extension('cmdline')
       telescope.load_extension('aerial')
       telescope.load_extension('ui-select')
+      -- local
+      telescope.load_extension('ghq')
     end,
   },
   {
