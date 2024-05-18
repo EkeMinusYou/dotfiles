@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     '*.tsx',
   },
   callback = function()
-    if helper.is_lsp_active('denols') then
+    if #vim.lsp.get_clients({ name = 'denols' }) > 0 then
       vim.api.nvim_command('DenolsCache')
     end
   end,

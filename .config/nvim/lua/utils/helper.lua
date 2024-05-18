@@ -44,15 +44,4 @@ helper.file_exists = function(path)
   end
 end
 
--- 特定のLSPサーバーがアクティブかどうかをチェックする関数
-helper.is_lsp_active = function(server_name)
-  local lsp = vim.lsp.get_active_clients()
-  for _, client in ipairs(lsp) do
-    if client.name == server_name then
-      return true
-    end
-  end
-  return false
-end
-
 return helper
