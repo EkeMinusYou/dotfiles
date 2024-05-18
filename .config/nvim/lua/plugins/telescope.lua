@@ -43,7 +43,7 @@ local function ghq_list(opts)
           local entry = actions_state.get_selected_entry()
           local dir = from_entry.path(entry)
           if type == 'default' then
-            require('telescope.builtin').git_files({ cwd = dir })
+            require('telescope.builtin').find_files({ cwd = dir })
             return
           end
           actions.close(prompt_bufnr)
