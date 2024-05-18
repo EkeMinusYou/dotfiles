@@ -10,6 +10,34 @@ local function grep_by_kensaku()
   })
 end
 
+local function ghq_list(opts)
+  local pickers = require('telescope.pickers')
+  local finders = require('telescope.finders')
+  local conf = require('telescope.config').values
+
+  opts = opts or {}
+
+  local ghq_root = vim.fn.trim(vim.fn.system('ghq root'))
+
+  opts.entry_maker = function(entry)
+    return {
+      value = entry,
+      ordinal = entry,
+      display = entry:gsub(ghq_root .. '/', ''),
+      path = entry,
+    }
+  end
+
+  pickers
+    .new(opts, {
+      prompt_title = 'ghq',
+      finder = finders.new_oneshot_job({ 'ghq', 'list', '--full-path' }, opts),
+      previewer = conf.file_previewer(opts),
+      sorter = conf.file_sorter(opts),
+    })
+    :find()
+end
+
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
@@ -38,7 +66,13 @@ return {
     { '<leader>fb', '<cmd>Telescope buffers<cr>' },
     { '<leader>fs', '<cmd>Telescope git_status<cr>' },
     { '<leader>fo', '<cmd>Telescope aerial<cr>' },
-    -- { ':', '<cmd>Telescope cmdline<cr>' },
+    -- { ':', '<cmd>Telescope cmdline<cr>' }, -- experimental
+    {
+      '<leader>fm',
+      function()
+        ghq_list()
+      end,
+    },
   },
   config = function()
     local telescope = require('telescope')
