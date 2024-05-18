@@ -22,6 +22,7 @@ return {
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
       { dir = '~/.config/nvim/lua/internal/telescope-ghq.nvim' },
+      { 'rcarriga/nvim-notify' },
     },
     event = 'VeryLazy',
     cmd = {
@@ -108,6 +109,7 @@ return {
       telescope.load_extension('cmdline')
       telescope.load_extension('aerial')
       telescope.load_extension('ui-select')
+      telescope.load_extension('notify')
       -- local
       telescope.load_extension('ghq')
     end,
