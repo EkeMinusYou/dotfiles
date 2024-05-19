@@ -3,7 +3,7 @@ return {
   dependencies = {
     'vim-denops/denops.vim',
   },
-  lazy = true,
+  event = 'VeryLazy',
   keys = {
     { '<leader><leader>', '<cmd>FuzzyMotion<cr>', mode = { 'n', 'v' } },
   },

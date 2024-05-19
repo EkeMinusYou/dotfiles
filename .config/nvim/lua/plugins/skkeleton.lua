@@ -1,7 +1,7 @@
 return {
   {
     'vim-skk/skkeleton',
-    lazy = true,
+    event = 'VeryLazy',
     keys = {
       { '<c-j>', '<Plug>(skkeleton-enable)', mode = { 'i', 'c' } },
     },
