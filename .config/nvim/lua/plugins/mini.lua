@@ -1,7 +1,7 @@
 return {
   {
     'echasnovski/mini.surround',
-    event = 'VeryLazy',
+    event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
     config = function()
       require('mini.surround').setup({
         mappings = {
@@ -21,14 +21,14 @@ return {
   },
   {
     'echasnovski/mini.comment',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
     config = function()
       require('mini.comment').setup({})
     end,
   },
   {
     'echasnovski/mini.splitjoin',
-    event = 'BufReadPost',
+    event = { 'LspAttach' },
     config = function()
       require('mini.splitjoin').setup({
         mappings = {
