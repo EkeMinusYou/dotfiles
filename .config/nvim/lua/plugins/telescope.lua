@@ -10,6 +10,43 @@ local function grep_by_kensaku()
   })
 end
 
+local function git_pickers(opts)
+  local pickers = require('telescope.pickers')
+  local finders = require('telescope.finders')
+  local conf = require('telescope.config').values
+  local actions_set = require('telescope.actions.set')
+  local actions_state = require('telescope.actions.state')
+  local from_entry = require('telescope.from_entry')
+
+  opts = opts or {}
+
+  pickers
+    .new(opts, {
+      prompt_title = 'git pickers',
+      finder = finders.new_table({
+        results = {
+          'git_files',
+          'git_stash',
+          'git_status',
+          'git_commits',
+          'git_branches',
+          'git_bcommits',
+          'git_bcommits_range',
+        },
+      }),
+      sorter = conf.generic_sorter(opts),
+      attach_mappings = function(prompt_bufnr)
+        actions_set.select:replace(function(_, type)
+          local entry = actions_state.get_selected_entry()
+          local picker = from_entry.path(entry)
+          require('telescope.builtin')[picker]()
+        end)
+        return true
+      end,
+    })
+    :find()
+end
+
 return {
   {
     'nvim-telescope/telescope.nvim',
@@ -37,7 +74,7 @@ return {
       },
       { '<leader>fk', grep_by_kensaku },
       { '<leader>fb', '<cmd>Telescope buffers<cr>' },
-      { '<leader>fs', '<cmd>Telescope git_status<cr>' },
+      { '<leader>v', git_pickers },
       { '<leader>fo', '<cmd>Telescope aerial<cr>' },
       -- { ':', '<cmd>Telescope cmdline<cr>' }, -- experimental
       { '<leader>fm', '<cmd>Telescope ghq list<cr>' },
