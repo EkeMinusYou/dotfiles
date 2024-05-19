@@ -17,7 +17,6 @@ return {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       { 'fdschmidt93/telescope-egrepify.nvim' },
-      { 'nvim-telescope/telescope-frecency.nvim' },
       { 'stevearc/aerial.nvim' },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
@@ -30,7 +29,6 @@ return {
     },
     keys = {
       { '<leader>ff', '<cmd>Telescope find_files<cr>' },
-      { '<leader>fr', '<cmd>Telescope frecency workspace=CWD<cr>' },
       {
         '<leader>fg',
         function()
@@ -76,9 +74,6 @@ return {
             override_file_sorter = true,
             case_mode = 'smart_case',
           },
-          frecency = {
-            db_safe_mode = false,
-          },
           egrepify = {
             vimgrep_arguments = {
               {
@@ -105,7 +100,6 @@ return {
 
       telescope.load_extension('fzf')
       telescope.load_extension('egrepify')
-      telescope.load_extension('frecency')
       telescope.load_extension('cmdline')
       telescope.load_extension('aerial')
       telescope.load_extension('ui-select')
