@@ -18,6 +18,7 @@ vim.opt.swapfile = false
 vim.opt.autoread = true
 vim.opt.spell = false
 vim.opt.spelllang = { 'en_us', 'cjk' }
+vim.opt.fillchars = { eob = ' ' }
 
 -- disable newline auto comment
 vim.opt.fo = vim.opt.fo - 'c'
