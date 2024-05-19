@@ -33,7 +33,7 @@ return {
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    event = 'VeryLazy',
+    lazy = true,
     keys = {
       { '<leader>ee', '<cmd>NvimTreeToggle<cr>' },
       {
@@ -76,7 +76,7 @@ return {
   },
   {
     'antosha417/nvim-lsp-file-operations',
-    event = 'VeryLazy',
+    lazy = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-tree.lua',

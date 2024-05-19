@@ -2,7 +2,7 @@ local lazygit
 
 return {
   'akinsho/toggleterm.nvim',
-  event = 'VeryLazy',
+  lazy = true,
   keys = {
     {
       '<leader>g',

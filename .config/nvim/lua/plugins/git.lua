@@ -1,7 +1,7 @@
 return {
   {
     'lewis6991/gitsigns.nvim',
-    event = 'BufReadPost',
+    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     config = function()
       require('gitsigns').setup({
         current_line_blame = true,
@@ -10,8 +10,9 @@ return {
   },
   {
     'ruifm/gitlinker.nvim',
-    event = 'VeryLazy',
     dependencies = { 'nvim-lua/plenary.nvim' },
+    lazy = true,
+    keys = { '<leader>l' },
     config = function()
       require('gitlinker').setup({
         mappings = '<leader>l',
@@ -20,7 +21,8 @@ return {
   },
   {
     'FabijanZulj/blame.nvim',
-    event = 'VeryLazy',
+    lazy = true,
+    event = { 'CmdlineEnter' },
     config = function()
       require('blame').setup()
     end,

@@ -59,8 +59,9 @@ return {
       { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
       { dir = '~/.config/nvim/lua/internal/telescope-ghq.nvim' },
       { 'rcarriga/nvim-notify' },
+      { 'prochri/telescope-all-recent.nvim' },
     },
-    event = 'VeryLazy',
+    lazy = true,
     cmd = {
       'Telescope',
     },
@@ -147,7 +148,7 @@ return {
   },
   {
     'prochri/telescope-all-recent.nvim',
-    event = 'VeryLazy',
+    lazy = true,
     dependencies = {
       'nvim-telescope/telescope.nvim',
       'kkharji/sqlite.lua',

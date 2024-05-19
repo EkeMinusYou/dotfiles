@@ -4,7 +4,7 @@ return {
     dependencies = {
       'vim-denops/denops.vim',
     },
-    event = 'VeryLazy',
+    lazy = true,
   },
   {
     'lambdalisue/kensaku-search.vim',
