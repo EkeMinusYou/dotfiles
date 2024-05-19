@@ -1,6 +1,6 @@
 return {
   'pcolladosoto/tinygo.nvim',
-  event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
+  event = 'VeryLazy',
   config = function()
     local target = os.getenv('TINYGO_TARGET')
     if target ~= nil then
