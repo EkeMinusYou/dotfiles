@@ -10,36 +10,43 @@ local function grep_by_kensaku()
   })
 end
 
-local function git_pickers(opts)
+local function get_all_pickers(opts)
   local pickers = require('telescope.pickers')
   local finders = require('telescope.finders')
   local conf = require('telescope.config').values
   local actions_set = require('telescope.actions.set')
   local actions_state = require('telescope.actions.state')
   local from_entry = require('telescope.from_entry')
+  local builtin_pickers = require('telescope.builtin')
+  local extensions_pickers = require('telescope._extensions')
 
   opts = opts or {}
 
+  local all_pickers = {}
+  for k in pairs(builtin_pickers) do
+    table.insert(all_pickers, k)
+  end
+  for k in pairs(extensions_pickers) do
+    table.insert(all_pickers, k)
+  end
+
   pickers
     .new(opts, {
-      prompt_title = 'git pickers',
+      prompt_title = 'pickers',
       finder = finders.new_table({
-        results = {
-          'git_files',
-          'git_stash',
-          'git_status',
-          'git_commits',
-          'git_branches',
-          'git_bcommits',
-          'git_bcommits_range',
-        },
+        results = all_pickers,
       }),
       sorter = conf.generic_sorter(opts),
-      attach_mappings = function(prompt_bufnr)
-        actions_set.select:replace(function(_, type)
+      attach_mappings = function(_)
+        ---@diagnostic disable-next-line: undefined-field
+        actions_set.select:replace(function(_, _)
           local entry = actions_state.get_selected_entry()
           local picker = from_entry.path(entry)
-          require('telescope.builtin')[picker]()
+          if builtin_pickers[picker] then
+            builtin_pickers[picker]()
+          else
+            extensions_pickers[picker]()
+          end
         end)
         return true
       end,
@@ -75,7 +82,7 @@ return {
       },
       { '<leader>fk', grep_by_kensaku },
       { '<leader>fb', '<cmd>Telescope buffers<cr>' },
-      { '<leader>v', git_pickers },
+      { '<leader>fa', get_all_pickers },
       { '<leader>fo', '<cmd>Telescope aerial<cr>' },
       -- { ':', '<cmd>Telescope cmdline<cr>' }, -- experimental
       { '<leader>fm', '<cmd>Telescope ghq list<cr>' },
