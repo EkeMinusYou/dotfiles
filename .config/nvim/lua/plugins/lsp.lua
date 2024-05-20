@@ -60,7 +60,6 @@ return {
           elseif server_name == 'helm_ls' then
             lspconfig.helm_ls.setup({
               capabilities = capabilities,
-              filetypes = { 'helm', 'yaml' },
               root_dir = function(fname)
                 return lspconfig.util.root_pattern('Chart.yaml')(fname)
               end,
