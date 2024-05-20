@@ -27,6 +27,7 @@ local function ghq_list(opts)
       previewer = conf.file_previewer(opts),
       sorter = conf.file_sorter(opts),
       attach_mappings = function(prompt_bufnr)
+        ---@diagnostic disable-next-line: undefined-field
         actions_set.select:replace(function(_, type)
           local entry = actions_state.get_selected_entry()
           local dir = from_entry.path(entry)
