@@ -14,9 +14,8 @@ end
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons', 'lewis6991/gitsigns.nvim' },
-  event = 'BufReadPost',
+  event = 'VimEnter',
   config = function()
-    vim.opt.laststatus = 3
     require('lualine').setup({
       extensions = {
         'nvim-tree',

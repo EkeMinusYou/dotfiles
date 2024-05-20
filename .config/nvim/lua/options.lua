@@ -25,8 +25,8 @@ vim.opt.fo = vim.opt.fo - 'c'
 vim.opt.fo = vim.opt.fo - 'r'
 vim.opt.fo = vim.opt.fo - 'o'
 
--- set 3 when lualine setup
-vim.opt.laststatus = 0
+-- set 3 for lualine setup
+vim.opt.laststatus = 3
 
 -- theme
 vim.opt.termguicolors = true
