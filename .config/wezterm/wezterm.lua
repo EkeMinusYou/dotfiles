@@ -1,6 +1,8 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+require("events.tab-title").setup()
+
 return {
 	color_scheme = "kanagawabones",
 	tab_bar_at_bottom = true,
