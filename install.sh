@@ -51,7 +51,7 @@ ln -sfn $DOT_DIR/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/k
 
 # Setup WezTerm
 mkdir -p ~/.config/wezterm
-ln -sfn $DOT_DIR/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+ln -sfn $DOT_DIR/dotfiles/.config/wezterm ~/.config/
 
 # Setup gh dash
 mkdir -p ~/.config/gh-dash
