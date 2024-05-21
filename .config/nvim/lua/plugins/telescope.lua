@@ -85,7 +85,7 @@ return {
       { '<leader>fa', get_all_pickers },
       { '<leader>fo', '<cmd>Telescope aerial<cr>' },
       -- { ':', '<cmd>Telescope cmdline<cr>' }, -- experimental
-      { '<leader>fm', '<cmd>Telescope ghq list<cr>' },
+      { '<leader>p', '<cmd>Telescope ghq list<cr>' },
     },
     config = function()
       local telescope = require('telescope')
