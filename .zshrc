@@ -102,6 +102,8 @@ alias -g H='| head'
 alias -g L='| less'
 alias -g M='| more'
 alias -g T='| tail'
+alias -g J='| jq'
+alias -g Y='| yq'
 
 # cd
 alias c="cd"
@@ -154,6 +156,9 @@ alias kl="kubectl logs"
 alias kt="kubectl top"
 alias kr="kubectl rollout"
 type kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
+
+# k9s
+alias k9="k9s --readonly"
 
 # Node.js
 eval "$(fnm env --use-on-cd)"
