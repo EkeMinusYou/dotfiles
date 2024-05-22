@@ -1,4 +1,7 @@
+local initial_cwd = vim.fn.getcwd()
+
 local function restore()
+  vim.cmd('cd ' .. initial_cwd)
   require('nvim-tree.api').tree.close()
   require('dashboard'):instance()
 end
