@@ -26,7 +26,7 @@ end
 
 local _set_title = function(process_name, base_title, max_width, inset)
 	local title
-	inset = inset or 6
+	inset = inset or 0
 
 	if process_name:len() > 0 then
 		title = process_name .. " ~ " .. base_title
