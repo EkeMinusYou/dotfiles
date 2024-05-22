@@ -4,7 +4,7 @@ local act = wezterm.action
 require("events.tab-title").setup()
 
 return {
-	color_scheme = "kanagawabones",
+	color_scheme = "tokyonight",
 	tab_bar_at_bottom = true,
 	window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW",
 	window_background_opacity = 0.9,
