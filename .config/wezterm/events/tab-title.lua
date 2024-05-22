@@ -11,7 +11,7 @@ local GLYPH_SEMI_CIRCLE_RIGHT = nf.ple_right_half_circle_thick --[[ '' ]]
 
 local nerdicons = {
 	nvim = wezterm.nerdfonts.custom_neovim,
-	zsh = wezterm.nerdfonts.dev_terminal,
+	zsh = wezterm.nerdfonts.seti_shell,
 	docker = wezterm.nerdfonts.dev_docker,
 }
 
