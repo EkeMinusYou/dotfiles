@@ -32,6 +32,7 @@ local function ghq_list(opts)
           local entry = actions_state.get_selected_entry()
           local dir = from_entry.path(entry)
           if type == 'default' then
+            vim.cmd('cd ' .. dir)
             require('telescope.builtin').find_files({ cwd = dir })
             return
           end
