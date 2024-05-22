@@ -24,6 +24,11 @@ return {
 		brightness = 0.5,
 	},
 
+	-- TabBar
+	window_frame = {
+		font_size = 15.0,
+	},
+
 	audible_bell = "Disabled",
 
 	-- See: https://github.com/wez/wezterm/issues/4051
