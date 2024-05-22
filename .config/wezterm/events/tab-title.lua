@@ -9,6 +9,12 @@ local nf = wezterm.nerdfonts
 local GLYPH_SEMI_CIRCLE_LEFT = nf.ple_left_half_circle_thick --[[ '' ]]
 local GLYPH_SEMI_CIRCLE_RIGHT = nf.ple_right_half_circle_thick --[[ '' ]]
 
+local nerdicons = {
+	nvim = wezterm.nerdfonts.custom_neovim,
+	zsh = wezterm.nerdfonts.dev_terminal,
+	docker = wezterm.nerdfonts.dev_docker,
+}
+
 local M = {}
 
 local __cells__ = {} -- wezterm FormatItems (ref: https://wezfurlong.org/wezterm/config/lua/wezterm/format.html)
@@ -22,24 +28,6 @@ local colors = {
 local _set_process_name = function(s)
 	local a = string.gsub(s, "(.*[/\\])(.*)", "%2")
 	return a:gsub("%.exe$", "")
-end
-
-local _set_title = function(process_name, base_title, max_width, inset)
-	local title
-	inset = inset or 0
-
-	if process_name:len() > 0 then
-		title = process_name .. " ~ " .. base_title
-	else
-		title = base_title
-	end
-
-	if title:len() > max_width - inset then
-		local diff = title:len() - max_width + inset
-		title = wezterm.truncate_right(title, title:len() - diff)
-	end
-
-	return title
 end
 
 ---@param fg string
@@ -60,8 +48,12 @@ M.setup = function()
 
 		local bg
 		local fg
-		local process_name = _set_process_name(tab.active_pane.foreground_process_name)
-		local title = _set_title(process_name, tab.active_pane.title, max_width)
+		local title = _set_process_name(tab.active_pane.foreground_process_name)
+
+		local icon = nerdicons[title]
+		if icon then
+			title = icon .. " " .. title
+		end
 
 		if tab.is_active then
 			bg = colors.is_active.bg

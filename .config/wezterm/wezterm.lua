@@ -26,7 +26,7 @@ return {
 
 	-- TabBar
 	window_frame = {
-		font_size = 15.0,
+		font_size = 20.0,
 	},
 
 	audible_bell = "Disabled",
