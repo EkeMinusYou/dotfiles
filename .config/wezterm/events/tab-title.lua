@@ -10,9 +10,12 @@ local GLYPH_SEMI_CIRCLE_LEFT = nf.ple_left_half_circle_thick --[[ '' ]]
 local GLYPH_SEMI_CIRCLE_RIGHT = nf.ple_right_half_circle_thick --[[ '' ]]
 
 local nerdicons = {
-	nvim = wezterm.nerdfonts.custom_neovim,
-	zsh = wezterm.nerdfonts.seti_shell,
-	docker = wezterm.nerdfonts.dev_docker,
+	nvim = nf.linux_neovim,
+	zsh = nf.seti_shell,
+	docker = nf.dev_docker,
+	lovot = nf.md_robot_love_outline,
+	terraform = nf.md_terraform,
+	kubectl = nf.md_kubernetes,
 }
 
 local M = {}
