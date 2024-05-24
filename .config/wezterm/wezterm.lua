@@ -26,7 +26,7 @@ return {
 
 	-- TabBar
 	window_frame = {
-		font = wezterm.font("HackGen35 Console NF", { weight = "Bold" }),
+		font = wezterm.font("HackGen", { weight = "Bold" }),
 		font_size = 20.0,
 	},
 
