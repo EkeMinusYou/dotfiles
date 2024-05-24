@@ -56,7 +56,7 @@ M.setup = function()
 
 		local icon = nerdicons[title]
 		if icon then
-			title = icon .. " " .. title
+			title = icon .. "" .. title
 		end
 
 		if tab.is_active then
