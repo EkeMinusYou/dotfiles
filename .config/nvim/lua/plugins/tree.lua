@@ -57,6 +57,7 @@ return {
           highlight_opened_files = 'name',
           highlight_diagnostics = 'all',
           highlight_modified = 'all',
+          group_empty = true,
         },
         respect_buf_cwd = true,
         sync_root_with_cwd = true,
