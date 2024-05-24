@@ -16,6 +16,7 @@ local nerdicons = {
 	lovot = nf.md_robot_love_outline,
 	terraform = nf.md_terraform,
 	kubectl = nf.md_kubernetes,
+	ruby = nf.dev_ruby,
 }
 
 local M = {}
