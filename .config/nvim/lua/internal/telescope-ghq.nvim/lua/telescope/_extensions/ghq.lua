@@ -1,3 +1,13 @@
+local function file_exists(path)
+  local f = io.open(path, 'r')
+  if f ~= nil then
+    io.close(f)
+    return true
+  else
+    return false
+  end
+end
+
 local function ghq_list(opts)
   local pickers = require('telescope.pickers')
   local finders = require('telescope.finders')
@@ -39,8 +49,14 @@ local function ghq_list(opts)
         map('i', '<cr>', function()
           local entry = actions_state.get_selected_entry()
           local dir = from_entry.path(entry)
-          actions.close(prompt_bufnr)
-          vim.api.nvim_command('edit ' .. dir .. '/' .. 'README.md')
+
+          local readme = dir .. '/' .. 'README.md'
+          if file_exists(readme) then
+            actions.close(prompt_bufnr)
+            vim.api.nvim_command('edit ' .. readme)
+          else
+            require('telescope.builtin').find_files({ cwd = dir })
+          end
         end)
         return true
       end,
