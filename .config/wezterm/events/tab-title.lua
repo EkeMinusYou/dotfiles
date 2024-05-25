@@ -74,10 +74,10 @@ M.setup = function()
 		_push("rgba(0, 0, 0, 0.4)", bg, { Intensity = "Bold" }, GLYPH_SEMI_CIRCLE_LEFT)
 
 		-- Title
-		_push(bg, fg, { Intensity = "Bold" }, " " .. title)
+		_push(bg, fg, { Intensity = "Bold" }, "" .. title)
 
 		-- Right padding
-		_push(bg, fg, { Intensity = "Bold" }, " ")
+		_push(bg, fg, { Intensity = "Bold" }, "")
 
 		-- Right semi-circle
 		_push("rgba(0, 0, 0, 0.4)", bg, { Intensity = "Bold" }, GLYPH_SEMI_CIRCLE_RIGHT)
