@@ -17,6 +17,7 @@ local nerdicons = {
 	terraform = nf.md_terraform,
 	kubectl = nf.md_kubernetes,
 	ruby = nf.dev_ruby,
+	gh = nf.fa_github,
 }
 
 local M = {}
