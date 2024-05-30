@@ -157,6 +157,9 @@ alias kt="kubectl top"
 alias kr="kubectl rollout"
 type kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
 
+# stern
+type stern >/dev/null 2>&1 && source <(stern --completion=zsh)
+
 # k9s
 alias k9="k9s --readonly"
 

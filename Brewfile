@@ -49,3 +49,4 @@ brew "trash"
 brew "deno"
 tap tinygo-org/tools
 brew "tinygo"
+brew "stern"
