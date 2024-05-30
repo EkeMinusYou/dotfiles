@@ -50,3 +50,5 @@ brew "deno"
 tap tinygo-org/tools
 brew "tinygo"
 brew "stern"
+tap soracom/soracom-cli
+brew soracom-cli
