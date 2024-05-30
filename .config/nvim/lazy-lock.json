@@ -26,6 +26,7 @@
   "kensaku-search.vim": { "branch": "main", "commit": "9568c2b174a9cf31bd9922c0a991117f4dd4f0c3" },
   "kensaku.vim": { "branch": "main", "commit": "7ddad2f355a3678597ebbac666e2ee6dda6b9cf3" },
   "lazy.nvim": { "branch": "main", "commit": "24fa2a97085ca8a7220b5b078916f81e316036fd" },
+  "lsp-timeout.nvim": { "branch": "main", "commit": "6325906730330105a9adc41d0ceb8499b3072e2b" },
   "lspkind.nvim": { "branch": "master", "commit": "1735dd5a5054c1fb7feaf8e8658dbab925f4f0cf" },
   "lspsaga.nvim": { "branch": "main", "commit": "b12786c18abb2017318e6a886ce3c6a47f18a910" },
   "lualine.nvim": { "branch": "master", "commit": "0a5a66803c7407767b799067986b4dc3036e1983" },
