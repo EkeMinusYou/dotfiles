@@ -12,6 +12,9 @@ return {
   config = function()
     require('overseer').setup({
       strategy = 'jobstart',
+      on_create = function()
+        vim.cmd('stopinsert')
+      end,
     })
   end,
 }
