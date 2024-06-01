@@ -10,7 +10,23 @@ return {
     'folke/tokyonight.nvim',
     lazy = false,
     config = function()
-      vim.cmd([[colorscheme tokyonight-night]])
+      -- vim.cmd([[colorscheme tokyonight-night]])
+    end,
+  },
+  {
+    'uloco/bluloco.nvim',
+    lazy = false,
+    dependencies = { 'rktjmp/lush.nvim' },
+    config = function()
+      -- vim.cmd([[colorscheme bluloco]])
+    end,
+  },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    lazy = false,
+    config = function()
+      vim.cmd([[colorscheme catppuccin]])
     end,
   },
 }
