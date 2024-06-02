@@ -3,15 +3,11 @@ return {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
     dependencies = {
-      'folke/neodev.nvim',
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
-      require('neodev').setup({
-        pathStrict = true,
-      })
       require('mason').setup()
       local mason_lspconfig = require('mason-lspconfig')
       mason_lspconfig.setup({
@@ -89,6 +85,18 @@ return {
         end,
       })
     end,
+  },
+  {
+    {
+      'folke/lazydev.nvim',
+      ft = 'lua',
+      opts = {
+        library = {
+          'luvit-meta/library',
+        },
+      },
+    },
+    { 'Bilal2453/luvit-meta', lazy = true },
   },
   {
     'glepnir/lspsaga.nvim',

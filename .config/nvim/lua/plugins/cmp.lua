@@ -13,6 +13,7 @@ return {
     { 'hrsh7th/vim-vsnip' },
     { 'onsails/lspkind.nvim' },
     { 'rinx/cmp-skkeleton', dependencies = { 'vim-skk/skkeleton' } },
+    { 'folke/lazydev.nvim' },
   },
   config = function()
     local cmp = require('cmp')
@@ -45,6 +46,7 @@ return {
         { name = 'vsnip' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
+        { name = 'lazydev', group_index = 0 },
       }, {
         { name = 'buffer', keyword_length = 2 },
       }),
@@ -63,11 +65,13 @@ return {
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       }),
+      ---@diagnostic disable-next-line: missing-fields
       formatting = {
         format = lspkind.cmp_format({
           mode = 'symbol_text',
         }),
       },
+      ---@diagnostic disable-next-line: missing-fields
       performance = {
         max_view_entries = 50,
       },
