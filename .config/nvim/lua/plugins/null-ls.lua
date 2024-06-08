@@ -28,7 +28,6 @@ return {
           condition = function()
             return helper.local_has_file({ 'biome.json' })
           end,
-          diagnostics_format = '[biome] #{m}\n(#{c})',
         }),
         require('none-ls.diagnostics.eslint_d').with({
           condition = function()

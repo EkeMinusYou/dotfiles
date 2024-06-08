@@ -76,7 +76,12 @@ return {
               end,
             })
           elseif server_name == 'biome' then
-            -- do nothing. only use null-ls
+            lspconfig.biome.setup({
+              capabilities = capabilities,
+              root_dir = function(fname)
+                return lspconfig.util.root_pattern('biome.json')(fname)
+              end,
+            })
           else
             lspconfig[server_name].setup({
               capabilities = capabilities,
