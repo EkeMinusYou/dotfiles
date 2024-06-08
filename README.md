@@ -22,12 +22,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/EkeMinusYou/dotfiles/mai
 brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/Brewfile"
 ```
 
-#### Setup fzf
-
-```bash
-$(brew --prefix)/opt/fzf/install
-```
-
 ### Contents
 
 - Brewfile
