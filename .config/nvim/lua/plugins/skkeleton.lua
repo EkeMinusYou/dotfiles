@@ -19,6 +19,7 @@ return {
           dict .. '/SKK-JISYO.station',
           dict .. '/SKK-JISYO.propernoun',
         },
+        userDictionary = '~/.skk/skk-jisyo.utf8',
       })
       local register_kanatable = vim.fn['skkeleton#register_kanatable']
       register_kanatable('rom', require('skkeleton.azik'))
