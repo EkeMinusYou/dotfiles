@@ -293,6 +293,8 @@ zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
 zstyle ':autocomplete:history-*:*' list-lines 5
 zstyle ':autocomplete:*' delay 0
 zstyle ':autocomplete:*' min-input 1
+# See: https://github.com/marlonrichert/zsh-autocomplete/issues/724
+setopt INTERACTIVECOMMENTS
 
 # -------------------
 # Load Plugins
