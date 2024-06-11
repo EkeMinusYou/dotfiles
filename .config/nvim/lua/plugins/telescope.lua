@@ -84,8 +84,12 @@ return {
       { '<leader>fb', '<cmd>Telescope buffers<cr>' },
       { '<leader>fa', get_all_pickers },
       { '<leader>fo', '<cmd>Telescope aerial<cr>' },
+      { '<leader>fh', '<cmd>Telescope help_tags<cr>' },
       -- { ':', '<cmd>Telescope cmdline<cr>' }, -- experimental
       { '<leader>p', '<cmd>Telescope ghq list<cr>' },
+      { '<leader>vb', '<cmd>Telescope git_branches<cr>' },
+      { '<leader>vc', '<cmd>Telescope git_commits<cr>' },
+      { '<leader>vs', '<cmd>Telescope git_status<cr>' },
     },
     config = function()
       local telescope = require('telescope')
