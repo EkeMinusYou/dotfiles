@@ -134,9 +134,4 @@ return {
     'stevearc/dressing.nvim',
     event = 'LspAttach',
   },
-  {
-    'hinell/lsp-timeout.nvim',
-    event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-    dependencies = { 'neovim/nvim-lspconfig' },
-  },
 }
