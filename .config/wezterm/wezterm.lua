@@ -12,7 +12,7 @@ return {
 	window_close_confirmation = "NeverPrompt",
 	native_macos_fullscreen_mode = true,
 	hide_tab_bar_if_only_one_tab = true,
-	use_ime = true,
+	use_ime = false, -- for: use skkeleton in neovim
 
 	window_padding = { left = 40, right = 0, top = 40, bottom = 0 },
 
