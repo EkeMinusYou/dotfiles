@@ -13,11 +13,11 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
     keys = {
-      { '<leader>l', mode = { 'n', 'v' } },
+      { '<leader>vl', mode = { 'n', 'v' } },
     },
     config = function()
       require('gitlinker').setup({
-        mappings = '<leader>l',
+        mappings = '<leader>vl',
       })
     end,
   },

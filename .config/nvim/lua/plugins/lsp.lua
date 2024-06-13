@@ -107,11 +107,12 @@ return {
     'glepnir/lspsaga.nvim',
     event = 'LspAttach',
     keys = {
-      { 'gr', '<cmd>Lspsaga finder<cr>' },
+      { '<leader>lr', '<cmd>Lspsaga finder<cr>' },
       { 'gn', '<cmd>Lspsaga rename<cr>' },
       { 'ga', '<cmd>Lspsaga code_action<cr>' },
       { 'gd', '<cmd>Lspsaga goto_definition<cr>' },
       { 'gt', '<cmd>Lspsaga goto_type_definition<cr>' },
+      { 'K', '<cmd>Lspsaga hover_doc<cr>' },
     },
     config = function()
       require('lspsaga').setup({
