@@ -66,6 +66,7 @@ return {
       { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
       { dir = '~/.config/nvim/lua/internal/telescope-ghq.nvim' },
       { 'rcarriga/nvim-notify' },
+      { 'prochri/telescope-all-recent.nvim' },
     },
     lazy = true,
     cmd = {
@@ -197,30 +198,29 @@ return {
       telescope.load_extension('notify')
       -- local
       telescope.load_extension('ghq')
+
+      ---@diagnostic disable-next-line: missing-fields
+      require('telescope-all-recent').setup({
+        pickers = {
+          -- not working...
+          ['ghq#list'] = {
+            ---@diagnostic disable-next-line: assign-type-mismatch
+            disable = false,
+            ---@diagnostic disable-next-line: assign-type-mismatch
+            use_cwd = false,
+            sorting = 'recent',
+          },
+        },
+      })
     end,
   },
   {
     'prochri/telescope-all-recent.nvim',
-    -- lazy = true,
+    lazy = true,
     dependencies = {
       'nvim-telescope/telescope.nvim',
       'kkharji/sqlite.lua',
       'stevearc/dressing.nvim',
     },
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('telescope-all-recent').setup({
-        pickers = {
-          -- not working...
-          -- ['ghq#list'] = {
-          --   ---@diagnostic disable-next-line: assign-type-mismatch
-          --   disable = false,
-          --   ---@diagnostic disable-next-line: assign-type-mismatch
-          --   use_cwd = false,
-          --   sorting = 'recent',
-          -- },
-        },
-      })
-    end,
   },
 }
