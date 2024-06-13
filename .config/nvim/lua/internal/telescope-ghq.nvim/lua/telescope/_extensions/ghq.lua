@@ -16,16 +16,36 @@ local function ghq_list(opts)
   local actions_set = require('telescope.actions.set')
   local actions_state = require('telescope.actions.state')
   local from_entry = require('telescope.from_entry')
+  local entry_display = require('telescope.pickers.entry_display')
 
   opts = opts or {}
 
   local ghq_root = vim.fn.trim(vim.fn.system('ghq root'))
 
+  local displayer = entry_display.create({
+    separator = ' ',
+    items = {
+      { width = 40 },
+      { width = 20 },
+      { remaining = true },
+    },
+  })
+
+  local make_display = function(entry)
+    local metadata = entry.value
+    local vcs, owner, repo = metadata:gsub(ghq_root, ''):match('/(.+)/(.+)/(.+)$')
+    return displayer({
+      { repo, 'TelescopeResultsIdentifier' },
+      owner,
+      vcs,
+    })
+  end
+
   opts.entry_maker = function(entry)
     return {
       value = entry,
       ordinal = entry,
-      display = entry:gsub(ghq_root .. '/', ''),
+      display = make_display,
       path = entry,
     }
   end
@@ -47,7 +67,8 @@ local function ghq_list(opts)
           local dir = from_entry.path(entry)
           require('telescope').extensions.egrepify.egrepify({ cwd = dir })
         end)
-        actions_set.select:replace(function(_, type)
+        ---@diagnostic disable-next-line: undefined-field
+        actions_set.select:replace(function(_, _)
           local entry = actions_state.get_selected_entry()
           local dir = from_entry.path(entry)
 
