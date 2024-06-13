@@ -211,13 +211,14 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       require('telescope-all-recent').setup({
         pickers = {
-          ['ghq#list'] = {
-            ---@diagnostic disable-next-line: assign-type-mismatch
-            disable = false,
-            ---@diagnostic disable-next-line: assign-type-mismatch
-            use_cwd = false,
-            sorting = 'recent',
-          },
+          -- not working...
+          -- ['ghq#list'] = {
+          --   ---@diagnostic disable-next-line: assign-type-mismatch
+          --   disable = false,
+          --   ---@diagnostic disable-next-line: assign-type-mismatch
+          --   use_cwd = false,
+          --   sorting = 'recent',
+          -- },
         },
       })
     end,
