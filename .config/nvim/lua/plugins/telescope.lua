@@ -66,14 +66,20 @@ return {
       { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
       { dir = '~/.config/nvim/lua/internal/telescope-ghq.nvim' },
       { 'rcarriga/nvim-notify' },
-      { 'prochri/telescope-all-recent.nvim' },
     },
     lazy = true,
     cmd = {
       'Telescope',
     },
+    -- wrap because telescope-all-recent.nvim
+    -- See: https://github.com/prochri/telescope-all-recent.nvim/issues/2
     keys = {
-      { '<leader>ff', '<cmd>Telescope find_files<cr>' },
+      {
+        '<leader>ff',
+        function()
+          require('telescope.builtin').find_files()
+        end,
+      },
       {
         '<leader>fg',
         function()
@@ -81,15 +87,51 @@ return {
         end,
       },
       { '<leader>fk', grep_by_kensaku },
-      { '<leader>fb', '<cmd>Telescope buffers<cr>' },
+      {
+        '<leader>fb',
+        function()
+          require('telescope.builtin').buffers()
+        end,
+      },
       { '<leader>fa', get_all_pickers },
-      { '<leader>fo', '<cmd>Telescope aerial<cr>' },
+      {
+        '<leader>fo',
+        function()
+          require('telescope').extensions.aerial.aerial()
+        end,
+      },
       { '<leader>fh', '<cmd>Telescope help_tags<cr>' },
+      {
+        '<leader>fh',
+        function()
+          require('telescope.builtin').help_tags()
+        end,
+      },
       -- { ':', '<cmd>Telescope cmdline<cr>' }, -- experimental
-      { '<leader>p', '<cmd>Telescope ghq list<cr>' },
-      { '<leader>vb', '<cmd>Telescope git_branches<cr>' },
-      { '<leader>vc', '<cmd>Telescope git_commits<cr>' },
-      { '<leader>vs', '<cmd>Telescope git_status<cr>' },
+      {
+        '<leader>p',
+        function()
+          require('telescope').extensions.ghq.list()
+        end,
+      },
+      {
+        '<leader>vb',
+        function()
+          require('telescope.builtin').git_branches()
+        end,
+      },
+      {
+        '<leader>vc',
+        function()
+          require('telescope.builtin').git_commits()
+        end,
+      },
+      {
+        '<leader>vs',
+        function()
+          require('telescope.builtin').git_status()
+        end,
+      },
     },
     config = function()
       local telescope = require('telescope')
@@ -159,7 +201,7 @@ return {
   },
   {
     'prochri/telescope-all-recent.nvim',
-    lazy = true,
+    -- lazy = true,
     dependencies = {
       'nvim-telescope/telescope.nvim',
       'kkharji/sqlite.lua',
