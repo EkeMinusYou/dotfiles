@@ -13,6 +13,7 @@ local function ghq_list(opts)
   local finders = require('telescope.finders')
   local conf = require('telescope.config').values
   local actions = require('telescope.actions')
+  local actions_set = require('telescope.actions.set')
   local actions_state = require('telescope.actions.state')
   local from_entry = require('telescope.from_entry')
 
@@ -46,7 +47,7 @@ local function ghq_list(opts)
           local dir = from_entry.path(entry)
           require('telescope').extensions.egrepify.egrepify({ cwd = dir })
         end)
-        map('i', '<cr>', function()
+        actions_set.select:replace(function(_, type)
           local entry = actions_state.get_selected_entry()
           local dir = from_entry.path(entry)
 
