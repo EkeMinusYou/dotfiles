@@ -36,8 +36,8 @@ local function ghq_list(opts)
     local vcs, owner, repo = metadata:gsub(ghq_root, ''):match('/(.+)/(.+)/(.+)$')
     return displayer({
       { repo, 'TelescopeResultsIdentifier' },
-      owner,
-      vcs,
+      { owner, 'TelescopeResultsNormal' },
+      { vcs, 'TelescopeResultsComment' },
     })
   end
 
