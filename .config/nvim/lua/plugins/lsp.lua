@@ -27,10 +27,10 @@ return {
       })
 
       local lspconfig = require('lspconfig')
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities({ dynamicRegistration = true })
       -- Setup LSP
       lspconfig.sourcekit.setup({
-        capabilities = require('cmp_nvim_lsp').default_capabilities({ dynamicRegistration = true }),
+        capabilities = capabilities,
         root_dir = function(filename, _)
           local util = require('lspconfig.util')
           -- prefer Package.swift for multi module with swift package manager
