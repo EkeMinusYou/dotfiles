@@ -67,6 +67,7 @@ return {
       require('hlchunk').setup({
         chunk = {
           enable = true,
+          delay = 0,
         },
         line_num = {
           enable = true,
