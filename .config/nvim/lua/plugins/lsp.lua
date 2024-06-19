@@ -27,6 +27,7 @@ return {
       })
 
       local lspconfig = require('lspconfig')
+      local capabilitiesCmpDefault = require('cmp_nvim_lsp').default_capabilities()
       local capabilities = require('cmp_nvim_lsp').default_capabilities({ dynamicRegistration = true })
       -- Setup LSP
       lspconfig.sourcekit.setup({
@@ -62,7 +63,7 @@ return {
             })
           elseif server_name == 'vtsls' then
             lspconfig.vtsls.setup({
-              capabilities = capabilities,
+              capabilities = capabilitiesCmpDefault,
               root_dir = function(fname)
                 return lspconfig.util.root_pattern('package.json')(fname)
               end,
