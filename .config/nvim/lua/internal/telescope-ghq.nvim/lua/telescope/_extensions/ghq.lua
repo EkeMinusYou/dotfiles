@@ -1,3 +1,18 @@
+local function get_first_buffer(dir)
+  local buffers = vim.api.nvim_list_bufs()
+
+  for _, buf in ipairs(buffers) do
+    if vim.api.nvim_buf_is_loaded(buf) and vim.api.nvim_buf_get_name(buf) ~= '' then
+      local buf_path = vim.api.nvim_buf_get_name(buf)
+      if buf_path:find(dir, 1, true) then
+        return buf
+      end
+    end
+  end
+
+  return nil
+end
+
 local function file_exists(path)
   local f = io.open(path, 'r')
   if f ~= nil then
@@ -72,13 +87,20 @@ local function ghq_list(opts)
           local entry = actions_state.get_selected_entry()
           local dir = from_entry.path(entry)
 
+          local buf = get_first_buffer(dir)
+          if buf then
+            actions.close(prompt_bufnr)
+            vim.api.nvim_set_current_buf(buf)
+            return
+          end
+
           local readme = dir .. '/' .. 'README.md'
           if file_exists(readme) then
             actions.close(prompt_bufnr)
             vim.api.nvim_command('edit ' .. readme)
-          else
-            require('telescope.builtin').find_files({ cwd = dir })
+            return
           end
+          require('telescope.builtin').find_files({ cwd = dir })
         end)
         return true
       end,
