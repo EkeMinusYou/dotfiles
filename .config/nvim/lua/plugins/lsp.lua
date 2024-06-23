@@ -27,10 +27,10 @@ return {
       })
 
       local lspconfig = require('lspconfig')
-      local capabilitiesCmpDefault = require('cmp_nvim_lsp').default_capabilities()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities({ dynamicRegistration = true })
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
       -- Setup LSP
       lspconfig.sourcekit.setup({
+        -- capabilities = capabilitiesCmpDefault,
         capabilities = capabilities,
         root_dir = function(filename, _)
           local util = require('lspconfig.util')
