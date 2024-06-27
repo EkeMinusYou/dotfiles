@@ -4,7 +4,7 @@ local function get_first_buffer(dir)
   for _, buf in ipairs(buffers) do
     if vim.api.nvim_buf_is_loaded(buf) and vim.api.nvim_buf_get_name(buf) ~= '' then
       local buf_path = vim.api.nvim_buf_get_name(buf)
-      if buf_path:find(dir, 1, true) then
+      if buf_path:find(dir .. '/', 1, true) then
         return buf
       end
     end
