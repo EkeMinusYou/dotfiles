@@ -70,7 +70,9 @@ return {
         },
         filters = { custom = { '^.git$' } },
         view = {
-          width = 35,
+          width = {
+            max = 45,
+          },
         },
       })
     end,
