@@ -44,7 +44,9 @@ return {
         }),
         -- go
         null_ls.builtins.formatting.gofmt,
-        null_ls.builtins.formatting.goimports,
+        null_ls.builtins.formatting.goimports.with({
+          extra_args = { '-local', 'github.com/groove-x' },
+        }),
         null_ls.builtins.diagnostics.staticcheck.with({
           diagnostics_format = '[staticcheck] #{m}\n(#{c})',
         }),
