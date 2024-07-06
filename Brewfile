@@ -47,8 +47,14 @@ brew tap "daipeihust/tap"
 brew "im-select"
 brew "trash"
 brew "deno"
-tap tinygo-org/tools
+tap "tinygo-org/tools"
 brew "tinygo"
 brew "stern"
-tap soracom/soracom-cli
-brew soracom-cli
+tap "soracom/soracom-cli"
+brew "soracom-cli"
+brew "smartmontools"
+brew "serpl"
+brew "stern"
+brew "xcodegen"
+brew "xcode-build-server"
+brew "neofetch"
