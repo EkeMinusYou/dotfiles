@@ -191,6 +191,9 @@ if [ $commands[switchbot] ]; then
   source <(switchbot completions zsh)
 fi
 
+# Python
+export PATH=/opt/homebrew/Cellar/python@3.8/3.8.19/Frameworks/Python.framework/Versions/3.8/bin:$PATH
+
 # VSCode
 alias e='code -a .'
 
