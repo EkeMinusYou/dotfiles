@@ -17,6 +17,20 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
+local function lsp_all_stop()
+  for _, client in pairs(vim.lsp.get_clients()) do
+    client.stop()
+  end
+end
+
+vim.api.nvim_create_augroup('lsp', {})
+vim.api.nvim_create_autocmd('DirChangedPre', {
+  group = 'lsp',
+  callback = function()
+    lsp_all_stop()
+  end,
+})
+
 -- denolscache
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = 'format',
@@ -98,6 +112,7 @@ local set_root = function()
     root_cache[path] = root
   end
 
+  lsp_all_stop()
   vim.fn.chdir(root)
 end
 
