@@ -30,8 +30,14 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       -- Setup LSP
       lspconfig.sourcekit.setup({
-        -- capabilities = capabilitiesCmpDefault,
-        capabilities = capabilities,
+        -- ref: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        },
         root_dir = function(filename, _)
           local util = require('lspconfig.util')
           -- prefer Package.swift for multi module with swift package manager
@@ -63,7 +69,7 @@ return {
             })
           elseif server_name == 'vtsls' then
             lspconfig.vtsls.setup({
-              capabilities = capabilitiesCmpDefault,
+              capabilities = capabilities,
               root_dir = function(fname)
                 return lspconfig.util.root_pattern('package.json')(fname)
               end,
