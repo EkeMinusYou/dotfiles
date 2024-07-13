@@ -112,7 +112,6 @@ local set_root = function()
     root_cache[path] = root
   end
 
-  lsp_all_stop()
   vim.fn.chdir(root)
 end
 
