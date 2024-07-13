@@ -74,5 +74,6 @@
   "vscode-go": { "branch": "master", "commit": "4cd8eb146d154b22bdaca6b823e0b0ca10423995" },
   "wezterm.nvim": { "branch": "main", "commit": "f73bba23ab4becd146fa2d0a3a16a84b987eeaca" },
   "which-key.nvim": { "branch": "main", "commit": "0099511294f16b81c696004fa6a403b0ae61f7a0" },
+  "xcodebuild.nvim": { "branch": "main", "commit": "2c11361fae9b349665fcf2392164fe8706855a46" },
   "yanky.nvim": { "branch": "main", "commit": "73215b77d22ebb179cef98e7e1235825431d10e4" }
 }
