@@ -60,7 +60,7 @@ return {
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-      { 'fdschmidt93/telescope-egrepify.nvim' },
+      { 'fdschmidt93/telescope-egrepify.nvim', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
       { 'stevearc/aerial.nvim' },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'jonarrien/telescope-cmdline.nvim' }, -- experimental
@@ -168,6 +168,7 @@ return {
             case_mode = 'smart_case',
           },
           egrepify = {
+            results_ts_hl = true,
             vimgrep_arguments = {
               {
                 'rg',
