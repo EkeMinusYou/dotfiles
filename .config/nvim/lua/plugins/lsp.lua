@@ -28,16 +28,13 @@ return {
 
       local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local customCapabilities = require('cmp_nvim_lsp').default_capabilities({
+        workspace = { didChangeWatchedFiles = { dynamicRegistration = true } },
+      })
       -- Setup LSP
       lspconfig.sourcekit.setup({
         -- ref: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
-        capabilities = {
-          workspace = {
-            didChangeWatchedFiles = {
-              dynamicRegistration = true,
-            },
-          },
-        },
+        capabilities = customCapabilities,
         root_dir = function(filename, _)
           local util = require('lspconfig.util')
           -- prefer Package.swift for multi module with swift package manager
