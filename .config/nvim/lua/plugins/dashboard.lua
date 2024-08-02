@@ -7,19 +7,28 @@ local function restore()
 end
 
 return {
-  'nvimdev/dashboard-nvim',
-  event = 'VimEnter',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
-  keys = {
-    { '<leader>x', restore },
-  },
-  config = function()
-    require('dashboard').setup({
-      config = {
-        week_header = {
-          enable = true,
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    keys = {
+      { '<leader>x', restore },
+    },
+    config = function()
+      require('dashboard').setup({
+        config = {
+          week_header = {
+            enable = true,
+          },
         },
-      },
-    })
-  end,
+      })
+    end,
+  },
+  {
+    'folke/drop.nvim',
+    event = 'VimEnter',
+    config = function()
+      require('drop').setup()
+    end,
+  },
 }
