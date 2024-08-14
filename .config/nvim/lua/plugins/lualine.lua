@@ -11,6 +11,18 @@ local function diff_source()
   end
 end
 
+local function lsp_clients()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  if next(clients) == nil then
+    return ''
+  end
+  local client_names = {}
+  for _, client in pairs(clients) do
+    table.insert(client_names, client.name)
+  end
+  return table.concat(client_names, ', ')
+end
+
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons', 'lewis6991/gitsigns.nvim' },
@@ -57,6 +69,9 @@ return {
         },
         lualine_x = {
           {
+            lsp_clients,
+          },
+          {
             'diff',
             colored = true,
             symbols = { added = ' ', modified = ' ', removed = ' ' },
@@ -64,7 +79,10 @@ return {
           },
         },
         lualine_y = {
-          { 'b:gitsigns_head', icon = { '' } },
+          {
+            'b:gitsigns_head',
+            icon = { '' },
+          },
         },
       },
       sections = {
@@ -90,7 +108,11 @@ return {
           'filetype',
         },
         lualine_z = {
-          { 'fileformat', icons_enabled = true, separator = { left = '', right = '' } },
+          {
+            'fileformat',
+            icons_enabled = true,
+            separator = { left = '', right = '' },
+          },
         },
       },
     })
