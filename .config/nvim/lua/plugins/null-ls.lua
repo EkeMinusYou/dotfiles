@@ -76,6 +76,8 @@ return {
             return {}
           end,
         }),
+        -- yaml
+        null_ls.builtins.formatting.yamlfmt,
       },
     })
   end,
