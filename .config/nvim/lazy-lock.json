@@ -40,6 +40,7 @@
   "mini.comment": { "branch": "main", "commit": "03c13e37318bdb18481311c0ac1adc9ed731caf1" },
   "mini.splitjoin": { "branch": "main", "commit": "3e92f6764e770ba392325cad3a4497adcada695f" },
   "mini.surround": { "branch": "main", "commit": "d8913ed23be0a1a4585ae34414821cc343a46174" },
+  "neominimap.nvim": { "branch": "main", "commit": "ed1214c285d43ad1399dcf81fb9feaeec4ba6e34" },
   "noice.nvim": { "branch": "main", "commit": "448bb9c524a7601035449210838e374a30153172" },
   "none-ls-extras.nvim": { "branch": "main", "commit": "dfdc998a8c7bb728abab156942bd43ed2345845a" },
   "none-ls.nvim": { "branch": "main", "commit": "cfa65d86e21eeb60544d5e823f6db43941322a53" },
