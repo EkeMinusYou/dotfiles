@@ -136,3 +136,19 @@ vim.api.nvim_create_autocmd('TermClose', {
     vim.api.nvim_command('bdelete!')
   end,
 })
+
+-- nvim-tree
+vim.api.nvim_create_augroup('tree', {})
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter', 'BufReadPost', 'FileType' }, {
+  group = 'tree',
+  pattern = {
+    'NvimTree',
+  },
+  callback = function()
+    -- logging
+    print('nvim-tree opened')
+
+    local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+    vim.api.nvim_win_set_cursor(0, { row, 0 })
+  end,
+})
