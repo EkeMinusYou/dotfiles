@@ -54,6 +54,11 @@ local function get_all_pickers(opts)
     :find()
 end
 
+-- See: https://github.com/nvim-telescope/telescope.nvim/issues/2988
+local get_selection = function()
+  return vim.fn.getregion(vim.fn.getpos('.'), vim.fn.getpos('v'), { mode = vim.fn.mode() })
+end
+
 return {
   {
     'nvim-telescope/telescope.nvim',
@@ -86,6 +91,13 @@ return {
         '<leader>fg',
         function()
           require('telescope').extensions.egrepify.egrepify()
+        end,
+      },
+      {
+        '<leader>fg',
+        mode = { 'v' },
+        function()
+          require('telescope').extensions.egrepify.egrepify({ default_text = table.concat(get_selection()) })
         end,
       },
       { '<leader>fk', grep_by_kensaku },
