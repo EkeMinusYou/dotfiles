@@ -33,31 +33,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
--- swift rewrite indent and commentstring
-vim.api.nvim_create_augroup('swift', {})
-vim.api.nvim_create_autocmd('FileType', {
-  group = 'swift',
-  pattern = {
-    'swift',
-  },
-  callback = function()
-    vim.api.nvim_command('setlocal shiftwidth=2 tabstop=2 softtabstop=2')
-    vim.api.nvim_command('setlocal commentstring=//\\ %s')
-  end,
-})
-
--- swift rewrite indent and commentstring
-vim.api.nvim_create_augroup('terraform', {})
-vim.api.nvim_create_autocmd('FileType', {
-  group = 'terraform',
-  pattern = {
-    'terraform',
-  },
-  callback = function()
-    vim.api.nvim_command('setlocal commentstring=//\\ %s')
-  end,
-})
-
 vim.api.nvim_create_augroup('wincmdl', {})
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
