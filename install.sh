@@ -65,5 +65,5 @@ if [ `uname` == 'Darwin']; then
   ln -sfn $DOT_DIR/dotfiles/.config/skhd/skhdrc ~/.config/skhd/skhdrc
   # Setup macSKK
   ln -sfn $DOT_DIR/dotfiles/macSKK/kana-rule.conf ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf
-  ln -sfn ~/.skk/skk-jisyo.utf8 ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8
+  ln -sfn ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8 ~/.skk/skk-jisyo.utf8
 fi
