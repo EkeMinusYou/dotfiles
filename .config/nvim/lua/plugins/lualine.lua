@@ -75,6 +75,7 @@ return {
             'diff',
             colored = true,
             symbols = { added = ' ', modified = ' ', removed = ' ' },
+            separator = { left = '', right = '' },
             source = diff_source,
           },
         },
