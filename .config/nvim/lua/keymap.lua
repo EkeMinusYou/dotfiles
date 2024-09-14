@@ -49,3 +49,6 @@ vim.keymap.set('c', '<CR>', '<Plug>(kensaku-search-replace)<CR>')
 for _, quote in ipairs({ '"', "'", '`' }) do
   vim.keymap.set({ 'x', 'o' }, 'a' .. quote, '2i' .. quote)
 end
+
+vim.api.nvim_set_keymap('o', 'i<Space>', 'iW', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', 'i<Space>', 'iW', { noremap = true, silent = true })
