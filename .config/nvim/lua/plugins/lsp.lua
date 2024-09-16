@@ -15,7 +15,6 @@ return {
           'bashls',
           'dockerls',
           'bufls',
-          'gopls',
           'jsonls',
           'lua_ls',
           'vtsls',
