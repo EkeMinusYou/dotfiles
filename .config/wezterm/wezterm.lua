@@ -20,8 +20,8 @@ return {
 	font_size = 20.0,
 
 	inactive_pane_hsb = {
-		saturation = 0.5,
-		brightness = 0.5,
+		saturation = 0.8,
+		brightness = 0.8,
 	},
 
 	-- TabBar
