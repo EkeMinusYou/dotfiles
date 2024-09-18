@@ -53,7 +53,6 @@ return {
       require('nvim-tree').setup({
         on_attach = on_attach,
         sort_by = 'extension',
-        hijack_cursor = true,
         renderer = {
           highlight_opened_files = 'name',
           highlight_diagnostics = 'all',
