@@ -68,7 +68,20 @@ return {
         live_filter = {
           always_show_folders = true,
         },
-        filters = { custom = { '^.git$' } },
+        filters = {
+          git_ignored = false,
+          custom = {
+            '^\\.git',
+            'node_modules',
+            '\\.pb\\.go',
+            '\\.pb\\.gw\\.go',
+            'apidocs\\.swagger\\.json',
+            'package-lock\\.json',
+            '\\.gitkeep',
+            '\\.terraform',
+            '\\.DS_Store',
+          },
+        },
         view = {
           width = {
             max = 45,
