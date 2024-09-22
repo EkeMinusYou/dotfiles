@@ -36,7 +36,15 @@ return {
             },
           },
         },
-
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = '<CR>',
+            node_incremental = '<CR>',
+            scope_incremental = true,
+            node_decremental = '<bs>',
+          },
+        },
         move = {
           enable = true,
           set_jumps = true,
