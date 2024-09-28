@@ -52,3 +52,6 @@ end
 
 vim.api.nvim_set_keymap('o', 'i<Space>', 'iW', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', 'i<Space>', 'iW', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', 'F<cr>', '{', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'f<cr>', '}', { noremap = true, silent = true })
