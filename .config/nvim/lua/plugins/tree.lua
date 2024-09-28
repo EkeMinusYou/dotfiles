@@ -72,7 +72,7 @@ return {
         filters = {
           git_ignored = false,
           custom = {
-            '^\\.git',
+            '^\\.git$',
             'node_modules',
             '\\.pb\\.go',
             '\\.pb\\.gw\\.go',
