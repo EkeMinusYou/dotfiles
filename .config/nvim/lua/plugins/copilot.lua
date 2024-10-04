@@ -3,6 +3,13 @@ local function ShowCopilotChatActionPrompt()
   require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
 end
 
+local function CopilotChatBuffer()
+  local input = vim.fn.input('Quick Chat: ')
+  if input ~= '' then
+    require('CopilotChat').ask(input, { selection = require('CopilotChat.select').buffer })
+  end
+end
+
 return {
   {
     'zbirenbaum/copilot.lua',
@@ -40,28 +47,43 @@ return {
         end,
         mode = { 'n', 'v' },
       },
+      {
+        '<leader>ccb',
+        function()
+          CopilotChatBuffer()
+        end,
+        mode = { 'n', 'v' },
+      },
     },
     config = function()
       local select = require('CopilotChat.select')
       require('CopilotChat').setup({
+        window = {
+          layout = 'float',
+          relative = 'editor',
+        },
         prompts = {
           Explain = {
-            prompt = '/COPILOT_EXPLAIN カーソル上のコードの説明を段落をつけて書いてください。',
+            prompt = '/COPILOT_EXPLAIN 選択されたコードの説明を段落をつけて書いてください。',
           },
-          Tests = {
-            prompt = '/COPILOT_TESTS カーソル上のコードの詳細な単体テスト関数を書いてください。',
+          Review = {
+            prompt = '/COPILOT_REVIEW 選択されたコードをレビューしてください。',
+            callback = function() end,
           },
           Fix = {
-            prompt = '/COPILOT_FIX このコードには問題があります。バグを修正したコードに書き換えてください。',
+            prompt = '/COPILOT_FIX このコードには問題があります。バグを修正したコードに書き直してください。',
           },
           Optimize = {
-            prompt = '/COPILOT_REFACTOR 選択したコードを最適化し、パフォーマンスと可読性を向上させてください。',
+            prompt = '/COPILOT_REFACTOR 選択されたコードを最適化してパフォーマンスと可読性を向上させてください。',
           },
           Docs = {
-            prompt = '/COPILOT_REFACTOR 選択したコードのドキュメントを書いてください。ドキュメントをコメントとして追加した元のコードを含むコードブロックで回答してください。使用するプログラミング言語に最も適したドキュメントスタイルを使用してください（例：JavaScriptのJSDoc、Pythonのdocstringsなど）',
+            prompt = '/COPILOT_DOCS 選択されたコードに対してドキュメンテーションコメントを追加してください。',
+          },
+          Tests = {
+            prompt = '/COPILOT_TESTS 選択されたコードの詳細な単体テスト関数を書いてください。',
           },
           FixDiagnostic = {
-            prompt = 'ファイル内の次のような診断上の問題を解決してください：',
+            prompt = 'ファイル内の次のような診断上の問題を解決してください:',
             selection = select.diagnostics,
           },
         },
