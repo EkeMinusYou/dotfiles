@@ -70,7 +70,7 @@ return {
           always_show_folders = true,
         },
         filters = {
-          git_ignored = false,
+          git_ignored = true,
           custom = {
             '^\\.git$',
             'node_modules',
