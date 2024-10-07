@@ -55,3 +55,12 @@ vim.api.nvim_set_keymap('x', 'i<Space>', 'iW', { noremap = true, silent = true }
 
 vim.api.nvim_set_keymap('n', 'F<cr>', '{', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'f<cr>', '}', { noremap = true, silent = true })
+
+-- See: https://zenn.dev/vim_jp/articles/2024-10-07-vim-insert-uppercase
+vim.keymap.set('i', '<C-o>', function()
+  local line = vim.fn.getline('.')
+  local col = vim.fn.getpos('.')[3]
+  local substring = line:sub(1, col - 1)
+  local result = vim.fn.matchstr(substring, [[\v<(\k(<)@!)*$]])
+  return '<C-w>' .. result:upper()
+end, { expr = true })
