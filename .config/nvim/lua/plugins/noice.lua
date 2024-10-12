@@ -18,6 +18,18 @@ return {
         messages = {
           view = 'mini',
         },
+        -- See: https://github.com/neovim/nvim-lspconfig/issues/1931
+        routes = {
+          {
+            filter = {
+              event = 'notify',
+              find = 'No information available',
+            },
+            opts = {
+              skip = true,
+            },
+          },
+        },
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
           override = {
