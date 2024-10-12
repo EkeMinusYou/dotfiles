@@ -1,21 +1,21 @@
-local helper = require('utils.helper')
+-- local helper = require('utils.helper')
 
 vim.api.nvim_create_augroup('format', {})
-vim.api.nvim_create_autocmd('BufWritePre', {
-  group = 'format',
-  pattern = {
-    '*.lua',
-    '*.js',
-    '*.jsx',
-    '*.ts',
-    '*.tsx',
-    '*.go',
-    '*.swift',
-  },
-  callback = function()
-    helper.lsp_formatting({ async = false, timeout_ms = 5000 })
-  end,
-})
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   group = 'format',
+--   pattern = {
+--     '*.lua',
+--     '*.js',
+--     '*.jsx',
+--     '*.ts',
+--     '*.tsx',
+--     '*.go',
+--     '*.swift',
+--   },
+--   callback = function()
+--     helper.lsp_formatting({ async = false, timeout_ms = 5000 })
+--   end,
+-- })
 
 -- denolscache
 vim.api.nvim_create_autocmd('BufWritePre', {
