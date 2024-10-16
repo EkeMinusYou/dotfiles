@@ -9,6 +9,7 @@ end
 return {
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
+    event = 'LspAttach',
     config = function()
       require('ts_context_commentstring').setup({})
     end,
