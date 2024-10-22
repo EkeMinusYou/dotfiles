@@ -194,6 +194,9 @@ fi
 # Python
 export PATH=/opt/homebrew/Cellar/python@3.8/3.8.19/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 
+# Rust
+export PATH=$HOME/.cargo/bin:$PATH
+
 # VSCode
 alias e='code -a .'
 
