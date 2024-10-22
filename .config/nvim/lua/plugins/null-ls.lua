@@ -18,7 +18,7 @@ return {
           end,
           diagnostics_format = '[prettier] #{m}\n(#{c})',
         }),
-        require('none-ls.formatting.eslint').with({
+        require('none-ls.formatting.eslint_d').with({
           condition = function()
             return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs', '.eslintrc.json' })
           end,
@@ -28,6 +28,12 @@ return {
           condition = function()
             return helper.local_has_file({ 'biome.json' })
           end,
+        }),
+        require('none-ls.diagnostics.eslint_d').with({
+          condition = function()
+            return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs' })
+          end,
+          diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
         -- python
         null_ls.builtins.formatting.black.with({
