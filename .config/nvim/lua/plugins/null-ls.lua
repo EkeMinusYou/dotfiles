@@ -35,6 +35,7 @@ return {
           end,
           diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
+        require('none-ls.code_actions.eslint_d'),
         -- python
         null_ls.builtins.formatting.black.with({
           prefer_local = '.venv/bin',
