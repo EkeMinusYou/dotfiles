@@ -31,7 +31,7 @@ return {
         }),
         require('none-ls.diagnostics.eslint_d').with({
           condition = function()
-            return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs' })
+            return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs', '.eslintrc.json' })
           end,
           diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
