@@ -18,6 +18,8 @@ local nerdicons = {
 	kubectl = nf.md_kubernetes,
 	ruby = nf.dev_ruby,
 	gh = nf.fa_github,
+	python = nf.dev_python,
+	make = nf.seti_makefile,
 }
 
 local M = {}
