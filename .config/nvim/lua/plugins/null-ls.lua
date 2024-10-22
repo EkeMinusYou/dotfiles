@@ -50,12 +50,6 @@ return {
         null_ls.builtins.diagnostics.staticcheck.with({
           diagnostics_format = '[staticcheck] #{m}\n(#{c})',
         }),
-        -- proto
-        null_ls.builtins.diagnostics.buf.with({
-          diagnostics_format = '[buf] #{m}\n(#{c})',
-        }),
-        null_ls.builtins.formatting.buf,
-        -- lua
         null_ls.builtins.formatting.stylua,
         -- terraform
         null_ls.builtins.diagnostics.terraform_validate,

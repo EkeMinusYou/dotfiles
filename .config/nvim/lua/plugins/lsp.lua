@@ -14,7 +14,6 @@ return {
         ensure_installed = {
           'bashls',
           'dockerls',
-          'bufls',
           'jsonls',
           'lua_ls',
           'vtsls',
@@ -41,6 +40,9 @@ return {
             or util.root_pattern('buildServer.json', '*.xcodeproj')(filename)
             or util.find_git_ancestor(filename)
         end,
+      })
+      lspconfig.protols.setup({
+        capabilities = capabilities,
       })
       -- Setup LSP by mason
       mason_lspconfig.setup_handlers({
