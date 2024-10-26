@@ -87,6 +87,23 @@ return {
                 return lspconfig.util.root_pattern('biome.json')(fname)
               end,
             })
+          elseif server_name == 'stylelint_lsp' then
+            lspconfig.stylelint_lsp.setup({
+              cmd = { 'stylelint-lsp', '--stdio', '**/{*.css,*vue,*js,*.jsx,*ts,*.tsx,*.html}' },
+              capabilities = capabilities,
+              filetypes = {
+                'css',
+                'scss',
+                'less',
+                'sass',
+                'html',
+                'vue',
+                'javascript',
+                'javascriptreact',
+                'typescript',
+                'typescriptreact',
+              },
+            })
           else
             lspconfig[server_name].setup({
               capabilities = capabilities,
