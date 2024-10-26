@@ -63,7 +63,8 @@ return {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-l>'] = cmp.mapping.complete({}),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        -- disable auto select
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
       }),
       ---@diagnostic disable-next-line: missing-fields
       formatting = {
