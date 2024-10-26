@@ -97,6 +97,21 @@ return {
                 'typescriptreact',
               },
             })
+          elseif server_name == 'tailwindcss' then
+            lspconfig.tailwindcss.setup({
+              capabilities = capabilities,
+              settings = {
+                tailwindCSS = {
+                  classAttributes = { 'class', 'class:list', 'classList', 'ngClass' }, -- className is configured by classRegex
+                  experimental = {
+                    classRegex = {
+                      'className\\s*=\\s*["\']([^"\']*)["\']',
+                      'clsx\\(\\s*(?:["\']([^"\']*)["\']\\s*,?\\s*)+',
+                    },
+                  },
+                },
+              },
+            })
           else
             lspconfig[server_name].setup({
               capabilities = capabilities,
