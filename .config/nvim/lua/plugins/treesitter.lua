@@ -13,6 +13,7 @@ return {
           'javascript',
           'typescript',
           'go',
+          'styled',
         },
         auto_install = true,
         highlight = { enable = true },
