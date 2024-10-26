@@ -29,4 +29,12 @@ return {
       vim.cmd([[colorscheme catppuccin-mocha]])
     end,
   },
+  {
+    'neanias/everforest-nvim',
+    lazy = false,
+    config = function()
+      require('everforest').setup()
+      -- vim.cmd([[colorscheme everforest]])
+    end,
+  },
 }
