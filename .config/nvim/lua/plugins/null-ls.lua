@@ -36,6 +36,30 @@ return {
           diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
         require('none-ls.code_actions.eslint_d'),
+        -- css
+        null_ls.builtins.formatting.stylelint.with({
+          filetypes = {
+            'css',
+            'scss',
+            'less',
+            'sass',
+            'html',
+            'vue',
+            'javascript',
+            'javascriptreact',
+            'typescript',
+            'typescriptreact',
+          },
+          condition = function()
+            return helper.local_has_file({
+              'stylelint.config.js',
+              'stylelint.config.mjs',
+              '.stylelintrc.json',
+              '.stylelintrc',
+            })
+          end,
+          diagnostics_format = '[stylelint] #{m}\n(#{c})',
+        }),
         -- python
         null_ls.builtins.formatting.black.with({
           prefer_local = '.venv/bin',
