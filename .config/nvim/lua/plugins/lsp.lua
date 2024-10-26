@@ -16,7 +16,6 @@ return {
           'dockerls',
           'jsonls',
           'lua_ls',
-          'vtsls',
           'denols',
           'biome',
           'terraformls',
@@ -65,14 +64,8 @@ return {
                 return lspconfig.util.root_pattern('Chart.yaml')(fname)
               end,
             })
-          elseif server_name == 'vtsls' then
-            lspconfig.vtsls.setup({
-              capabilities = capabilities,
-              root_dir = function(fname)
-                return lspconfig.util.root_pattern('package.json')(fname)
-              end,
-              single_file_support = false,
-            })
+          elseif server_name == 'ts_ls' then
+            -- do nothing. used by typescript-tools.nvim
           elseif server_name == 'denols' then
             lspconfig.denols.setup({
               capabilities = capabilities,
