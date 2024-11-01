@@ -13,5 +13,10 @@
     "prefix": "imj",
     "body": "import * as ${0:M} from 'jsr:$1';",
     "description": "import jsr"
+  },
+  "className with clsx, tailwind css, tempalte literals css": {
+    "prefix": "cla",
+    "body": "className={clsx('${1}', css`${2}`)}",
+    "description": "className with clsx, tailwind css, tempalte literals css"
   }
 }
