@@ -128,7 +128,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 alias g="git"
 alias cr='cd "$(git rev-parse --show-toplevel)"'
 alias ga="git add"
-alias gbr="git branch | fzf --reverse --height 50% | xargs git switch"
+alias gbr="_fzf_git_each_ref --no-multi | xargs git checkout"
 alias gpl="git pull"
 alias gplr="git pull --rebase origin"
 alias gst="git stash -u"
@@ -325,3 +325,4 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+source ~/src/github.com/junegunn/fzf-git.sh/fzf-git.sh
