@@ -57,6 +57,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/wezterm ~/.config/
 mkdir -p ~/.config/gh-dash
 ln -sfn $DOT_DIR/dotfiles/.config/gh-dash/config.yml ~/.config/gh-dash/config.yml
 
+#Setup yazi
+ln -sfn $DOT_DIR/dotfiles/.config/yazi ~/.config/
+
 if [ `uname` == 'Darwin']; then
   # Setup yabai and skhd
   mkdir -p ~/.config/yabai
