@@ -6,6 +6,7 @@ return {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'hrsh7th/cmp-nvim-lsp',
+      'pmizio/typescript-tools.nvim',
     },
     config = function()
       require('mason').setup()
