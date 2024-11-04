@@ -18,8 +18,11 @@ return {
       require('dashboard').setup({
         config = {
           week_header = {
-            enable = true,
+            enable = false,
           },
+          packages = { enable = true },
+          project = { enable = false },
+          mru = { enable = false },
         },
       })
     end,
