@@ -69,11 +69,13 @@ return {
     config = function()
       require('hlchunk').setup({
         chunk = {
-          enable = true,
+          -- 有効にするとfreezeする
+          enable = false,
           delay = 0,
         },
         line_num = {
-          enable = true,
+          -- 有効にするとfreezeする
+          enable = false,
         },
         blank = {
           enable = false,
