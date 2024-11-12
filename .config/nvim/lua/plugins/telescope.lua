@@ -111,7 +111,7 @@ return {
       {
         '<leader>fo',
         function()
-          require('telescope').extensions.aerial.aerial()
+          require('telescope').extensions.aerial.aerial({ layout_strategy = 'vertical' })
         end,
       },
       { '<leader>fh', '<cmd>Telescope help_tags<cr>' },
