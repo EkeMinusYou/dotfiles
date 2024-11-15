@@ -33,6 +33,9 @@ vim.keymap.set({ 'n', 'v' }, 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>')
 vim.keymap.set('i', '<c-k>', function()
   helper.lsp_formatting({ async = true, timeout_ms = 5000 })
 end)
+
+vim.keymap.set('n', '<leader>g', '<cmd>terminal lazygit<cr>')
+
 -- define by lspsaga
 -- vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<cr>')
 -- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
