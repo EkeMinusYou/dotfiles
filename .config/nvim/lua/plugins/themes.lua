@@ -37,4 +37,11 @@ return {
       -- vim.cmd([[colorscheme everforest]])
     end,
   },
+  {
+    'kvrohit/rasmus.nvim',
+    lazy = false,
+    config = function()
+      -- vim.cmd([[colorscheme rasmus]])
+    end,
+  },
 }
