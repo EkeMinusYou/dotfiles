@@ -67,6 +67,13 @@ return {
             })
           elseif server_name == 'ts_ls' then
             -- do nothing. used by typescript-tools.nvim
+            lspconfig.ts_ls.setup({
+              capabilities = capabilities,
+              -- typescript-toolsの方に任せるので、diagnosticsを無効化
+              handlers = {
+                ['textDocument/publishDiagnostics'] = function() end,
+              },
+            })
           elseif server_name == 'denols' then
             lspconfig.denols.setup({
               capabilities = capabilities,
