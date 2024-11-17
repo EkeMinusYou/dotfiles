@@ -120,6 +120,12 @@ return {
                 },
               },
             })
+          elseif server_name == 'terraformls' then
+            -- Workaround: https://github.com/neovim/neovim/issues/30675#issuecomment-2481410669
+            lspconfig.terraformls.setup({
+              offset_encoding = 'utf-8',
+              capabilities = capabilities,
+            })
           else
             lspconfig[server_name].setup({
               capabilities = capabilities,
