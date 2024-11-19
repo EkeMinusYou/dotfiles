@@ -97,6 +97,8 @@ return {
         }),
         -- yaml
         null_ls.builtins.formatting.yamlfmt,
+        -- github actions
+        null_ls.builtins.diagnostics.actionlint,
       },
     })
   end,
