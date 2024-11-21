@@ -47,9 +47,15 @@ defaults:
         hidden: true
   refetchIntervalMinutes: 30
 keybindings:
-  issues: []
-  prs: []
-repoPaths: {}
+  prs:
+    - key: d
+      command: |-
+        wezterm cli spawn --cwd {{.RepoPath}} -- bash -c '
+          gh pr checkout {{.PrNumber}} &&
+          nvim -c ":DiffviewOpen origin/$(gh pr status --json baseRefName -q ".currentBranch.baseRefName")...{{.HeadRefName}}"
+        '
+repoPaths:
+  :owner/:repo: ~/src/github.com/:owner/:repo
 theme:
   ui:
     table:
