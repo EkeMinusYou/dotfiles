@@ -9,7 +9,12 @@ return {
       'pmizio/typescript-tools.nvim',
     },
     config = function()
-      require('mason').setup()
+      require('mason').setup({
+        registries = {
+          'file:~/.config/nvim/mason',
+          'github:mason-org/mason-registry',
+        },
+      })
       local mason_lspconfig = require('mason-lspconfig')
       mason_lspconfig.setup({
         ensure_installed = {
