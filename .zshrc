@@ -326,3 +326,13 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 source ~/src/github.com/junegunn/fzf-git.sh/fzf-git.sh
+
+# -------------------
+# zeno.zsh
+# -------------------
+if [[ -n $ZENO_LOADED ]]; then
+  source $ZENO_ROOT
+  bindkey '^i' zeno-completion
+  bindkey '^x '  zeno-insert-space
+  bindkey '^x^m' accept-line
+fi

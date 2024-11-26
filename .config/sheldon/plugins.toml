@@ -13,3 +13,6 @@ github = 'marlonrichert/zsh-autocomplete'
 
 [plugins.jq-zsh-plugin]
 github = "reegnz/jq-zsh-plugin"
+
+[plugins.zeno]
+github = "yuki-yano/zeno.zsh"
