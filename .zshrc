@@ -128,7 +128,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 alias g="git"
 alias cr='cd "$(git rev-parse --show-toplevel)"'
 alias ga="git add"
-alias gbr="_fzf_git_each_ref --no-multi | xargs git checkout"
 alias gpl="git pull"
 alias gplr="git pull --rebase origin"
 alias gst="git stash -u"
@@ -141,7 +140,7 @@ alias gpsf="git push --force-with-lease"
 alias glgo="git log --oneline"
 alias gcom="git switch \$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)"
 alias gplrm="git pull --rebase origin \$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)"
-alias ghs="gh api -X GET /user/starred --paginate --cache 24h | jq '.[].full_name' -r | fzf --reverse --height 50% | xargs gh repo view --web"
+alias ghs="gh api -X GET /user/starred --paginate --cache 24h | jq '.[].full_name' -r | fzf --height 50% | xargs gh repo view --web"
 
 # GitHub
 alias ghb="gh browse"
@@ -322,10 +321,10 @@ eval "$(fzf --zsh)"
 # catppuccin
 # See: https://github.com/catppuccin/fzf
 export FZF_DEFAULT_OPTS=" \
+--layout=reverse --border \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-source ~/src/github.com/junegunn/fzf-git.sh/fzf-git.sh
 
 # -------------------
 # zeno.zsh
