@@ -218,6 +218,9 @@ complete -C 'tccli_completer' tccli
 # terraform
 complete -o nospace -C terraform terraform
 
+# aqua
+export PATH="$(aqua root-dir)/bin:$PATH"
+
 # iterm2
 test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
 
