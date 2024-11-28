@@ -99,6 +99,8 @@ return {
         null_ls.builtins.formatting.yamlfmt,
         -- github actions
         null_ls.builtins.diagnostics.actionlint,
+        -- proto
+        null_ls.builtins.formatting.buf,
       },
     })
   end,
