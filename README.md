@@ -36,4 +36,4 @@ brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/Brewfile"
 
 ### Version Manager
 
-- fnm - Node.js
+- aqua

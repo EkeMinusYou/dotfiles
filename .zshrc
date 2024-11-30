@@ -162,9 +162,6 @@ type stern >/dev/null 2>&1 && source <(stern --completion=zsh)
 # k9s
 alias k9="k9s --readonly"
 
-# Node.js
-eval "$(fnm env --use-on-cd)"
-
 # Terraform
 alias tf="terraform"
 alias tff="terraform fmt"
@@ -221,6 +218,8 @@ complete -o nospace -C terraform terraform
 # aqua
 export PATH="$(aqua root-dir)/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=$HOME/.config/aqua/aqua.yaml
+export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm
+export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 
 # iterm2
 test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
