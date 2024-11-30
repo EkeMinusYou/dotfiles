@@ -220,6 +220,7 @@ complete -o nospace -C terraform terraform
 
 # aqua
 export PATH="$(aqua root-dir)/bin:$PATH"
+export AQUA_GLOBAL_CONFIG=$HOME/.config/aqua/aqua.yaml
 
 # iterm2
 test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
