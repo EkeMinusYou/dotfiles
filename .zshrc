@@ -215,6 +215,9 @@ complete -C 'tccli_completer' tccli
 # terraform
 complete -o nospace -C terraform terraform
 
+# Node.js
+alias nr="npm run"
+
 # aqua
 export PATH="$(aqua root-dir)/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=$HOME/.config/aqua/aqua.yaml
