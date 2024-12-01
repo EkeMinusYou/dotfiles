@@ -72,6 +72,7 @@ return {
               -- typescript-toolsの方に任せるので、diagnosticsを無効化
               handlers = {
                 ['textDocument/publishDiagnostics'] = function() end,
+                ['textDocument/completion'] = function() end,
               },
             })
           elseif server_name == 'denols' then
