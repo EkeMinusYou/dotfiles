@@ -18,5 +18,10 @@
     "prefix": "cla",
     "body": "className={clsx('${1}', css`${2}`)}",
     "description": "className with clsx, tailwind css, tempalte literals css"
+  },
+  "className with clsx, tailwind css": {
+    "prefix": "cl",
+    "body": "className={clsx('${1}')}",
+    "description": "className with clsx, tailwind css"
   }
 }
