@@ -101,9 +101,9 @@ return {
         null_ls.builtins.diagnostics.actionlint,
         -- proto
         null_ls.builtins.formatting.clang_format.with({
-          -- condition = function()
-          --   return helper.local_has_file({ '.clang-format' })
-          -- end,
+          condition = function()
+            return helper.local_has_file({ '.clang-format' })
+          end,
         }),
       },
     })
