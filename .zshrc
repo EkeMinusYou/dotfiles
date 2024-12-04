@@ -125,6 +125,7 @@ export EDITOR=$(which nvim)
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Git
+export GPG_TTY=$TTY
 alias g="git"
 alias cr='cd "$(git rev-parse --show-toplevel)"'
 alias ga="git add"
