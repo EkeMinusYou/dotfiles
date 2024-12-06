@@ -10,4 +10,6 @@ customCommands:
     description: "commit with commitizen"
     context: "files"
     loadingText: "opening commitizen commit tool"
-    subprocess: true
+    subprocess: truegui:
+gui:
+  nerdFontsVersion: "3"
