@@ -218,6 +218,7 @@ complete -o nospace -C terraform terraform
 
 # Node.js
 alias nr="npm run"
+eval "`npm completion`"
 
 # aqua
 export PATH="$(aqua root-dir)/bin:$PATH"
