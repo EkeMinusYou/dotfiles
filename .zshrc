@@ -243,7 +243,7 @@ fi
 # -------------------
 
 function ghq-fzf() {
-  local src=$(ghq list | fzf --height 40% --reverse)
+  local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
   if [ -n "$src" ]; then
     BUFFER="cd $(ghq root)/$src"
     zle accept-line
@@ -329,6 +329,7 @@ eval "$(fzf --zsh)"
 # catppuccin
 # See: https://github.com/catppuccin/fzf
 export FZF_DEFAULT_OPTS=" \
+--height=50% \
 --layout=reverse \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
