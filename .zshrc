@@ -175,6 +175,8 @@ export TF_CLI_ARGS_apply="--parallelism=30"
 # Go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+export GOPROXY="direct"
+export GOPRIVATE=github.com/groove-x
 
 # Java
 export PATH=$(brew --prefix)/opt/openjdk@11/bin:$PATH

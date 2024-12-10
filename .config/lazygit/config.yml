@@ -4,12 +4,5 @@ git:
     pager: delta --dark --paging=never
   overrideGpg: true
 promptToReturnFromSubprocess: false
-customCommands:
-  - key: "C"
-    command: "git cz c"
-    description: "commit with commitizen"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
-    subprocess: truegui:
 gui:
   nerdFontsVersion: "3"
