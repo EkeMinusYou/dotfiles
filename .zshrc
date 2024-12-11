@@ -9,6 +9,7 @@ bindkey -e
 # --------------------
 
 # homebrew
+export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
 case ${OSTYPE} in
   darwin*)
     eval "$(/opt/homebrew/bin/brew shellenv)"
