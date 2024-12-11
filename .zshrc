@@ -131,6 +131,12 @@ export EDITOR=$(which nvim)
 # XDG
 export XDG_CONFIG_HOME=$HOME/.config
 
+# aqua
+export PATH="$(aqua root-dir)/bin:$PATH"
+export AQUA_GLOBAL_CONFIG=$HOME/.config/aqua/aqua.yaml
+export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm
+export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
+
 # Git
 export GPG_TTY=$TTY
 alias g="git"
@@ -228,12 +234,6 @@ complete -o nospace -C terraform terraform
 # Node.js
 alias nr="npm run"
 eval "`npm completion`"
-
-# aqua
-export PATH="$(aqua root-dir)/bin:$PATH"
-export AQUA_GLOBAL_CONFIG=$HOME/.config/aqua/aqua.yaml
-export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm
-export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 
 # iterm2
 test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
