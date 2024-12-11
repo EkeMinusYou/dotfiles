@@ -1,2 +1,6 @@
+[user]
+	signingkey = 7A9EB4A6C260A2ED
+[commit]
+	gpgsign = true
 [credential]
   helper = osxkeychain

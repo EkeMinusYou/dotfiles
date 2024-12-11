@@ -1,7 +1,6 @@
 [user]
   name = EkeMinusYou
   email = euonymuslke@gmail.com
-	signingkey = 7A9EB4A6C260A2ED
 [ghq]
   root = ~/src
   user = EkeMinusYou
@@ -61,5 +60,3 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[commit]
-	gpgsign = true

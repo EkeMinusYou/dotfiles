@@ -1,2 +1,6 @@
+[user]
+	signingkey = 5F1C955FEFB4C2AD
+[commit]
+	gpgsign = true
 [credential]
   helper = store
