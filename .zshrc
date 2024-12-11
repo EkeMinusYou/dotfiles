@@ -93,8 +93,14 @@ zshaddhistory() {
 source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 
 # coreutils
-alias ln="gln"
-alias wc="gwc"
+case ${OSTYPE} in
+  darwin*)
+    alias ln="gln"
+    alias wc="gwc"
+    ;;
+  linux*)
+    ;;
+esac
 
 # pipe
 alias -g C='| wc -l'
