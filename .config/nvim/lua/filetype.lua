@@ -84,3 +84,10 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile', 'LspAttach' }, {
     vim.bo.shiftwidth = 2
   end,
 })
+
+-- env
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '.env.*',
+  group = 'filetype',
+  command = 'setlocal filetype=sh',
+})
