@@ -91,3 +91,10 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
   command = 'setlocal filetype=sh',
 })
+
+-- sql
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.ddl',
+  group = 'filetype',
+  command = 'setlocal filetype=sql',
+})
