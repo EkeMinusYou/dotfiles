@@ -1,0 +1,7 @@
+font-family = ""
+font-family = "HackGen35 Console NF"
+font-size = 20
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+theme = catppuccin-mocha
