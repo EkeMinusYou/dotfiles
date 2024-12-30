@@ -19,6 +19,8 @@ return {
 	font = wezterm.font("HackGen35 Console NF"),
 	font_size = 20.0,
 
+	front_end = "WebGpu",
+
 	inactive_pane_hsb = {
 		saturation = 0.8,
 		brightness = 0.8,
