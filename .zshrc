@@ -222,6 +222,9 @@ export CLOUDSDK_PYTHON=$(which python3.9)
 type direnv >/dev/null 2>&1 && source <(direnv hook zsh)
 export DIRENV_LOG_FORMAT=
 
+# atlas
+type atlas >/dev/null 2>&1 && source <(atlas completion zsh)
+
 # tencent
 export PATH=$HOME/.tencent/bin:$PATH
 
