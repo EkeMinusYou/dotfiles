@@ -42,6 +42,7 @@ return {
         },
       },
       factory = h.formatter_factory,
+      temp_dir = '/tmp',
     })
 
     null_ls.setup({
