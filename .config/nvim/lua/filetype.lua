@@ -98,3 +98,25 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
   command = 'setlocal filetype=sql',
 })
+
+-- atlas
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = 'atlas.hcl',
+  group = 'filetype',
+  command = 'setlocal filetype=atlas-config',
+})
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.pg.hcl',
+  group = 'filetype',
+  command = 'setlocal filetype=atlas-schema-postgresql',
+})
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.my.hcl',
+  group = 'filetype',
+  command = 'setlocal filetype=atlas-schema-mysql',
+})
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.lt.hcl',
+  group = 'filetype',
+  command = 'setlocal filetype=atlas-schema-sqlite',
+})
