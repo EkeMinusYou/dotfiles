@@ -68,15 +68,26 @@ return {
       }),
       ---@diagnostic disable-next-line: missing-fields
       formatting = {
+        fields = { 'kind', 'abbr', 'menu' },
         format = function(entry, item)
-          local color_item = require('nvim-highlight-colors').format(entry, { kind = item.kind })
-          item = lspkind.cmp_format({
+          local completion_item = entry.completion_item
+          local highlights_info = require('colorful-menu').highlights(completion_item, vim.bo.filetype)
+
+          -- error, such as missing parser, fallback to use raw label.
+          if highlights_info == nil then
+            item.abbr = completion_item.label
+          else
+            item.abbr_hl_group = highlights_info.highlights
+            item.abbr = highlights_info.text
+          end
+
+          local kind = require('lspkind').cmp_format({
             mode = 'symbol_text',
           })(entry, item)
-          if color_item.abbr_hl_group then
-            item.kind_hl_group = color_item.abbr_hl_group
-            item.kind = color_item.abbr
-          end
+          local strings = vim.split(kind.kind, '%s', { trimempty = true })
+          item.kind = ' ' .. (strings[1] or '') .. ' '
+          item.menu = ''
+
           return item
         end,
       },
