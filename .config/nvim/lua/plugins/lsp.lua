@@ -134,6 +134,27 @@ return {
           end
         end,
       })
+
+      -- Setup atlas lsp
+      local configs = require('lspconfig.configs')
+      if not configs.atlas then
+        configs.atlas = {
+          default_config = {
+            cmd = { 'atlas', 'tool', 'lsp' },
+            filetypes = {
+              'atlas-*',
+            },
+            root_dir = function(fname)
+              return lspconfig.util.root_pattern('atlas.hcl')(fname)
+            end,
+            single_file_support = true,
+            settings = {},
+          },
+        }
+      end
+      lspconfig.atlas.setup({
+        capabilities = capabilities,
+      })
     end,
   },
   {
