@@ -13,24 +13,24 @@ return {
       sources = {
         -- js,ts
         null_ls.builtins.formatting.prettierd.with({
-          condition = function()
+          runtime_condition = function()
             return helper.local_has_file({ '.prettierrc', '.prettierrc.js' })
           end,
           diagnostics_format = '[prettier] #{m}\n(#{c})',
         }),
         require('none-ls.formatting.eslint_d').with({
-          condition = function()
+          runtime_condition = function()
             return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs', '.eslintrc.json', 'eslint.config.mjs' })
           end,
           diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
         null_ls.builtins.formatting.biome.with({
-          condition = function()
+          runtime_condition = function()
             return helper.local_has_file({ 'biome.json' })
           end,
         }),
         require('none-ls.diagnostics.eslint_d').with({
-          condition = function()
+          runtime_condition = function()
             return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs', '.eslintrc.json', 'eslint.config.mjs' })
           end,
           diagnostics_format = '[eslint] #{m}\n(#{c})',
@@ -50,7 +50,7 @@ return {
             'typescript',
             'typescriptreact',
           },
-          condition = function()
+          runtime_condition = function()
             return helper.local_has_file({
               'stylelint.config.js',
               'stylelint.config.mjs',
