@@ -41,9 +41,6 @@ return {
             or util.find_git_ancestor(filename)
         end,
       })
-      lspconfig.protols.setup({
-        capabilities = capabilities,
-      })
       -- Setup LSP by mason
       mason_lspconfig.setup_handlers({
         function(server_name)
