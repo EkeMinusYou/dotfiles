@@ -110,6 +110,12 @@ return {
         null_ls.builtins.formatting.atlas_fmt.with({
           temp_dir = '/tmp',
         }),
+        -- sql
+        null_ls.builtins.formatting.sqlfluff.with({
+          runtime_condition = function()
+            return helper.local_has_file({ '.sqlfluff' })
+          end,
+        }),
       },
     })
   end,
