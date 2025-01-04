@@ -9,6 +9,15 @@ return {
       'pmizio/typescript-tools.nvim',
     },
     config = function()
+      vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        update_in_insert = false,
+        virtual_text = {
+          format = function(diagnostic)
+            return string.format('%s (%s: %s)', diagnostic.message, diagnostic.source, diagnostic.code)
+          end,
+        },
+      })
+
       require('mason').setup()
       local mason_lspconfig = require('mason-lspconfig')
       mason_lspconfig.setup({
@@ -65,12 +74,17 @@ return {
           elseif server_name == 'ts_ls' then
             -- do nothing. used by typescript-tools.nvim
             lspconfig.ts_ls.setup({
-              capabilities = capabilities,
               -- typescript-toolsの方に任せるので、diagnosticsを無効化
               handlers = {
                 ['textDocument/publishDiagnostics'] = function() end,
-                ['textDocument/completion'] = function() end,
               },
+              on_attach = function(client)
+                client.server_capabilities.hoverProvider = false
+                client.server_capabilities.completionProvider = false
+                client.server_capabilities.diagnosticProvider = false
+                client.server_capabilities.codeActionProvider = false
+                client.server_capabilities.referencesProvider = false
+              end,
             })
           elseif server_name == 'denols' then
             lspconfig.denols.setup({
