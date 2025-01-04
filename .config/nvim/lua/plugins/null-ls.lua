@@ -116,6 +116,14 @@ return {
             return helper.local_has_file({ '.sqlfluff' })
           end,
         }),
+        null_ls.builtins.diagnostics.sqlfluff.with({
+          temp_dir = '/tmp',
+          extra_args = { '--dialect', 'sqlite' },
+          runtime_condition = function()
+            return helper.local_has_file({ '.sqlfluff' })
+          end,
+          diagnostics_format = '[sqlfluff] #{m}\n(#{c})',
+        }),
       },
     })
   end,
