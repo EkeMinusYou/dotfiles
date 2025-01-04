@@ -38,7 +38,7 @@ return {
           -- prefer Package.swift for multi module with swift package manager
           return util.root_pattern('Package.swift')(filename)
             or util.root_pattern('buildServer.json', '*.xcodeproj')(filename)
-            or util.find_git_ancestor(filename)
+            or vim.fs.dirname(vim.fs.find('.git', { path = filename, upward = true })[1])
         end,
       })
       -- Setup LSP by mason
