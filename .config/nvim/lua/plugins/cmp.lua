@@ -68,7 +68,6 @@ return {
       }),
       ---@diagnostic disable-next-line: missing-fields
       formatting = {
-        fields = { 'kind', 'abbr', 'menu' },
         format = function(entry, item)
           local completion_item = entry.completion_item
           local highlights_info = require('colorful-menu').highlights(completion_item, vim.bo.filetype)
@@ -81,12 +80,15 @@ return {
             item.abbr = highlights_info.text
           end
 
-          local kind = require('lspkind').cmp_format({
+          item = lspkind.cmp_format({
             mode = 'symbol_text',
+            menu = {
+              buffer = '[Buffer]',
+              nvim_lsp = '[LSP]',
+              vsnip = '[Snippet]',
+              path = '[Path]',
+            },
           })(entry, item)
-          local strings = vim.split(kind.kind, '%s', { trimempty = true })
-          item.kind = ' ' .. (strings[1] or '') .. ' '
-          item.menu = ''
 
           return item
         end,
