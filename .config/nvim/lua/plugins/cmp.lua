@@ -42,8 +42,8 @@ return {
       },
       sources = cmp.config.sources({
         { name = 'skkeleton' },
-        { name = 'nvim_lsp' },
-        { name = 'vsnip' },
+        { name = 'nvim_lsp', keyword_length = 1 },
+        { name = 'vsnip', keyword_length = 2 },
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
         { name = 'lazydev', group_index = 0 },
