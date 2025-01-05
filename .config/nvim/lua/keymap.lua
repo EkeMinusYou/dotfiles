@@ -132,3 +132,22 @@ vim.keymap.set('i', '<C-o>', function()
   local result = vim.fn.matchstr(substring, [[\v<(\k(<)@!)*$]])
   return '<C-w>' .. result:upper()
 end, { expr = true })
+
+local root_names = { '.git' }
+local set_git_root = function()
+  local path = vim.api.nvim_buf_get_name(0)
+  if path == '' then
+    return
+  end
+  path = vim.fs.dirname(path)
+
+  local root_file = vim.fs.find(root_names, { path = path, upward = true })[1]
+  if root_file == nil then
+    return
+  end
+  local root = vim.fs.dirname(root_file)
+
+  vim.cmd('cd ' .. root)
+end
+
+vim.keymap.set('n', '<leader>cr', set_git_root)
