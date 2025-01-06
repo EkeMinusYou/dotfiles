@@ -7,6 +7,7 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'hrsh7th/cmp-nvim-lsp',
       'pmizio/typescript-tools.nvim',
+      'b0o/schemastore.nvim',
     },
     config = function()
       vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -29,6 +30,7 @@ return {
           'denols',
           'biome',
           'terraformls',
+          'yamlls',
         },
         automatic_installation = true,
       })
@@ -141,6 +143,29 @@ return {
             lspconfig.terraformls.setup({
               offset_encoding = 'utf-8',
               capabilities = capabilities,
+            })
+          elseif server_name == 'jsonls' then
+            lspconfig.jsonls.setup({
+              capabilities = capabilities,
+              settings = {
+                json = {
+                  schemas = require('schemastore').json.schemas(),
+                  validate = { enable = true },
+                },
+              },
+            })
+          elseif server_name == 'yamlls' then
+            lspconfig.yamlls.setup({
+              capabilities = capabilities,
+              settings = {
+                yaml = {
+                  schemaStore = {
+                    enable = false,
+                    url = '',
+                  },
+                  schemas = require('schemastore').yaml.schemas(),
+                },
+              },
             })
           else
             lspconfig[server_name].setup({
