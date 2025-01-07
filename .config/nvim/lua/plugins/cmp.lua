@@ -69,13 +69,9 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       formatting = {
         format = function(entry, item)
-          local completion_item = entry.completion_item
-          local highlights_info = require('colorful-menu').highlights(completion_item, vim.bo.filetype)
+          local highlights_info = require('colorful-menu').cmp_highlights(entry)
 
-          -- error, such as missing parser, fallback to use raw label.
-          if highlights_info == nil then
-            item.abbr = completion_item.label
-          else
+          if highlights_info ~= nil then
             item.abbr_hl_group = highlights_info.highlights
             item.abbr = highlights_info.text
           end
