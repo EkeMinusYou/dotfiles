@@ -45,7 +45,7 @@ vim.keymap.set('c', '<CR>', '<Plug>(kensaku-search-replace)<CR>')
 
 -- lazygit
 -- See: https://chatgpt.com/share/674bf704-49fc-800a-815e-dc2a01d16439
-vim.keymap.set('n', '<leader>g', function()
+vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
   local buf = vim.api.nvim_create_buf(false, true)
   local win = vim.api.nvim_open_win(buf, true, {
     relative = 'editor',
