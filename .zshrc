@@ -89,6 +89,9 @@ zshaddhistory() {
   ]]
 }
 
+# autopair
+source $(brew --prefix)/share/zsh-autopair/autopair.zsh
+
 # coreutils
 case ${OSTYPE} in
   darwin*)
@@ -122,10 +125,14 @@ alias ls="lsd"
 alias v="nvim"
 alias vim="nvim"
 
+# Default Editor
+export EDITOR=$(which nvim)
+
 # XDG
 export XDG_CONFIG_HOME=$HOME/.config
 
 # aqua
+export PATH="$(aqua root-dir)/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=$HOME/.config/aqua/aqua.yaml
 export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm
 export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
@@ -161,6 +168,10 @@ alias kd="kubectl describe"
 alias kl="kubectl logs"
 alias kt="kubectl top"
 alias kr="kubectl rollout"
+type kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
+
+# stern
+type stern >/dev/null 2>&1 && source <(stern --completion=zsh)
 
 # k9s
 alias k9="k9s --readonly"
@@ -187,6 +198,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 # deno
 export PATH=$HOME/.deno/bin:$PATH
 
+# deno tools
+if [ $commands[switchbot] ]; then
+  source <(switchbot completions zsh)
+fi
+
 # Python
 export PATH=/opt/homebrew/Cellar/python@3.8/3.8.19/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 
@@ -197,11 +213,17 @@ export PATH=$HOME/.cargo/bin:$PATH
 alias e='code -a .'
 
 # gcloud
+test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/path.zsh.inc || true
+test -e $HOME/google-cloud-sdk/completion.zsh.inc && source $HOME/google-cloud-sdk/completion.zsh.inc || true
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 export CLOUDSDK_PYTHON=$(which python3.9)
 
 # direnv
+type direnv >/dev/null 2>&1 && source <(direnv hook zsh)
 export DIRENV_LOG_FORMAT=
+
+# atlas
+type atlas >/dev/null 2>&1 && source <(atlas completion zsh)
 
 # tencent
 export PATH=$HOME/.tencent/bin:$PATH
@@ -214,15 +236,19 @@ complete -o nospace -C terraform terraform
 
 # Node.js
 alias nr="npm run"
+eval "`npm completion`"
 
-# iterm2 disalbe for performance
-# test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
+# iterm2
+test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
 
 # wsl
 export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 
 # lovot
 export PATH=$HOME/.lovot/bin:$PATH
+if [ $commands[lovot] ]; then
+  source <(lovot completion zsh)
+fi
 
 # -------------------
 # Functions
@@ -300,22 +326,6 @@ setopt INTERACTIVECOMMENTS
 # -------------------
 
 eval "$(sheldon source)"
-
-# -------------------
-# Lazy loading
-# -------------------
-
-type kubectl >/dev/null 2>&1 && zsh-defer source <(kubectl completion zsh)
-type stern >/dev/null 2>&1 && zsh-defer source <(stern --completion=zsh)
-type gcloud >/dev/null 2>&1 && zsh-defer source $HOME/google-cloud-sdk/path.zsh.inc || true
-type gcloud >/dev/null 2>&1 && zsh-defer source $HOME/google-cloud-sdk/completion.zsh.inc || true
-type direnv >/dev/null 2>&1 && zsh-defer source <(direnv hook zsh)
-type npm >/dev/null 2>&1 && zsh-defer source <(npm completion)
-type switchbot >/dev/null 2>&1 && zsh-defer -c 'source <(switchbot completions zsh)'
-type atlas >/dev/null 2>&1 && zsh-defer -c 'source <(atlas completion zsh)'
-type lovot >/dev/null 2>&1 && zsh-defer -c 'source <(lovot completion zsh)'
-type aqua >/dev/null 2>&1 && zsh-defer -c 'export PATH="$(aqua root-dir)/bin:$PATH"'
-zsh-defer -c 'export EDITOR=$(which nvim)'
 
 # -------------------
 # Starship

@@ -1,14 +1,9 @@
 shell = "zsh"
 
-[templates]
-defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
-
-[plugins.zsh-defer]
-github = "romkatv/zsh-defer"
+[plugins]
 
 [plugins.fast-syntax-highlighting]
 github = 'zdharma-continuum/fast-syntax-highlighting'
-apply = ["defer"]
 
 [plugins.zsh-completions]
 github = 'zsh-users/zsh-completions'
@@ -18,12 +13,6 @@ github = 'marlonrichert/zsh-autocomplete'
 
 [plugins.jq-zsh-plugin]
 github = "reegnz/jq-zsh-plugin"
-apply = ["defer"]
 
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
-apply = ["defer"]
-
-[plugins.zsh-autopair]
-github = "hlissner/zsh-autopair"
-apply = ["defer"]
