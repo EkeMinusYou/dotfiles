@@ -21,7 +21,7 @@ esac
 
 if type brew &>/dev/null
 then
-  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+  fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 fi
 
 # import completions
@@ -90,7 +90,7 @@ zshaddhistory() {
 }
 
 # autopair
-source $(brew --prefix)/share/zsh-autopair/autopair.zsh
+source $HOMEBREW_PREFIX/share/zsh-autopair/autopair.zsh
 
 # coreutils
 case ${OSTYPE} in
@@ -192,7 +192,7 @@ export GOPROXY="direct"
 export GOPRIVATE=github.com/groove-x
 
 # Java
-export PATH=$(brew --prefix)/opt/openjdk@11/bin:$PATH
+export PATH=$HOMEBREW_PREFIX/opt/openjdk@11/bin:$PATH
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 
 # deno
