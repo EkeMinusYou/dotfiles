@@ -4,21 +4,6 @@
 
 bindkey -e
 
-# --------------------
-# Adding fpath
-# --------------------
-
-# homebrew
-export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
-case ${OSTYPE} in
-  darwin*)
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    ;;
-  linux*)
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    ;;
-esac
-
 # -------------------
 # Enable Completion
 # -------------------
@@ -45,6 +30,17 @@ add-zsh-hook chpwd chpwd_recent_dirs
 # -------------------
 # Other Settings
 # -------------------
+
+# homebrew
+export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
+case ${OSTYPE} in
+  darwin*)
+    export HOMEBREW_PREFIX="/opt/homebrew"
+    ;;
+  linux*)
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+    ;;
+esac
 
 # suppress prompt
 export LISTMAX=10000
@@ -308,10 +304,17 @@ eval "$(sheldon source)"
 
 local script_dir="$HOME/.zsh/local.script"
 
-# load local scripts
 for file in ${script_dir}/*; do
   [ -f "$file" ] && source "$file"
 done
+
+# setup brew script for next time
+local brew_path="$HOMEBREW_PREFIX/bin/brew"
+local brew_script_path="${script_dir}/_brew"
+if [ ! -f "$brew_script_path" ]; then
+  eval "source <($brew_path shellenv)"
+fi
+(eval "$brew_path shellenv > $brew_script_path" &) > /dev/null 2>&1
 
 # setup local scripts for next time
 function local_script_setup() {
