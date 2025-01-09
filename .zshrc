@@ -126,7 +126,7 @@ alias v="nvim"
 alias vim="nvim"
 
 # Default Editor
-export EDITOR=$(which nvim)
+export EDITOR=$HOMEBREW_PREFIX/bin/nvim
 
 # XDG
 export XDG_CONFIG_HOME=$HOME/.config
