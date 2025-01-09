@@ -296,7 +296,7 @@ setopt INTERACTIVECOMMENTS
 # Load Plugins
 # -------------------
 
-eval "$(sheldon source)"
+eval "$($HOMEBREW_PREFIX/bin/sheldon source)"
 
 # -------------------
 # lazy command script setup
@@ -314,7 +314,7 @@ local brew_script_path="${script_dir}/_brew"
 if [ ! -f "$brew_script_path" ]; then
   eval "source <($brew_path shellenv)"
 fi
-(eval "$brew_path shellenv > $brew_script_path" &) > /dev/null 2>&1
+zsh-defer "$brew_path shellenv > $brew_script_path"
 
 # setup local scripts for next time
 function local_script_setup() {
@@ -327,7 +327,7 @@ function local_script_setup() {
   if [ ! -f "$script_file" ]; then
     eval "source <($script_command)"
   fi
-  (eval "$script_command > $script_file" &) > /dev/null 2>&1
+  (eval "zsh-defer \"$script_command > $script_file\"" &) > /dev/null 2>&1
 }
 
 local_script_setup "kubectl" "kubectl completion zsh"
