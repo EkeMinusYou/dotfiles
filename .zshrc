@@ -132,7 +132,7 @@ export EDITOR=$(which nvim)
 export XDG_CONFIG_HOME=$HOME/.config
 
 # aqua
-export PATH="$(aqua root-dir)/bin:$PATH"
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=$HOME/.config/aqua/aqua.yaml
 export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm
 export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
