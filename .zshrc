@@ -19,11 +19,6 @@ case ${OSTYPE} in
     ;;
 esac
 
-if type brew &>/dev/null
-then
-  fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
-fi
-
 # import completions
 fpath=(~/.zsh/completion $fpath)
 
