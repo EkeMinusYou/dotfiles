@@ -168,10 +168,6 @@ alias kd="kubectl describe"
 alias kl="kubectl logs"
 alias kt="kubectl top"
 alias kr="kubectl rollout"
-type kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
-
-# stern
-type stern >/dev/null 2>&1 && source <(stern --completion=zsh)
 
 # k9s
 alias k9="k9s --readonly"
@@ -198,11 +194,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 # deno
 export PATH=$HOME/.deno/bin:$PATH
 
-# deno tools
-if [ $commands[switchbot] ]; then
-  source <(switchbot completions zsh)
-fi
-
 # Python
 export PATH=/opt/homebrew/Cellar/python@3.8/3.8.19/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 
@@ -219,11 +210,7 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 export CLOUDSDK_PYTHON=$HOMEBREW_PREFIX/bin/python3.9
 
 # direnv
-type direnv >/dev/null 2>&1 && source <(direnv hook zsh)
 export DIRENV_LOG_FORMAT=
-
-# atlas
-type atlas >/dev/null 2>&1 && source <(atlas completion zsh)
 
 # tencent
 export PATH=$HOME/.tencent/bin:$PATH
@@ -236,7 +223,6 @@ complete -o nospace -C terraform terraform
 
 # Node.js
 alias nr="npm run"
-eval "`npm completion`"
 
 # iterm2
 test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
@@ -246,9 +232,6 @@ export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 
 # lovot
 export PATH=$HOME/.lovot/bin:$PATH
-if [ $commands[lovot] ]; then
-  source <(lovot completion zsh)
-fi
 
 # -------------------
 # Functions
@@ -326,6 +309,37 @@ setopt INTERACTIVECOMMENTS
 # -------------------
 
 eval "$(sheldon source)"
+
+# -------------------
+# lazy command script setup
+# -------------------
+
+local script_dir="$HOME/.zsh/local.script"
+
+# load local scripts
+for file in ${script_dir}/*; do
+  [ -f "$file" ] && source "$file"
+done
+
+# setup local scripts for next time
+function local_script_setup() {
+  local command="$1"
+  if [ -n "$command" ] && ! type "$command" &>/dev/null; then
+    return
+  fi
+  local script_command="$2"
+  local script_file="${script_dir}/_$command"
+  if [ ! -f "$script_file" ]; then
+    eval "source <($script_command)"
+  fi
+  (eval "$script_command > $script_file" &) > /dev/null 2>&1
+}
+
+local_script_setup "kubectl" "kubectl completion zsh"
+local_script_setup "lovot" "lovot completion zsh"
+local_script_setup "atlas" "atlas completion zsh"
+local_script_setup "direnv" "direnv hook zsh"
+local_script_setup "npm" "npm completion"
 
 # -------------------
 # Starship
