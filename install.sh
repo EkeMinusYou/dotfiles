@@ -22,7 +22,6 @@ ln -sfn $DOT_DIR/dotfiles/.config/git/ignore ~/.config/git/ignore
 # Setup zsh
 ln -sfn $DOT_DIR/dotfiles/.zshrc ~/.zshrc
 mkdir -p ~/.zsh/
-ln -sfn $DOT_DIR/dotfiles/.zsh/completion ~/.zsh/
 mkdir -p ~/.zsh/local.script
 
 # lazygit

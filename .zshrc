@@ -19,9 +19,6 @@ case ${OSTYPE} in
     ;;
 esac
 
-# import completions
-fpath=(~/.zsh/completion $fpath)
-
 # -------------------
 # Enable Completion
 # -------------------
@@ -335,6 +332,8 @@ local_script_setup "lovot" "lovot completion zsh"
 local_script_setup "atlas" "atlas completion zsh"
 local_script_setup "direnv" "direnv hook zsh"
 local_script_setup "npm" "npm completion"
+local_script_setup "docker" "docker completion zsh"
+local_script_setup "soracom" "soracom completion zsh"
 
 # -------------------
 # Starship

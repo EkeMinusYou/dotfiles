@@ -25,3 +25,7 @@ apply = ["defer"]
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
 apply = ["defer"]
+
+[plugins.docker-compose-completion]
+remote = "https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose"
+apply = ["fpath"]
