@@ -77,9 +77,6 @@ zshaddhistory() {
   ]]
 }
 
-# autopair
-source $HOMEBREW_PREFIX/share/zsh-autopair/autopair.zsh
-
 # coreutils
 case ${OSTYPE} in
   darwin*)
@@ -192,8 +189,6 @@ export PATH=$HOME/.cargo/bin:$PATH
 alias e='code -a .'
 
 # gcloud
-test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/path.zsh.inc || true
-test -e $HOME/google-cloud-sdk/completion.zsh.inc && source $HOME/google-cloud-sdk/completion.zsh.inc || true
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 export CLOUDSDK_PYTHON=$HOMEBREW_PREFIX/bin/python3.9
 
@@ -211,9 +206,6 @@ complete -o nospace -C terraform terraform
 
 # Node.js
 alias nr="npm run"
-
-# iterm2
-test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true
 
 # wsl
 export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
@@ -337,6 +329,14 @@ local_script_setup "direnv" "direnv hook zsh"
 local_script_setup "npm" "npm completion"
 local_script_setup "docker" "docker completion zsh"
 local_script_setup "soracom" "soracom completion zsh"
+
+# autopair
+zsh-defer source $HOMEBREW_PREFIX/share/zsh-autopair/autopair.zsh
+# gcloud
+zsh-defer -c "test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/path.zsh.inc || true"
+zsh-defer -c "test -e $HOME/google-cloud-sdk/completion.zsh.inc && source $HOME/google-cloud-sdk/completion.zsh.inc || true"
+# iterm2
+zsh-defer -c "test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true"
 
 # -------------------
 # Starship
