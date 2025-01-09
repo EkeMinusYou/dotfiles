@@ -216,7 +216,7 @@ alias e='code -a .'
 test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google-cloud-sdk/path.zsh.inc || true
 test -e $HOME/google-cloud-sdk/completion.zsh.inc && source $HOME/google-cloud-sdk/completion.zsh.inc || true
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
-export CLOUDSDK_PYTHON=$(which python3.9)
+export CLOUDSDK_PYTHON=$HOMEBREW_PREFIX/bin/python3.9
 
 # direnv
 type direnv >/dev/null 2>&1 && source <(direnv hook zsh)
