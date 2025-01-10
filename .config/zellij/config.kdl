@@ -1,4 +1,6 @@
 default_layout "compact"
+pane_frames false
+theme "catppuccin-mocha"
 
 keybinds {
     normal clear-defaults=true {
