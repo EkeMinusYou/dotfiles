@@ -15,7 +15,16 @@ bindkey -e
 # -------------------
 
 autoload -U +X bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
+
+# See: https://memo.kkenya.com/zsh_speed_up/
+local now=$(date +"%s")
+local updated=$(date -r ~/.zcompdump +"%s")
+local threshold=$((60 * 60 * 24))
+if [ $((${now} - ${updated})) -gt ${threshold} ]; then
+  autoload -Uz compinit && compinit
+else
+  autoload -Uz compinit -C && compinit -C
+fi
 
 # -------------------
 # Add Zsh Hook
