@@ -72,6 +72,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/ghostty ~/.config/
 # zellij
 ln -sfn $DOT_DIR/dotfiles/.config/zellij ~/.config/
 
+# alacritty
+ln -sfn $DOT_DIR/dotfiles/.config/alacritty ~/.config
+
 if [ `uname` == 'Darwin']; then
   # Setup yabai and skhd
   mkdir -p ~/.config/yabai
