@@ -4,11 +4,9 @@
 cmd + shift + ctrl + alt - m : open -a "Music"
 cmd + shift + ctrl + alt - l : open -a "Logseq"
 cmd + shift + ctrl + alt - y : open -a "Youtube"
-cmd + shift + ctrl + alt - t : open -a "WezTerm"
-cmd + shift + ctrl + alt - g : open -a "Ghostty"
+cmd + shift + ctrl + alt - t : open -a "Alacritty"
 cmd + shift + ctrl + alt - s : open -a "Slack"
 cmd + shift + ctrl + alt - c : open -a "Google Chrome"
-cmd + shift + ctrl + alt - a : open -a "Alacritty"
 
 # focus window
 ctrl + alt - x : yabai -m window --focus recent || yabai -m display --focus recent
