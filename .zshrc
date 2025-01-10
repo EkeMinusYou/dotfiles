@@ -306,44 +306,12 @@ setopt INTERACTIVECOMMENTS
 eval "$($HOMEBREW_PREFIX/bin/sheldon source)"
 
 # -------------------
-# lazy command script setup
+# source command scripts
 # -------------------
 
-local script_dir="$HOME/.zsh/local.script"
-
-for file in ${script_dir}/*; do
+for file in $HOME/.zsh/local.script/*; do
   [ -f "$file" ] && source "$file"
 done
-
-# setup brew script for next time
-local brew_path="$HOMEBREW_PREFIX/bin/brew"
-local brew_script_path="${script_dir}/_brew"
-if [ ! -f "$brew_script_path" ]; then
-  eval "source <($brew_path shellenv)"
-fi
-zsh-defer "$brew_path shellenv > $brew_script_path"
-
-# setup local scripts for next time
-function local_script_setup() {
-  local command="$1"
-  if [ -n "$command" ] && ! type "$command" &>/dev/null; then
-    return
-  fi
-  local script_command="$2"
-  local script_file="${script_dir}/_$command"
-  if [ ! -f "$script_file" ]; then
-    eval "source <($script_command)"
-  fi
-  (eval "zsh-defer \"$script_command > $script_file\"" &) > /dev/null 2>&1
-}
-
-local_script_setup "kubectl" "kubectl completion zsh"
-local_script_setup "lovot" "lovot completion zsh"
-local_script_setup "atlas" "atlas completion zsh"
-local_script_setup "direnv" "direnv hook zsh"
-local_script_setup "npm" "npm completion"
-local_script_setup "docker" "docker completion zsh"
-local_script_setup "soracom" "soracom completion zsh"
 
 # autopair
 zsh-defer source $HOMEBREW_PREFIX/share/zsh-autopair/autopair.zsh
