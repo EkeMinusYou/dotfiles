@@ -22,8 +22,8 @@ return {
           auto_trigger = true,
           debounce = 75,
           keymap = {
-            accept = '<M-:>',
-            accept_word = '<M-;>',
+            accept = '<M-;>',
+            accept_word = '<M-->',
             accept_line = '<M-/>',
             next = '<M-]>',
             prev = '<M-[>',
