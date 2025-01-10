@@ -1,4 +1,10 @@
 # -------------------
+# Profiling
+# -------------------
+
+# zmodload zsh/zprof && zprof
+
+# -------------------
 # General Settings
 # -------------------
 
@@ -367,3 +373,11 @@ if [[ -n $ZENO_LOADED ]]; then
   bindkey '^x '  zeno-insert-space
   bindkey '^x^m' accept-line
 fi
+
+# -------------------
+# Profiling
+# -------------------
+
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof
+# fi
