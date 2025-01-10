@@ -300,7 +300,7 @@ eval "$($HOMEBREW_PREFIX/bin/sheldon source)"
 # source command scripts
 # -------------------
 
-for file in $HOME/.zsh/local.script/*; do
+for file in $HOME/.zsh/scripts/*; do
   [ -f "$file" ] && source "$file"
 done
 
