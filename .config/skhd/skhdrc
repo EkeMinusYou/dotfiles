@@ -8,7 +8,7 @@ cmd + shift + ctrl + alt - t : open -a "WezTerm"
 cmd + shift + ctrl + alt - g : open -a "Ghostty"
 cmd + shift + ctrl + alt - s : open -a "Slack"
 cmd + shift + ctrl + alt - c : open -a "Google Chrome"
-cmd + shift + ctrl + alt - a : open -n -a "Google Chrome" --args --profile-directory="Default"
+cmd + shift + ctrl + alt - a : open -a "Alacritty"
 
 # focus window
 ctrl + alt - x : yabai -m window --focus recent || yabai -m display --focus recent

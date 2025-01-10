@@ -12,3 +12,7 @@ option_as_alt = "Both"
 
 [mouse]
 hide_when_typing = true
+
+[terminal.shell]
+program = "/opt/homebrew/bin/zsh"
+args = ["-l", "-c", "zellij"]
