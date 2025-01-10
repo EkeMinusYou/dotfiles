@@ -20,3 +20,9 @@ keybinds {
         bind "v" { NewPane "Right"; SwitchToMode "Normal"; }
     }
 }
+
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
