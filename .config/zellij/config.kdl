@@ -10,6 +10,10 @@ keybinds {
         bind "Ctrl Shift k" { MoveFocus "Up"; }
         bind "Ctrl Shift l" { MoveFocus "Right"; }
         bind "Ctrl Shift c" { CloseFocus; }
+        bind "Ctrl Shift w" { Resize "Increase Up"; }
+        bind "Ctrl Shift s" { Resize "Increase Down"; }
+        bind "Ctrl Shift a" { Resize "Increase Left"; }
+        bind "Ctrl Shift d" { Resize "Increase Right"; }
     }
     pane clear-defaults=true {
         bind "s" { NewPane "Down"; SwitchToMode "Normal"; }
