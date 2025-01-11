@@ -1,6 +1,7 @@
 default_layout "compact"
 pane_frames false
 theme "catppuccin-mocha"
+on_force_close "quit"
 
 keybinds {
     normal clear-defaults=true {
