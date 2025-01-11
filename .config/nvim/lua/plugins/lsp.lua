@@ -96,7 +96,7 @@ return {
             lspconfig.denols.setup({
               capabilities = capabilities,
               root_dir = function(fname)
-                return lspconfig.util.root_pattern('deno.json')(fname)
+                return lspconfig.util.root_pattern('deno.json', 'deno.lock')(fname)
               end,
             })
           elseif server_name == 'biome' then
