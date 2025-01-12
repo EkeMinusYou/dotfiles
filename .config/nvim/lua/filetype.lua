@@ -9,6 +9,8 @@ vim.filetype.add({
     -- Swift
     ['Package.resolved'] = 'json',
     ['.swift-format'] = 'json',
+    -- deno
+    ['deno.lock'] = 'json',
   },
   pattern = {
     -- git
