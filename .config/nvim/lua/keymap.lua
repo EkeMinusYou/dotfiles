@@ -20,6 +20,7 @@ vim.keymap.set('n', 'gf', function()
   helper.lsp_formatting({ async = true, timeout_ms = 5000 })
 end)
 vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
 vim.keymap.set('n', 'gi', function()
   require('telescope.builtin').lsp_implementations()
 end)
@@ -36,7 +37,6 @@ end)
 
 -- define by lspsaga
 -- vim.keymap.set('n', 'gn', '<cmd>lua vim.lsp.buf.rename()<cr>')
--- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
 -- vim.keymap.set('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 -- vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
 

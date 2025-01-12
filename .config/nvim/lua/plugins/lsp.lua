@@ -90,6 +90,7 @@ return {
                 client.server_capabilities.diagnosticProvider = false
                 client.server_capabilities.codeActionProvider = false
                 client.server_capabilities.referencesProvider = false
+                client.server_capabilities.definitionProvider = false
               end,
             })
           elseif server_name == 'denols' then
@@ -194,7 +195,6 @@ return {
     keys = {
       { '<leader>lr', '<cmd>Lspsaga finder<cr>' },
       { 'gn', '<cmd>Lspsaga rename<cr>' },
-      { 'gd', '<cmd>Lspsaga goto_definition<cr>' },
       { 'gt', '<cmd>Lspsaga goto_type_definition<cr>' },
       { 'K', '<cmd>Lspsaga hover_doc<cr>' },
     },
