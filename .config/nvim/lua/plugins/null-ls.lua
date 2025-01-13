@@ -111,18 +111,16 @@ return {
           temp_dir = '/tmp',
         }),
         -- sql
-        null_ls.builtins.formatting.sqlfluff.with({
+        null_ls.builtins.diagnostics.sqruff.with({
           runtime_condition = function()
-            return helper.local_has_file({ '.sqlfluff' })
+            return helper.local_has_file({ '.sqruff' })
           end,
+          diagnostics_format = '[sqruff] #{m}\n(#{c})',
         }),
-        null_ls.builtins.diagnostics.sqlfluff.with({
-          temp_dir = '/tmp',
-          extra_args = { '--dialect', 'sqlite' },
+        null_ls.builtins.formatting.sqruff.with({
           runtime_condition = function()
-            return helper.local_has_file({ '.sqlfluff' })
+            return helper.local_has_file({ '.sqruff' })
           end,
-          diagnostics_format = '[sqlfluff] #{m}\n(#{c})',
         }),
       },
     })
