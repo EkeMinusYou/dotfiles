@@ -1,5 +1,8 @@
 return {
   'gbprod/yanky.nvim',
+  dependencies = {
+    'kkharji/sqlite.lua',
+  },
   keys = {
     { 'y', '<Plug>(YankyYank)', mode = { 'n', 'x' } },
     { 'p', '<Plug>(YankyPutAfter)', mode = { 'n', 'x' } },
@@ -10,9 +13,7 @@ return {
   lazy = true,
   config = function()
     require('yanky').setup({
-      ring = {
-        storage = 'memory',
-      },
+      ring = { storage = 'sqlite' },
     })
   end,
 }
