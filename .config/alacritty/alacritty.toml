@@ -16,3 +16,6 @@ hide_when_typing = true
 [terminal.shell]
 program = "/opt/homebrew/bin/zsh"
 args = ["-l", "-c", "zellij"]
+
+[env]
+TERM = "xterm-256color"
