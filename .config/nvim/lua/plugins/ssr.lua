@@ -3,7 +3,7 @@ return {
   event = 'BufRead',
   keys = {
     {
-      '<leader>sr',
+      '<leader>r',
       function()
         require('ssr').open()
       end,
