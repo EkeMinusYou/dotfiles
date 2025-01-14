@@ -11,7 +11,7 @@ size = 20
 padding.x = 20
 padding.y = 20
 decorations = "Buttonless"
-opacity = 0.8
+opacity = 0.85
 blur = false
 option_as_alt = "Both"
 
