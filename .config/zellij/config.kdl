@@ -16,10 +16,14 @@ keybinds {
         bind "Ctrl Shift a" { Resize "Increase Left"; }
         bind "Ctrl Shift d" { Resize "Increase Right"; }
         bind "Ctrl Shift z" { ToggleFocusFullscreen; }
+        bind "Ctrl Shift n" { GoToNextTab; }
+        bind "Ctrl Shift p" { GoToPreviousTab; }
+        bind "Ctrl Shift x" { CloseTab; }
     }
     pane clear-defaults=true {
         bind "s" { NewPane "Down"; SwitchToMode "Normal"; }
         bind "v" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "n" { NewTab; SwitchToMode "Normal"; }
     }
 }
 
