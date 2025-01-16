@@ -73,13 +73,13 @@ zshaddhistory() {
 
   # Only those that satisfy all of the following conditions are added to the history
   [[ ${#line} -ge 5
-     && ${cmd} != ls
-     && ${cmd} != cd
-     && ${cmd} != cdr
-     && ${cmd} != more
-     && ${cmd} != less
-     && ${cmd} != ping
-     && ${cmd} != which
+    && ${cmd} != ls
+    && ${cmd} != cd
+    && ${cmd} != cdr
+    && ${cmd} != more
+    && ${cmd} != less
+    && ${cmd} != ping
+    && ${cmd} != which
   ]]
 }
 
@@ -270,8 +270,8 @@ function expand-alias-accept-line() {
 zle -N accept-line expand-alias-accept-line
 
 function paste-as-yank() {
-  BUFFER=$(pbpaste) 
-  CURSOR=$#BUFFER 
+  BUFFER=$(pbpaste)
+  CURSOR=$#BUFFER
   zle redisplay
 }
 zle -N paste-as-yank
