@@ -291,7 +291,6 @@ zellij_tab_name_update() {
   fi
 }
 
-zellij_tab_name_update
 chpwd_functions+=(zellij_tab_name_update)
 
 # -------------------
@@ -328,6 +327,8 @@ zsh-defer -c "test -e $HOME/google-cloud-sdk/path.zsh.inc && source $HOME/google
 zsh-defer -c "test -e $HOME/google-cloud-sdk/completion.zsh.inc && source $HOME/google-cloud-sdk/completion.zsh.inc || true"
 # iterm2
 zsh-defer -c "test -e $HOME/.iterm2_shell_integration.zsh && source $HOME/.iterm2_shell_integration.zsh || true"
+
+zsh-defer zellij_tab_name_update
 
 # -------------------
 # Starship
