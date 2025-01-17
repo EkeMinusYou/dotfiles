@@ -65,7 +65,7 @@
   "schemastore.nvim": { "branch": "main", "commit": "a0dd8a31e30a34755e51abdb76d9c82e08b8ab38" },
   "skkeleton": { "branch": "main", "commit": "8bb1b8782227291c8cbe2aa62a9af732557690cc" },
   "smear-cursor.nvim": { "branch": "main", "commit": "005b50b891d662bdd3160dc2a143939066b5cc17" },
-  "snacks.nvim": { "branch": "main", "commit": "2e8e8ca36fb5d2e256d524be888a0e84d59b7ed9" },
+  "snacks.nvim": { "branch": "main", "commit": "71f69e5e57f355f40251e274d45560af7d8dd365" },
   "sqlite.lua": { "branch": "master", "commit": "b487fcc8937b683942a1f7d9662fcf50ca5acd58" },
   "ssr.nvim": { "branch": "main", "commit": "7c95cfa5836508f08ae833a4b31d2ed265560f64" },
   "telescope-all-recent.nvim": { "branch": "main", "commit": "267e9e5fd13a6e9a4cc6ffe00452d446d040401d" },
