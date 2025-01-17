@@ -20,13 +20,6 @@ return {
     end,
   },
   {
-    'echasnovski/mini.comment',
-    event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
-    config = function()
-      require('mini.comment').setup({})
-    end,
-  },
-  {
     'echasnovski/mini.splitjoin',
     event = { 'LspAttach' },
     config = function()
