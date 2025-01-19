@@ -17,13 +17,11 @@ return {
           runtime_condition = function()
             return helper.local_has_file({ '.prettierrc', '.prettierrc.js' })
           end,
-          diagnostics_format = '[prettier] #{m}\n(#{c})',
         }),
         require('none-ls.formatting.eslint_d').with({
           runtime_condition = function()
             return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs', '.eslintrc.json', 'eslint.config.mjs' })
           end,
-          diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
         null_ls.builtins.formatting.biome.with({
           runtime_condition = function()
@@ -34,7 +32,6 @@ return {
           runtime_condition = function()
             return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs', '.eslintrc.json', 'eslint.config.mjs' })
           end,
-          diagnostics_format = '[eslint] #{m}\n(#{c})',
         }),
         require('none-ls.code_actions.eslint_d'),
         -- css
@@ -59,7 +56,6 @@ return {
               '.stylelintrc',
             })
           end,
-          diagnostics_format = '[stylelint] #{m}\n(#{c})',
         }),
         -- python
         null_ls.builtins.formatting.black.with({
@@ -73,17 +69,13 @@ return {
         null_ls.builtins.formatting.goimports.with({
           extra_args = { '-local', 'github.com/groove-x' },
         }),
-        null_ls.builtins.diagnostics.staticcheck.with({
-          diagnostics_format = '[staticcheck] #{m}\n(#{c})',
-        }),
+        null_ls.builtins.diagnostics.staticcheck,
         null_ls.builtins.formatting.stylua,
         -- terraform
         null_ls.builtins.diagnostics.terraform_validate,
         null_ls.builtins.formatting.terraform_fmt,
         -- swift
-        null_ls.builtins.diagnostics.swiftlint.with({
-          diagnostics_format = '[swiftlint] #{m}\n(#{c})',
-        }),
+        null_ls.builtins.diagnostics.swiftlint,
         null_ls.builtins.formatting.swiftlint,
         null_ls.builtins.formatting.swift_format.with({
           extra_args = function(params)
