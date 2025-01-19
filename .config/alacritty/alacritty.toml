@@ -6,10 +6,12 @@ import = [
 [font]
 normal = { family = "HackGen35 Console NF", style = "Regular" }
 size = 20
+offset.x = 0
+offset.y = 1
 
 [window]
-padding.x = 20
-padding.y = 20
+padding.x = 10
+padding.y = 0
 decorations = "Buttonless"
 opacity = 0.8
 blur = false
