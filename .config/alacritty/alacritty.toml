@@ -8,7 +8,7 @@ normal = { family = "HackGen35 Console NF", style = "Regular" }
 size = 20
 
 [window]
-padding.x = 10
+padding.x = 20
 padding.y = 20
 decorations = "Buttonless"
 opacity = 0.8
