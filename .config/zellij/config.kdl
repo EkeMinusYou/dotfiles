@@ -19,6 +19,10 @@ keybinds {
         bind "Ctrl Shift n" { GoToNextTab; }
         bind "Ctrl Shift p" { GoToPreviousTab; }
         bind "Ctrl Shift x" { CloseTab; }
+        bind "Ctrl Shift y" { GoToTab 1; }
+        bind "Ctrl Shift u" { GoToTab 2; }
+        bind "Ctrl Shift i" { GoToTab 3; }
+        bind "Ctrl Shift o" { GoToTab 4; }
     }
     pane clear-defaults=true {
         bind "s" { NewPane "Down"; SwitchToMode "Normal"; }
