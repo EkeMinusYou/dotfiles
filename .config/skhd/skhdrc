@@ -7,6 +7,7 @@ cmd + shift + ctrl + alt - y : open -a "Youtube"
 cmd + shift + ctrl + alt - t : open -a "Alacritty"
 cmd + shift + ctrl + alt - s : open -a "Slack"
 cmd + shift + ctrl + alt - c : open -a "Google Chrome"
+cmd + shift + ctrl + alt - z : [ "$(SwitchAudioSource -c -t output -f json | jq -r '.uid')" = "BuiltInHeadphoneOutputDevice" ] && SwitchAudioSource -t output -u "10ACC041-0000-0000-181E-0104B53C2278" || SwitchAudioSource -t output -u "BuiltInHeadphoneOutputDevice"
 
 # focus window
 ctrl + alt - x : yabai -m window --focus recent || yabai -m display --focus recent
