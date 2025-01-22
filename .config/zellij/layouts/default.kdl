@@ -117,7 +117,7 @@ layout {
 
                 format_left   "#[bg=$surface0,fg=$sapphire]#[bg=$sapphire,fg=$crust,bold] {session} #[bg=$surface0] {mode}#[bg=$surface0] {tabs}"
                 format_center "{notifications}"
-                format_right  "#[bg=$surface0,fg=$flamingo]#[fg=$crust,bg=$flamingo] #[bg=$surface1,fg=$flamingo,bold] {command_user}@{command_host}#[bg=$surface0,fg=$surface1]#[bg=$surface0,fg=$maroon]#[bg=$maroon,fg=$crust]󰃭 #[bg=$surface1,fg=$maroon,bold] {datetime}#[bg=$surface0,fg=$surface1]"
+                format_right  "[bg=$surface0,fg=$flamingo] {command_music_get_title} - {command_music_get_artist} #[fg=$crust,bg=$flamingo] #[bg=$surface1,fg=$flamingo,bold] {command_user}@{command_host}#[bg=$surface0,fg=$surface1]#[bg=$surface0,fg=$maroon]#[bg=$maroon,fg=$crust]󰃭 #[bg=$surface1,fg=$maroon,bold] {datetime}#[bg=$surface0,fg=$surface1]"
                 format_space  "#[bg=$surface0]"
                 format_hide_on_overlength "true"
                 format_precedence "lrc"
@@ -167,6 +167,16 @@ layout {
                 command_user_format     "{stdout}"
                 command_user_interval   "10"
                 command_user_rendermode "static"
+
+                command_music_get_title_command    "nowplaying-cli get title"
+                command_music_get_title_format     "{stdout}"
+                command_music_get_title_interval   "5"
+                command_music_get_title_rendermode "static"
+
+                command_music_get_artist_command   "nowplaying-cli get artist"
+                command_music_get_artist_format    "{stdout}"
+                command_music_get_artist_interval  "5"
+                command_music_get_artist_rendermode "static"
 
                 datetime          "{format}"
                 datetime_format   "%Y-%m-%d 󰅐 %H:%M"
