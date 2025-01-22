@@ -20,7 +20,7 @@ symbol = ' '
 disabled = true
 
 [gcloud]
-format = '[$symbol$domain(\($project\))]($style) '
+format = '[$symbol$project]($style) '
 symbol = '󱇶 '
 
 [git_branch]
