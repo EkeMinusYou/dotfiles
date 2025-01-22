@@ -179,7 +179,7 @@ layout {
                 command_music_get_artist_rendermode "static"
 
                 datetime          "{format}"
-                datetime_format   "%Y-%m-%d 󰅐 %H:%M"
+                datetime_format   "%Y-%m-%d %A 󰅐 %H:%M"
                 datetime_timezone "Asia/Tokyo"
             }
         }
