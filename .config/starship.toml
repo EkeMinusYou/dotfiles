@@ -16,6 +16,9 @@ format = '[$symbol$context]($style) '
 format ='[$symbol($version )]($style)'
 symbol = ' '
 
+[aws]
+disabled = true
+
 [gcloud]
 format = '[$symbol$project]($style) '
 symbol = '󱇶 '
