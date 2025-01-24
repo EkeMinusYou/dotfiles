@@ -18,6 +18,14 @@ autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 # -------------------
+# source command scripts
+# -------------------
+
+for file in $HOME/.zsh/scripts/*; do
+  [ -f "$file" ] && source "$file"
+done
+
+# -------------------
 # Add Zsh Hook
 # -------------------
 
@@ -313,12 +321,8 @@ setopt INTERACTIVECOMMENTS
 eval "$($HOMEBREW_PREFIX/bin/sheldon source)"
 
 # -------------------
-# source command scripts
+# zsh-defer source
 # -------------------
-
-for file in $HOME/.zsh/scripts/*; do
-  [ -f "$file" ] && source "$file"
-done
 
 # autopair
 zsh-defer source $HOMEBREW_PREFIX/share/zsh-autopair/autopair.zsh
