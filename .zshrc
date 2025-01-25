@@ -339,7 +339,7 @@ zsh-defer zellij_tab_name_update
 # -------------------
 
 eval "$(starship init zsh)"
-
+export STARSHIP_LOG="error"
 # -------------------
 # fzf
 # -------------------
