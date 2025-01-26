@@ -27,6 +27,7 @@ keybinds {
         bind "s" { NewPane "Down"; SwitchToMode "Normal"; }
         bind "v" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "n" { NewTab; SwitchToMode "Normal"; }
+        bind "q" { SwitchToMode "Normal"; }
     }
 }
 
