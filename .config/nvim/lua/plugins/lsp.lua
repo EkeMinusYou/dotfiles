@@ -8,16 +8,9 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'pmizio/typescript-tools.nvim',
       'b0o/schemastore.nvim',
+      'rachartier/tiny-inline-diagnostic.nvim',
     },
     config = function()
-      vim.diagnostic.config({
-        virtual_text = {
-          format = function(diagnostic)
-            return string.format('%s (%s: %s)', diagnostic.message, diagnostic.source, diagnostic.code)
-          end,
-        },
-      })
-
       require('mason').setup()
       local mason_lspconfig = require('mason-lspconfig')
       mason_lspconfig.setup({
@@ -216,5 +209,18 @@ return {
   {
     'stevearc/dressing.nvim',
     event = 'LspAttach',
+  },
+  {
+    'rachartier/tiny-inline-diagnostic.nvim',
+    lazy = true,
+    config = function()
+      require('tiny-inline-diagnostic').setup({
+        options = {
+          show_source = true,
+          use_icons_from_diagnostic = true,
+        },
+      })
+      vim.diagnostic.config({ virtual_text = false })
+    end,
   },
 }
