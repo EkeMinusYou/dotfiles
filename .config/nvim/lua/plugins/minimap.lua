@@ -8,7 +8,6 @@ return {
     ---@type Neominimap.UserConfig
     vim.g.neominimap = {
       auto_enable = true,
-      layout = 'split',
     }
   end,
 }
