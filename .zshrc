@@ -110,6 +110,7 @@ alias -g M='| more'
 alias -g T='| tail'
 alias -g J='| jq'
 alias -g Y='| yq'
+alias -g P='| pbcopy'
 
 # cd
 alias c="cd"
