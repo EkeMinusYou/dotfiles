@@ -52,6 +52,7 @@ return {
   config = function()
     require('lualine').setup({
       extensions = {
+        'aerial',
         'nvim-tree',
         'toggleterm',
         'trouble',
@@ -68,8 +69,9 @@ return {
         },
         lualine_b = {
           {
-            'buffers',
-            symbols = { modified = ' 󰷥', alternate_file = ' ', directory = ' ' },
+            'filename',
+            path = 0,
+            symbols = { modified = '󰷥', readonly = ' ', newfile = '󰄛' },
           },
         },
         lualine_c = {
@@ -95,12 +97,13 @@ return {
           { xcodebuild_device, color = { fg = '#f9e2af', bg = '#161622' } },
           {
             lsp_clients,
+            separator = { left = '', right = '' },
           },
           {
             'diff',
             colored = true,
             symbols = { added = ' ', modified = ' ', removed = ' ' },
-            separator = { left = '', right = '' },
+            separator = { left = '', right = '' },
             source = diff_source,
           },
         },
@@ -115,17 +118,11 @@ return {
         lualine_a = {
           {
             'filename',
-            path = 0,
-            symbols = { modified = '󰷥', readonly = ' ', newfile = '󰄛' },
-          },
-        },
-        lualine_b = {
-          {
-            'filename',
             path = 1,
             shorting_target = 24,
           },
         },
+        lualine_b = {},
         lualine_c = {},
         lualine_x = {
           'encoding',
