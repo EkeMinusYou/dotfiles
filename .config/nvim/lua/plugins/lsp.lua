@@ -218,6 +218,10 @@ return {
         options = {
           show_source = true,
           use_icons_from_diagnostic = true,
+          multilines = {
+            enabled = true,
+            always_show = true,
+          },
         },
       })
       vim.diagnostic.config({ virtual_text = false })
