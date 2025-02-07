@@ -104,13 +104,13 @@ return {
         }),
         -- sql
         null_ls.builtins.diagnostics.sqruff.with({
-          runtime_condition = function()
+          condition = function()
             return helper.local_has_file({ '.sqruff' })
           end,
           diagnostics_format = '[sqruff] #{m}\n(#{c})',
         }),
         null_ls.builtins.formatting.sqruff.with({
-          runtime_condition = function()
+          condition = function()
             return helper.local_has_file({ '.sqruff' })
           end,
         }),
