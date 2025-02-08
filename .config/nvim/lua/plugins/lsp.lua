@@ -159,6 +159,13 @@ return {
                 },
               },
             })
+          elseif server_name == 'typos_lsp' then
+            lspconfig.typos_lsp.setup({
+              capabilities = capabilities,
+              init_options = {
+                config = '~/.config/typos/typos.toml',
+              },
+            })
           else
             lspconfig[server_name].setup({
               capabilities = capabilities,

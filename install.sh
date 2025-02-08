@@ -75,6 +75,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/zellij ~/.config/
 # alacritty
 ln -sfn $DOT_DIR/dotfiles/.config/alacritty ~/.config
 
+# typos
+ln -sfn $DOT_DIR/dotfiles/.config/typos ~/.config
+
 if [ `uname` == 'Darwin']; then
   # Setup yabai and skhd
   mkdir -p ~/.config/yabai
