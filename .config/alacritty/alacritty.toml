@@ -4,7 +4,8 @@ import = [
 ]
 
 [font]
-normal = { family = "HackGen35 Console NF", style = "Regular" }
+# normal = { family = "HackGen35 Console NF", style = "Regular" }
+normal = { family = "UDEV Gothic 35NF", style = "Regular" }
 size = 20
 offset.x = 0
 offset.y = 1
