@@ -19,7 +19,10 @@ return {
     -- },
   },
   config = function()
-    require('snacks').setup({
+    local snacks = require('snacks')
+    snacks.setup({
+      ---@class snacks.dashboard.Config
+      dashboard = {},
       ---@class snacks.picker.Config
       picker = {
         sources = {
