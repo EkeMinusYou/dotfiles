@@ -9,7 +9,7 @@ gui:
 
 customCommands:
   - key: "C"
-    command: 'git commit -m "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}{{if eq .Form.Breaking `yes`}}!{{end}}: {{ .Form.Description }}"'
+    command: 'git commit -m "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}"'
     description: "commit with commitizen"
     context: "files"
     prompts:
@@ -18,10 +18,10 @@ customCommands:
         key: "Type"
         options:
           - name: "Feature"
-            description: "A new feature"
+            description: "a new feature"
             value: "feat"
           - name: "Fix"
-            description: "A bug fix"
+            description: "a bug fix"
             value: "fix"
           - name: "Documentation"
             description: "Documentation only changes"
@@ -56,16 +56,6 @@ customCommands:
       - type: "input"
         title: "Enter the short description of the change."
         key: "Description"
-      - type: "menu"
-        title: "Is this a breaking change?"
-        key: "Breaking"
-        options:
-          - name: "No"
-            description: "This change does not introduce a breaking change."
-            value: "no"
-          - name: "Yes"
-            description: "This change introduces a breaking change."
-            value: "yes"
       - type: "confirm"
         title: "Is the commit message correct?"
-        body: "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}{{if eq .Form.Breaking `yes`}}!{{end}}: {{ .Form.Description }}"
+        body: "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}"
