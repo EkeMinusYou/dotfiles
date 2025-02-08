@@ -15,7 +15,8 @@ window-padding-balance = true
 window-theme = ghostty
 background-opacity = 0.85
 background-blur-radius = 20
-macos-titlebar-style = transparent
+window-decoration = false
+macos-titlebar-style = hidden
 confirm-close-surface = false
 mouse-hide-while-typing = true
 
