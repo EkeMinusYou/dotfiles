@@ -1,5 +1,4 @@
 shell-integration = zsh
-font-family = ""
 font-family = "HackGen35 Console NF"
 font-size = 20
 font-thicken = true
