@@ -84,6 +84,7 @@ return {
             '\\.gitkeep',
             '\\.terraform',
             '\\.DS_Store',
+            '\\.db',
           },
         },
         view = {
