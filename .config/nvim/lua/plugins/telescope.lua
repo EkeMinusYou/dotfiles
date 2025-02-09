@@ -163,7 +163,7 @@ return {
           },
           file_ignore_patterns = {
             'node_modules/',
-            '.git/',
+            '^.git/',
             '%.pb.go',
             '%.gen.go',
             '%.gw.go',
