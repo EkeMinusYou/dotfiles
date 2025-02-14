@@ -78,6 +78,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/alacritty ~/.config
 # typos
 ln -sfn $DOT_DIR/dotfiles/.config/typos ~/.config
 
+# dive
+ln -sfn $DOT_DIR/dotfiles/.config/dive ~/.config
+
 if [ `uname` == 'Darwin']; then
   # Setup yabai and skhd
   mkdir -p ~/.config/yabai
