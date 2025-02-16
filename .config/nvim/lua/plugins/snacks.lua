@@ -21,6 +21,12 @@ return {
   config = function()
     local snacks = require('snacks')
     snacks.setup({
+      input = { enabled = true },
+      styles = {
+        input = {
+          relative = 'cursor',
+        },
+      },
       ---@class snacks.dashboard.Config
       dashboard = {},
       ---@class snacks.picker.Config
