@@ -215,10 +215,6 @@ return {
     end,
   },
   {
-    'stevearc/dressing.nvim',
-    event = 'LspAttach',
-  },
-  {
     'rachartier/tiny-inline-diagnostic.nvim',
     lazy = true,
     config = function()

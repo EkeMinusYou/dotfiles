@@ -241,7 +241,6 @@ return {
     dependencies = {
       'nvim-telescope/telescope.nvim',
       'kkharji/sqlite.lua',
-      'stevearc/dressing.nvim',
     },
   },
 }

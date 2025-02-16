@@ -3,7 +3,6 @@ return {
   dependencies = {
     { 'nvim-telescope/telescope.nvim' },
     { 'rcarriga/nvim-notify' },
-    { 'stevearc/dressing.nvim' },
   },
   keys = {
     { '<leader>t', '<cmd>OverseerRun<cr>' },
