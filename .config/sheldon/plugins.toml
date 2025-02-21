@@ -22,6 +22,10 @@ github = 'marlonrichert/zsh-autocomplete'
 github = "reegnz/jq-zsh-plugin"
 apply = ["defer"]
 
+[plugins.ni]
+github = "azu/ni.zsh"
+apply = ["defer"]
+
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
 hooks.post = """
