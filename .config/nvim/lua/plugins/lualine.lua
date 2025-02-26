@@ -122,7 +122,11 @@ return {
             shorting_target = 24,
           },
         },
-        lualine_b = {},
+        lualine_b = {
+          {
+            require('plugins.lualine.cc-component'),
+          },
+        },
         lualine_c = {},
         lualine_x = {
           'encoding',
