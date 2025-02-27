@@ -64,7 +64,7 @@ return {
             },
             schema = {
               model = {
-                default = 'deepseek-r1:14B',
+                default = 'hf.co/rinna/deepseek-r1-distill-qwen2.5-bakeneko-32b-gguf:Q2_K',
               },
             },
           })
