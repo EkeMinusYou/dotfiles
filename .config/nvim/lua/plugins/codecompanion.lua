@@ -41,16 +41,23 @@ return {
       },
       strategies = {
         chat = {
-          adapter = 'copilot',
+          adapter = 'anthropic',
         },
         inline = {
-          adapter = 'copilot',
+          adapter = 'anthropic',
         },
         agent = {
-          adapter = 'copilot',
+          adapter = 'anthropic',
         },
       },
       adapters = {
+        anthropic = function()
+          return require('codecompanion.adapters').extend('anthropic', {
+            env = {
+              api_key = 'ANTHROPIC_API_KEY',
+            },
+          })
+        end,
         ollama = function()
           return require('codecompanion.adapters').extend('ollama', {
             env = {
