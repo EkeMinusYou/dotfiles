@@ -11,6 +11,8 @@ vim.filetype.add({
     ['.swift-format'] = 'json',
     -- deno
     ['deno.lock'] = 'json',
+    -- cline
+    ['.clinerules'] = 'markdown',
   },
   pattern = {
     -- git
