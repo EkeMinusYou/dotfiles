@@ -37,13 +37,13 @@
 変更内容は以下のコマンドを実行して、適切な説明を表記してください。
 
 ```shell
-git diff --staged
+git --no-pager diff --staged
 ```
 
 ステージする前であれば以下のコマンドを使ってください。
 
 ```shell
-git diff
+git  --no-pager diff
 ```
 
 コミットメッセージの例:
