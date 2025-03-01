@@ -33,7 +33,3 @@ brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/Brewfile"
 
 - zsh - shell
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
-
-### Version Manager
-
-- aqua
