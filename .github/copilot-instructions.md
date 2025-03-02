@@ -25,7 +25,6 @@
 
 コミットの変更内容は以下のコマンドを実行することで取得できます。
 
-
 ```shell
 git  --no-pager diff
 ```
@@ -35,7 +34,6 @@ git  --no-pager diff
 ```shell
 git --no-pager diff --staged
 ```
-
 
 コミットメッセージは、`prefix(scope): description` のように、必ずprefix/scope/descriptionを記載してください。
 
