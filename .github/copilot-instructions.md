@@ -21,7 +21,25 @@
 
 コミットメッセージは、[Conventional Commits](https://www.conventionalcommits.org/ja/v1.0.0/) 及び [AngulerのCommit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)に準拠します。
 
-以下のいずれかのprefixを必ず付けてください。
+コミットメッセージは変更内容を参考に記載します。
+
+コミットの変更内容は以下のコマンドを実行することで取得できます。
+
+
+```shell
+git  --no-pager diff
+```
+
+ステージする前であれば以下のコマンドを使ってください。
+
+```shell
+git --no-pager diff --staged
+```
+
+
+コミットメッセージは、`prefix(scope): description` のように、必ずprefix/scope/descriptionを記載してください。
+
+prefixは以下から変更内容に応じて一つ選んでください。
 
 - feat: A new feature
 - fix: A bug fix
@@ -32,18 +50,13 @@
 - test: Adding missing or correcting existing tests
 - chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
 
-変更対象のスコープ及び変更内容の説明を`prefix(scope): description`のように表現してください。
 
-変更内容は以下のコマンドを実行して、適切な説明を表記してください。
+scopeの例:
 
-```shell
-git --no-pager diff --staged
 ```
-
-ステージする前であれば以下のコマンドを使ってください。
-
-```shell
-git  --no-pager diff
+zshrc
+nvim
+lazygit
 ```
 
 コミットメッセージの例:
