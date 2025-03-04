@@ -346,7 +346,7 @@ export STARSHIP_LOG="error"
 # zellij
 # -------------------
 
-if [[ -z "$ZELLIJ" ]]; then
+if [[ -z "$ZELLIJ" ]] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
   if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
     zellij attach -c
   else
