@@ -358,6 +358,12 @@ if [[ -z "$ZELLIJ" ]]; then
 fi
 
 # -------------------
+# VSCode
+# -------------------
+
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+# -------------------
 # fzf
 # -------------------
 
