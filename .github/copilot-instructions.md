@@ -48,15 +48,6 @@ prefixは以下から変更内容に応じて一つ選んでください。
 - test: Adding missing or correcting existing tests
 - chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
 
-
-scopeの例:
-
-```
-zshrc
-nvim
-lazygit
-```
-
 コミットメッセージの例:
 
 ```
