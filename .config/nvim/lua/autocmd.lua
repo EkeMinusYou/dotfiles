@@ -83,16 +83,22 @@ vim.api.nvim_create_autocmd('BufEnter', {
 })
 
 -- IME Auto Switch
-local disable_ime = function()
-  if vim.fn.has('mac') == 1 then
-    vim.fn.system('im-select com.apple.keylayout.ABC')
-  end
-end
-
 vim.api.nvim_create_augroup('ime', {})
+vim.api.nvim_create_autocmd('InsertEnter', {
+  group = 'ime',
+  callback = function()
+    if vim.fn.has('mac') == 1 then
+      vim.fn.system('im-select com.apple.keylayout.ABC')
+    end
+  end,
+})
 vim.api.nvim_create_autocmd('InsertLeave', {
   group = 'ime',
-  callback = disable_ime,
+  callback = function()
+    if vim.fn.has('mac') == 1 then
+      vim.fn.system('im-select net.mtgto.inputmethod.macSKK.ascii')
+    end
+  end,
 })
 
 -- terminal

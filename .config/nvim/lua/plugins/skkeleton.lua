@@ -23,6 +23,8 @@ return {
       })
       local register_kanatable = vim.fn['skkeleton#register_kanatable']
       register_kanatable('rom', require('skkeleton.azik'))
+      local register_keymap = vim.fn['skkeleton#register_keymap']
+      register_keymap('input', ':', 'henkanPoint')
     end,
   },
 }
