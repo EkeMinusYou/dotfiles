@@ -12,6 +12,7 @@ return {
     { 'hrsh7th/vim-vsnip-integ' },
     { 'hrsh7th/vim-vsnip' },
     { 'onsails/lspkind.nvim' },
+    { 'rinx/cmp-skkeleton', dependencies = { 'vim-skk/skkeleton' } },
     { 'folke/lazydev.nvim' },
   },
   config = function()
@@ -40,6 +41,7 @@ return {
         end,
       },
       sources = cmp.config.sources({
+        { name = 'skkeleton' },
         { name = 'nvim_lsp', keyword_length = 1 },
         { name = 'vsnip', keyword_length = 1 },
         { name = 'nvim_lsp_signature_help' },
