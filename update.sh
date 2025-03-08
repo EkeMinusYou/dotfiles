@@ -14,4 +14,5 @@ soracom completion zsh > ~/.zsh/scripts/_soracom
 $HOMEBREW_PREFIX/bin/brew shellenv > ~/.zsh/scripts/_brew
 
 # macSKK
+DOT_DIR="$HOME/src/github.com/EkeMinusYou"
 cp $DOT_DIR/dotfiles/macSKK/kana-rule.conf ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf
