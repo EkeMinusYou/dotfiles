@@ -16,7 +16,7 @@ return {
 
 	window_padding = { left = 40, right = 0, top = 40, bottom = 0 },
 
-	font = wezterm.font("HackGen35 Console NF"),
+	font = wezterm.font("UDEV Gothic 35NF"),
 	font_size = 20.0,
 
 	front_end = "WebGpu",
