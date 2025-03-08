@@ -228,6 +228,9 @@ export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
 # lovot
 export PATH=$HOME/.lovot/bin:$PATH
 
+# skk
+export PATH=$HOME/.yaskkserv2/bin:$PATH
+
 # -------------------
 # Functions
 # -------------------

@@ -81,7 +81,20 @@ ln -sfn $DOT_DIR/dotfiles/.config/typos ~/.config
 # dive
 ln -sfn $DOT_DIR/dotfiles/.config/dive ~/.config
 
-if [ `uname` == 'Darwin']; then
+if [ `uname` == 'Darwin' ]; then
+  # yaskkserv2
+  mkdir -p ~/.yaskkserv2/bin
+  YASKKSERV2_VERSION="0.1.7"
+  YASKKSERV2_ARCHIVE="yaskkserv2-$YASKKSERV2_VERSION-x86_64-apple-darwin.tar.gz"
+
+  if [ ! -z "$YASKKSERV2_ARCHIVE" ]; then
+    curl -L -o /tmp/$YASKKSERV2_ARCHIVE "https://github.com/wachikun/yaskkserv2/releases/download/$YASKKSERV2_VERSION/$YASKKSERV2_ARCHIVE"
+    tar -xzf /tmp/$YASKKSERV2_ARCHIVE -C ~/.yaskkserv2 --strip-components=1
+    mv ~/.yaskkserv2/yaskkserv2 ~/.yaskkserv2/bin/yaskkserv2
+    mv ~/.yaskkserv2/yaskkserv2_make_dictionary ~/.yaskkserv2/bin/yaskkserv2_make_dictionary
+    rm /tmp/$YASKKSERV2_ARCHIVE
+  fi
+
   # Setup yabai and skhd
   mkdir -p ~/.config/yabai
   ln -sfn $DOT_DIR/dotfiles/.config/yabai/yabairc ~/.config/yabai/yabairc
