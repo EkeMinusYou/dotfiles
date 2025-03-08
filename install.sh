@@ -92,6 +92,7 @@ if [ `uname` == 'Darwin' ]; then
     tar -xzf /tmp/$YASKKSERV2_ARCHIVE -C ~/.yaskkserv2 --strip-components=1
     mv ~/.yaskkserv2/yaskkserv2 ~/.yaskkserv2/bin/yaskkserv2
     mv ~/.yaskkserv2/yaskkserv2_make_dictionary ~/.yaskkserv2/bin/yaskkserv2_make_dictionary
+    cp ./macSKK/dictionary.yaskkserv2 ~/.yaskkserv2/dictionary.yaskkserv2
     rm /tmp/$YASKKSERV2_ARCHIVE
   fi
 
