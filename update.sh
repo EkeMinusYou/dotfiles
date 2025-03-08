@@ -12,3 +12,6 @@ npm completion > ~/.zsh/scripts/_npm
 docker completion zsh > ~/.zsh/scripts/_docker
 soracom completion zsh > ~/.zsh/scripts/_soracom
 $HOMEBREW_PREFIX/bin/brew shellenv > ~/.zsh/scripts/_brew
+
+# macSKK
+cp $DOT_DIR/dotfiles/macSKK/kana-rule.conf ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf
