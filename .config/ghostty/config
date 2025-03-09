@@ -2,6 +2,9 @@ shell-integration = zsh
 font-family = "UDEV Gothic 35NF"
 font-size = 20
 font-thicken = true
+font-feature = "-calt"
+font-feature = "-dlig"
+font-feature = "-liga"
 
 cursor-style = block
 cursor-style-blink = false
