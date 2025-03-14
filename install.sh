@@ -104,4 +104,7 @@ if [ `uname` == 'Darwin' ]; then
   # Setup macSKK
   ln -sfn $DOT_DIR/dotfiles/macSKK/kana-rule.conf ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf
   ln -sfn ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8 ~/.skk/skk-jisyo.utf8
+
+  # Setup cluade_desktop_config.json
+  ln -sfn $DOT_DIR/dotfiles/.config/claude/claude_desktop_config.json ~/Library/Application\ Support/Claude/claude_desktop_config.json
 fi
