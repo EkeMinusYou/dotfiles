@@ -16,7 +16,7 @@ vim.filetype.add({
   },
   pattern = {
     -- git
-    ['*/.gitconfig-*'] = 'gitconfig',
+    ['.gitconfig%-.*'] = 'gitconfig',
     -- env
     ['.env.*'] = 'sh',
     -- sql
