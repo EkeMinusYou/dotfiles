@@ -12,11 +12,10 @@
 
 [core]
   editor = nvim
-	ignorecase = false
 [init]
   defaultBranch = main
 [pull]
-  rebase = false
+  rebase = true
 [push]
   default = current
 [rebase]
