@@ -5,6 +5,10 @@ return {
   opts = {
     provider = 'custom-vertex',
     vendors = {
+      ollama = {
+        endpoint = 'http://192.168.1.9:11434',
+        model = 'gemma3',
+      },
       ['custom-vertex'] = {
         __inherited_from = 'vertex',
         model = 'gemini-2.0-flash-001',
