@@ -69,6 +69,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
     callback = function()
       vim.fn.jobstop(job_id)
       vim.api.nvim_win_close(win, true)
+      vim.cmd('NvimTreeRefresh')
     end,
   })
 end, { noremap = true, silent = true })
