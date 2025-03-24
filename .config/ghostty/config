@@ -32,6 +32,7 @@ keybind = ctrl+shift+l=goto_split:right
 keybind = ctrl+shift+j=goto_split:bottom
 keybind = ctrl+shift+h=goto_split:left
 keybind = ctrl+shift+k=goto_split:top
+keybind = ctrl+shift+z=toggle_split_zoom
 keybind = ctrl+shift+s=resize_split:down,40
 keybind = ctrl+shift+a=resize_split:left,40
 keybind = ctrl+shift+w=resize_split:up,40
