@@ -22,6 +22,7 @@ return {
     local snacks = require('snacks')
     snacks.setup({
       input = { enabled = true },
+      image = {},
       styles = {
         input = {
           relative = 'cursor',
