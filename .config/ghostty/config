@@ -17,8 +17,6 @@ window-padding-y = 5
 window-padding-balance = true
 window-theme = ghostty
 background-opacity = 0.8
-window-decoration = false
-macos-titlebar-style = hidden
 confirm-close-surface = false
 mouse-hide-while-typing = true
 
@@ -27,6 +25,7 @@ window-save-state = never
 # keybind = clear
 keybind = ctrl+q>v=new_split:right
 keybind = ctrl+q>s=new_split:down
+keybind = ctrl+q>n=new_tab
 keybind = ctrl+shift+c=close_surface
 keybind = ctrl+shift+l=goto_split:right
 keybind = ctrl+shift+j=goto_split:bottom
@@ -36,6 +35,8 @@ keybind = ctrl+shift+s=resize_split:down,40
 keybind = ctrl+shift+a=resize_split:left,40
 keybind = ctrl+shift+w=resize_split:up,40
 keybind = ctrl+shift+d=resize_split:right,40
+keybind = ctrl+shift+n=next_tab
+keybind = ctrl+shift+p=previous_tab
 
 macos-option-as-alt = true
 resize-overlay = never
