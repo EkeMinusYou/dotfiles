@@ -59,6 +59,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
 
   local job_id = vim.fn.termopen('lazygit', {
     on_exit = function()
+      vim.cmd('NvimTreeRefresh')
       vim.api.nvim_win_close(win, true)
     end,
   })
@@ -68,8 +69,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
     silent = true,
     callback = function()
       vim.fn.jobstop(job_id)
-      vim.api.nvim_win_close(win, true)
-      vim.cmd('NvimTreeRefresh')
     end,
   })
 end, { noremap = true, silent = true })
