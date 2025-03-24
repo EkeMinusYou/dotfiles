@@ -38,6 +38,7 @@ keybind = ctrl+shift+w=resize_split:up,40
 keybind = ctrl+shift+d=resize_split:right,40
 keybind = ctrl+shift+n=next_tab
 keybind = ctrl+shift+p=previous_tab
+keybind = ctrl+shift+x=close_tab
 
 macos-option-as-alt = true
 resize-overlay = never
