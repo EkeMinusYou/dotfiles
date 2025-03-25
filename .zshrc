@@ -45,6 +45,9 @@ add-zsh-hook chpwd chpwd_recent_dirs
 # Other Settings
 # -------------------
 
+# dotfiles
+export DOT_DIR="$HOME/src/github.com/EkeMinusYou"
+
 # homebrew
 export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
 case ${OSTYPE} in
