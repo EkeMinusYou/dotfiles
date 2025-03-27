@@ -57,10 +57,10 @@ vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
     border = 'rounded',
   })
 
-  local job_id = vim.fn.termopen('lazygit', {
+  local job_id = vim.fn.jobstart('lazygit', {
+    term = true,
     on_exit = function()
       vim.cmd('NvimTreeRefresh')
-      vim.api.nvim_win_close(win, true)
     end,
   })
 
@@ -69,6 +69,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
     silent = true,
     callback = function()
       vim.fn.jobstop(job_id)
+      vim.api.nvim_win_close(win, true)
     end,
   })
 end, { noremap = true, silent = true })
@@ -86,7 +87,8 @@ vim.keymap.set('n', '<leader>s', function()
     border = 'rounded',
   })
 
-  vim.fn.termopen('serpl', {
+  vim.fn.jobstart('serpl', {
+    term = true,
     on_exit = function()
       vim.api.nvim_win_close(win, true)
     end,
