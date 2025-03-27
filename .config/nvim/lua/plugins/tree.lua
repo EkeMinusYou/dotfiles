@@ -34,7 +34,7 @@ return {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     lazy = true,
-    tag = 'v1.6.1',
+    tag = 'v1.11.0',
     keys = {
       { '<leader>ee', '<cmd>NvimTreeToggle<cr>' },
       {
