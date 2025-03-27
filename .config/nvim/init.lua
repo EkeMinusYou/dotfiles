@@ -1,6 +1,7 @@
 require('options')
 require('keymap')
 require('autocmd')
+require('usercommands')
 require('filetype')
 require('functions')
 

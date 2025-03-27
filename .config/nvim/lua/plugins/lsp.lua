@@ -171,8 +171,9 @@ return {
             lspconfig.markdown_oxide.setup({
               capabilities = capabilities,
               root_dir = function(fname, _)
-                return require('lspconfig').util.root_pattern('.projectroot', '.git', '.moxide')(fname)
+                return require('lspconfig').util.root_pattern('.projectroot', '.git', '.moxide.toml')(fname)
               end,
+              commands = require('utils/pkm').daily_notes_actions,
             })
           else
             lspconfig[server_name].setup({
