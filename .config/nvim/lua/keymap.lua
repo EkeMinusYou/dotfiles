@@ -108,7 +108,8 @@ vim.keymap.set('n', '<leader>y', function()
     border = 'rounded',
   })
 
-  vim.fn.termopen('yazi', {
+  vim.fn.jobstart('yazi', {
+    term = true,
     on_exit = function()
       vim.api.nvim_win_close(win, true)
     end,
