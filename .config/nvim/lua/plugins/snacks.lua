@@ -3,20 +3,13 @@ return {
   priority = 1000,
   lazy = false,
   keys = {
-    -- {
-    --   '<leader>ff',
-    --   function()
-    --     Snacks.picker.files()
-    --   end,
-    --   desc = 'Find Files',
-    -- },
-    -- {
-    --   '<leader>fg',
-    --   function()
-    --     Snacks.picker.grep()
-    --   end,
-    --   desc = 'Grep',
-    -- },
+    {
+      '<leader>ff',
+      function()
+        Snacks.picker.files()
+      end,
+      desc = 'Find Files',
+    },
   },
   config = function()
     local snacks = require('snacks')
@@ -40,9 +33,11 @@ return {
             hidden = true,
           },
         },
+        ---@class snacks.picker.formatters.Config
         formatters = {
           file = {
             filename_first = true,
+            truncate = 120,
           },
         },
         layout = {

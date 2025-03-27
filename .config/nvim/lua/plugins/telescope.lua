@@ -82,12 +82,6 @@ return {
     -- See: https://github.com/prochri/telescope-all-recent.nvim/issues/2
     keys = {
       {
-        '<leader>ff',
-        function()
-          require('telescope.builtin').find_files()
-        end,
-      },
-      {
         '<leader>fg',
         function()
           require('telescope').extensions.egrepify.egrepify()
