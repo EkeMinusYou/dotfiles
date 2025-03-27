@@ -116,6 +116,27 @@ vim.keymap.set('n', '<leader>y', function()
   })
 end, { noremap = true, silent = true })
 
+-- k9s
+vim.keymap.set('n', '<leader>k', function()
+  local buf = vim.api.nvim_create_buf(false, true)
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = 'editor',
+    width = math.floor(vim.o.columns * 0.9),
+    height = math.floor(vim.o.lines * 0.9),
+    row = math.floor(vim.o.lines * 0.05),
+    col = math.floor(vim.o.columns * 0.05),
+    style = 'minimal',
+    border = 'rounded',
+  })
+
+  vim.fn.jobstart('k9s --readonly', {
+    term = true,
+    on_exit = function()
+      vim.api.nvim_win_close(win, true)
+    end,
+  })
+end, { noremap = true, silent = true })
+
 -- See: https://zenn.dev/vim_jp/articles/2024-06-05-vim-middle-class-features#%E5%BC%95%E7%94%A8%E7%AC%A6%E3%81%A7%E5%9B%B2%E3%81%BE%E3%82%8C%E3%81%9F%E7%AE%87%E6%89%80%E5%85%A8%E4%BD%93%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%99%E3%82%8B
 for _, quote in ipairs({ '"', "'", '`' }) do
   vim.keymap.set({ 'x', 'o' }, 'a' .. quote, '2i' .. quote)
