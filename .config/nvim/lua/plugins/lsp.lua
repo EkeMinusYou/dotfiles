@@ -167,6 +167,13 @@ return {
                 config = '~/.config/typos/typos.toml',
               },
             })
+          elseif server_name == 'markdown_oxide' then
+            lspconfig.markdown_oxide.setup({
+              capabilities = capabilities,
+              root_dir = function(fname, _)
+                return require('lspconfig').util.root_pattern('.projectroot', '.git', '.moxide')(fname)
+              end,
+            })
           else
             lspconfig[server_name].setup({
               capabilities = capabilities,
@@ -196,6 +203,7 @@ return {
       { 'gn', '<cmd>Lspsaga rename<cr>' },
       { 'gt', '<cmd>Lspsaga goto_type_definition<cr>' },
       { 'K', '<cmd>Lspsaga hover_doc<cr>' },
+      { 'ga', '<cmd>Lspsaga code_action<cr>' },
     },
     config = function()
       require('lspsaga').setup({
