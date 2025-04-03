@@ -173,7 +173,6 @@ return {
               root_dir = function(fname, _)
                 return require('lspconfig').util.root_pattern('.projectroot', '.git', '.moxide.toml')(fname)
               end,
-              commands = require('utils/pkm').daily_notes_actions,
             })
           else
             lspconfig[server_name].setup({
