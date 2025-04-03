@@ -1,11 +1,11 @@
 local pkm = {}
 
-local notes_dir = vim.fn.expand('~/PKM/journals')
+local daily_dir = vim.fn.expand('~/Library/Mobile Documents/iCloud~md~obsidian/Documents/MyVault/journals')
 
 pkm.open_daily_note = function(offset_days)
   local target_time = os.time() + (offset_days * 24 * 60 * 60)
   local filename = os.date('%Y-%m-%d.md', target_time)
-  local file_path = vim.fs.joinpath(notes_dir, filename)
+  local file_path = vim.fs.joinpath(daily_dir, filename)
   vim.api.nvim_command('edit ' .. vim.fn.fnameescape(file_path))
 end
 
