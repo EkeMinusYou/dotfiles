@@ -175,3 +175,7 @@ local set_git_root = function()
 end
 
 vim.keymap.set('n', '<leader>cr', set_git_root)
+
+vim.keymap.set('i', '<C-d>', function()
+  return require('utils.random-string').generate_random_phrase()
+end, { expr = true, silent = true })
