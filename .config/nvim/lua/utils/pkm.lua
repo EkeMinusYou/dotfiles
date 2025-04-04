@@ -1,6 +1,6 @@
 local pkm = {}
 
-local daily_dir = vim.fn.expand('~/Library/Mobile Documents/iCloud~md~obsidian/Documents/MyVault/journals')
+local daily_dir = vim.fn.expand('~/Library/Mobile Documents/iCloud~md~obsidian/Documents/MyVault/Journals')
 
 pkm.open_daily_note = function(offset_days)
   local target_time = os.time() + (offset_days * 24 * 60 * 60)
