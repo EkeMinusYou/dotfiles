@@ -74,7 +74,10 @@ return {
           drag_and_drop = {
             insert_mode = true,
           },
-          use_absolute_path = true,
+          dir_path = 'assets',
+          extension = 'png',
+          file_name = '%Y-%m-%d-%H-%M-%S',
+          use_absolute_path = false,
         },
       },
     },
