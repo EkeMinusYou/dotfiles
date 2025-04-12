@@ -84,6 +84,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/dive ~/.config
 # moxide
 ln -sfn $DOT_DIR/dotfiles/.config/moxide ~/.config
 
+# direnv
+ln -sfn $DOT_DIR/dotfiles/.config/direnv ~/.config
+
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
   mkdir -p ~/.yaskkserv2/bin
