@@ -199,6 +199,9 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
 # deno
 export PATH=$HOME/.deno/bin:$PATH
 
+# bun
+export PATH=$HOME/.bun/bin:$PATH
+
 # Python
 export PATH=/opt/homebrew/Cellar/python@3.8/3.8.19/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 
