@@ -11,7 +11,12 @@ return {
       'rachartier/tiny-inline-diagnostic.nvim',
     },
     config = function()
-      require('mason').setup()
+      require('mason').setup({
+        registries = {
+          'github:nvim-java/mason-registry',
+          'github:mason-org/mason-registry',
+        },
+      })
       local mason_lspconfig = require('mason-lspconfig')
       mason_lspconfig.setup({
         ensure_installed = {
