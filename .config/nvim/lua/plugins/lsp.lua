@@ -177,8 +177,23 @@ return {
             })
           elseif server_name == 'jdtls' then
             require('java').setup()
+            -- get env
+            local java_home = os.getenv('JAVA_HOME')
             lspconfig.jdtls.setup({
               capabilities = capabilities,
+              settings = {
+                java = {
+                  configuration = {
+                    runtimes = {
+                      {
+                        name = 'Java',
+                        path = java_home,
+                        default = true,
+                      },
+                    },
+                  },
+                },
+              },
             })
           else
             lspconfig[server_name].setup({
