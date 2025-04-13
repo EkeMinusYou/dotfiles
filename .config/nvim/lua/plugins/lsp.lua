@@ -9,6 +9,7 @@ return {
       'pmizio/typescript-tools.nvim',
       'b0o/schemastore.nvim',
       'rachartier/tiny-inline-diagnostic.nvim',
+      'nvim-java/nvim-java',
     },
     config = function()
       require('mason').setup()
@@ -173,6 +174,11 @@ return {
               root_dir = function(fname, _)
                 return require('lspconfig').util.root_pattern('.projectroot', '.git', '.moxide.toml')(fname)
               end,
+            })
+          elseif server_name == 'jdtls' then
+            require('java').setup()
+            lspconfig.jdtls.setup({
+              capabilities = capabilities,
             })
           else
             lspconfig[server_name].setup({
