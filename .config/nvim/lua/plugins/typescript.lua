@@ -5,6 +5,15 @@ return {
   config = function()
     require('typescript-tools').setup({
       capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      filetypes = {
+        'javascript',
+        'javascriptreact',
+        'javascript.jsx',
+        'typescript',
+        'typescriptreact',
+        'typescript.tsx',
+        'vue',
+      },
       root_dir = function(fname)
         local lspconfig = require('lspconfig')
         return lspconfig.util.root_pattern('package.json')(fname)
@@ -16,6 +25,7 @@ return {
         tsserver = '~/.local/share/nvim/mason/bin/typescript-language-server',
         tsserver_plugins = {
           '@styled/typescript-styled-plugin',
+          '@vue/typescript-plugin',
         },
       },
     })
