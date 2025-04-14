@@ -176,6 +176,6 @@ end
 
 vim.keymap.set('n', '<leader>cr', set_git_root)
 
-vim.keymap.set('i', '<C-d>', function()
+vim.keymap.set('i', '<C-@>', function()
   return require('utils.random-string').generate_random_phrase()
 end, { expr = true, silent = true })
