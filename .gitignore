@@ -1,2 +1,4 @@
 .config/nvim/spell/
 .config/claude/
+!.aider.conf.yml
+!.aider.model.metadata.json
