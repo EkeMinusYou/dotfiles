@@ -239,6 +239,9 @@ export PATH=$HOME/.lovot/bin:$PATH
 # skk
 export PATH=$HOME/.yaskkserv2/bin:$PATH
 
+# goose
+export PATH=$HOME/.local/bin:$PATH
+
 # -------------------
 # Functions
 # -------------------

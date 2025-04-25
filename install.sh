@@ -91,6 +91,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/direnv ~/.config
 ln -sfn $DOT_DIR/dotfiles/.aider.model.metadata.json ~/.aider.model.metadata.json
 ln -sfn $DOT_DIR/dotfiles/.aider.conf.yml ~/.aider.conf.yml
 
+# goose
+ln -sfn $DOT_DIR/dotfiles/.config/goose ~/.config/
+
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
   mkdir -p ~/.yaskkserv2/bin
