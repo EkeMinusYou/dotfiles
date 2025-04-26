@@ -61,7 +61,9 @@ vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
     term = true,
     on_exit = function()
       vim.cmd('NvimTreeRefresh')
-      vim.api.nvim_win_close(win, true)
+      if vim.api.nvim_win_is_valid(win) then
+        vim.api.nvim_win_close(win, true)
+      end
     end,
   })
 
@@ -90,7 +92,9 @@ vim.keymap.set('n', '<leader>s', function()
   vim.fn.jobstart('serpl', {
     term = true,
     on_exit = function()
-      vim.api.nvim_win_close(win, true)
+      if vim.api.nvim_win_is_valid(win) then
+        vim.api.nvim_win_close(win, true)
+      end
     end,
   })
 end, { noremap = true, silent = true })
@@ -111,7 +115,9 @@ vim.keymap.set('n', '<leader>y', function()
   vim.fn.jobstart('yazi', {
     term = true,
     on_exit = function()
-      vim.api.nvim_win_close(win, true)
+      if vim.api.nvim_win_is_valid(win) then
+        vim.api.nvim_win_close(win, true)
+      end
     end,
   })
 end, { noremap = true, silent = true })
