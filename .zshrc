@@ -247,9 +247,9 @@ export PATH=$HOME/.local/bin:$PATH
 # -------------------
 
 function ghq-fzf() {
-  local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+  local src=$(ghq list --full-path | fzf --preview "bat --color=always --style=header,grid --line-range :80 {}/README.*")
   if [ -n "$src" ]; then
-    BUFFER="cd $(ghq root)/$src"
+    BUFFER="cd \"$src\""
     zle accept-line
   fi
   zle -R -c

@@ -2,6 +2,7 @@
   name = EkeMinusYou
   email = euonymuslke@gmail.com
 [ghq]
+  root = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents"
   root = ~/src
   user = EkeMinusYou
 
