@@ -28,14 +28,14 @@ return {
         automatic_installation = true,
       })
 
-      local lspconfig = require('lspconfig')
-      local capabilities = require('cmp_nvim_lsp').default_capabilities({
-        workspace = { didChangeWatchedFiles = { dynamicRegistration = true } },
+      vim.lsp.config('*', {
+        capabilities = vim.lsp.protocol.make_client_capabilities(),
       })
+
+      local lspconfig = require('lspconfig')
       -- Setup LSP
       lspconfig.sourcekit.setup({
         -- ref: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
-        capabilities = capabilities,
         root_dir = function(filename, _)
           local util = require('lspconfig.util')
           -- prefer Package.swift for multi module with swift package manager
@@ -44,16 +44,14 @@ return {
             or vim.fs.dirname(vim.fs.find('.git', { path = filename, upward = true })[1])
         end,
       })
-      lspconfig.atlas.setup({
-        capabilities = capabilities,
-      })
+      lspconfig.atlas.setup({})
 
       -- Setup LSP by mason
       mason_lspconfig.setup_handlers({
         function(server_name)
           if server_name == 'lua_ls' then
             lspconfig.lua_ls.setup({
-              capabilities = capabilities,
+
               settings = {
                 Lua = {
                   completion = {
@@ -64,7 +62,7 @@ return {
             })
           elseif server_name == 'helm_ls' then
             lspconfig.helm_ls.setup({
-              capabilities = capabilities,
+
               root_dir = function(fname)
                 return lspconfig.util.root_pattern('Chart.yaml')(fname)
               end,
@@ -87,14 +85,14 @@ return {
             })
           elseif server_name == 'denols' then
             lspconfig.denols.setup({
-              capabilities = capabilities,
+
               root_dir = function(fname)
                 return lspconfig.util.root_pattern('deno.json', 'deno.lock')(fname)
               end,
             })
           elseif server_name == 'biome' then
             lspconfig.biome.setup({
-              capabilities = capabilities,
+
               root_dir = function(fname)
                 return lspconfig.util.root_pattern('biome.json')(fname)
               end,
@@ -102,7 +100,7 @@ return {
           elseif server_name == 'stylelint_lsp' then
             lspconfig.stylelint_lsp.setup({
               cmd = { 'stylelint-lsp', '--stdio', '**/{*.css,*vue,*js,*.jsx,*ts,*.tsx,*.html}' },
-              capabilities = capabilities,
+
               filetypes = {
                 'css',
                 'scss',
@@ -118,7 +116,7 @@ return {
             })
           elseif server_name == 'tailwindcss' then
             lspconfig.tailwindcss.setup({
-              capabilities = capabilities,
+
               settings = {
                 tailwindCSS = {
                   classAttributes = { 'class', 'class:list', 'classList', 'ngClass' }, -- className is configured by classRegex
@@ -136,11 +134,10 @@ return {
             -- Workaround: https://github.com/neovim/neovim/issues/30675#issuecomment-2481410669
             lspconfig.terraformls.setup({
               offset_encoding = 'utf-8',
-              capabilities = capabilities,
             })
           elseif server_name == 'jsonls' then
             lspconfig.jsonls.setup({
-              capabilities = capabilities,
+
               settings = {
                 json = {
                   schemas = require('schemastore').json.schemas(),
@@ -150,7 +147,7 @@ return {
             })
           elseif server_name == 'yamlls' then
             lspconfig.yamlls.setup({
-              capabilities = capabilities,
+
               settings = {
                 yaml = {
                   schemaStore = {
@@ -163,14 +160,14 @@ return {
             })
           elseif server_name == 'typos_lsp' then
             lspconfig.typos_lsp.setup({
-              capabilities = capabilities,
+
               init_options = {
                 config = '~/.config/typos/typos.toml',
               },
             })
           elseif server_name == 'markdown_oxide' then
             lspconfig.markdown_oxide.setup({
-              capabilities = capabilities,
+
               root_dir = function(fname, _)
                 return require('lspconfig').util.root_pattern('.projectroot', '.git', '.moxide.toml')(fname)
               end,
@@ -180,7 +177,7 @@ return {
             -- get env
             local java_home = os.getenv('JAVA_HOME')
             lspconfig.jdtls.setup({
-              capabilities = capabilities,
+
               settings = {
                 java = {
                   configuration = {
@@ -196,9 +193,7 @@ return {
               },
             })
           else
-            lspconfig[server_name].setup({
-              capabilities = capabilities,
-            })
+            lspconfig[server_name].setup({})
           end
         end,
       })
