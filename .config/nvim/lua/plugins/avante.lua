@@ -19,8 +19,8 @@ return {
           local prompt_opts = code_opts
 
           local provider_conf, request_body = P.parse_config(M)
-          local location = vim.fn.getenv('VERTEX_LOCATION')
-          local project_id = vim.fn.getenv('VERTEX_PROJECT')
+          local location = vim.fn.getenv('VERTEXAI_LOCATION')
+          local project_id = vim.fn.getenv('VERTEXAI_PROJECT')
           local model_id = provider_conf.model or 'default-model-id'
           if location == nil or location == vim.NIL then
             location = 'us-central1'
