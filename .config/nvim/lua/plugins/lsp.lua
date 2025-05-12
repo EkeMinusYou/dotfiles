@@ -48,7 +48,7 @@ return {
       -- Setup LSP by mason
       mason_lspconfig.setup_handlers({
         function(server_name)
-          lspconfig[server_name].setup({})
+          vim.lsp.enable(server_name)
         end,
       })
     end,
