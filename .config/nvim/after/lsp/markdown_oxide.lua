@@ -1,6 +1,9 @@
 ---@type vim.lsp.Config
 return {
-  root_dir = function(bufnr, callback)
-    return callback(require('lspconfig').util.root_pattern('.projectroot', '.git', '.moxide.toml')(bufnr))
-  end,
+  root_markers = {
+    '.projectroot',
+    '.moxide.toml',
+    '.git',
+  },
+  workspace_required = true,
 }
