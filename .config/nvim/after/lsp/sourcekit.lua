@@ -1,9 +1,9 @@
 ---@type vim.lsp.Config
 return {
   root_markers = {
-    'deno.json',
-    'deno.jsonc',
-    'deps.ts',
+    'Package.swift',
+    'buildServer.json',
+    '*.xcodeproj',
   },
   workspace_required = true,
 }

@@ -14,18 +14,37 @@ return {
     config = function()
       require('mason').setup()
       local mason_lspconfig = require('mason-lspconfig')
+      local ensure_installed = {
+        'bashls',
+        'biome',
+        'css_variables',
+        'cucumber_language_server',
+        'denols',
+        'dockerls',
+        'emmet_language_server',
+        'gopls',
+        'helm_ls',
+        'html',
+        'jsonls',
+        'lua_ls',
+        'markdown_oxide',
+        'omnisharp',
+        'prismals',
+        'pyright',
+        'sqls',
+        'stylelint_lsp',
+        'tailwindcss',
+        'terraformls',
+        'ts_ls',
+        'typos_lsp',
+        'vimls',
+        'volar',
+        'yamlls',
+      }
       mason_lspconfig.setup({
-        ensure_installed = {
-          'bashls',
-          'dockerls',
-          'jsonls',
-          'lua_ls',
-          'denols',
-          'biome',
-          'terraformls',
-          'yamlls',
-        },
+        ensure_installed = ensure_installed,
         automatic_installation = true,
+        automatic_enable = false,
       })
 
       vim.lsp.config('*', {
@@ -34,23 +53,9 @@ return {
 
       local lspconfig = require('lspconfig')
       -- Setup LSP
-      lspconfig.sourcekit.setup({
-        -- ref: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
-        root_dir = function(filename, _)
-          local util = require('lspconfig.util')
-          -- prefer Package.swift for multi module with swift package manager
-          return util.root_pattern('Package.swift')(filename)
-            or util.root_pattern('buildServer.json', '*.xcodeproj')(filename)
-            or vim.fs.dirname(vim.fs.find('.git', { path = filename, upward = true })[1])
-        end,
-      })
       lspconfig.atlas.setup({})
-      -- Setup LSP by mason
-      mason_lspconfig.setup_handlers({
-        function(server_name)
-          vim.lsp.enable(server_name)
-        end,
-      })
+      vim.lsp.enable(ensure_installed)
+      vim.lsp.enable({ 'actionlint', 'clang-format', 'eslint_d', 'yamlfmt', 'sourcekit' })
     end,
   },
   {
