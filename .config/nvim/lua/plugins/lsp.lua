@@ -14,18 +14,37 @@ return {
     config = function()
       require('mason').setup()
       local mason_lspconfig = require('mason-lspconfig')
+      local ensure_installed = {
+        'bashls',
+        'biome',
+        'css_variables',
+        'cucumber_language_server',
+        'denols',
+        'dockerls',
+        'emmet_language_server',
+        'gopls',
+        'helm_ls',
+        'html',
+        'jsonls',
+        'lua_ls',
+        'markdown_oxide',
+        'omnisharp',
+        'prismals',
+        'pyright',
+        'sqls',
+        'stylelint_lsp',
+        'tailwindcss',
+        'terraformls',
+        'ts_ls',
+        'typos_lsp',
+        'vimls',
+        'volar',
+        'yamlls',
+      }
       mason_lspconfig.setup({
-        ensure_installed = {
-          'bashls',
-          'dockerls',
-          'jsonls',
-          'lua_ls',
-          'denols',
-          'biome',
-          'terraformls',
-          'yamlls',
-        },
+        ensure_installed = ensure_installed,
         automatic_installation = true,
+        automatic_enable = false,
       })
 
       vim.lsp.config('*', {
@@ -34,169 +53,9 @@ return {
 
       local lspconfig = require('lspconfig')
       -- Setup LSP
-      lspconfig.sourcekit.setup({
-        -- ref: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
-        root_dir = function(filename, _)
-          local util = require('lspconfig.util')
-          -- prefer Package.swift for multi module with swift package manager
-          return util.root_pattern('Package.swift')(filename)
-            or util.root_pattern('buildServer.json', '*.xcodeproj')(filename)
-            or vim.fs.dirname(vim.fs.find('.git', { path = filename, upward = true })[1])
-        end,
-      })
       lspconfig.atlas.setup({})
-
-      -- Setup LSP by mason
-      mason_lspconfig.setup_handlers({
-        function(server_name)
-          if server_name == 'lua_ls' then
-            lspconfig.lua_ls.setup({
-
-              settings = {
-                Lua = {
-                  completion = {
-                    callSnippet = 'Replace',
-                  },
-                },
-              },
-            })
-          elseif server_name == 'helm_ls' then
-            lspconfig.helm_ls.setup({
-
-              root_dir = function(fname)
-                return lspconfig.util.root_pattern('Chart.yaml')(fname)
-              end,
-            })
-          elseif server_name == 'ts_ls' then
-            -- do nothing. used by typescript-tools.nvim
-            lspconfig.ts_ls.setup({
-              -- typescript-toolsの方に任せるので、diagnosticsを無効化
-              handlers = {
-                ['textDocument/publishDiagnostics'] = function() end,
-              },
-              on_attach = function(client)
-                client.server_capabilities.hoverProvider = false
-                client.server_capabilities.completionProvider = false
-                client.server_capabilities.diagnosticProvider = false
-                client.server_capabilities.codeActionProvider = false
-                client.server_capabilities.referencesProvider = false
-                client.server_capabilities.definitionProvider = false
-              end,
-            })
-          elseif server_name == 'denols' then
-            lspconfig.denols.setup({
-
-              root_dir = function(fname)
-                return lspconfig.util.root_pattern('deno.json', 'deno.lock')(fname)
-              end,
-            })
-          elseif server_name == 'biome' then
-            lspconfig.biome.setup({
-
-              root_dir = function(fname)
-                return lspconfig.util.root_pattern('biome.json')(fname)
-              end,
-            })
-          elseif server_name == 'stylelint_lsp' then
-            lspconfig.stylelint_lsp.setup({
-              cmd = { 'stylelint-lsp', '--stdio', '**/{*.css,*vue,*js,*.jsx,*ts,*.tsx,*.html}' },
-
-              filetypes = {
-                'css',
-                'scss',
-                'less',
-                'sass',
-                'html',
-                'vue',
-                'javascript',
-                'javascriptreact',
-                'typescript',
-                'typescriptreact',
-              },
-            })
-          elseif server_name == 'tailwindcss' then
-            lspconfig.tailwindcss.setup({
-
-              settings = {
-                tailwindCSS = {
-                  classAttributes = { 'class', 'class:list', 'classList', 'ngClass' }, -- className is configured by classRegex
-                  experimental = {
-                    classRegex = {
-                      'className\\s*=\\s*["\']([^"\']*)["\']',
-                      '(?<=clsx\\((?:[^`]|`[^`]*`)*?)[\'"]([^\'"]*)[\'"]',
-                      '(?<=cva\\((?:[^`]|`[^`]*`)*?)[\'"]([^\'"]*)[\'"]',
-                    },
-                  },
-                },
-              },
-            })
-          elseif server_name == 'terraformls' then
-            -- Workaround: https://github.com/neovim/neovim/issues/30675#issuecomment-2481410669
-            lspconfig.terraformls.setup({
-              offset_encoding = 'utf-8',
-            })
-          elseif server_name == 'jsonls' then
-            lspconfig.jsonls.setup({
-
-              settings = {
-                json = {
-                  schemas = require('schemastore').json.schemas(),
-                  validate = { enable = true },
-                },
-              },
-            })
-          elseif server_name == 'yamlls' then
-            lspconfig.yamlls.setup({
-
-              settings = {
-                yaml = {
-                  schemaStore = {
-                    enable = false,
-                    url = '',
-                  },
-                  schemas = require('schemastore').yaml.schemas(),
-                },
-              },
-            })
-          elseif server_name == 'typos_lsp' then
-            lspconfig.typos_lsp.setup({
-
-              init_options = {
-                config = '~/.config/typos/typos.toml',
-              },
-            })
-          elseif server_name == 'markdown_oxide' then
-            lspconfig.markdown_oxide.setup({
-
-              root_dir = function(fname, _)
-                return require('lspconfig').util.root_pattern('.projectroot', '.git', '.moxide.toml')(fname)
-              end,
-            })
-          elseif server_name == 'jdtls' then
-            require('java').setup()
-            -- get env
-            local java_home = os.getenv('JAVA_HOME')
-            lspconfig.jdtls.setup({
-
-              settings = {
-                java = {
-                  configuration = {
-                    runtimes = {
-                      {
-                        name = 'Java',
-                        path = java_home,
-                        default = true,
-                      },
-                    },
-                  },
-                },
-              },
-            })
-          else
-            lspconfig[server_name].setup({})
-          end
-        end,
-      })
+      vim.lsp.enable(ensure_installed)
+      vim.lsp.enable({ 'actionlint', 'clang-format', 'eslint_d', 'yamlfmt', 'sourcekit' })
     end,
   },
   {
