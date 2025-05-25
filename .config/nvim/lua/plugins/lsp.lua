@@ -38,7 +38,6 @@ return {
         'ts_ls',
         'typos_lsp',
         'vimls',
-        'volar',
         'yamlls',
       }
       mason_lspconfig.setup({
