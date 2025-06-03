@@ -8,6 +8,17 @@ return {
     build = ':TSUpdate',
     event = 'BufReadPost',
     config = function()
+      -- atlas
+      -- See: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/atlas.lua
+      vim.treesitter.language.register('hcl', 'atlas-config')
+      vim.treesitter.language.register('hcl', 'atlas-schema-mysql')
+      vim.treesitter.language.register('hcl', 'atlas-schema-postgresql')
+      vim.treesitter.language.register('hcl', 'atlas-schema-sqlite')
+      vim.treesitter.language.register('hcl', 'atlas-schema-clickhouse')
+      vim.treesitter.language.register('hcl', 'atlas-schema-mssql')
+      vim.treesitter.language.register('hcl', 'atlas-schema-redshift')
+      vim.treesitter.language.register('hcl', 'atlas-test')
+      vim.treesitter.language.register('hcl', 'atlas-plan')
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup({
         ensure_installed = {

@@ -50,11 +50,8 @@ return {
         capabilities = vim.lsp.protocol.make_client_capabilities(),
       })
 
-      local lspconfig = require('lspconfig')
-      -- Setup LSP
-      lspconfig.atlas.setup({})
       vim.lsp.enable(ensure_installed)
-      vim.lsp.enable({ 'actionlint', 'clang-format', 'eslint_d', 'yamlfmt', 'sourcekit' })
+      vim.lsp.enable({ 'atlas', 'actionlint', 'clang-format', 'eslint_d', 'yamlfmt', 'sourcekit' })
     end,
   },
   {
