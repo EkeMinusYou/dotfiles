@@ -2,3 +2,5 @@
 .projectroot
 .aider*
 .opencode/
+
+**/.claude/settings.local.json
