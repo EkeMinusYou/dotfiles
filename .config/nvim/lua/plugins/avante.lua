@@ -4,7 +4,7 @@ return {
   version = '*',
   opts = {
     provider = 'custom-vertex',
-    vendors = {
+    providers = {
       ollama = {
         endpoint = 'http://192.168.1.9:11434',
         model = 'gemma3',
