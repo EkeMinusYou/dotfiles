@@ -1,0 +1,47 @@
+{
+  "data": {},
+  "providers": {
+    "anthropic": {
+      "apiKey": "",
+      "disabled": true
+    },
+    "bedrock": {
+      "apiKey": "",
+      "disabled": true
+    }
+  },
+  "lsp": {
+    "go": {
+      "enabled": false,
+      "command": "gopls",
+      "args": null,
+      "options": null
+    }
+  },
+  "agents": {
+    "coder": {
+      "model": "vertexai.gemini-2.5",
+      "maxTokens": 0,
+      "reasoningEffort": ""
+    },
+    "summarizer": {
+      "model": "vertexai.gemini-2.5",
+      "maxTokens": 0,
+      "reasoningEffort": ""
+    },
+    "task": {
+      "model": "vertexai.gemini-2.5-flash",
+      "maxTokens": 0,
+      "reasoningEffort": ""
+    },
+    "title": {
+      "model": "vertexai.gemini-2.5-flash",
+      "maxTokens": 0,
+      "reasoningEffort": ""
+    }
+  },
+  "tui": {
+    "theme": "opencode"
+  },
+  "shell": {}
+}

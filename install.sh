@@ -91,7 +91,7 @@ ln -sfn $DOT_DIR/dotfiles/.config/direnv ~/.config
 ln -sfn $DOT_DIR/dotfiles/.config/goose ~/.config/
 
 # opencode
-ln -sfn $DOT_DIR/dotfiles/.config/opencode/.opencode.json ~/.config/opencode/
+ln -sfn $DOT_DIR/dotfiles/.opencode.json ~/
 
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
