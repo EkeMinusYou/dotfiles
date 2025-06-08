@@ -93,6 +93,9 @@ ln -sfn $DOT_DIR/dotfiles/.config/goose ~/.config/
 # opencode
 ln -sfn $DOT_DIR/dotfiles/.opencode.json ~/
 
+# claude
+ln -sfn $DOT_DIR/dotfiles/.claude/settings.json ~/.claude/settings.json
+
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
   mkdir -p ~/.yaskkserv2/bin
