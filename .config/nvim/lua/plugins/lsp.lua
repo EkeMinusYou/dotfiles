@@ -9,7 +9,7 @@ return {
       'pmizio/typescript-tools.nvim',
       'b0o/schemastore.nvim',
       'rachartier/tiny-inline-diagnostic.nvim',
-      'nvim-java/nvim-java',
+      { 'nvim-java/nvim-java', event = 'VeryLazy' },
     },
     config = function()
       require('mason').setup()
