@@ -96,6 +96,10 @@ ln -sfn $DOT_DIR/dotfiles/.opencode.json ~/
 # claude
 ln -sfn $DOT_DIR/dotfiles/.claude/settings.json ~/.claude/settings.json
 
+# devcontainer
+mkdir -p ~/.config/devcontainer
+ln -sfn $DOT_DIR/dotfiles/.config/devcontainer/claude.json ~/.config/devcontainer/claude.json
+
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
   mkdir -p ~/.yaskkserv2/bin
