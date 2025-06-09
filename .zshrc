@@ -242,6 +242,9 @@ export PATH=$HOME/.yaskkserv2/bin:$PATH
 # goose
 export PATH=$HOME/.local/bin:$PATH
 
+# claude
+alias devclaude="devcontainer up --workspace-folder . --config ~/.config/devcontainer/claude/devcontainer.json && devcontainer exec --workspace-folder . --config ~/.config/devcontainer/claude/devcontainer.json claude"
+
 # -------------------
 # Functions
 # -------------------
