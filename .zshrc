@@ -84,13 +84,10 @@ zshaddhistory() {
 
   # Only those that satisfy all of the following conditions are added to the history
   [[ ${#line} -ge 5
-    && ${cmd} != ls
-    && ${cmd} != cd
-    && ${cmd} != cdr
     && ${cmd} != more
     && ${cmd} != less
     && ${cmd} != ping
-    && ${cmd} != which
+    && ${cmd} != devclaude
   ]]
 }
 
