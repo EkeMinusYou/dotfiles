@@ -302,30 +302,16 @@ bindkey "^y" paste-as-yank
 
 # See: https://sushichan044.hateblo.jp/entry/2025/06/06/003325
 function fzf-worktree() {
-  local selected_worktree=$(git worktree list | fzf \
-    --preview="echo '📦 Branch:' && git -C {1} branch --show-current && echo '' && echo '📝 Changed files:' && git -C {1} status --porcelain | head -10 && echo '' && echo '📚 Recent commits:' && git -C {1} log --oneline --decorate -10")
-  if [ $? -ne 0 ]; then
-    return 0
+  local src=$(gwq list -g --json  | jq '.[].path' -r | fzf \
+    --preview "echo '📦 Branch:' && git -C {1} branch --show-current && echo '' && echo '📝 Changed files:' && git -C {1} status --porcelain | head -10 && echo '' && echo '📚 Recent commits:' && git -C {1} log --oneline --decorate -10")
+  if [ -n "$src" ]; then
+    BUFFER="cd \"$src\""
+    zle accept-line
   fi
-  if [ -n "$selected_worktree" ]; then
-    local selected_path=${${(s: :)selected_worktree}[1]}
-    if [ -d "$selected_path" ]; then
-      if zle; then
-          # Called from ZLE (keyboard shortcut)
-          BUFFER="cd ${selected_path}"
-          zle accept-line
-      else
-          # Called directly from command line
-          cd "$selected_path"
-      fi
-    else
-      echo "Directory not found: $selected_path"
-      return 1
-    fi
-  fi
+  zle -R -c
 }
 zle -N fzf-worktree
-bindkey '^k' fzf-worktree
+bindkey '^x' fzf-worktree
 
 # https://github.com/zellij-org/zellij/discussions/2889#discussioncomment-11171378
 zellij_tab_name_update() {

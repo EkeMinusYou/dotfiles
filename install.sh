@@ -100,6 +100,9 @@ ln -sfn $DOT_DIR/dotfiles/.claude/settings.json ~/.claude/settings.json
 mkdir -p ~/.config/devcontainer
 ln -sfn $DOT_DIR/dotfiles/.config/devcontainer/claude ~/.config/devcontainer
 
+# gwq
+ln -sfn $DOT_DIR/dotfiles/.config/gwq/config.toml ~/.config/gwq/config.toml
+
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
   mkdir -p ~/.yaskkserv2/bin
