@@ -4,6 +4,11 @@ command_timeout = 5
 [directory]
 style = 'bold yellow'
 read_only = " "
+truncate_to_repo = false
+
+[directory.substitutions]
+'~/src/github.com' = '/s'
+'~worktrees/github.com' = '/w'
 
 [character]
 success_symbol = "[➜](bold green)"
