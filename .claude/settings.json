@@ -11,9 +11,6 @@
       "Bash(sed:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",
-      "Bash(./geminielf git --help)",
-      "Bash(./geminielf git message --help)",
-      "Bash(./geminielf commit:*)",
       "Bash(grep:*)",
       "Bash(go test:*)"
     ],
