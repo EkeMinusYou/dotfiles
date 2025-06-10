@@ -163,6 +163,11 @@ alias ghb="gh browse"
 alias ghpw="gh pr view --web"
 alias ghpc="gh pr create"
 
+# gwq
+alias gw="gwq"
+alias gwa="gwq add"
+alias gwr="gwq remove"
+
 # Kubernetes
 alias k="kubectl"
 alias kg="kubectl get"
