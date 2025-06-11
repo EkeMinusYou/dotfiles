@@ -94,7 +94,7 @@ ln -sfn $DOT_DIR/dotfiles/.config/goose ~/.config/
 ln -sfn $DOT_DIR/dotfiles/.opencode.json ~/
 
 # claude
-ln -sfn $DOT_DIR/dotfiles/.claude/settings.json ~/.claude/settings.json
+ln -fn $DOT_DIR/dotfiles/.claude/settings.json ~/.claude/settings.json
 
 # devcontainer
 mkdir -p ~/.config/devcontainer
