@@ -88,5 +88,8 @@
       "Write(/etc/sudoers)"
     ]
   },
-  "includeCoAuthoredBy": false
+  "includeCoAuthoredBy": false,
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  }
 }
