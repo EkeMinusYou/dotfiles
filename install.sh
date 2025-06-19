@@ -94,7 +94,7 @@ ln -sfn $DOT_DIR/dotfiles/.config/goose ~/.config/
 ln -sfn $DOT_DIR/dotfiles/.opencode.json ~/
 
 # claude
-ln -fn $DOT_DIR/dotfiles/.claude/settings.json ~/.claude/settings.json
+ln -fn $DOT_DIR/dotfiles/.config/claude/settings.json ~/.config/claude/settings.json
 
 # devcontainer
 mkdir -p ~/.config/devcontainer
@@ -126,7 +126,4 @@ if [ `uname` == 'Darwin' ]; then
   # Setup macSKK
   ln -sfn $DOT_DIR/dotfiles/macSKK/kana-rule.conf ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf
   ln -sfn ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8 ~/.skk/skk-jisyo.utf8
-
-  # Setup cluade_desktop_config.json
-  ln -sfn $DOT_DIR/dotfiles/.config/claude/claude_desktop_config.json ~/Library/Application\ Support/Claude/claude_desktop_config.json
 fi
