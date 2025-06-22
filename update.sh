@@ -11,7 +11,6 @@ direnv hook zsh > ~/.zsh/scripts/_direnv
 npm completion > ~/.zsh/scripts/_npm
 docker completion zsh > ~/.zsh/scripts/_docker
 soracom completion zsh > ~/.zsh/scripts/_soracom
-gelf completion zsh > ~/.zsh/scripts/_gelf
 gwq completion zsh > ~/.zsh/scripts/_gwq
 $HOMEBREW_PREFIX/bin/brew shellenv > ~/.zsh/scripts/_brew
 
