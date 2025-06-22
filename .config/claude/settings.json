@@ -12,7 +12,8 @@
       "Bash(mkdir:*)",
       "Bash(mv:*)",
       "Bash(grep:*)",
-      "Bash(go test:*)"
+      "Bash(go test:*)",
+      "Bash(rg:*)"
     ],
     "deny": [
       "Bash(rm -rf /)",
