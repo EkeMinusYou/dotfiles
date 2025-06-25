@@ -14,6 +14,7 @@ bindkey -e
 # Enable Completion
 # -------------------
 
+fpath=($HOME/.zsh/scripts $fpath)
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
