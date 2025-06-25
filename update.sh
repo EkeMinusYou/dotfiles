@@ -4,14 +4,18 @@ brew upgrade
 sheldon lock --update
 gcloud components update --quiet
 nvim --headless "+Lazy! sync" +qa
-kubectl completion zsh > ~/.zsh/scripts/_kubectl
-lovot completion zsh > ~/.zsh/scripts/_lovot
-atlas completion zsh > ~/.zsh/scripts/_atlas
+
+# fpath
+kubectl completion zsh > ~/.zsh/fpath/_kubectl
+atlas completion zsh > ~/.zsh/fpath/_atlas
+docker completion zsh > ~/.zsh/fpath/_docker
+soracom completion zsh > ~/.zsh/fpath/_soracom
+gwq completion zsh > ~/.zsh/fpath/_gwq
+
+# scripts
 direnv hook zsh > ~/.zsh/scripts/_direnv
+lovot completion zsh > ~/.zsh/scripts/_lovot
 npm completion > ~/.zsh/scripts/_npm
-docker completion zsh > ~/.zsh/scripts/_docker
-soracom completion zsh > ~/.zsh/scripts/_soracom
-gwq completion zsh > ~/.zsh/scripts/_gwq
 $HOMEBREW_PREFIX/bin/brew shellenv > ~/.zsh/scripts/_brew
 
 # macSKK
