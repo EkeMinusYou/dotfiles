@@ -22,10 +22,6 @@ yabai -m config                              \
 yabai -m rule --add app="^Mail$" manage=off
 yabai -m rule --add app="^Music$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
-# workaround
-# See: https://github.com/ghostty-org/ghostty/issues/2006
-yabai -m signal --add app='^Ghostty$' event=window_created action='yabai -m space --layout bsp'
-yabai -m signal --add app='^Ghostty$' event=window_destroyed action='yabai -m space --layout bsp'
 
 # return focus to last focused window when current window is closed
 yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"

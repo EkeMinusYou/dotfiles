@@ -6,7 +6,7 @@ language: "english"
 
 commit:
   model: "flash"
-  language: "japanese"
+  language: "english"
 
 review:
   model: "pro"
