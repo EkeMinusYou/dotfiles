@@ -43,6 +43,5 @@ keybind = ctrl+shift+x=close_tab
 
 macos-option-as-alt = true
 resize-overlay = never
-keybind = ctrl+j=ignore
 keybind = shift+enter=text:\n
 keybind = ¥=text:\\
