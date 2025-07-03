@@ -13,7 +13,8 @@
       "Bash(mv:*)",
       "Bash(grep:*)",
       "Bash(go test:*)",
-      "Bash(rg:*)"
+      "Bash(rg:*)",
+      "Bash(git tag:*)"
     ],
     "deny": [
       "Bash(rm -rf /)",
