@@ -91,6 +91,10 @@
       "Write(/etc/passwd)",
       "Write(/etc/shadow)",
       "Write(/etc/sudoers)"
+    ],
+    "additionalDirectories": [
+      "~/go/",
+      "~/src/github.com/"
     ]
   },
   "includeCoAuthoredBy": false,
