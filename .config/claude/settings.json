@@ -92,10 +92,7 @@
       "Write(/etc/shadow)",
       "Write(/etc/sudoers)"
     ],
-    "additionalDirectories": [
-      "~/go/",
-      "~/src/github.com/"
-    ]
+    "additionalDirectories": ["~/go/"]
   },
   "includeCoAuthoredBy": false,
   "env": {
