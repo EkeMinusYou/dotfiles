@@ -196,8 +196,8 @@ export GOPROXY="direct"
 export GOPRIVATE=github.com/groove-x
 
 # Java
-export PATH=$HOMEBREW_PREFIX/opt/openjdk@11/bin:$PATH
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"
+export PATH=$HOMEBREW_PREFIX/opt/openjdk@21/bin:$PATH
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 
 # deno
 export PATH=$HOME/.deno/bin:$PATH
@@ -247,6 +247,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 # claude
 alias devclaude="devcontainer up --workspace-folder . --config ~/.config/devcontainer/claude/devcontainer.json && devcontainer exec --workspace-folder . --config ~/.config/devcontainer/claude/devcontainer.json claude"
+export CLAUDE_CONFIG_DIR=~/.config/claude
 
 # -------------------
 # Functions
