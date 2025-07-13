@@ -14,7 +14,11 @@
       "Bash(grep:*)",
       "Bash(go test:*)",
       "Bash(rg:*)",
-      "Bash(git tag:*)"
+      "Bash(git tag:*)",
+      "WebFetch(domain:cloud.google.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:pkg.go.dev)"
     ],
     "deny": [
       "Bash(rm -rf /)",
@@ -50,7 +54,6 @@
       "Bash(npm publish:*)",
       "Bash(cargo publish:*)",
       "Bash(deno publish:*)",
-      "Bash(gcloud:*)",
       "Bash(terraform:*)",
       "Bash(make deploy:*)",
       "Edit(/etc/**)",
