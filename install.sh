@@ -97,6 +97,10 @@ ln -sfn $DOT_DIR/dotfiles/.opencode.json ~/
 ln -fn $DOT_DIR/dotfiles/.config/claude/settings.json ~/.config/claude/settings.json
 ln -fn $DOT_DIR/dotfiles/.config/claude/CLAUDE.md ~/.config/claude/CLAUDE.md
 
+# claude.privatge
+ln -fn $DOT_DIR/dotfiles/.config/claude.private/settings.json ~/.config/claude.private/settings.json
+ln -fn $DOT_DIR/dotfiles/.config/claude.private/CLAUDE.md ~/.config/claude.private/CLAUDE.md
+
 # gelf
 ln -fn $DOT_DIR/dotfiles/.config/gelf/gelf.yaml ~/.config/gelf/gelf.yaml
 
