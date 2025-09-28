@@ -2,6 +2,7 @@ return {
   'yetone/avante.nvim',
   event = 'VeryLazy',
   version = '*',
+  enabled = false,
   opts = {
     provider = 'custom-vertex',
     providers = {
