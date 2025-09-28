@@ -61,6 +61,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>g', function()
     term = true,
     on_exit = function()
       vim.cmd('NvimTreeRefresh')
+      vim.cmd('Gitsigns refresh')
       if vim.api.nvim_win_is_valid(win) then
         vim.api.nvim_win_close(win, true)
       end
