@@ -72,6 +72,7 @@
   "rasmus.nvim": { "branch": "main", "commit": "49f7ee7bf3eb00db52c77f84b15bc69f318bafc1" },
   "refactoring.nvim": { "branch": "master", "commit": "74b608dfee827c2372250519d433cc21cb083407" },
   "schemastore.nvim": { "branch": "main", "commit": "fea7b3eb30d6e7261529ae7e8e94bf717f9c428f" },
+  "sidekick.nvim": { "branch": "main", "commit": "73ca1b230e96c8eaa8b6d0e568c02d22e9fd6af2" },
   "skkeleton": { "branch": "main", "commit": "fff5e390d3f39d715b70fc6062802e0bed47dc6e" },
   "smear-cursor.nvim": { "branch": "main", "commit": "4b86df8a0c5f46e708616b21a02493bb0e47ecbd" },
   "snacks.nvim": { "branch": "main", "commit": "f6c06415a27bd63b038e0c624b11d272c300390f" },
