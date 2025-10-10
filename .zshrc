@@ -216,7 +216,7 @@ alias e='code -a .'
 
 # gcloud
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
-export CLOUDSDK_PYTHON=$HOMEBREW_PREFIX/bin/python3.9
+export CLOUDSDK_PYTHON=""
 
 # direnv
 export DIRENV_LOG_FORMAT=
