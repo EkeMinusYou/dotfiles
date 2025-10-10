@@ -51,7 +51,7 @@ return {
       })
 
       vim.lsp.enable(ensure_installed)
-      vim.lsp.enable({ 'atlas', 'actionlint', 'clang-format', 'eslint_d', 'yamlfmt', 'sourcekit' })
+      vim.lsp.enable({ 'atlas', 'actionlint', 'clang-format', 'eslint_d', 'yamlfmt', 'sourcekit', 'protols' })
     end,
   },
   {
