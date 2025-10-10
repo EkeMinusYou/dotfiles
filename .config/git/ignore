@@ -5,3 +5,4 @@
 .serena/
 
 **/.claude/settings.local.json
+.protols.toml
