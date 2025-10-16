@@ -22,6 +22,8 @@ mouse-hide-while-typing = true
 
 window-save-state = never
 
+split-divider-color = #F0f0f0
+
 # keybind = clear
 keybind = ctrl+q>v=new_split:right
 keybind = ctrl+q>s=new_split:down
