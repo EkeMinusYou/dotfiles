@@ -1,0 +1,1 @@
+- Agent responses must be in Japanese; code comments, commit messages, and PR descriptions stay in English.
