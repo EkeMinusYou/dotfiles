@@ -112,8 +112,8 @@ ln -sfn $DOT_DIR/dotfiles/.config/devcontainer/claude ~/.config/devcontainer
 ln -sfn $DOT_DIR/dotfiles/.config/gwq/config.toml ~/.config/gwq/config.toml
 
 # codex
-mkdir -p ~/.config/codex
-ln -sfn $DOT_DIR/dotfiles/.config/codex/AGENTS.md ~/.config/codex/AGENTS.md
+mkdir -p ~/.codex
+ln -sfn $DOT_DIR/dotfiles/.codex/AGENTS.md ~/.codex/AGENTS.md
 
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
