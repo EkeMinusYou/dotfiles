@@ -5,9 +5,9 @@ return {
       classAttributes = { 'class', 'class:list', 'classList', 'ngClass' }, -- className is configured by classRegex
       experimental = {
         classRegex = {
-          'className\\s*=\\s*["\']([^"\']*)["\']',
-          '(?<=clsx\\((?:[^`]|`[^`]*`)*?)[\'"]([^\'"]*)[\'"]',
-          '(?<=cva\\((?:[^`]|`[^`]*`)*?)[\'"]([^\'"]*)[\'"]',
+          'className\\s*=\\s*["\'`]([^"\'`]*)["\'`]',
+          '(?<=clsx\\((?:[^`]|`[^`]*`)*?)[\'"`]([^\'"`]*)[\'"`]',
+          '(?<=cva\\((?:[^`]|`[^`]*`)*?)[\'"`]([^\'"`]*)[\'"`]',
         },
       },
     },
