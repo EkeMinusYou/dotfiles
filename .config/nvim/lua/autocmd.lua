@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 -- diagnostics
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function()
-    local signs = { Error = '●', Warn = '●', Hint = '●', Info = '●' }
+    local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
     vim.diagnostic.config({
       signs = {
         text = {
