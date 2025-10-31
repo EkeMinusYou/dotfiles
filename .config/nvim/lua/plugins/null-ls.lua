@@ -75,7 +75,6 @@ return {
         null_ls.builtins.formatting.goimports.with({
           extra_args = { '-local', 'github.com/groove-x' },
         }),
-        null_ls.builtins.diagnostics.staticcheck,
         null_ls.builtins.formatting.stylua,
         -- terraform
         null_ls.builtins.diagnostics.terraform_validate,
