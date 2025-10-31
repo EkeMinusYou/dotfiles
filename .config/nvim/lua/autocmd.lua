@@ -17,6 +17,23 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
+-- diagnostics
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function()
+    local signs = { Error = '●', Warn = '●', Hint = '●', Info = '●' }
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = signs.Error,
+          [vim.diagnostic.severity.WARN] = signs.Warn,
+          [vim.diagnostic.severity.INFO] = signs.Info,
+          [vim.diagnostic.severity.HINT] = signs.Hint,
+        },
+      },
+    })
+  end,
+})
+
 -- denolscache
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = 'format',
@@ -46,7 +63,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Highlight on yank
 -- See https://github.com/LazyVim/LazyVim/blob/53e1637a864cb7e8f21af107b8073bc8b24acd11/lua/lazyvim/config/autocmds.lua#L7
--- this is enalbed by yanky.nvim
+-- this is enabled by yanky.nvim
 -- vim.api.nvim_create_autocmd('TextYankPost', {
 --   callback = function()
 --     vim.highlight.on_yank()
