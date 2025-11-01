@@ -3,7 +3,6 @@ require('keymap')
 require('autocmd')
 require('usercommands')
 require('filetype')
-require('functions')
 
 -- installation lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
