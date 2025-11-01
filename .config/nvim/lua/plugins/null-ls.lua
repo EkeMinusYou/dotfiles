@@ -30,6 +30,13 @@ return {
           end,
         }),
         null_ls.builtins.formatting.biome.with({
+          command = 'biome',
+          args = {
+            'check',
+            '--write',
+            '--stdin-file-path',
+            '$FILENAME',
+          },
           runtime_condition = function()
             return helper.local_has_file({ 'biome.json' })
           end,
