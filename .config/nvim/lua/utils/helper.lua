@@ -26,7 +26,7 @@ end
 helper.lsp_formatting = function(config)
   vim.lsp.buf.format({
     filter = function(client)
-      local available_formatters = { 'null-ls', 'denols' }
+      local available_formatters = { 'null-ls', 'denols', 'eslint' }
       return vim.tbl_contains(available_formatters, client.name)
     end,
     async = config.async,

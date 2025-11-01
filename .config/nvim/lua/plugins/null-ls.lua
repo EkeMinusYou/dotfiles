@@ -18,17 +18,6 @@ return {
             return helper.local_has_file({ '.prettierrc', '.prettierrc.js' })
           end,
         }),
-        require('none-ls.formatting.eslint_d').with({
-          runtime_condition = function()
-            return helper.local_has_file({
-              '.eslintrc.js',
-              '.eslintrc.cjs',
-              '.eslintrc.json',
-              'eslint.config.mjs',
-              'eslint.config.js',
-            })
-          end,
-        }),
         null_ls.builtins.formatting.biome.with({
           command = 'biome',
           args = {
@@ -41,13 +30,6 @@ return {
             return helper.local_has_file({ 'biome.json' })
           end,
         }),
-        require('none-ls.diagnostics.eslint_d').with({
-          runtime_condition = function()
-            return helper.local_has_file({ '.eslintrc.js', '.eslintrc.cjs', '.eslintrc.json', 'eslint.config.mjs' })
-          end,
-        }),
-        require('none-ls.code_actions.eslint_d'),
-        -- css
         null_ls.builtins.formatting.stylelint.with({
           filetypes = {
             'css',
