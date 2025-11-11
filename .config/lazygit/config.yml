@@ -1,12 +1,11 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
   overrideGpg: true
 promptToReturnFromSubprocess: false
 gui:
   nerdFontsVersion: "3"
-
 customCommands:
   - key: "C"
     command: 'gelf commit --yes'
