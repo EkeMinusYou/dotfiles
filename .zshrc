@@ -87,7 +87,6 @@ zshaddhistory() {
   [[ ${#line} -ge 5
     && ${cmd} != more
     && ${cmd} != less
-    && ${cmd} != ping
     && ${cmd} != devclaude
   ]]
 }
