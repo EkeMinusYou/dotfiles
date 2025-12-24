@@ -1,8 +1,22 @@
 network_access = true
-model_reasoning_effort = "high"
+model_reasoning_effort = "xhigh"
 hide_agent_reasoning = true
 
 notify = ["bash", "-lc", "afplay /System/Library/Sounds/Ping.aiff"]
+model = "gpt-5.2-codex"
 
-[tools]
-web_search = true
+[features]
+web_search_request = true
+
+[projects."/Users/mineo/src/github.com/groove-x/lovot-hub"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/bukumame/bukumame"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/groove-x/lovot-svcs"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.2" = "gpt-5.2-codex"
+"gpt-5.1-codex-max" = "gpt-5.2-codex"
