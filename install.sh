@@ -115,6 +115,7 @@ ln -sfn $DOT_DIR/dotfiles/.config/gwq/config.toml ~/.config/gwq/config.toml
 mkdir -p ~/.codex
 ln -sfn $DOT_DIR/dotfiles/.codex/AGENTS.md ~/.codex/AGENTS.md
 ln -sfn $DOT_DIR/dotfiles/.codex/config.toml ~/.codex/config.toml
+ln -sfn $DOT_DIR/dotfiles/.codex/rules ~/.codex/
 
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
