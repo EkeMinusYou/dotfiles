@@ -6,7 +6,6 @@ return {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'hrsh7th/cmp-nvim-lsp',
-      'pmizio/typescript-tools.nvim',
       'b0o/schemastore.nvim',
       'rachartier/tiny-inline-diagnostic.nvim',
       { 'nvim-java/nvim-java', event = 'VeryLazy' },
