@@ -20,6 +20,7 @@ window-theme = ghostty
 confirm-close-surface = false
 mouse-hide-while-typing = true
 background-opacity = 0.8
+background-blur-radius = 5
 
 window-save-state = never
 
