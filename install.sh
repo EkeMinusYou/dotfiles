@@ -117,6 +117,9 @@ ln -sfn $DOT_DIR/dotfiles/.codex/AGENTS.md ~/.codex/AGENTS.md
 ln -sfn $DOT_DIR/dotfiles/.codex/config.toml ~/.codex/config.toml
 ln -sfn $DOT_DIR/dotfiles/.codex/rules ~/.codex/
 
+# aerospace
+ln -sfn $DOT_DIR/dotfiles/.config/aerospace ~/.config
+
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
   mkdir -p ~/.yaskkserv2/bin
