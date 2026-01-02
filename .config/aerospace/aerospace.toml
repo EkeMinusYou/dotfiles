@@ -1,10 +1,9 @@
-# Converted from yabai/skhd
 config-version = 2
 
-# Mouse follows focus (yabai mouse_follows_focus on)
+start-at-login = true
+
 on-focus-changed = ['move-mouse window-lazy-center']
 
-# Layout defaults similar to yabai bsp
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 
@@ -19,7 +18,6 @@ default-root-container-orientation = 'auto'
     outer.top = 0
     outer.right = 0
 
-# Do not manage these apps (yabai manage=off)
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
 run = 'layout floating'
@@ -32,8 +30,13 @@ run = 'layout floating'
 if.app-id = 'com.apple.systempreferences'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+  "layout floating",
+]
+
 [mode.main.binding]
-    # open applications
     cmd-alt-ctrl-shift-m = 'exec-and-forget open -a "Music"'
     cmd-alt-ctrl-shift-y = 'exec-and-forget open -a "Youtube"'
     cmd-alt-ctrl-shift-t = 'exec-and-forget open -a "Ghostty"'
@@ -45,40 +48,28 @@ run = 'layout floating'
   || SwitchAudioSource -t output -u "88-0E-85-2E-6A-EA:output"
 '''
 
-    # focus window (fallback to monitor)
     ctrl-alt-x = 'exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth'
     ctrl-alt-h = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail left || aerospace focus-monitor left'
     ctrl-alt-j = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail down || aerospace focus-monitor down'
     ctrl-alt-k = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail up || aerospace focus-monitor up'
     ctrl-alt-l = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail right || aerospace focus-monitor right'
 
-    # reset layout (balance sizes)
     ctrl-alt-r = 'balance-sizes'
 
-    # move window
     ctrl-alt-shift-h = 'move left'
     ctrl-alt-shift-j = 'move down'
     ctrl-alt-shift-k = 'move up'
     ctrl-alt-shift-l = 'move right'
 
-    # toggle split direction
     ctrl-alt-t = 'layout horizontal vertical'
 
-    # move window to next/prev monitor
     ctrl-alt-n = 'move-node-to-monitor next --focus-follows-window'
     ctrl-alt-p = 'move-node-to-monitor prev --focus-follows-window'
 
-    # resize
-    ctrl-alt-w = 'resize height -50'
-    ctrl-alt-s = 'resize height +50'
-    ctrl-alt-a = 'resize width -100'
-    ctrl-alt-d = 'resize width +100'
+    ctrl-alt-s = 'resize height -50'
+    ctrl-alt-w = 'resize height +50'
+    ctrl-alt-d = 'resize width -100'
+    ctrl-alt-a = 'resize width +100'
 
-    # toggle fullscreen (yabai zoom-fullscreen)
     ctrl-alt-f = 'fullscreen'
 
-[[on-window-detected]]
-if.app-id="com.mitchellh.ghostty"
-run= [
-  "layout floating",
-]
