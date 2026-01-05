@@ -8,68 +8,97 @@ default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 
 [key-mapping]
-    preset = 'qwerty'
+preset = 'qwerty'
 
 [gaps]
-    inner.horizontal = 0
-    inner.vertical = 0
-    outer.left = 0
-    outer.bottom = 0
-    outer.top = 0
-    outer.right = 0
-
-[[on-window-detected]]
-if.app-id = 'com.apple.mail'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Music'
-run = 'layout floating'
+inner.horizontal = 0
+inner.vertical = 0
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
 
 [[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id="com.mitchellh.ghostty"
-run= [
-  "layout floating",
+if.app-id = 'com.apple.Music'
+run = [
+  "move-node-to-workspace m --focus-follows-window",
 ]
 
+[[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+  "move-node-to-workspace t --focus-follows-window",
+]
+
+[[on-window-detected]]
+if.app-id="com.tinyspeck.slackmacgap"
+run= [
+  "move-node-to-workspace s --focus-follows-window",
+]
+
+[[on-window-detected]]
+if.app-id="com.google.Chrome"
+run= [
+  "move-node-to-workspace c --focus-follows-window",
+]
+
+[[on-window-detected]]
+if.app-id="com.google.Chrome.app.agimnkijcaahngcdmfeangaknmldoom"
+run= [
+  "move-node-to-workspace y --focus-follows-window",
+]
+
+[workspace-to-monitor-force-assignment]
+m = "secondary"
+y = "main"
+t = "main"
+s = "main"
+c = "secondary"
+
 [mode.main.binding]
-    cmd-alt-ctrl-shift-m = 'exec-and-forget open -a "Music"'
-    cmd-alt-ctrl-shift-y = 'exec-and-forget open -a "Youtube"'
-    cmd-alt-ctrl-shift-t = 'exec-and-forget open -a "Ghostty"'
-    cmd-alt-ctrl-shift-s = 'exec-and-forget open -a "Slack"'
-    cmd-alt-ctrl-shift-c = 'exec-and-forget open -a "Google Chrome"'
-    cmd-alt-ctrl-shift-z = '''exec-and-forget
+# Music
+cmd-alt-ctrl-shift-m = ["exec-and-forget open -a Music"]
+# Youtube
+cmd-alt-ctrl-shift-y = ["exec-and-forget open -a Youtube"]
+# Ghostty
+cmd-alt-ctrl-shift-t = ["exec-and-forget open -a Ghostty"]
+# Slack
+cmd-alt-ctrl-shift-s = ["exec-and-forget open -a Slack"]
+# Chrome
+cmd-alt-ctrl-shift-c = ["exec-and-forget open -a 'Google Chrome'"]
+
+cmd-alt-ctrl-shift-z = '''exec-and-forget
 [ "$(SwitchAudioSource -c -t output -f json | jq -r '.uid')" = "88-0E-85-2E-6A-EA:output" ] \
-  && SwitchAudioSource -t output -u "10ACC041-0000-0000-181E-0104B53C2278" \
-  || SwitchAudioSource -t output -u "88-0E-85-2E-6A-EA:output"
+&& SwitchAudioSource -t output -u "10ACC041-0000-0000-181E-0104B53C2278" \
+|| SwitchAudioSource -t output -u "88-0E-85-2E-6A-EA:output"
 '''
 
-    ctrl-alt-x = 'exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth'
-    ctrl-alt-h = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail left || aerospace focus-monitor left'
-    ctrl-alt-j = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail down || aerospace focus-monitor down'
-    ctrl-alt-k = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail up || aerospace focus-monitor up'
-    ctrl-alt-l = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail right || aerospace focus-monitor right'
+ctrl-alt-x = 'exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth'
+ctrl-alt-h = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail left || aerospace focus-monitor left'
+ctrl-alt-j = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail down || aerospace focus-monitor down'
+ctrl-alt-k = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail up || aerospace focus-monitor up'
+ctrl-alt-l = 'exec-and-forget aerospace focus --boundaries workspace --boundaries-action fail right || aerospace focus-monitor right'
 
-    ctrl-alt-r = 'balance-sizes'
+ctrl-alt-r = 'balance-sizes'
 
-    ctrl-alt-shift-h = 'move left'
-    ctrl-alt-shift-j = 'move down'
-    ctrl-alt-shift-k = 'move up'
-    ctrl-alt-shift-l = 'move right'
+ctrl-alt-shift-h = 'move left'
+ctrl-alt-shift-j = 'move down'
+ctrl-alt-shift-k = 'move up'
+ctrl-alt-shift-l = 'move right'
 
-    ctrl-alt-t = 'layout horizontal vertical'
+ctrl-alt-t = 'layout horizontal vertical'
 
-    ctrl-alt-n = 'move-node-to-monitor next --focus-follows-window'
-    ctrl-alt-p = 'move-node-to-monitor prev --focus-follows-window'
+ctrl-alt-n = 'move-node-to-monitor next --focus-follows-window'
+ctrl-alt-p = 'move-node-to-monitor prev --focus-follows-window'
 
-    ctrl-alt-s = 'resize height -50'
-    ctrl-alt-w = 'resize height +50'
-    ctrl-alt-d = 'resize width -100'
-    ctrl-alt-a = 'resize width +100'
+ctrl-alt-s = 'resize height -50'
+ctrl-alt-w = 'resize height +50'
+ctrl-alt-d = 'resize width -100'
+ctrl-alt-a = 'resize width +100'
 
-    ctrl-alt-f = 'fullscreen'
+ctrl-alt-f = 'fullscreen'
 
