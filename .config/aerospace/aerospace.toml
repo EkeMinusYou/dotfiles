@@ -47,7 +47,7 @@ run= [
 ]
 
 [[on-window-detected]]
-if.app-id="com.google.Chrome.app.agimnkijcaahngcdmfeangaknmldoom"
+if.app-id="com.google.Chrome.app.agimnkijcaahngcdmfeangaknmldooml"
 run= [
   "move-node-to-workspace y --focus-follows-window",
 ]
