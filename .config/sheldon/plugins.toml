@@ -26,14 +26,14 @@ apply = ["defer"]
 github = "azu/ni.zsh"
 apply = ["defer"]
 
-[plugins.zeno]
-github = "yuki-yano/zeno.zsh"
-hooks.post = """
-zsh-defer bindkey '^i' zeno-completion
-zsh-defer bindkey '^x '  zeno-insert-space
-zsh-defer bindkey '^x^m' accept-line
-"""
-apply = ["defer"]
+# [plugins.zeno]
+# github = "yuki-yano/zeno.zsh"
+# hooks.post = """
+# zsh-defer bindkey '^i' zeno-completion
+# zsh-defer bindkey '^x '  zeno-insert-space
+# zsh-defer bindkey '^x^m' accept-line
+# """
+# apply = ["defer"]
 
 [plugins.docker-compose-completion]
 remote = "https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose"
