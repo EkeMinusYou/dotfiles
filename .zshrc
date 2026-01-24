@@ -11,10 +11,24 @@
 bindkey -e
 
 # -------------------
+# Homebrew Settings
+# -------------------
+
+export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
+case ${OSTYPE} in
+  darwin*)
+    export HOMEBREW_PREFIX="/opt/homebrew"
+    ;;
+  linux*)
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+    ;;
+esac
+
+# -------------------
 # Enable Completion
 # -------------------
 
-fpath=($HOME/.zsh/fpath $fpath)
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $HOME/.zsh/fpath $fpath)
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
@@ -49,17 +63,6 @@ add-zsh-hook chpwd chpwd_recent_dirs
 
 # dotfiles
 export DOT_DIR="$HOME/src/github.com/EkeMinusYou"
-
-# homebrew
-export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
-case ${OSTYPE} in
-  darwin*)
-    export HOMEBREW_PREFIX="/opt/homebrew"
-    ;;
-  linux*)
-    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
-    ;;
-esac
 
 # suppress prompt
 export LISTMAX=10000
