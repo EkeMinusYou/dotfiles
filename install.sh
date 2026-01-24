@@ -7,118 +7,138 @@ fi
 # Clone dotfiles
 DOT_DIR="$HOME/src/github.com/EkeMinusYou"
 git clone https://github.com/EkeMinusYou/dotfiles ${DOT_DIR}/dotfiles
-ln -sfn $DOT_DIR/dotfiles/.gitconfig ~/.gitconfig
+
+link_path() {
+  local src="$1"
+  local dst="$2"
+
+  if [ ! -e "$src" ] && [ ! -L "$src" ]; then
+    echo "skip: $src not found"
+    return 0
+  fi
+
+  mkdir -p "$(dirname "$dst")"
+  if [ -d "$dst" ] && [ ! -L "$dst" ]; then
+    echo "skip: $dst exists and is a directory"
+    return 0
+  fi
+  if [ -e "$dst" ] || [ -L "$dst" ]; then
+    rm -f "$dst"
+  fi
+  ln -s "$src" "$dst"
+}
+
+link_path "$DOT_DIR/dotfiles/.gitconfig" "$HOME/.gitconfig"
 
 if [ `uname` == 'Darwin' ]; then
-  ln -sfn $DOT_DIR/dotfiles/.gitconfig-mac ~/.gitconfig-os
+  link_path "$DOT_DIR/dotfiles/.gitconfig-mac" "$HOME/.gitconfig-os"
 elif [ `uname` = "Linux" ]; then
-  ln -sfn $DOT_DIR/dotfiles/.gitconfig-linux ~/.gitconfig-os
+  link_path "$DOT_DIR/dotfiles/.gitconfig-linux" "$HOME/.gitconfig-os"
 fi
 
 # gitignore
 mkdir -p ~/.config/git
-ln -sfn $DOT_DIR/dotfiles/.config/git/ignore ~/.config/git/ignore
+link_path "$DOT_DIR/dotfiles/.config/git/ignore" "$HOME/.config/git/ignore"
 
 # Setup zsh
-ln -sfn $DOT_DIR/dotfiles/.zshrc ~/.zshrc
+link_path "$DOT_DIR/dotfiles/.zshrc" "$HOME/.zshrc"
 mkdir -p ~/.zsh/
 mkdir -p ~/.zsh/scripts
 
 # lazygit
 mkdir -p ~/.config/lazygit
-ln -sfn $DOT_DIR/dotfiles/.config/lazygit/config.yml ~/.config/lazygit/config.yml
+link_path "$DOT_DIR/dotfiles/.config/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
 
 # Setup sheldon
 mkdir -p ~/.config/sheldon
-ln -sfn $DOT_DIR/dotfiles/.config/sheldon/plugins.toml ~/.config/sheldon/plugins.toml
+link_path "$DOT_DIR/dotfiles/.config/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 
 # Setup nvim
-ln -sfn $DOT_DIR/dotfiles/.config/nvim ~/.config/
+link_path "$DOT_DIR/dotfiles/.config/nvim" "$HOME/.config/nvim"
 
 # Setup snippets
-ln -sfn $DOT_DIR/dotfiles/.vsnip ~/.vsnip
+link_path "$DOT_DIR/dotfiles/.vsnip" "$HOME/.vsnip"
 
 # Setup GitHub CLI
 mkdir -p ~/.config/gh
-ln -sfn $DOT_DIR/dotfiles/.config/gh/config.yml ~/.config/gh/config.yml
+link_path "$DOT_DIR/dotfiles/.config/gh/config.yml" "$HOME/.config/gh/config.yml"
 
 # Setup cz-git
-ln -sfn $DOT_DIR/dotfiles/.czrc ~/.czrc
+link_path "$DOT_DIR/dotfiles/.czrc" "$HOME/.czrc"
 
 # Setup starship
-ln -sfn $DOT_DIR/dotfiles/.config/starship.toml ~/.config/starship.toml
+link_path "$DOT_DIR/dotfiles/.config/starship.toml" "$HOME/.config/starship.toml"
 
 # Setup karabiner
 mkdir -p ~/.config/karabiner
-ln -sfn $DOT_DIR/dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+link_path "$DOT_DIR/dotfiles/.config/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
 # Setup WezTerm
-mkdir -p ~/.config/wezterm
-ln -sfn $DOT_DIR/dotfiles/.config/wezterm ~/.config/
+link_path "$DOT_DIR/dotfiles/.config/wezterm" "$HOME/.config/wezterm"
 
 # Setup gh dash
 mkdir -p ~/.config/gh-dash
-ln -sfn $DOT_DIR/dotfiles/.config/gh-dash/config.yml ~/.config/gh-dash/config.yml
+link_path "$DOT_DIR/dotfiles/.config/gh-dash/config.yml" "$HOME/.config/gh-dash/config.yml"
 
 # Setup yazi
-ln -sfn $DOT_DIR/dotfiles/.config/yazi ~/.config/
+link_path "$DOT_DIR/dotfiles/.config/yazi" "$HOME/.config/yazi"
 
 # Setup aqua
-ln -sfn $DOT_DIR/dotfiles/.config/aqua ~/.config/
+link_path "$DOT_DIR/dotfiles/.config/aqua" "$HOME/.config/aqua"
 
 # ghostty
-ln -sfn $DOT_DIR/dotfiles/.config/ghostty ~/.config/
+link_path "$DOT_DIR/dotfiles/.config/ghostty" "$HOME/.config/ghostty"
 
 # zellij
-ln -sfn $DOT_DIR/dotfiles/.config/zellij ~/.config/
+link_path "$DOT_DIR/dotfiles/.config/zellij" "$HOME/.config/zellij"
 
 # alacritty
-ln -sfn $DOT_DIR/dotfiles/.config/alacritty ~/.config
+link_path "$DOT_DIR/dotfiles/.config/alacritty" "$HOME/.config/alacritty"
 
 # typos
-ln -sfn $DOT_DIR/dotfiles/.config/typos ~/.config
+link_path "$DOT_DIR/dotfiles/.config/typos" "$HOME/.config/typos"
 
 # dive
-ln -sfn $DOT_DIR/dotfiles/.config/dive ~/.config
+link_path "$DOT_DIR/dotfiles/.config/dive" "$HOME/.config/dive"
 
 # moxide
-ln -sfn $DOT_DIR/dotfiles/.config/moxide ~/.config
+link_path "$DOT_DIR/dotfiles/.config/moxide" "$HOME/.config/moxide"
 
 # direnv
-ln -sfn $DOT_DIR/dotfiles/.config/direnv ~/.config
+link_path "$DOT_DIR/dotfiles/.config/direnv" "$HOME/.config/direnv"
 
 # goose
-ln -sfn $DOT_DIR/dotfiles/.config/goose ~/.config/
+link_path "$DOT_DIR/dotfiles/.config/goose" "$HOME/.config/goose"
 
 # opencode
-ln -sfn $DOT_DIR/dotfiles/.opencode.json ~/
+link_path "$DOT_DIR/dotfiles/.opencode.json" "$HOME/.opencode.json"
 
 # claude
-ln -fn $DOT_DIR/dotfiles/.config/claude/settings.json ~/.config/claude/settings.json
-ln -fn $DOT_DIR/dotfiles/.config/claude/CLAUDE.md ~/.config/claude/CLAUDE.md
+link_path "$DOT_DIR/dotfiles/.config/claude/settings.json" "$HOME/.config/claude/settings.json"
+link_path "$DOT_DIR/dotfiles/.config/claude/CLAUDE.md" "$HOME/.config/claude/CLAUDE.md"
 
 # claude.privatge
-ln -fn $DOT_DIR/dotfiles/.config/claude.private/settings.json ~/.config/claude.private/settings.json
-ln -fn $DOT_DIR/dotfiles/.config/claude.private/CLAUDE.md ~/.config/claude.private/CLAUDE.md
+link_path "$DOT_DIR/dotfiles/.config/claude.private/settings.json" "$HOME/.config/claude.private/settings.json"
+link_path "$DOT_DIR/dotfiles/.config/claude.private/CLAUDE.md" "$HOME/.config/claude.private/CLAUDE.md"
 
 # gelf
-ln -fn $DOT_DIR/dotfiles/.config/gelf/gelf.yaml ~/.config/gelf/gelf.yaml
+link_path "$DOT_DIR/dotfiles/.config/gelf/gelf.yaml" "$HOME/.config/gelf/gelf.yaml"
 
 # devcontainer
 mkdir -p ~/.config/devcontainer
-ln -sfn $DOT_DIR/dotfiles/.config/devcontainer/claude ~/.config/devcontainer
+link_path "$DOT_DIR/dotfiles/.config/devcontainer/claude" "$HOME/.config/devcontainer/claude"
 
 # gwq
-ln -sfn $DOT_DIR/dotfiles/.config/gwq/config.toml ~/.config/gwq/config.toml
+link_path "$DOT_DIR/dotfiles/.config/gwq/config.toml" "$HOME/.config/gwq/config.toml"
 
 # codex
 mkdir -p ~/.codex
-ln -sfn $DOT_DIR/dotfiles/.codex/AGENTS.md ~/.codex/AGENTS.md
-ln -sfn $DOT_DIR/dotfiles/.codex/config.toml ~/.codex/config.toml
-ln -sfn $DOT_DIR/dotfiles/.codex/rules ~/.codex/
+link_path "$DOT_DIR/dotfiles/.codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
+link_path "$DOT_DIR/dotfiles/.codex/config.toml" "$HOME/.codex/config.toml"
+link_path "$DOT_DIR/dotfiles/.codex/rules" "$HOME/.codex/rules"
 
 # aerospace
-ln -sfn $DOT_DIR/dotfiles/.config/aerospace ~/.config
+link_path "$DOT_DIR/dotfiles/.config/aerospace" "$HOME/.config/aerospace"
 
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
@@ -137,10 +157,10 @@ if [ `uname` == 'Darwin' ]; then
 
   # Setup yabai and skhd
   mkdir -p ~/.config/yabai
-  ln -sfn $DOT_DIR/dotfiles/.config/yabai/yabairc ~/.config/yabai/yabairc
+  link_path "$DOT_DIR/dotfiles/.config/yabai/yabairc" "$HOME/.config/yabai/yabairc"
   mkdir -p ~/.config/skhd
-  ln -sfn $DOT_DIR/dotfiles/.config/skhd/skhdrc ~/.config/skhd/skhdrc
+  link_path "$DOT_DIR/dotfiles/.config/skhd/skhdrc" "$HOME/.config/skhd/skhdrc"
   # Setup macSKK
-  ln -sfn $DOT_DIR/dotfiles/macSKK/kana-rule.conf ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf
-  ln -sfn ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8 ~/.skk/skk-jisyo.utf8
+  link_path "$DOT_DIR/dotfiles/macSKK/kana-rule.conf" "$HOME/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf"
+  link_path "$HOME/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8" "$HOME/.skk/skk-jisyo.utf8"
 fi
