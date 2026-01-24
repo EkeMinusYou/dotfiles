@@ -155,11 +155,6 @@ if [ `uname` == 'Darwin' ]; then
     rm /tmp/$YASKKSERV2_ARCHIVE
   fi
 
-  # Setup yabai and skhd
-  mkdir -p ~/.config/yabai
-  link_path "$DOT_DIR/dotfiles/.config/yabai/yabairc" "$HOME/.config/yabai/yabairc"
-  mkdir -p ~/.config/skhd
-  link_path "$DOT_DIR/dotfiles/.config/skhd/skhdrc" "$HOME/.config/skhd/skhdrc"
   # Setup macSKK
   link_path "$DOT_DIR/dotfiles/macSKK/kana-rule.conf" "$HOME/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf"
   link_path "$HOME/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8" "$HOME/.skk/skk-jisyo.utf8"

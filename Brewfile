@@ -3,8 +3,6 @@ if OS.mac?
   tap "homebrew/cask"
   tap "homebrew/core"
   brew "wezterm"
-  brew "koekeishiya/formulae/yabai"
-  brew "koekeishiya/formulae/skhd"
   brew "avrdude"
   brew "swift-format"
   brew "ghostty"
