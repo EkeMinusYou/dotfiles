@@ -22,6 +22,7 @@ autoload -Uz compinit && compinit
 # source command scripts
 # -------------------
 
+setopt null_glob
 for file in $HOME/.zsh/scripts/*; do
   [ -f "$file" ] && source "$file"
 done
