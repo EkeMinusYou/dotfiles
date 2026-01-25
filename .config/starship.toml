@@ -14,6 +14,11 @@ truncate_to_repo = false
 success_symbol = "[➜](bold green)"
 error_symbol = "[✗](bold red)"
 
+[hostname]
+ssh_only = false
+detect_env_vars = ['WSL_DISTRO_NAME', 'WSL_INTEROP']
+format = '[$hostname]($style) '
+
 [docker_context]
 format = '[$symbol$context]($style) '
 
