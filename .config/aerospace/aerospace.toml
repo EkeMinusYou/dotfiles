@@ -66,6 +66,12 @@ run= [
   "move-node-to-workspace y --focus-follows-window",
 ]
 
+[[on-window-detected]]
+if.app-id="com.google.Chrome.app.cinhimbnkkaeohfgghhklpknlkffjgod"
+run= [
+  "move-node-to-workspace m --focus-follows-window",
+]
+
 [workspace-to-monitor-force-assignment]
 m = "secondary"
 y = "main"
