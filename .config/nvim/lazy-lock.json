@@ -86,6 +86,7 @@
   "treesj": { "branch": "main", "commit": "186084dee5e9c8eec40f6e39481c723dd567cb05" },
   "trouble.nvim": { "branch": "main", "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a" },
   "typescript-tools.nvim": { "branch": "master", "commit": "c2f5910074103705661e9651aa841e0d7eea9932" },
+  "unfurl.nvim": { "branch": "main", "commit": "db770155245d38b0f6de92d66abb562aa4909bf9" },
   "vim-firestore": { "branch": "master", "commit": "417d41ba56c54cb21fab1f4b01c8ba4deed6bbe0" },
   "vim-typo": { "branch": "main", "commit": "3222413963c4c03193ce104319f40fb01a86e260" },
   "vim-vsnip": { "branch": "master", "commit": "9bcfabea653abdcdac584283b5097c3f8760abaa" },
