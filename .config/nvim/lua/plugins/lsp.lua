@@ -51,6 +51,7 @@ return {
 
       vim.lsp.enable(ensure_installed)
       vim.lsp.enable({ 'atlas', 'actionlint', 'clang-format', 'yamlfmt', 'sourcekit', 'protols', 'eslint' })
+      vim.lsp.enable('zshcs')
     end,
   },
   {
