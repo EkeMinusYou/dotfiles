@@ -5,8 +5,7 @@ hide_agent_reasoning = true
 notify = ["bash", "-lc", "afplay /System/Library/Sounds/Ping.aiff"]
 model = "gpt-5.2-codex"
 
-[features]
-web_search_request = true
+web_search = true
 
 [projects."/Users/mineo/src/github.com/groove-x/lovot-hub"]
 trust_level = "trusted"
