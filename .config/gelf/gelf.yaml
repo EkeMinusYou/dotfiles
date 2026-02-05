@@ -11,3 +11,7 @@ commit:
 review:
   model: "pro"
   language: "japanese"
+
+pr:
+  model: "pro"
+  language: "japanese"
