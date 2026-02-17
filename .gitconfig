@@ -10,6 +10,8 @@
   path = ~/.gitconfig-os
 [includeIf "gitdir:~/src/github.com/groove-x/"]
   path = ~/.gitconfig-gx
+[includeIf "gitdir:~/worktrees/groove-x/"]
+  path = ~/.gitconfig-gx
 
 [core]
   editor = nvim
