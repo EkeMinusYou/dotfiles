@@ -8,8 +8,8 @@
 
 [include]
   path = ~/.gitconfig-os
-[includeIf "gitdir:~/src/github.com/global-mobility-service/"]
-  path = ~/.gitconfig-gms
+[includeIf "gitdir:~/src/github.com/groove-x/"]
+  path = ~/.gitconfig-gx
 
 [core]
   editor = nvim
