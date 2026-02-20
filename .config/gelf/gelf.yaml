@@ -1,6 +1,6 @@
 model:
   flash: "gemini-3-flash-preview"
-  pro: "gemini-3-pro-preview"
+  pro: "gemini-3.1-pro-preview"
 
 language: "english"
 
