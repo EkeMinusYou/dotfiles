@@ -140,6 +140,9 @@ link_path "$DOT_DIR/dotfiles/.codex/rules" "$HOME/.codex/rules"
 # aerospace
 link_path "$DOT_DIR/dotfiles/.config/aerospace" "$HOME/.config/aerospace"
 
+# octorus
+link_path "$DOT_DIR/dotfiles/.config/octorus" "$HOME/.config/octorus"
+
 if [ `uname` == 'Darwin' ]; then
   # yaskkserv2
   mkdir -p ~/.yaskkserv2/bin
