@@ -1,6 +1,7 @@
 [user]
   name = EkeMinusYou
   email = euonymuslke@gmail.com
+  signingkey = 7A9EB4A6C260A2ED
 [ghq]
   root = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents"
   root = ~/src
