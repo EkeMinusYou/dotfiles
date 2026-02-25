@@ -3,19 +3,23 @@ model_reasoning_effort = "xhigh"
 hide_agent_reasoning = true
 
 notify = ["bash", "-lc", "afplay /System/Library/Sounds/Ping.aiff"]
-model = "gpt-5.2-codex"
+model = "gpt-5.3-codex"
+personality = "friendly"
 
-web_search = true
+web_search = "cached"
 
-[projects."/Users/mineo/src/github.com/groove-x/lovot-hub"]
-trust_level = "trusted"
-
-[projects."/Users/mineo/src/github.com/bukumame/bukumame"]
-trust_level = "trusted"
-
-[projects."/Users/mineo/src/github.com/groove-x/lovot-svcs"]
-trust_level = "trusted"
+[features]
+unified_exec = true
+multi_agent = true
 
 [notice.model_migrations]
 "gpt-5.2" = "gpt-5.2-codex"
 "gpt-5.1-codex-max" = "gpt-5.2-codex"
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+
+# [mcp_servers.git-daisyui]
+# command = "npx"
+# args = ["mcp-remote", "https://gitmcp.io/saadeghi/daisyui"]
