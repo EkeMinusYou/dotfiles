@@ -78,6 +78,7 @@ y = "main"
 t = "main"
 s = "main"
 c = "secondary"
+f = "main"
 
 [mode.main.binding]
 # Music
@@ -90,6 +91,8 @@ cmd-alt-ctrl-shift-t = ["exec-and-forget open -a Ghostty"]
 cmd-alt-ctrl-shift-s = ["exec-and-forget open -a Slack"]
 # Chrome
 cmd-alt-ctrl-shift-c = ["exec-and-forget open -a 'Google Chrome'"]
+# Full
+cmd-alt-ctrl-shift-f = ["workspace f"]
 
 cmd-alt-ctrl-shift-z = '''exec-and-forget
 [ "$(SwitchAudioSource -c -t output -f json | jq -r '.uid')" = "88-0E-85-2E-6A-EA:output" ] \
