@@ -1,3 +1,7 @@
+vertex_ai:
+  project_id: "gx-vibe-coding"
+  location: "global"
+
 model:
   flash: "gemini-3-flash-preview"
   pro: "gemini-3.1-pro-preview"
