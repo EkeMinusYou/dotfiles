@@ -1,21 +1,17 @@
 vertex_ai:
-  project_id: "gx-vibe-coding"
-  location: "global"
-
+  project_id: 'gx-vibe-coding'
+  location: 'global'
 model:
-  flash: "gemini-3-flash-preview"
-  pro: "gemini-3.1-pro-preview"
-
-language: "english"
-
+  flash: 'gemini-3-flash-preview'
+  pro: 'gemini-3.1-pro-preview'
+language: 'english'
 commit:
-  model: "flash"
-  language: "english"
-
+  model: 'flash'
+  language: 'english'
 review:
-  model: "pro"
-  language: "japanese"
-
+  model: 'pro'
+  language: 'japanese'
 pr:
-  model: "pro"
-  language: "japanese"
+  model: 'pro'
+  title_language: 'english'
+  body_language: 'japanese'
