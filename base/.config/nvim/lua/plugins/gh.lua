@@ -8,6 +8,5 @@ local install = function(spec)
 end
 
 return {
-  { 'dlvhdr/gh-dash', build = { 'go build', install }, lazy = true },
   { 'seachicken/gh-poi', build = { 'go build', install }, lazy = true },
 }
