@@ -1,78 +1,158 @@
+local treesitter_languages = {
+  'go',
+  'hcl',
+  'javascript',
+  'styled',
+  'typescript',
+}
+
+local atlas_filetypes = {
+  'atlas-config',
+  'atlas-schema-mysql',
+  'atlas-schema-postgresql',
+  'atlas-schema-sqlite',
+  'atlas-schema-clickhouse',
+  'atlas-schema-mssql',
+  'atlas-schema-redshift',
+  'atlas-test',
+  'atlas-plan',
+}
+
+local function prefer_builtin_parser(lang)
+  local site_parser = vim.fs.joinpath(vim.fn.stdpath('data'), 'site', 'parser', lang .. '.so')
+  if vim.uv.fs_stat(site_parser) then
+    return
+  end
+
+  local parser_files = vim.api.nvim_get_runtime_file('parser/' .. lang .. '.so', true)
+  local builtin_parser
+  for _, path in ipairs(parser_files) do
+    if path:match('/lib/nvim/parser/[^/]+%.so$') then
+      builtin_parser = path
+      break
+    end
+  end
+
+  if not builtin_parser or parser_files[1] == builtin_parser then
+    return
+  end
+
+  vim.treesitter.language.add(lang, { path = builtin_parser })
+end
+
+local function start_treesitter(bufnr)
+  if vim.bo[bufnr].buftype ~= '' then
+    return
+  end
+
+  pcall(vim.treesitter.start, bufnr)
+end
+
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      'nvim-treesitter/nvim-treesitter-context',
-    },
     build = ':TSUpdate',
-    event = 'BufReadPost',
+    lazy = false,
     config = function()
-      -- atlas
+      local treesitter = require('nvim-treesitter')
+
+      prefer_builtin_parser('lua')
+      treesitter.install(treesitter_languages)
+
       -- See: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/atlas.lua
-      vim.treesitter.language.register('hcl', 'atlas-config')
-      vim.treesitter.language.register('hcl', 'atlas-schema-mysql')
-      vim.treesitter.language.register('hcl', 'atlas-schema-postgresql')
-      vim.treesitter.language.register('hcl', 'atlas-schema-sqlite')
-      vim.treesitter.language.register('hcl', 'atlas-schema-clickhouse')
-      vim.treesitter.language.register('hcl', 'atlas-schema-mssql')
-      vim.treesitter.language.register('hcl', 'atlas-schema-redshift')
-      vim.treesitter.language.register('hcl', 'atlas-test')
-      vim.treesitter.language.register('hcl', 'atlas-plan')
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup({
-        ensure_installed = {
-          'javascript',
-          'typescript',
-          'go',
-          'styled',
-        },
-        auto_install = true,
-        highlight = { enable = true },
+      vim.treesitter.language.register('hcl', atlas_filetypes)
 
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ['af'] = '@function.outer',
-              ['if'] = '@function.inner',
-              ['aa'] = '@parameter.outer',
-              ['ia'] = '@parameter.inner',
-            },
-          },
-          swap = {
-            enable = true,
-            swap_next = {
-              ['<leader>A'] = '@parameter.inner',
-            },
-            -- swap_previous = {
-            --   ['<leader>A'] = '@parameter.inner',
-            -- },
-          },
-        },
+      local group = vim.api.nvim_create_augroup('eke-treesitter-highlight', { clear = true })
+      vim.api.nvim_create_autocmd('FileType', {
+        group = group,
+        callback = function(args)
+          start_treesitter(args.buf)
+        end,
+      })
+      vim.api.nvim_create_autocmd('User', {
+        group = group,
+        pattern = 'TSUpdate',
+        callback = function()
+          for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+            start_treesitter(bufnr)
+          end
+        end,
+      })
+    end,
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    lazy = false,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      local textobjects = require('nvim-treesitter-textobjects')
+      local move = require('nvim-treesitter-textobjects.move')
+      local select = require('nvim-treesitter-textobjects.select')
+      local swap = require('nvim-treesitter-textobjects.swap')
 
+      textobjects.setup({
+        select = {
+          lookahead = true,
+        },
         move = {
-          enable = true,
           set_jumps = true,
-          goto_next_start = {
-            [']m'] = '@function.outer',
-            [']]'] = '@class.outer',
-          },
-          goto_next_end = {
-            [']M'] = '@function.outer',
-            [']['] = '@class.outer',
-          },
-          goto_previous_start = {
-            ['[m'] = '@function.outer',
-            ['[['] = '@class.outer',
-          },
-          goto_previous_end = {
-            ['[M'] = '@function.outer',
-            ['[]'] = '@class.outer',
-          },
         },
       })
+
+      vim.keymap.set({ 'x', 'o' }, 'af', function()
+        select.select_textobject('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'if', function()
+        select.select_textobject('@function.inner', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'aa', function()
+        select.select_textobject('@parameter.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'ia', function()
+        select.select_textobject('@parameter.inner', 'textobjects')
+      end)
+
+      vim.keymap.set('n', '<leader>A', function()
+        swap.swap_next('@parameter.inner')
+      end)
+
+      vim.keymap.set({ 'n', 'x', 'o' }, ']m', function()
+        move.goto_next_start('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, ']]', function()
+        move.goto_next_start('@class.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, ']M', function()
+        move.goto_next_end('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '][', function()
+        move.goto_next_end('@class.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '[m', function()
+        move.goto_previous_start('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '[[', function()
+        move.goto_previous_start('@class.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '[M', function()
+        move.goto_previous_end('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '[]', function()
+        move.goto_previous_end('@class.outer', 'textobjects')
+      end)
+    end,
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    event = 'BufReadPost',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('treesitter-context').setup({})
     end,
   },
   {
