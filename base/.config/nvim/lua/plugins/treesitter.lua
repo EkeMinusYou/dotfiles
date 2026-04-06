@@ -4,6 +4,7 @@ local treesitter_languages = {
   'javascript',
   'styled',
   'typescript',
+  'lua',
 }
 
 local atlas_filetypes = {
@@ -17,28 +18,6 @@ local atlas_filetypes = {
   'atlas-test',
   'atlas-plan',
 }
-
-local function prefer_builtin_parser(lang)
-  local site_parser = vim.fs.joinpath(vim.fn.stdpath('data'), 'site', 'parser', lang .. '.so')
-  if vim.uv.fs_stat(site_parser) then
-    return
-  end
-
-  local parser_files = vim.api.nvim_get_runtime_file('parser/' .. lang .. '.so', true)
-  local builtin_parser
-  for _, path in ipairs(parser_files) do
-    if path:match('/lib/nvim/parser/[^/]+%.so$') then
-      builtin_parser = path
-      break
-    end
-  end
-
-  if not builtin_parser or parser_files[1] == builtin_parser then
-    return
-  end
-
-  vim.treesitter.language.add(lang, { path = builtin_parser })
-end
 
 local function start_treesitter(bufnr)
   if vim.bo[bufnr].buftype ~= '' then
@@ -56,7 +35,6 @@ return {
     config = function()
       local treesitter = require('nvim-treesitter')
 
-      prefer_builtin_parser('lua')
       treesitter.install(treesitter_languages)
 
       -- See: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/atlas.lua
