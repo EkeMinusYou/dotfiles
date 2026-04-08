@@ -26,6 +26,11 @@ apply = ["defer"]
 github = "azu/ni.zsh"
 apply = ["defer"]
 
+[plugins.forgecode]
+github = "antinomyhq/forgecode"
+dir = "shell-plugin"
+apply = ["defer"]
+
 # [plugins.zeno]
 # github = "yuki-yano/zeno.zsh"
 # hooks.post = """
