@@ -5,6 +5,7 @@ local treesitter_languages = {
   'styled',
   'typescript',
   'lua',
+  'yaml',
 }
 
 local atlas_filetypes = {
