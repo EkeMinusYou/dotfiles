@@ -27,9 +27,7 @@ github = "azu/ni.zsh"
 apply = ["defer"]
 
 [plugins.forgecode]
-github = "antinomyhq/forgecode"
-dir = "shell-plugin"
-apply = ["defer"]
+inline = 'eval "$(forge zsh plugin)"'
 
 # [plugins.zeno]
 # github = "yuki-yano/zeno.zsh"
