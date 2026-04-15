@@ -34,7 +34,7 @@ return {
     build = ':TSUpdate',
     lazy = false,
     config = function()
-      require('nvim-treesitter.install').ensure_installed(treesitter_languages)
+      require('nvim-treesitter').install(treesitter_languages)
 
       -- See: https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/atlas.lua
       vim.treesitter.language.register('hcl', atlas_filetypes)
