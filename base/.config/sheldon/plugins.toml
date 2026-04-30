@@ -17,6 +17,7 @@ github = 'zsh-users/zsh-completions'
 
 [plugins.zsh-autocomplete]
 github = 'marlonrichert/zsh-autocomplete'
+tag = "24.09.04"
 
 [plugins.jq-zsh-plugin]
 github = "reegnz/jq-zsh-plugin"
