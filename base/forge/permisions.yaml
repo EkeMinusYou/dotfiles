@@ -1,0 +1,8 @@
+policies:
+  - permission: allow
+    rule:
+      read: "**/*"
+      write: "**/*"
+  - permission: deny
+    rule:
+      command: "rm*"
