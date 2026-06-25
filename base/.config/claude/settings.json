@@ -74,7 +74,6 @@
       "Bash(sudo chown:*)",
       "Bash(sudo -i:*)",
       "Bash(sudo su:*)",
-      "Bash(curl:*)",
       "Bash(rm -rf .git)",
       "Bash(git push --force-with-lease origin main)",
       "Bash(git push -f origin main)",
@@ -126,6 +125,7 @@
       "Write(/etc/shadow)",
       "Write(/etc/sudoers)"
     ],
+    "defaultMode": "auto",
     "additionalDirectories": [
       "~/go/"
     ]
@@ -153,9 +153,29 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"/Users/mineo/.config/claude/hooks/context-mode-cache-heal.mjs\""
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
-  }
+    "gopls-lsp@claude-plugins-official": true,
+    "context-mode@context-mode": true
+  },
+  "extraKnownMarketplaces": {
+    "context-mode": {
+      "source": {
+        "source": "github",
+        "repo": "mksglu/context-mode"
+      }
+    }
+  },
+  "skipAutoPermissionPrompt": true
 }
