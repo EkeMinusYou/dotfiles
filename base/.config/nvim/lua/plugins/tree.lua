@@ -77,8 +77,8 @@ return {
           custom = {
             '^\\.git$',
             'node_modules',
-            '\\.pb\\.go',
-            '\\.pb\\.gw\\.go',
+            -- '\\.pb\\.go',
+            -- '\\.pb\\.gw\\.go',
             'apidocs\\.swagger\\.json',
             'package-lock\\.json',
             '\\.gitkeep',

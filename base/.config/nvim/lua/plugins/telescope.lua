@@ -158,9 +158,9 @@ return {
           file_ignore_patterns = {
             'node_modules/',
             '^.git/',
-            '%.pb.go',
-            '%.gen.go',
-            '%.gw.go',
+            -- '%.pb.go',
+            -- '%.gen.go',
+            -- '%.gw.go',
           },
           sorting_strategy = 'ascending',
           layout_strategy = 'horizontal',
