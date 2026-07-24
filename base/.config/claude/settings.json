@@ -130,7 +130,6 @@
       "~/go/"
     ]
   },
-  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -177,5 +176,6 @@
       }
     }
   },
+  "tui": "default",
   "skipAutoPermissionPrompt": true
 }
