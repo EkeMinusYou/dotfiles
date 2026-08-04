@@ -118,7 +118,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Glass.aiff"
+            "command": "jq -e '.agent_id' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff"
           }
         ]
       }
@@ -129,7 +129,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Glass.aiff"
+            "command": "jq -e '.agent_id' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff"
           }
         ]
       }
