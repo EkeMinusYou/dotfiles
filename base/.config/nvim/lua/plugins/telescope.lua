@@ -72,7 +72,6 @@ return {
       { dir = '~/.config/nvim/lua/internal/telescope-ghq.nvim' },
       { 'rcarriga/nvim-notify' },
       { 'prochri/telescope-all-recent.nvim' },
-      { 'ThePrimeagen/refactoring.nvim' },
     },
     lazy = true,
     cmd = {
@@ -211,7 +210,6 @@ return {
       telescope.load_extension('aerial')
       telescope.load_extension('ui-select')
       telescope.load_extension('notify')
-      telescope.load_extension('refactoring')
       -- local
       telescope.load_extension('ghq')
 
