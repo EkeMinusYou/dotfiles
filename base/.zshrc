@@ -248,6 +248,9 @@ export PATH=$HOME/.yaskkserv2/bin:$PATH
 # goose
 export PATH=$HOME/.local/bin:$PATH
 
+# codex
+export CODEX_HOME=$XDG_CONFIG_HOME/codex
+
 # claude
 alias devclaude="devcontainer up --workspace-folder . --config ~/.config/devcontainer/claude/devcontainer.json && devcontainer exec --workspace-folder . --config ~/.config/devcontainer/claude/devcontainer.json claude"
 export CLAUDE_CONFIG_DIR=~/.config/claude
