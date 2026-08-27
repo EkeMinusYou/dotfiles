@@ -66,6 +66,13 @@ get_os_package() {
   fi
 }
 
+# Codex writes runtime state (auth.json, sqlite, sessions) into CODEX_HOME.
+# Without a real directory here stow folds the whole tree into a single symlink
+# back to the repo, and that state would land under version control.
+prepare_stow_dirs() {
+  mkdir -p "$HOME/.config/codex" "$HOME/.config/codex-zai"
+}
+
 apply_stow_packages() {
   local os_package="$1"
   stow -v -d "$DOT_REPO" -t "$HOME" base "$os_package"
@@ -112,6 +119,7 @@ main() {
   prepare_repo
   local os_package
   os_package="$(get_os_package)"
+  prepare_stow_dirs
   apply_stow_packages "$os_package"
 
   mkdir -p "$HOME/.zsh/scripts"
