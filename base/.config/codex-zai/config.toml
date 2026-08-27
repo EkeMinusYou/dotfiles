@@ -1,12 +1,11 @@
+model_provider = "ZAI"
+model = "glm-5.3"
+model_reasoning_effort = "high"
+model_catalog_json = "~/.config/codex-zai/models.json"
+
 network_access = true
-model_reasoning_effort = "max"
 hide_agent_reasoning = true
-model = "gpt-5.6-luna"
 
-[tui]
-terminal_title = ["thread"]
-
-model = "gpt-5.6-luna"
 personality = "friendly"
 
 web_search = "cached"
@@ -19,10 +18,8 @@ approvals_reviewer = "auto_review"
 
 default_permissions = "workspace-with-network"
 
-model_provider = "ZAI"
-model = "glm-5.3"
-model_reasoning_effort = "max"
-model_catalog_json = "~/.codex/models.json"
+[tui]
+terminal_title = ["thread"]
 
 [model_providers.ZAI]
 name = "ZAI"
@@ -131,3 +128,6 @@ enabled = true
 
 [hooks.state."/Users/mineo/.codex/hooks.json:session_start:0:0"]
 trusted_hash = "sha256:5d50cfb0b15e8f990d7558fe6da49166ad1de486aad8f67b9432874645f8d66d"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-01"]
+trust_level = "trusted"
