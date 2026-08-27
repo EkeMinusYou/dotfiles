@@ -85,6 +85,7 @@ return {
             '\\.terraform',
             '\\.DS_Store',
             '\\.db',
+            '.\\.tmp',
           },
         },
         view = {
