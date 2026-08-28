@@ -12,6 +12,8 @@ shell-integration-features = no-cursor
 
 theme = catppuccin-mocha
 background = #11111b
+background-opacity = 0.70
+background-blur-radius = 10
 
 macos-titlebar-style = tabs
 window-padding-x = 20
