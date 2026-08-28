@@ -11,7 +11,7 @@ personality = "friendly"
 web_search = "cached"
 suppress_unstable_features_warning = true
 
-notify = ["/Users/mineo/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended", "--previous-notify", "[\"bash\",\"-lc\",\"afplay \\/System\\/Library\\/Sounds\\/Ping.aiff\"]"]
+notify = ["/Users/mineo/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended", "--previous-notify", "[\"bash\",\"-lc\",\"true\"]"]
 
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"

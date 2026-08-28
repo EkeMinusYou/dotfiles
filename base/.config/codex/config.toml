@@ -1,13 +1,13 @@
 network_access = true
-model_reasoning_effort = "max"
+model_reasoning_effort = "medium"
 hide_agent_reasoning = true
-model = "gpt-5.6-luna"
+model = "gpt-5.6-sol"
 personality = "friendly"
 
 web_search = "cached"
 suppress_unstable_features_warning = true
 
-notify = ["/Users/mineo/.config/codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended", "--previous-notify", "[\"bash\",\"-lc\",\"afplay \\/System\\/Library\\/Sounds\\/Ping.aiff\"]"]
+notify = ["/Users/mineo/.config/codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended", "--previous-notify", "[\"bash\",\"-lc\",\"true\"]"]
 
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
