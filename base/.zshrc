@@ -258,6 +258,9 @@ export CLAUDE_CONFIG_DIR=~/.config/claude
 # difit
 alias difit="bunx difit"
 
+# codex
+alias cx="codex"
+
 # -------------------
 # Functions
 # -------------------
