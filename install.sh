@@ -66,16 +66,37 @@ get_os_package() {
   fi
 }
 
-# Codex writes runtime state (auth.json, sqlite, sessions) into CODEX_HOME.
-# Without a real directory here stow folds the whole tree into a single symlink
-# back to the repo, and that state would land under version control.
+# Codex and Worktrunk use their config directories for local state.
+# Keep these directories real so stow does not link runtime files into the repo.
 prepare_stow_dirs() {
-  mkdir -p "$HOME/.config/codex" "$HOME/.config/codex-zai" "$HOME/.config/codex-gx"
+  mkdir -p "$HOME/.config/codex" "$HOME/.config/codex-zai" "$HOME/.config/codex-gx" "$HOME/.config/worktrunk"
+}
+
+prepare_claude_skills_dir() {
+  local repo_skills="$DOT_REPO/base/.config/claude/skills"
+  local user_skills="$HOME/.config/claude/skills"
+
+  if [ -L "$user_skills" ]; then
+    if [ "$(cd "$user_skills" && pwd -P)" != "$(cd "$repo_skills" && pwd -P)" ]; then
+      log "cannot migrate skills symlink pointing outside this repo: $user_skills"
+      exit 1
+    fi
+    rm "$user_skills"
+  fi
+
+  mkdir -p "$user_skills"
+  if [ -e "$repo_skills/synced" ] || [ -L "$repo_skills/synced" ]; then
+    if [ -e "$user_skills/synced" ] || [ -L "$user_skills/synced" ]; then
+      log "cannot move synced skills: destination already exists: $user_skills/synced"
+      exit 1
+    fi
+    mv "$repo_skills/synced" "$user_skills/synced"
+  fi
 }
 
 apply_stow_packages() {
   local os_package="$1"
-  stow -v -d "$DOT_REPO" -t "$HOME" base "$os_package"
+  stow -v --ignore='(^|/)\.DS_Store$' -d "$DOT_REPO" -t "$HOME" base "$os_package"
 }
 
 link_path() {
@@ -120,6 +141,7 @@ main() {
   local os_package
   os_package="$(get_os_package)"
   prepare_stow_dirs
+  prepare_claude_skills_dir
   apply_stow_packages "$os_package"
 
   mkdir -p "$HOME/.zsh/scripts"

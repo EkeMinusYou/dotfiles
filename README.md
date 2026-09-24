@@ -33,3 +33,15 @@ brew bundle --file "$HOME/src/github.com/EkeMinusYou/dotfiles/Brewfile"
 
 - zsh - shell
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
+
+### Worktrees
+
+Worktrunk creates worktrees under `~/worktrees/<owner>/<repo>/<branch>/`, with `/` in branch names replaced by `-`. Shell integration enables directory switching and completion. `Ctrl-X` searches worktrees across repositories.
+
+```bash
+wt switch --create feature/new-ui
+wt switch feature/new-ui
+wt remove feature/new-ui
+```
+
+When a repository has `.worktreeinclude`, the post-start hook copies matching gitignored files from its primary worktree. Without that file, it copies nothing.

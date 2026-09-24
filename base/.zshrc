@@ -167,10 +167,11 @@ alias ghb="gh browse"
 alias ghpw="gh pr view --web"
 alias ghpc="gh pr create"
 
-# gwq
-alias gw="gwq"
-alias gwa="gwq add"
-alias gwr="gwq remove"
+# Worktrunk
+alias wts="wt switch --create"
+if (( $+commands[wt] )); then
+  eval "$(wt config shell init zsh)"
+fi
 
 # Kubernetes
 alias k="kubectl"
@@ -321,7 +322,7 @@ bindkey "^y" paste-as-yank
 
 # See: https://sushichan044.hateblo.jp/entry/2025/06/06/003325
 function fzf-worktree() {
-  local src=$(gwq list -g --json  | jq '.[].path' -r | fzf \
+  local src=$(fd --hidden --no-ignore --type f --max-depth 4 '^\.git$' "$HOME/worktrees" | sed 's#/.git$##' | fzf \
     --preview "echo '📦 Branch:' && git -C {1} branch --show-current && echo '' && echo '📝 Changed files:' && git -C {1} status --porcelain | head -10 && echo '' && echo '📚 Recent commits:' && git -C {1} log --oneline --decorate -10")
   if [ -n "$src" ]; then
     BUFFER="cd \"$src\""

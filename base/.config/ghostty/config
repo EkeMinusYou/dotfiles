@@ -12,8 +12,8 @@ shell-integration-features = no-cursor
 
 theme = catppuccin-mocha
 background = #11111b
-background-opacity = 0.70
-background-blur-radius = 10
+background-opacity = 1
+background-blur-radius = 0
 
 macos-titlebar-style = tabs
 window-padding-x = 20
@@ -43,7 +43,7 @@ keybind = ctrl+shift+w=resize_split:up,40
 keybind = ctrl+shift+d=resize_split:right,40
 keybind = ctrl+shift+n=next_tab
 keybind = ctrl+shift+p=previous_tab
-keybind = ctrl+shift+x=close_tab
+# keybind = ctrl+shift+x=close_tab
 keybind = performable:alt+c=copy_to_clipboard
 keybind = performable:alt+v=paste_from_clipboard
 keybind = ctrl+shift+minus=increase_font_size:1

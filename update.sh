@@ -10,7 +10,6 @@ kubectl completion zsh > ~/.zsh/fpath/_kubectl
 atlas completion zsh > ~/.zsh/fpath/_atlas
 docker completion zsh > ~/.zsh/fpath/_docker
 soracom completion zsh > ~/.zsh/fpath/_soracom
-gwq completion zsh > ~/.zsh/fpath/_gwq
 codex completion zsh > ~/.zsh/fpath/_codex
 
 # scripts

@@ -1,0 +1,7 @@
+worktree-path = "~/worktrees/{{ owner }}/{{ repo }}/{{ branch | sanitize }}"
+
+[post-start]
+copy-ignored = "wt step copy-ignored --require-include"
+
+[commit.generation]
+command = "MAX_THINKING_TOKENS=0 claude -p --no-session-persistence --model=haiku --tools='' --safe-mode --setting-sources='user' --system-prompt=''"
