@@ -70,7 +70,7 @@ get_os_package() {
 # Without a real directory here stow folds the whole tree into a single symlink
 # back to the repo, and that state would land under version control.
 prepare_stow_dirs() {
-  mkdir -p "$HOME/.config/codex" "$HOME/.config/codex-zai"
+  mkdir -p "$HOME/.config/codex" "$HOME/.config/codex-zai" "$HOME/.config/codex-gx"
 }
 
 apply_stow_packages() {
