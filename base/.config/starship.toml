@@ -8,7 +8,7 @@ truncate_to_repo = false
 
 [directory.substitutions]
 '~/src/github.com' = '/s'
-'~worktrees/github.com' = '/w'
+'~/worktrees' = '/w'
 
 [character]
 success_symbol = "[➜](bold green)"
