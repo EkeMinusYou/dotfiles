@@ -64,3 +64,6 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[credential "https://gitea.groove-x.io"]
+	helper = cache --timeout 21600
+	helper = oauth
