@@ -83,8 +83,6 @@
       "Bash(deno publish:*)",
       "Bash(terraform:*)",
       "Bash(make deploy:*)",
-      "Bash(python:*)",
-      "Bash(python3:*)",
       "Edit(/etc/**)",
       "Edit(/usr/**)",
       "Edit(/var/**)",
