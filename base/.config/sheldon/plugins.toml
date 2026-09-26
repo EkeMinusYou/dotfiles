@@ -27,9 +27,6 @@ apply = ["defer"]
 github = "azu/ni.zsh"
 apply = ["defer"]
 
-[plugins.forgecode]
-inline = 'eval "$(forge zsh plugin)"'
-
 # [plugins.zeno]
 # github = "yuki-yano/zeno.zsh"
 # hooks.post = """
