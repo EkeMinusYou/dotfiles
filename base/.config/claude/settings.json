@@ -66,6 +66,7 @@
       "Bash(dd:*)",
       "Bash(mkfs:*)",
       "Bash(fdisk:*)",
+      "Bash(gcloud:*)",
       "Bash(> /dev/*)",
       "Bash(>> /dev/*)",
       "Bash(chmod 777 /*)",
@@ -117,7 +118,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -e '.notification_type == \"agent_completed\" or .notification_type == \"agent_needs_input\"' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff"
+            "command": "jq -e '.notification_type == \"agent_completed\" or .notification_type == \"agent_needs_input\"' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 || true"
           }
         ]
       }
@@ -128,7 +129,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -e '.agent_id' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff"
+            "command": "jq -e '.agent_id' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 || true"
           }
         ]
       }
