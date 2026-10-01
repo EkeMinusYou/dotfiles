@@ -1,7 +1,6 @@
-network_access = true
-model_reasoning_effort = "medium"
+model_reasoning_effort = "high"
 hide_agent_reasoning = true
-model = "gpt-5.6-sol"
+model = "gpt-6.1-sol"
 personality = "friendly"
 
 web_search = "cached"
@@ -13,10 +12,21 @@ approval_policy = "on-request"
 approvals_reviewer = "auto_review"
 
 default_permissions = "workspace-with-network"
-service_tier = "default"
+service_tier = "fast"
 
 [tui]
 terminal_title = ["thread"]
+session_picker_view = "dense"
+screen_reader_detection_done = true
+status_line = ["model-with-reasoning", "thread-name", "project-name", "weekly-limit"]
+status_line_use_colors = true
+resume_cwd = "current"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+gpt-6-astra = 4
+"gpt-6.1-sol" = 4
 
 [permissions.workspace-with-network]
 description = "Workspace editing with network access"
@@ -24,6 +34,7 @@ extends = ":workspace"
 
 [permissions.workspace-with-network.workspace_roots]
 "/Users/mineo/Library/Caches" = true
+"/Users/mineo/go/pkg/mod" = true
 
 [permissions.workspace-with-network.filesystem.":workspace_roots"]
 "." = "write"
@@ -35,10 +46,15 @@ enabled = true
 unified_exec = true
 hooks = true
 js_repl = false
+multi_agent_v2.min_wait_timeout_ms = 120000
+multi_agent_v2.default_wait_timeout_ms = 120000
+
+[features.context_management]
+experimental_mode = true
 
 [agents]
-max_threads = 6
-max_depth = 2
+enabled = true
+max_concurrent_threads_per_session = 6
 
 [notice]
 hide_rate_limit_model_nudge = true
@@ -47,10 +63,7 @@ fast_default_opt_out = true
 [notice.model_migrations]
 "gpt-5.2" = "gpt-5.2-codex"
 "gpt-5.1-codex-max" = "gpt-5.2-codex"
-
-[mcp_servers.context7]
-command = "npx"
-args = ["-y", "@upstash/context7-mcp"]
+"gpt-5.6-luna" = "gpt-6-luna"
 
 [mcp_servers.node_repl]
 command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
