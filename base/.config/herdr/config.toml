@@ -72,8 +72,13 @@ split_horizontal = "prefix+s"
 new_tab = "prefix+n"
 settings = "prefix+comma"
 close_pane = "prefix+c"
-next_tab = "prefix+]"
-previous_tab = "prefix+["
+next_tab = ["prefix+]", "prefix+ctrl+]"]
+previous_tab = ["prefix+[", "prefix+ctrl+["]
+copy_mode = "prefix+y"
+focus_pane_left = ["prefix+h", "prefix+ctrl+h"]
+focus_pane_down = ["prefix+j", "prefix+ctrl+j"]
+focus_pane_up = ["prefix+k", "prefix+ctrl+k"]
+focus_pane_right = ["prefix+l", "prefix+ctrl+l"]
 
 # Prefix-mode actions
 # help = "prefix+?"
