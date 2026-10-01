@@ -116,17 +116,13 @@ link_path() {
 }
 
 setup_macos_extras() {
-  mkdir -p "$HOME/.yaskkserv2/bin"
-  local yaskkserv2_version="0.1.7"
-  local yaskkserv2_archive="yaskkserv2-$yaskkserv2_version-x86_64-apple-darwin.tar.gz"
-  local archive_path="/tmp/$yaskkserv2_archive"
-
-  curl -L -o "$archive_path" "https://github.com/wachikun/yaskkserv2/releases/download/$yaskkserv2_version/$yaskkserv2_archive"
-  tar -xzf "$archive_path" -C "$HOME/.yaskkserv2" --strip-components=1
-  mv "$HOME/.yaskkserv2/yaskkserv2" "$HOME/.yaskkserv2/bin/yaskkserv2"
-  mv "$HOME/.yaskkserv2/yaskkserv2_make_dictionary" "$HOME/.yaskkserv2/bin/yaskkserv2_make_dictionary"
+  # 公式リリースに arm64 版がないためソースからビルドする
+  if ! command -v cargo >/dev/null 2>&1; then
+    brew install rust
+  fi
+  cargo install --locked --force --git https://github.com/wachikun/yaskkserv2 --root "$HOME/.yaskkserv2" \
+    --bin yaskkserv2 --bin yaskkserv2_make_dictionary
   cp "$DOT_REPO/macSKK/dictionary.yaskkserv2" "$HOME/.yaskkserv2/dictionary.yaskkserv2"
-  rm -f "$archive_path"
 
   link_path "$DOT_REPO/macSKK/kana-rule.conf" "$HOME/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf"
   link_path "$HOME/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8" "$HOME/.skk/skk-jisyo.utf8"
