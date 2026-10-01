@@ -129,6 +129,9 @@ alias ls="lsd"
 alias v="nvim"
 alias vim="nvim"
 
+# herdr
+alias hd="herdr"
+
 # Default Editor
 export EDITOR=$HOMEBREW_PREFIX/bin/nvim
 

@@ -64,7 +64,16 @@ onboarding = false
 # Named punctuation such as minus, comma, ampersand, plus, and backtick is also accepted.
 # Most reliable direct bindings are ctrl+letter, function keys, and explicit modified chords.
 # alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
-prefix = "ctrl+l"
+prefix = "ctrl+s"
+
+# Ghostty と並行利用するため prefix のみで操作する
+split_vertical = "prefix+v"
+split_horizontal = "prefix+s"
+new_tab = "prefix+n"
+settings = "prefix+comma"
+close_pane = "prefix+c"
+next_tab = "prefix+]"
+previous_tab = "prefix+["
 
 # Prefix-mode actions
 # help = "prefix+?"
@@ -205,7 +214,7 @@ prefix = "ctrl+l"
 
 # Ask for a tab name before creating a new tab.
 # Set false to create tabs immediately with generated names.
-# prompt_new_tab_name = true
+prompt_new_tab_name = false
 
 # Ask for a workspace name before interactive creation.
 # prompt_new_workspace_name = false
