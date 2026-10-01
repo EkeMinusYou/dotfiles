@@ -243,7 +243,7 @@ prompt_new_tab_name = false
 
 # Hide the tab row when a workspace has exactly one tab.
 # New tabs can still be created with the configured keybinding.
-# hide_tab_bar_when_single_tab = false
+hide_tab_bar_when_single_tab = true
 
 # Desktop tab row placement: "top" or "bottom".
 # tab_bar_position = "top"
