@@ -115,6 +115,41 @@ link_path() {
   ln -s "$src" "$dst"
 }
 
+# plist では ~ が展開されないため $HOME を埋め込んで生成する
+setup_yaskkserv2_launch_agent() {
+  local label="com.github.wachikun.yaskkserv2"
+  local plist="$HOME/Library/LaunchAgents/$label.plist"
+
+  mkdir -p "$(dirname "$plist")"
+  cat >"$plist" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>$label</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>$HOME/.yaskkserv2/bin/yaskkserv2</string>
+    <string>--no-daemonize</string>
+    <string>--google-suggest</string>
+    <string>--google-cache-filename=$HOME/.yaskkserv2/yaskkserv2.cache</string>
+    <string>$HOME/.yaskkserv2/dictionary.yaskkserv2</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardErrorPath</key>
+  <string>$HOME/.yaskkserv2/yaskkserv2.log</string>
+</dict>
+</plist>
+EOF
+
+  launchctl bootout "gui/$(id -u)/$label" 2>/dev/null || true
+  launchctl bootstrap "gui/$(id -u)" "$plist"
+}
+
 setup_macos_extras() {
   # 公式リリースに arm64 版がないためソースからビルドする
   if ! command -v cargo >/dev/null 2>&1; then
@@ -123,6 +158,7 @@ setup_macos_extras() {
   cargo install --locked --force --git https://github.com/wachikun/yaskkserv2 --root "$HOME/.yaskkserv2" \
     --bin yaskkserv2 --bin yaskkserv2_make_dictionary
   cp "$DOT_REPO/macSKK/dictionary.yaskkserv2" "$HOME/.yaskkserv2/dictionary.yaskkserv2"
+  setup_yaskkserv2_launch_agent
 
   link_path "$DOT_REPO/macSKK/kana-rule.conf" "$HOME/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf"
   link_path "$HOME/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8" "$HOME/.skk/skk-jisyo.utf8"
