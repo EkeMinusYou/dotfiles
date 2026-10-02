@@ -118,7 +118,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -e '.notification_type == \"agent_completed\" or .notification_type == \"agent_needs_input\"' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 || true"
+            "command": "[ -n \"$HERDR_PANE_ID\" ] || jq -e '.notification_type == \"agent_completed\" or .notification_type == \"agent_needs_input\"' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 || true"
           }
         ]
       }
@@ -129,7 +129,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -e '.agent_id' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 || true"
+            "command": "[ -n \"$HERDR_PANE_ID\" ] || jq -e '.agent_id' >/dev/null 2>&1 || afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 || true"
           }
         ]
       }
@@ -144,7 +144,7 @@
         ]
       },
       {
-        "matcher": "*",
+        "matcher": "^(startup|resume|clear|compact|fork)$",
         "hooks": [
           {
             "type": "command",
