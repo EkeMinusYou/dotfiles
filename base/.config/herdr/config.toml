@@ -368,13 +368,15 @@ hide_tab_bar_when_single_tab = true
 # accent = "cyan"
 
 # Background notification popup delivery
+status_indicators = "dots"
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
 # terminal = ask the outer terminal to show a desktop notification
 # system = ask the OS notification service directly
 delivery = "herdr"
-# delay_seconds = 1
+# 既定は 1。codex が Reduce Motion 下で一瞬 done 判定されても鳴らないよう待つ
+delay_seconds = 5
 
 [ui.toast.herdr]
 # position = "bottom-right"
