@@ -203,16 +203,16 @@ command = "annotate.open"
 description = "review documents in this folder"
 
 [[keys.command]]
-key = "prefix+shift+o"
+key = "prefix+p"
 type = "plugin_action"
-command = "annotate.last"
-description = "review the agent's last reply"
+command = "annotate.last-newest"
+description = "review the agent's newest reply"
 
 [[keys.command]]
 key = "prefix+ctrl+o"
 type = "plugin_action"
-command = "annotate.last-newest"
-description = "review the agent's newest reply"
+command = "annotate.last"
+description = "review the agent's last reply"
 
 [[keys.command]]
 key = "prefix+t"
