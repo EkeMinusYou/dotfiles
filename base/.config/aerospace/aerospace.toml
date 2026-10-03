@@ -62,6 +62,12 @@ run= [
 ]
 
 [[on-window-detected]]
+if.app-id="dev.pencil.desktop"
+run= [
+  "move-node-to-workspace p --focus-follows-window",
+]
+
+[[on-window-detected]]
 if.app-id="com.google.Chrome.app.agimnkijcaahngcdmfeangaknmldooml"
 run= [
   "move-node-to-workspace y --focus-follows-window",
@@ -80,6 +86,7 @@ t = "main"
 s = "main"
 c = "secondary"
 f = "main"
+p = "main"
 
 [mode.main.binding]
 # Music
@@ -92,6 +99,8 @@ cmd-alt-ctrl-shift-t = ["exec-and-forget open -a Ghostty"]
 cmd-alt-ctrl-shift-s = ["exec-and-forget open -a Slack"]
 # Chrome
 cmd-alt-ctrl-shift-c = ["exec-and-forget open -a 'Google Chrome'"]
+# Pen
+cmd-alt-ctrl-shift-p = ["exec-and-forget open -a 'Pen'"]
 # Full
 cmd-alt-ctrl-shift-f = ["workspace f"]
 
