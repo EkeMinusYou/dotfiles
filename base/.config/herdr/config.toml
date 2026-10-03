@@ -377,7 +377,7 @@ status_indicators = "dots"
 # system = ask the OS notification service directly
 delivery = "herdr"
 # 既定は 1。codex が Reduce Motion 下で一瞬 done 判定されても鳴らないよう待つ
-delay_seconds = 5
+delay_seconds = 3
 
 [ui.toast.herdr]
 # position = "bottom-right"
