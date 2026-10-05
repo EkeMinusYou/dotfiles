@@ -58,6 +58,30 @@ autoload -Uz chpwd_recent_dirs cdr
 add-zsh-hook chpwd chpwd_recent_dirs
 
 # -------------------
+# herdr Workspace Label
+# -------------------
+# herdr は worktree だと worktree のディレクトリ名をワークスペース名にするので、元のリポジトリ名に揃える
+# 通常のリポジトリでは herdr の自動命名に任せ、一度 rename した shell だけ以降も追従させる
+_herdr_sync_workspace_label() {
+  [[ -n $HERDR_WORKSPACE_ID ]] || return
+  local -a dirs
+  dirs=("${(@f)$(git rev-parse --path-format=absolute --git-common-dir --show-toplevel 2>/dev/null)}")
+  (( ${#dirs} == 2 )) || return
+  local common=$dirs[1] top=$dirs[2] name
+  if [[ ${common:t} == .git ]]; then
+    name=${common:h:t}
+  else
+    name=${${common:t}%.git}
+  fi
+  [[ $common == $top/.git && -z $_herdr_workspace_label ]] && return
+  [[ $name == $_herdr_workspace_label ]] && return
+  _herdr_workspace_label=$name
+  herdr workspace rename "$HERDR_WORKSPACE_ID" "$name" >/dev/null 2>&1 &!
+}
+add-zsh-hook chpwd _herdr_sync_workspace_label
+_herdr_sync_workspace_label
+
+# -------------------
 # Other Settings
 # -------------------
 
