@@ -371,14 +371,14 @@ hide_tab_bar_when_single_tab = true
 # Background notification popup delivery
 status_indicators = "dots"
 
-# 既定に作業内容(terminal_title_stripped)と状態の文字表示(state_text)を足す
+# 既定に作業内容(terminal_title_stripped)を足す
 [ui.sidebar.agents]
-rows = [["state_icon", "machine", "workspace", "tab"], ["terminal_title_stripped"], ["agent", "state_text"]]
+rows = [["state_icon", "machine", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
 
 # agent 名を agent ごとに色分けする(catppuccin の peach / blue)
 [ui.sidebar.agents.rows_by_agent]
-claude = [["state_icon", "machine", "workspace", "tab"], ["terminal_title_stripped"], [{ token = "agent", fg = "#fab387" }, "state_text"]]
-codex = [["state_icon", "machine", "workspace", "tab"], ["terminal_title_stripped"], [{ token = "agent", fg = "#89b4fa" }, "state_text"]]
+claude = [["state_icon", "machine", "workspace", "tab"], ["terminal_title_stripped"], [{ token = "agent", fg = "#fab387" }]]
+codex = [["state_icon", "machine", "workspace", "tab"], ["terminal_title_stripped"], [{ token = "agent", fg = "#89b4fa" }]]
 
 # 既定から git_status(ahead/behind 数) を外す
 [ui.sidebar.spaces]
