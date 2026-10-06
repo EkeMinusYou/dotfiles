@@ -82,7 +82,7 @@
       "Bash(npm publish:*)",
       "Bash(cargo publish:*)",
       "Bash(deno publish:*)",
-      "Bash(terraform:*)",
+      "Bash(terraform apply:*)",
       "Bash(make deploy:*)",
       "Edit(/etc/**)",
       "Edit(/usr/**)",
