@@ -136,14 +136,6 @@
     ],
     "SessionStart": [
       {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"/Users/mineo/.config/claude/hooks/context-mode-cache-heal.mjs\""
-          }
-        ]
-      },
-      {
         "matcher": "^(startup|resume|clear|compact|fork)$",
         "hooks": [
           {
@@ -157,17 +149,8 @@
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
-    "context-mode@context-mode": true,
     "swift-lsp@claude-plugins-official": true
   },
-  "extraKnownMarketplaces": {
-    "context-mode": {
-      "source": {
-        "source": "github",
-        "repo": "mksglu/context-mode"
-      }
-    }
-  },
-  "tui": "default",
+  "tui": "fullscreen",
   "skipAutoPermissionPrompt": true
 }
