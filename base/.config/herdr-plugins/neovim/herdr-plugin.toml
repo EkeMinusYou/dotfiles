@@ -1,0 +1,15 @@
+# keys.command の popup はタイトルが "popup" 固定のため、タイトルを指定できるプラグインペインで nvim を開く
+id = "neovim"
+name = "Neovim"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Open nvim in a titled popup."
+platforms = ["macos", "linux"]
+
+[[panes]]
+id = "nvim"
+title = "neovim"
+placement = "popup"
+width = "100%"
+height = "100%"
+command = ["nvim"]
