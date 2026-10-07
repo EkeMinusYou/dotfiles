@@ -1,6 +1,14 @@
 registries:
   - type: standard
     ref: v4.269.0 # renovate: depName=aquaproj/aqua-registry
+  # GROOVE X の社内レジストリ。private なので `aqua token set` で GitHub トークンを保存しておく。
+  # タグが無いのでコミットハッシュで固定する。
+  - name: groove-x
+    type: github_content
+    repo_owner: groove-x
+    repo_name: aqua-registry
+    ref: 0945f33d85cf9600782c3441cd6e9244f3884f15
+    path: registry.yaml
 packages:
   - name: nodejs/node@v24.15.0
   - name: coder3101/protols@0.8.0
