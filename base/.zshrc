@@ -248,6 +248,8 @@ alias tfa="terraform apply"
 alias tfs="terraform state"
 export TF_CLI_ARGS_plan="--parallelism=30"
 export TF_CLI_ARGS_apply="--parallelism=30"
+export TF_PLUGIN_CACHE_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/terraform/plugin-cache
+[[ -d $TF_PLUGIN_CACHE_DIR ]] || mkdir -p $TF_PLUGIN_CACHE_DIR
 
 # Go
 export GOPATH=$HOME/go
