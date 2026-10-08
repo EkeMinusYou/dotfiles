@@ -6,6 +6,7 @@ atlas completion zsh > ~/.zsh/fpath/_atlas
 docker completion zsh > ~/.zsh/fpath/_docker
 soracom completion zsh > ~/.zsh/fpath/_soracom
 codex completion zsh > ~/.zsh/fpath/_codex
+gxcloud completion zsh > ~/.zsh/fpath/_gxcloud
 
 # scripts
 direnv hook zsh > ~/.zsh/scripts/_direnv
