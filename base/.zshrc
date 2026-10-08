@@ -81,6 +81,33 @@ _herdr_sync_workspace_label() {
 add-zsh-hook chpwd _herdr_sync_workspace_label
 _herdr_sync_workspace_label
 
+# herdr の goto picker はエージェントのいない pane を "terminal · 2" と表示するので、
+# 待機中はディレクトリ名、実行中はコマンド名を pane 名にする
+# エージェント実行中は pane 名がタイトルより優先されてしまうため名前を外す
+_herdr_set_pane_label() {
+  [[ -n $HERDR_PANE_ID && $1 != $_herdr_pane_label ]] || return
+  _herdr_pane_label=$1
+  if [[ -n $1 ]]; then
+    herdr pane rename "$HERDR_PANE_ID" "$1" >/dev/null 2>&1 &!
+  else
+    herdr pane rename --clear "$HERDR_PANE_ID" >/dev/null 2>&1 &!
+  fi
+}
+_herdr_pane_label_precmd() {
+  _herdr_set_pane_label "${${PWD/#$HOME/~}:t}"
+}
+_herdr_pane_label_preexec() {
+  local -a words expanded_words
+  words=(${(z)1}) expanded_words=(${(z)2})
+  local cmd=${words[1]:t} expanded=${expanded_words[1]:t}
+  case "$cmd:$expanded" in
+    (claude:*|codex:*|cx:*|*:claude|*:codex|devclaude:*|devcontainer:*) _herdr_set_pane_label "" ;;
+    (*) _herdr_set_pane_label "$cmd" ;;
+  esac
+}
+add-zsh-hook precmd _herdr_pane_label_precmd
+add-zsh-hook preexec _herdr_pane_label_preexec
+
 # -------------------
 # Other Settings
 # -------------------
