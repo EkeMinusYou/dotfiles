@@ -15,3 +15,5 @@ pr:
   model: 'pro'
   title_language: 'english'
   body_language: 'japanese'
+  session_logs: true
+  session_log_count: 5
