@@ -227,16 +227,16 @@ description = "review this pane's recent output"
 # herdr-plugins/launcher から lazygit / nvim / gh browse などを選んで実行する
 [[keys.command]]
 key = "prefix+space"
-type = "shell"
-command = "herdr plugin pane open --plugin launcher --entrypoint launcher --cwd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" --focus"
+type = "plugin_action"
+command = "ekeminusyou.launcher.open"
 description = "open launcher"
 
 # goto
 # 既定の goto の代わりに、herdr-plugins/launcher の goto でペインを選んで移動する
 [[keys.command]]
 key = "prefix+g"
-type = "shell"
-command = "herdr plugin pane open --plugin launcher --entrypoint goto --cwd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" --focus"
+type = "plugin_action"
+command = "ekeminusyou.launcher.goto"
 description = "goto pane"
 
 # Size of the virtual terminal used when no client is attached.

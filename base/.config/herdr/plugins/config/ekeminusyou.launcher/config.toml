@@ -1,0 +1,24 @@
+# herdr-plugins/launcher の設定。書式はプラグインの default_config.toml を参照
+# stow で $(herdr plugin config-dir ekeminusyou.launcher)/config.toml に配置される
+
+theme = "catppuccin"
+
+[[commands]]
+name = "lazygit"
+description = "lazygit を開く"
+pane = "lazygit"
+
+[[commands]]
+name = "neovim"
+description = "nvim を開く"
+pane = "nvim"
+
+[[commands]]
+name = "gh browse"
+description = "リポジトリをブラウザで開く"
+command = "gh browse"
+
+[[commands]]
+name = "gh pr view --web"
+description = "今のブランチの PR をブラウザで開く"
+command = "gh pr view --web"
