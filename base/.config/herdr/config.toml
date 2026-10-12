@@ -223,24 +223,6 @@ type = "plugin_action"
 command = "annotate.terminal"
 description = "review this pane's recent output"
 
-# lazygit
-# nvim の <leader>g に揃える。prefix+g(goto) と prefix+shift+g(new_worktree) は既定で使用済み
-# popup のタイトルは変えられないため、herdr-plugins/launcher のプラグインペイン(タイトル lazygit)として開く
-[[keys.command]]
-key = "prefix+ctrl+g"
-type = "shell"
-command = "herdr plugin pane open --plugin launcher --entrypoint lazygit --cwd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" --focus"
-description = "run lazygit"
-
-# nvim
-# prefix+ctrl+e は prefix+e(edit_scrollback) として扱われてしまうため、未使用の f を使う
-# popup のタイトルは変えられないため、herdr-plugins/launcher のプラグインペイン(タイトル neovim)として開く
-[[keys.command]]
-key = "prefix+ctrl+f"
-type = "shell"
-command = "herdr plugin pane open --plugin launcher --entrypoint nvim --cwd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" --focus"
-description = "run nvim"
-
 # launcher
 # herdr-plugins/launcher から lazygit / nvim / gh browse などを選んで実行する
 [[keys.command]]
