@@ -225,6 +225,7 @@ alias ghpc="gh pr create"
 
 # Worktrunk
 alias wts="wt switch --create"
+alias wtr="wt switch ^"
 if (( $+commands[wt] )); then
   eval "$(wt config shell init zsh)"
 fi
