@@ -115,6 +115,16 @@ link_path() {
   ln -s "$src" "$dst"
 }
 
+# herdr のプラグインは GitHub からインストールする。入れ直すと最新版に置き換わる
+# 個人の設定 (plugins/config/<id>/config.toml) は stow で配置される
+setup_herdr_plugins() {
+  if ! command -v herdr >/dev/null 2>&1; then
+    log "skip: herdr not found"
+    return 0
+  fi
+  herdr plugin install EkeMinusYou/herdr-launcher --yes
+}
+
 # plist では ~ が展開されないため $HOME を埋め込んで生成する
 setup_yaskkserv2_launch_agent() {
   local label="com.github.wachikun.yaskkserv2"
@@ -177,6 +187,7 @@ main() {
   apply_stow_packages "$os_package"
 
   mkdir -p "$HOME/.zsh/scripts"
+  setup_herdr_plugins
 
   if [ "$OS" = "Darwin" ]; then
     setup_macos_extras
