@@ -8,12 +8,22 @@ name = "lazygit"
 description = "lazygit を開く"
 pane = "lazygit"
 
+# 画像を表示できるよう、popup ではなく overlay で開く dotfiles の neovim プラグインを使う
+[[commands]]
+name = "neovim"
+description = "nvim を開く"
+plugin = "neovim"
+pane = "nvim"
+
+# 成功したら launcher を閉じる (失敗したら出力を見られるよう開いたまま)
 [[commands]]
 name = "gh browse"
 description = "リポジトリをブラウザで開く"
 command = "gh browse"
+close = true
 
 [[commands]]
 name = "gh pr view --web"
 description = "今のブランチの PR をブラウザで開く"
 command = "gh pr view --web"
+close = true
