@@ -1,0 +1,14 @@
+# keys.command の popup はタイトルが "popup" 固定で画像も出ないため、タイトルを指定できるプラグインペイン(overlay)で nvim を開く
+id = "neovim"
+name = "Neovim"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Open nvim in a titled overlay pane."
+platforms = ["macos", "linux"]
+
+# popup の中では Kitty graphics の画像(snacks.nvim の image など)が表示されないため、通常のペインとして重ねる overlay で開く
+[[panes]]
+id = "nvim"
+title = "neovim"
+placement = "overlay"
+command = ["nvim"]

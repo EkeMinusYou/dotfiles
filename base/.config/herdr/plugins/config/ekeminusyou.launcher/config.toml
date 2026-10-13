@@ -9,11 +9,6 @@ description = "lazygit を開く"
 pane = "lazygit"
 
 [[commands]]
-name = "neovim"
-description = "nvim を開く"
-pane = "nvim"
-
-[[commands]]
 name = "gh browse"
 description = "リポジトリをブラウザで開く"
 command = "gh browse"

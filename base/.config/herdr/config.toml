@@ -232,6 +232,15 @@ type = "shell"
 command = "herdr plugin pane open --plugin ekeminusyou.launcher --entrypoint lazygit --cwd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" --focus"
 description = "run lazygit"
 
+# nvim
+# prefix+ctrl+e は prefix+e(edit_scrollback) として扱われてしまうため、未使用の f を使う
+# keys.command の popup はタイトルが変えられず画像も出ないため、herdr-plugins/neovim のプラグインペイン(overlay、タイトル neovim)として開く
+[[keys.command]]
+key = "prefix+ctrl+f"
+type = "shell"
+command = "herdr plugin pane open --plugin neovim --entrypoint nvim --cwd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" --focus"
+description = "run nvim"
+
 # launcher
 # herdr-launcher (github.com/EkeMinusYou/herdr-launcher) から lazygit / nvim / gh browse などを選んで実行する
 [[keys.command]]
