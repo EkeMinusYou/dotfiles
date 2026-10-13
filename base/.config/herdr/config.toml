@@ -79,7 +79,7 @@ focus_pane_left = ["prefix+h", "prefix+ctrl+h"]
 focus_pane_down = ["prefix+j", "prefix+ctrl+j"]
 focus_pane_up = ["prefix+k", "prefix+ctrl+k"]
 focus_pane_right = ["prefix+l", "prefix+ctrl+l"]
-# goto は herdr-plugins/launcher の goto (prefix+g) に置き換える
+# goto は herdr-launcher (github.com/EkeMinusYou/herdr-launcher) の goto (prefix+g) に置き換える
 goto = ""
 
 # Prefix-mode actions
@@ -225,7 +225,7 @@ description = "review this pane's recent output"
 
 # lazygit
 # nvim の <leader>g に揃える。prefix+g(goto) と prefix+shift+g(new_worktree) は既定で使用済み
-# popup のタイトルは変えられないため、herdr-plugins/launcher のプラグインペイン(タイトル lazygit)として開く
+# popup のタイトルは変えられないため、herdr-launcher (github.com/EkeMinusYou/herdr-launcher) のプラグインペイン(タイトル lazygit)として開く
 [[keys.command]]
 key = "prefix+ctrl+g"
 type = "shell"
@@ -233,7 +233,7 @@ command = "herdr plugin pane open --plugin ekeminusyou.launcher --entrypoint laz
 description = "run lazygit"
 
 # launcher
-# herdr-plugins/launcher から lazygit / nvim / gh browse などを選んで実行する
+# herdr-launcher (github.com/EkeMinusYou/herdr-launcher) から lazygit / nvim / gh browse などを選んで実行する
 [[keys.command]]
 key = "prefix+space"
 type = "plugin_action"
@@ -241,7 +241,7 @@ command = "ekeminusyou.launcher.open"
 description = "open launcher"
 
 # goto
-# 既定の goto の代わりに、herdr-plugins/launcher の goto でペインを選んで移動する
+# 既定の goto の代わりに、herdr-launcher (github.com/EkeMinusYou/herdr-launcher) の goto でペインを選んで移動する
 [[keys.command]]
 key = "prefix+g"
 type = "plugin_action"

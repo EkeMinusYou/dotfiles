@@ -1,4 +1,4 @@
-# herdr-plugins/launcher の設定。書式はプラグインの default_config.toml を参照
+# herdr-launcher (github.com/EkeMinusYou/herdr-launcher) の設定。書式はプラグインの default_config.toml を参照
 # stow で $(herdr plugin config-dir ekeminusyou.launcher)/config.toml に配置される
 
 theme = "catppuccin"
