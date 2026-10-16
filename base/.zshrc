@@ -281,6 +281,9 @@ alias e='code -a .'
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 export CLOUDSDK_PYTHON=""
 
+# gxcloud
+alias gx=gxcloud
+
 # direnv
 export DIRENV_LOG_FORMAT=
 
@@ -309,7 +312,7 @@ export PATH=$HOME/.yaskkserv2/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # codex
-export CODEX_HOME=$XDG_CONFIG_HOME/codex
+export CODEX_HOME="${CODEX_HOME:-$XDG_CONFIG_HOME/codex}"
 
 # claude
 alias devclaude="devcontainer up --workspace-folder . --config ~/.config/devcontainer/claude/devcontainer.json && devcontainer exec --workspace-folder . --config ~/.config/devcontainer/claude/devcontainer.json claude"
