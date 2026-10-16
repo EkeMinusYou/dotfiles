@@ -225,11 +225,11 @@ description = "review this pane's recent output"
 
 # lazygit
 # nvim の <leader>g に揃える。prefix+g(goto) と prefix+shift+g(new_worktree) は既定で使用済み
-# popup のタイトルは変えられないため、herdr-launcher (github.com/EkeMinusYou/herdr-launcher) のプラグインペイン(タイトル lazygit)として開く
+# popup のタイトルは変えられないため、herdr-plugins/lazygit のプラグインペイン(タイトル lazygit)として開く
 [[keys.command]]
 key = "prefix+ctrl+g"
 type = "shell"
-command = "herdr plugin pane open --plugin ekeminusyou.launcher --entrypoint lazygit --cwd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" --focus"
+command = "herdr plugin pane open --plugin lazygit --entrypoint lazygit --cwd \"${HERDR_ACTIVE_PANE_CWD:-$PWD}\" --focus"
 description = "run lazygit"
 
 # nvim

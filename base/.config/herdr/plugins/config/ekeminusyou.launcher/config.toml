@@ -3,9 +3,11 @@
 
 theme = "catppuccin"
 
+# タイトルを lazygit にするため、dotfiles の lazygit プラグイン(herdr-plugins/lazygit)の popup で開く
 [[commands]]
 name = "lazygit"
 description = "lazygit を開く"
+plugin = "lazygit"
 pane = "lazygit"
 
 # 画像を表示できるよう、popup ではなく overlay で開く dotfiles の neovim プラグインを使う
