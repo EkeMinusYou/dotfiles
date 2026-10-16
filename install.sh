@@ -116,6 +116,7 @@ link_path() {
 }
 
 # herdr のプラグインは GitHub からインストールする。入れ直すと最新版に置き換わる
+# dotfiles 内のプラグイン (herdr-plugins/<名前>) は link する。どれもビルド不要で、link し直しても問題ない
 # 個人の設定 (plugins/config/<id>/config.toml) は stow で配置される
 setup_herdr_plugins() {
   if ! command -v herdr >/dev/null 2>&1; then
@@ -123,6 +124,13 @@ setup_herdr_plugins() {
     return 0
   fi
   herdr plugin install EkeMinusYou/herdr-launcher --yes
+
+  local dir
+  for dir in "$DOT_REPO"/base/.config/herdr-plugins/*/; do
+    [ -f "$dir/herdr-plugin.toml" ] || continue
+    log "link herdr plugin: $(basename "$dir")"
+    herdr plugin link "${dir%/}" >/dev/null
+  done
 }
 
 # plist では ~ が展開されないため $HOME を埋め込んで生成する
