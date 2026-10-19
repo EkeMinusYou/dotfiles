@@ -62,7 +62,7 @@ run= [
 ]
 
 [[on-window-detected]]
-if.app-id="dev.pencil.desktop"
+if.app-id="net.dannote.open-pencil"
 run= [
   "move-node-to-workspace p --focus-follows-window",
 ]
@@ -100,7 +100,7 @@ cmd-alt-ctrl-shift-s = ["exec-and-forget open -a Slack"]
 # Chrome
 cmd-alt-ctrl-shift-c = ["exec-and-forget open -a 'Google Chrome'"]
 # Pen
-cmd-alt-ctrl-shift-p = ["exec-and-forget open -a 'Pen'"]
+cmd-alt-ctrl-shift-p = ["exec-and-forget open -a 'OpenPencil'"]
 # Full
 cmd-alt-ctrl-shift-f = ["workspace f"]
 
