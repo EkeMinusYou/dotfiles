@@ -395,22 +395,6 @@ function fzf-worktree() {
 zle -N fzf-worktree
 bindkey '^x' fzf-worktree
 
-# https://github.com/zellij-org/zellij/discussions/2889#discussioncomment-11171378
-zellij_tab_name_update() {
-  if [[ -n $ZELLIJ ]]; then
-    local current_dir=$PWD
-    if [[ $current_dir == $HOME ]]; then
-      current_dir="~"
-    else
-      current_dir=${current_dir##*/}
-    fi
-    command nohup zellij action rename-tab $current_dir >/dev/null 2>&1
-  fi
-}
-
-chpwd_functions+=(zellij_tab_name_update)
-
-
 gifit() {
   local from_commit to_commit from_hash to_hash
 
