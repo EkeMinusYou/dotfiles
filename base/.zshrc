@@ -18,6 +18,8 @@ export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
 case ${OSTYPE} in
   darwin*)
     export HOMEBREW_PREFIX="/opt/homebrew"
+    # macOS 標準の curl が読む /etc/ssl/cert.pem には eMudhra 問題のルート証明書が残っているため、Homebrew の証明書リストを使う
+    export CURL_CA_BUNDLE="$HOMEBREW_PREFIX/etc/ca-certificates/cert.pem"
     ;;
   linux*)
     export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
