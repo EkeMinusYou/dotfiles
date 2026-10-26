@@ -10,6 +10,6 @@ registries:
     ref: 0945f33d85cf9600782c3441cd6e9244f3884f15
     path: registry.yaml
 packages:
-  - name: nodejs/node@v24.15.0
+  - name: nodejs/node@v24.22.1
   - name: coder3101/protols@0.8.0
   - name: GoogleCloudPlatform/cloud-sql-proxy@v2.14.1
