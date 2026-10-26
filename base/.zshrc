@@ -8,6 +8,7 @@
 # General Settings
 # -------------------
 
+typeset -U path fpath
 bindkey -e
 
 # -------------------
@@ -28,7 +29,28 @@ case ${OSTYPE} in
     ;;
 esac
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
-export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+export XDG_CONFIG_HOME=$HOME/.config
+export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm
+export GOPATH=$HOME/go
+# Set the final search order once so later changes do not invalidate command hashes.
+path=(
+  "$HOME/.local/bin"
+  "$HOME/.yaskkserv2/bin"
+  "$HOME/.lovot/bin"
+  "$HOME/.tencent/bin"
+  "$HOME/.cargo/bin"
+  /opt/homebrew/Cellar/python@3.8/3.8.19/Frameworks/Python.framework/Versions/3.8/bin
+  "$HOME/.bun/bin"
+  "$HOME/.deno/bin"
+  "$HOMEBREW_PREFIX/opt/openjdk@21/bin"
+  "$GOPATH/bin"
+  "$NPM_CONFIG_PREFIX/bin"
+  "${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin"
+  "$HOMEBREW_PREFIX/bin"
+  "$HOMEBREW_PREFIX/sbin"
+  "${path[@]}"
+)
+export PATH
 if [[ -n ${MANPATH-} ]]; then
   export MANPATH="${MANPATH%"${MANPATH##*[!:]}"}"
   export MANPATH=":${MANPATH#"${MANPATH%%[!:]*}"}"
@@ -40,7 +62,6 @@ export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}"
 # -------------------
 
 fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $HOME/.zsh/fpath $fpath)
-export XDG_CONFIG_HOME=$HOME/.config
 
 # Cache generated shell integrations; refresh when their inputs change.
 _zsh_source_cached() {
@@ -50,7 +71,12 @@ _zsh_source_cached() {
   [[ $OSTYPE == darwin* && -z $XDG_CACHE_HOME ]] && cache_root=$HOME/Library/Caches
   cache_root+=/zsh
   local cache=$cache_root/$name.zsh signature=$ZSH_VERSION saved input
-  local executable=${commands[$1]:-$1}
+  local executable=$1
+  if [[ $executable != */* ]]; then
+    # Populate this entry without making the commands parameter scan all of PATH.
+    hash "$executable" 2>/dev/null || return
+    executable=${commands[$executable]}
+  fi
   local -a inputs=("$executable" "${(%):-%x}")
   if (( ${+_zsh_cache_extra_inputs} )); then
     inputs+=("${_zsh_cache_extra_inputs[@]}")
@@ -66,9 +92,9 @@ _zsh_source_cached() {
   zmodload -F zsh/stat b:zstat
   zmodload -F zsh/files b:zf_mkdir b:zf_mv b:zf_rm
   for input in "${inputs[@]}"; do
-    input=${input:A}
+    # zstat follows symlinks; inode changes also detect package upgrades.
     if zstat -H metadata -- "$input" 2>/dev/null; then
-      signature+=":$input:$metadata[mtime]:$metadata[inode]:$metadata[size]"
+      signature+=":$input:$metadata[device]:$metadata[mtime]:$metadata[inode]:$metadata[size]"
     else
       signature+=":$input:missing"
     fi
@@ -78,14 +104,6 @@ _zsh_source_cached() {
   if [[ $saved != $signature ]]; then
     local script
     script=$(command "$@") || return
-    # Expand Starship's continuation prompt only when a continuation is needed.
-    if [[ $name == starship ]]; then
-      local continuation=${script##*$'\n'}
-      if [[ $continuation == 'PROMPT2="$('*')"' ]]; then
-        continuation=${${continuation#PROMPT2=\"}%\"}
-        script=${script%$'\n'*}$'\n'"PROMPT2=${(q)continuation}"
-      fi
-    fi
     if [[ -d $cache_root ]] || zf_mkdir -p -m 700 -- "$cache_root"; then
       local temporary=$cache.$$.${RANDOM}
       if { print -r -- "$signature"; print -r -- "$script"; } > "$temporary" &&
@@ -106,8 +124,8 @@ _zsh_source_cached() {
   source "$cache"
 }
 
-# Autocomplete owns compinit and queues completion registrations until precmd.
-# Load it before scripts call compdef/complete and before custom key bindings.
+# Load Autocomplete before scripts register completions or custom key bindings.
+# It manages compinit and queues registrations until the first prompt.
 zstyle ':autocomplete:*' fzf-completion yes
 zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
 zstyle ':autocomplete:history-*:*' list-lines 5
@@ -115,20 +133,6 @@ zstyle ':autocomplete:*' delay 0.15
 zstyle ':autocomplete:*' min-input 1
 setopt INTERACTIVECOMMENTS
 _zsh_source_cached sheldon "$HOMEBREW_PREFIX/bin/sheldon" source
-
-# Compile the completion dump after startup without bypassing compaudit.
-_zsh_compile_compdump() {
-  [[ -r $_comp_dumpfile ]] || return
-  if [[ ! -r $_comp_dumpfile.zwc || $_comp_dumpfile -nt $_comp_dumpfile.zwc ]]; then
-    local temporary=$_comp_dumpfile.$$.${RANDOM}.zwc
-    if zcompile -Uz "$temporary" "$_comp_dumpfile"; then
-      zf_mv -f -- "$temporary" "$_comp_dumpfile.zwc"
-    else
-      zf_rm -f -- "$temporary"
-    fi
-  fi
-}
-zsh-defer _zsh_compile_compdump
 
 # -------------------
 # source command scripts
@@ -142,8 +146,8 @@ done
 # Generate completions on first use in each shell, reusing the binary's cache.
 _zsh_lazy_completion() {
   local tool=$service
-  local executable=${commands[$tool]-}
-  [[ -n $executable ]] || { _default "$@"; return; }
+  hash "$tool" 2>/dev/null || { _default "$@"; return; }
+  local executable=${commands[$tool]}
   local -a _zsh_cache_extra_inputs=()
   # Aqua's proxy stays unchanged when the selected package is upgraded.
   if [[ ${executable:A:t} == aqua-proxy ]]; then
@@ -306,12 +310,9 @@ alias hd="herdr"
 export EDITOR=$HOMEBREW_PREFIX/bin/nvim
 
 # aqua
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=$HOME/.config/aqua/aqua.yaml
 # private リポジトリ(groove-x/aqua-registry など)用の GitHub トークンをキーチェーンから読む。`aqua token set` で保存する
 export AQUA_KEYRING_ENABLED=true
-export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm
-export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 
 # Git
 export GPG_TTY=$TTY
@@ -342,7 +343,7 @@ alias ghpc="gh pr create"
 # Worktrunk
 alias wts="wt switch --create"
 alias wtr="wt switch ^"
-if (( $+commands[wt] )); then
+if whence -p wt >/dev/null; then
   _zsh_source_cached worktrunk wt config shell init zsh
 fi
 
@@ -369,26 +370,11 @@ export TF_PLUGIN_CACHE_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/terraform/plugin-cach
 [[ -d $TF_PLUGIN_CACHE_DIR ]] || mkdir -p $TF_PLUGIN_CACHE_DIR
 
 # Go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
 export GOPROXY="https://proxy.golang.org,direct"
 export GOPRIVATE=github.com/groove-x
 
 # Java
-export PATH=$HOMEBREW_PREFIX/opt/openjdk@21/bin:$PATH
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
-
-# deno
-export PATH=$HOME/.deno/bin:$PATH
-
-# bun
-export PATH=$HOME/.bun/bin:$PATH
-
-# Python
-export PATH=/opt/homebrew/Cellar/python@3.8/3.8.19/Frameworks/Python.framework/Versions/3.8/bin:$PATH
-
-# Rust
-export PATH=$HOME/.cargo/bin:$PATH
 
 # VSCode
 alias e='code -a .'
@@ -402,12 +388,9 @@ alias gx=gxcloud
 
 # direnv
 export DIRENV_LOG_FORMAT=
-if (( $+commands[direnv] )); then
+if whence -p direnv >/dev/null; then
   _zsh_source_cached direnv direnv hook zsh
 fi
-
-# tencent
-export PATH=$HOME/.tencent/bin:$PATH
 
 # tccli
 complete -C 'tccli_completer' tccli
@@ -420,15 +403,6 @@ alias nr="npm run"
 
 # wsl
 export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH
-
-# lovot
-export PATH=$HOME/.lovot/bin:$PATH
-
-# skk
-export PATH=$HOME/.yaskkserv2/bin:$PATH
-
-# goose
-export PATH=$HOME/.local/bin:$PATH
 
 # codex
 export CODEX_HOME="${CODEX_HOME:-$XDG_CONFIG_HOME/codex}"
@@ -499,7 +473,7 @@ function paste-as-yank() {
   zle redisplay
 }
 zle -N paste-as-yank
-bindkey "^y" paste-as-yank
+bindkey '^y' paste-as-yank
 
 # See: https://sushichan044.hateblo.jp/entry/2025/06/06/003325
 function fzf-worktree() {
@@ -560,8 +534,6 @@ zsh-defer zellij_tab_name_update
 
 export STARSHIP_LOG="error"
 _zsh_source_cached starship starship init zsh
-# All configured modules are in the left prompt.
-RPROMPT=
 
 # -------------------
 # zellij
