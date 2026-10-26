@@ -1,18 +1,6 @@
 #!/bin/bash
 
-# fpath
-kubectl completion zsh > ~/.zsh/fpath/_kubectl
-atlas completion zsh > ~/.zsh/fpath/_atlas
-docker completion zsh > ~/.zsh/fpath/_docker
-soracom completion zsh > ~/.zsh/fpath/_soracom
-codex completion zsh > ~/.zsh/fpath/_codex
-gxcloud completion zsh > ~/.zsh/fpath/_gxcloud
-
-# scripts
-direnv hook zsh > ~/.zsh/scripts/_direnv
-lovot completion zsh > ~/.zsh/scripts/_lovot
-npm completion > ~/.zsh/scripts/_npm
-$HOMEBREW_PREFIX/bin/brew shellenv > ~/.zsh/scripts/_brew
+# Shell completions and integrations are managed automatically by .zshrc.
 
 # macSKK
 DOT_DIR="$HOME/src/github.com/EkeMinusYou"

@@ -18,21 +18,117 @@ export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
 case ${OSTYPE} in
   darwin*)
     export HOMEBREW_PREFIX="/opt/homebrew"
+    export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX"
     # macOS 標準の curl が読む /etc/ssl/cert.pem には eMudhra 問題のルート証明書が残っているため、Homebrew の証明書リストを使う
     export CURL_CA_BUNDLE="$HOMEBREW_PREFIX/etc/ca-certificates/cert.pem"
     ;;
   linux*)
     export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+    export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
     ;;
 esac
+export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
+export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+if [[ -n ${MANPATH-} ]]; then
+  export MANPATH="${MANPATH%"${MANPATH##*[!:]}"}"
+  export MANPATH=":${MANPATH#"${MANPATH%%[!:]*}"}"
+fi
+export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}"
 
 # -------------------
 # Enable Completion
 # -------------------
 
 fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $HOME/.zsh/fpath $fpath)
-autoload -U +X bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
+export XDG_CONFIG_HOME=$HOME/.config
+
+# Cache generated shell integrations; refresh when their inputs change.
+_zsh_source_cached() {
+  local name=$1
+  shift
+  local cache_root=${XDG_CACHE_HOME:-$HOME/.cache}
+  [[ $OSTYPE == darwin* && -z $XDG_CACHE_HOME ]] && cache_root=$HOME/Library/Caches
+  cache_root+=/zsh
+  local cache=$cache_root/$name.zsh signature=$ZSH_VERSION saved input
+  local executable=${commands[$1]:-$1}
+  local -a inputs=("$executable" "${(%):-%x}")
+  if (( ${+_zsh_cache_extra_inputs} )); then
+    inputs+=("${_zsh_cache_extra_inputs[@]}")
+  fi
+  local -A metadata
+  if [[ $name == sheldon ]]; then
+    inputs+=(
+      "${SHELDON_CONFIG_FILE:-${SHELDON_CONFIG_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}/sheldon}/plugins.toml}"
+      "${SHELDON_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/sheldon}/plugins.lock"
+    )
+    signature+=":${SHELDON_PROFILE:-}"
+  fi
+  zmodload -F zsh/stat b:zstat
+  zmodload -F zsh/files b:zf_mkdir b:zf_mv b:zf_rm
+  for input in "${inputs[@]}"; do
+    input=${input:A}
+    if zstat -H metadata -- "$input" 2>/dev/null; then
+      signature+=":$input:$metadata[mtime]:$metadata[inode]:$metadata[size]"
+    else
+      signature+=":$input:missing"
+    fi
+  done
+  signature="# $signature"
+  [[ -r $cache ]] && IFS= read -r saved < "$cache"
+  if [[ $saved != $signature ]]; then
+    local script
+    script=$(command "$@") || return
+    # Expand Starship's continuation prompt only when a continuation is needed.
+    if [[ $name == starship ]]; then
+      local continuation=${script##*$'\n'}
+      if [[ $continuation == 'PROMPT2="$('*')"' ]]; then
+        continuation=${${continuation#PROMPT2=\"}%\"}
+        script=${script%$'\n'*}$'\n'"PROMPT2=${(q)continuation}"
+      fi
+    fi
+    if [[ -d $cache_root ]] || zf_mkdir -p -m 700 -- "$cache_root"; then
+      local temporary=$cache.$$.${RANDOM}
+      if { print -r -- "$signature"; print -r -- "$script"; } > "$temporary" &&
+          zf_mv -f -- "$temporary" "$cache"; then
+        if zcompile -Uz "$temporary.zwc" "$cache"; then
+          zf_mv -f -- "$temporary.zwc" "$cache.zwc"
+        else
+          zf_rm -f -- "$cache.zwc" "$temporary.zwc"
+        fi
+        source "$cache"
+        return
+      fi
+      zf_rm -f -- "$temporary"
+    fi
+    eval "$script"
+    return
+  fi
+  source "$cache"
+}
+
+# Autocomplete owns compinit and queues completion registrations until precmd.
+# Load it before scripts call compdef/complete and before custom key bindings.
+zstyle ':autocomplete:*' fzf-completion yes
+zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
+zstyle ':autocomplete:history-*:*' list-lines 5
+zstyle ':autocomplete:*' delay 0.15
+zstyle ':autocomplete:*' min-input 1
+setopt INTERACTIVECOMMENTS
+_zsh_source_cached sheldon "$HOMEBREW_PREFIX/bin/sheldon" source
+
+# Compile the completion dump after startup without bypassing compaudit.
+_zsh_compile_compdump() {
+  [[ -r $_comp_dumpfile ]] || return
+  if [[ ! -r $_comp_dumpfile.zwc || $_comp_dumpfile -nt $_comp_dumpfile.zwc ]]; then
+    local temporary=$_comp_dumpfile.$$.${RANDOM}.zwc
+    if zcompile -Uz "$temporary" "$_comp_dumpfile"; then
+      zf_mv -f -- "$temporary" "$_comp_dumpfile.zwc"
+    else
+      zf_rm -f -- "$temporary"
+    fi
+  fi
+}
+zsh-defer _zsh_compile_compdump
 
 # -------------------
 # source command scripts
@@ -42,6 +138,27 @@ setopt null_glob
 for file in $HOME/.zsh/scripts/*; do
   [ -f "$file" ] && source "$file"
 done
+
+# Generate completions on first use in each shell, reusing the binary's cache.
+_zsh_lazy_completion() {
+  local tool=$service
+  local executable=${commands[$tool]-}
+  [[ -n $executable ]] || { _default "$@"; return; }
+  local -a _zsh_cache_extra_inputs=()
+  # Aqua's proxy stays unchanged when the selected package is upgraded.
+  if [[ ${executable:A:t} == aqua-proxy ]]; then
+    local target
+    target=$(command aqua which "$tool") || return
+    _zsh_cache_extra_inputs+=("$target")
+  fi
+  local -a generator=("$tool" completion zsh)
+  [[ $tool == npm ]] && generator=(npm completion)
+  _zsh_source_cached "completion-$tool" "${generator[@]}" || return
+  local -a handler=( ${(z)${_comps[$tool]-}} )
+  [[ -n ${handler[1]-} && $handler[1] != _zsh_lazy_completion ]] || return 1
+  "${(@Q)handler}" "$@"
+}
+compdef _zsh_lazy_completion kubectl atlas docker soracom codex gxcloud lovot npm
 
 # -------------------
 # Add Zsh Hook
@@ -81,7 +198,7 @@ _herdr_sync_workspace_label() {
   herdr workspace rename "$HERDR_WORKSPACE_ID" "$name" >/dev/null 2>&1 &!
 }
 add-zsh-hook chpwd _herdr_sync_workspace_label
-_herdr_sync_workspace_label
+zsh-defer _herdr_sync_workspace_label
 
 # herdr の goto picker はエージェントのいない pane を "terminal · 2" と表示するので、
 # 待機中はディレクトリ名、実行中はコマンド名を pane 名にする
@@ -188,9 +305,6 @@ alias hd="herdr"
 # Default Editor
 export EDITOR=$HOMEBREW_PREFIX/bin/nvim
 
-# XDG
-export XDG_CONFIG_HOME=$HOME/.config
-
 # aqua
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG=$HOME/.config/aqua/aqua.yaml
@@ -229,7 +343,7 @@ alias ghpc="gh pr create"
 alias wts="wt switch --create"
 alias wtr="wt switch ^"
 if (( $+commands[wt] )); then
-  eval "$(wt config shell init zsh)"
+  _zsh_source_cached worktrunk wt config shell init zsh
 fi
 
 # Kubernetes
@@ -288,6 +402,9 @@ alias gx=gxcloud
 
 # direnv
 export DIRENV_LOG_FORMAT=
+if (( $+commands[direnv] )); then
+  _zsh_source_cached direnv direnv hook zsh
+fi
 
 # tencent
 export PATH=$HOME/.tencent/bin:$PATH
@@ -424,25 +541,6 @@ gifit() {
 }
 
 # -------------------
-# Before Load Plugins
-# -------------------
-
-# zsh-autocomplete
-zstyle ':autocomplete:*' fzf-completion yes
-zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
-zstyle ':autocomplete:history-*:*' list-lines 5
-zstyle ':autocomplete:*' delay 0.15 
-zstyle ':autocomplete:*' min-input 1
-# See: https://github.com/marlonrichert/zsh-autocomplete/issues/724
-setopt INTERACTIVECOMMENTS
-
-# -------------------
-# Load Plugins
-# -------------------
-
-eval "$($HOMEBREW_PREFIX/bin/sheldon source)"
-
-# -------------------
 # zsh-defer source
 # -------------------
 
@@ -460,8 +558,10 @@ zsh-defer zellij_tab_name_update
 # Starship
 # -------------------
 
-eval "$(starship init zsh)"
 export STARSHIP_LOG="error"
+_zsh_source_cached starship starship init zsh
+# All configured modules are in the left prompt.
+RPROMPT=
 
 # -------------------
 # zellij
@@ -488,7 +588,7 @@ fi
 # fzf
 # -------------------
 
-eval "$(fzf --zsh)"
+_zsh_source_cached fzf fzf --zsh
 # catppuccin
 # See: https://github.com/catppuccin/fzf
 export FZF_DEFAULT_OPTS=" \
