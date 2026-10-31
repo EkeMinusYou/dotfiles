@@ -69,7 +69,7 @@ get_os_package() {
 # Codex, Worktrunk, and the Herdr app use their config directories for local state.
 # Keep these directories real so stow does not link runtime files into the repo.
 prepare_stow_dirs() {
-  mkdir -p "$HOME/.config/codex" "$HOME/.config/codex-zai" "$HOME/.config/codex-gx" "$HOME/.config/worktrunk" "$HOME/.config/herdr-app/themes" "$HOME/.config/herdr-app/layouts"
+  mkdir -p "$HOME/.config/codex" "$HOME/.config/codex-zai" "$HOME/.config/codex-gx" "$HOME/.config/worktrunk" "$HOME/.config/herdr-app/themes" "$HOME/.config/herdr-app/layouts" "$HOME/.config/herdr-app/mods"
 }
 
 prepare_claude_skills_dir() {
