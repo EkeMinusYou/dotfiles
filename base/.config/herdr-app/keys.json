@@ -75,9 +75,10 @@
     "ctrl-s l": "pane.go:right",
     "ctrl-s ctrl-l": "pane.go:right",
     "ctrl-s z": "pane.zoom",
+    "ctrl-s r": "mod.open:pane-resize",
     "ctrl-s b": "layout.toggle:sidebar",
     "ctrl-s ?": "app.help",
-    "ctrl-s g": "mod.open:picker",
+    "ctrl-s g": "mod.open:launcher-goto",
     "ctrl-s w": "mod.open:picker",
     "ctrl-s shift-n": "space.new",
     "ctrl-s shift-w": "space.rename",
@@ -93,7 +94,8 @@
     "ctrl-s 7": "tab.select:7",
     "ctrl-s 8": "tab.select:8",
     "ctrl-s 9": "tab.select:9",
-    "ctrl-shift-space": "mod.open:launcher"
+    "ctrl-shift-k": "mod.open:launcher",
+    "ctrl-s space": "mod.open:launcher"
   },
   "terminal": {
     "cmd-c": "terminal.copy",
@@ -105,7 +107,9 @@
     "cmd-left": "send:\u0001",
     "cmd-right": "send:\u0005",
     "cmd-backspace": "send:\u0015",
-    "ctrl-shift-space": "mod.open:launcher"
+    "ctrl-shift-k": "mod.open:launcher",
+    "ctrl-s space": "mod.open:launcher",
+    "ctrl-s g": "mod.open:launcher-goto"
   },
   "mod:launcher": {
     "down": "launcher.next",

@@ -1,0 +1,11 @@
+{
+  "title": "Resize panes",
+  "place": "none",
+  "overlay": {
+    "kind": "window",
+    "key": "pane-resize",
+    "frame": "none",
+    "width": 1,
+    "height": 1
+  }
+}
