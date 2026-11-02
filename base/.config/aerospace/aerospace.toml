@@ -50,6 +50,13 @@ run= [
 ]
 
 [[on-window-detected]]
+if.app-id="dev.herdr.app"
+run= [
+  "layout floating",
+  "move-node-to-workspace h --focus-follows-window",
+]
+
+[[on-window-detected]]
 if.app-id="com.tinyspeck.slackmacgap"
 run= [
   "move-node-to-workspace s --focus-follows-window",
@@ -83,6 +90,7 @@ run= [
 m = "secondary"
 y = "main"
 t = "main"
+h = "main"
 s = "main"
 c = "secondary"
 f = "main"
@@ -95,6 +103,8 @@ cmd-alt-ctrl-shift-m = ["exec-and-forget open -a Music"]
 cmd-alt-ctrl-shift-y = ["exec-and-forget open -a Youtube"]
 # Ghostty
 cmd-alt-ctrl-shift-t = ["exec-and-forget open -a Ghostty"]
+# Herdr
+cmd-alt-ctrl-shift-h = ["exec-and-forget open -a Herdr"]
 # Slack
 cmd-alt-ctrl-shift-s = ["exec-and-forget open -a Slack"]
 # Chrome
