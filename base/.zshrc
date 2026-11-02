@@ -417,6 +417,9 @@ alias difit="bunx difit"
 # codex
 alias cx="codex"
 
+# lazypencil
+alias lp="lazypencil"
+
 # -------------------
 # Functions
 # -------------------
