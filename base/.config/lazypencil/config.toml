@@ -1,0 +1,91 @@
+version = 1
+
+[fonts]
+# Omitted fields inherit lower-priority settings.
+# Paths resolve relative to this configuration file.
+# files = []
+# search_paths = []
+# default_family = "Noto Sans JP"
+# locale = "ja"
+# Set fallbacks explicitly to replace the default glyph fallback chain.
+fallbacks = ["Noto Sans JP", "Apple Color Emoji", "Apple Symbols"]
+
+# Omitted runtime fields inherit user preferences and built-in limits.
+# [runtime.javascript]
+# timeout_ms = 2000
+# heap_mib = 64
+# idle_seconds = 60
+# layout_timeout_ms = 10000
+# max_evaluations = 128
+# max_passes = 8
+
+# [runtime.browser]
+# timeout_ms = 30000
+# launch_timeout_ms = 15000
+# idle_seconds = 60
+# wait_until = "load"
+# ready_selector = ""
+# selector_state = "visible"
+# additional_wait_ms = 0
+# animation_policy = "running"
+# network_policy = "online"
+# User configuration only: profile = "work" selects dedicated authentication state.
+# profile = ""
+
+# [runtime.shader]
+# timeout_ms = 15000
+# launch_timeout_ms = 15000
+# idle_seconds = 60
+
+# [runtime.dynamic]
+# render_timeout_ms = 45000
+# cache_mib = 64
+# cache_entries = 32
+
+# User-owned agent preferences; CLI options take precedence.
+# [agents]
+# default = "codex"
+# [agents.codex]
+# adapter = "codex-acp"
+# adapter_args = []
+# auth = "subscription"
+# require_auth_status = true
+# model = "an-adapter-advertised-model"
+# timeout = 600
+# [agents.claude]
+# adapter = "claude-agent-acp"
+# auth = "subscription"
+
+[tui.keys]
+# Each explicit list replaces that action's defaults.
+# submit = ["Ctrl+Enter", "Alt+Enter", "Ctrl+s"]
+# paste = ["Ctrl+v", "Alt+v"]
+
+[tui.navigation]
+previous_section = ["F6", "Alt+Up"]
+next_section = ["F7", "Alt+Down"]
+# next_panel = ["Tab"]
+# previous_panel = ["Shift+Tab"]
+# help = ["F1", "?"]
+# commands = ["Alt+p"]
+# pan_left = ["Left", "h"]
+# pan_right = ["Right", "l"]
+# zoom_in = ["+", "="]
+# zoom_out = ["-"]
+
+[conversations.retention]
+# Limits apply when conversations prune is explicitly reviewed and committed.
+# Omitted limits keep all local conversations. Busy sessions, unsent drafts,
+# pending images and incomplete continuity are always protected.
+# max_age_days = 90
+# max_total_bytes = 1073741824
+keep_recent_per_document = 1
+
+[attachments]
+# Personal image input/send budgets; no implicit resizing.
+max_images = 8
+max_source_bytes = 20971520
+max_send_bytes = 20971520
+max_total_source_bytes = 52428800
+max_total_send_bytes = 52428800
+max_source_pixels = 16777216
