@@ -1,5 +1,7 @@
 if OS.mac?
   brew "git"
+  cask "font-inter"
+  cask "font-jetbrains-mono"
   tap "homebrew/cask"
   tap "homebrew/core"
   brew "wezterm"
