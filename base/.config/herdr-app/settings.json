@@ -7,7 +7,7 @@
   "font_size": 20.0,
   "ui_font": "UDEV Gothic 35NF",
   "minimum_contrast": 1.0,
+  "option_as_alt": "on",
   "appearance": "dark",
-  "theme": "catppuccin-mocha",
-  "option_as_alt": "on"
+  "theme": "catppuccin-mocha"
 }
