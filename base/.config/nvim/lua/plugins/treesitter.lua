@@ -1,12 +1,15 @@
 local treesitter_languages = {
   'css',
+  'git_config',
   'go',
   'hcl',
   'javascript',
+  'json',
   'styled',
   'tsx',
   'typescript',
   'lua',
+  'proto',
   'yaml',
 }
 
