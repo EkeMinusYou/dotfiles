@@ -88,7 +88,7 @@ max_source_bytes = 20971520
 max_send_bytes = 20971520
 max_total_source_bytes = 52428800
 max_total_send_bytes = 52428800
-max_source_pixels = 16777216
+max_source_pixels = 33554432
 
 [tui.layout]
 nodes = 20
@@ -97,4 +97,13 @@ agent = 20
 
 
 [agents.codex]
+mode = "agent"
 fast = true
+timeout = 3600
+
+[agents.claude]
+mode = "auto"
+timeout = 3600
+
+[tui.preview]
+show_node_names = false
