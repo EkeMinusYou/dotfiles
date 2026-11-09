@@ -51,5 +51,4 @@ keybind = ctrl+minus=decrease_font_size:1
 
 macos-option-as-alt = true
 resize-overlay = never
-keybind = shift+enter=text:\n
 keybind = ¥=text:\\

@@ -3,6 +3,7 @@
 .aider*
 .opencode/
 .serena/
+**/.claude/settings.local.json
 
 **/.claude/settings.local.json
 .protols.toml
