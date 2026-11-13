@@ -566,11 +566,33 @@ fi
 _zsh_source_cached fzf fzf --zsh
 # catppuccin
 # See: https://github.com/catppuccin/fzf
+# Ask the terminal for its background color (OSC 11) to pick latte or mocha
+_terminal_is_light() {
+  [[ -t 0 && -t 1 ]] || return 1
+  local stty_save=$(stty -g) reply="" c
+  stty raw -echo min 0 time 1
+  printf '\e]11;?\e\\' > /dev/tty
+  while read -rs -k 1 -t 0.2 c < /dev/tty; do
+    reply+=$c
+    [[ $c == $'\a' || $reply == *$'\e\\' ]] && break
+  done
+  stty $stty_save
+  [[ $reply =~ 'rgb:([0-9a-fA-F]{2})[0-9a-fA-F]*/([0-9a-fA-F]{2})[0-9a-fA-F]*/([0-9a-fA-F]{2})' ]] || return 1
+  (( 16#${match[1]} + 16#${match[2]} + 16#${match[3]} > 384 ))
+}
+if _terminal_is_light; then
+  _fzf_colors="--color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
+--color=marker:#7287fd,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39 \
+--color=bg+:#ccd0da,hl:#d20f39,spinner:#dc8a78,border:#9ca0b0"
+else
+  _fzf_colors="--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+fi
 export FZF_DEFAULT_OPTS=" \
 --height=50% \
 --layout=reverse \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+$_fzf_colors"
+unset _fzf_colors
 
 [[ "$TERM" == "xterm-ghostty" ]] && export TERM="xterm-256color"
 
