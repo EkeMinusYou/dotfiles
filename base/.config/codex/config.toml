@@ -18,7 +18,7 @@ service_tier = "fast"
 terminal_title = ["activity", "thread"]
 session_picker_view = "dense"
 screen_reader_detection_done = true
-status_line = ["model-with-reasoning", "thread-name", "project-name", "weekly-limit"]
+status_line = ["model-with-reasoning", "thread-name", "project-name", "weekly-limit", "five-hour-limit"]
 status_line_use_colors = true
 resume_cwd = "current"
 agents_overview_grouping = "status"
@@ -70,28 +70,35 @@ fast_default_opt_out = true
 
 [mcp_servers.node_repl]
 command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"]
 startup_timeout_sec = 120.0
 
 [mcp_servers.node_repl.env]
-BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.715.21425"
-CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
+BROWSER_USE_CODEX_APP_VERSION = "26.1023.50603"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
 CODEX_HOME = "/Users/mineo/.config/codex"
-NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
-NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
-NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
 NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
 NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
-NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "5b74180ac40ca4cf726cad15c5ff886f159224f1c0306ea364ad9eea6a7e7ac2,6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
-NODE_REPL_TRUSTED_CODE_PATHS = "/Users/mineo/.config/codex"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/mineo/.config/codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/mineo/.config/codex/plugins/cache/openai-bundled/browser/26.1021.31345/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+SKY_CUA_SERVICE_PATH = "/Users/mineo/.config/codex/computer-use/Codex Computer Use.app"
 
 [mcp_servers.computer-use]
 command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
 args = ["mcp"]
 cwd = "."
 enabled = false
+
+[mcp_servers.lazypencil]
+command = "lazypencil"
+args = ["mcp"]
 
 [projects."/Users/mineo/src/github.com/groove-x/cloud-ghost-key"]
 trust_level = "trusted"
@@ -189,21 +196,195 @@ trust_level = "trusted"
 [projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-03"]
 trust_level = "trusted"
 
+[projects."/Users/mineo/src/github.com/EkeMinusYou/better-youtube-life"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/gitea.groove-x.io/yusuke.mineo/mylovot"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/ory/hydra-login-consent-node"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/groove-x/gxcloud-cli"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-02"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-03"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-04"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-05"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-06"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-07"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-08"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/gitea.groove-x.io/groove-x/gx-whiteboard"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-09"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-10"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/gitea.groove-x.io/yusuke.mineo/workspace"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/isucon/isucon14-portal"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-11"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-12"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-13"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/lazypencil"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-14"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-15"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/isucon/isucon12-portal"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon12-qualify-01"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/isucon/isucon13-portal"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-04"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/workspace"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-05"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/mnaog/practice-13"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/herdr-launcher"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-06"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-07"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-08"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-09"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-10"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-11"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-12"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon-template-redesign"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-16"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-17"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-18"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-19"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-20"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon13-13"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon14-21"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/isucon15"]
+trust_level = "trusted"
+
+[projects."/Users/mineo"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/EkeMinusYou/mineo-engine"]
+trust_level = "trusted"
+
+[projects."/Users/mineo/src/github.com/groove-x/data-platform"]
+trust_level = "trusted"
+
 [marketplaces.openai-bundled]
-last_updated = "2026-07-17T10:20:37Z"
 source_type = "local"
 source = "/Users/mineo/.config/codex/.tmp/bundled-marketplaces/openai-bundled"
 
-[plugins."figma@openai-curated"]
-enabled = true
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/mineo/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
-[plugins."sites@openai-bundled"]
+[plugins."figma@openai-curated"]
 enabled = true
 
 [plugins."visualize@openai-bundled"]
 enabled = true
 
 [plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
 enabled = true
 
 [desktop]
@@ -218,9 +399,7 @@ global = "ghostty"
 "/Users/mineo/src/github.com/EkeMinusYou/dotfiles" = "ghostty"
 
 [shell_environment_policy.set]
-BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
 NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "5b74180ac40ca4cf726cad15c5ff886f159224f1c0306ea364ad9eea6a7e7ac2,6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
-NODE_REPL_TRUSTED_CODE_PATHS = "/Users/mineo/.config/codex"
 
 [apps.connector_68df038e0ba48191908c8434991bbac2]
 enabled = true
@@ -231,7 +410,7 @@ enabled = true
 trusted_hash = "sha256:b2b92eeb0aaff2229f4f9d0f36409b9aa993fb700f703ae15a942a2d49b564ef"
 
 [hooks.state."/Users/mineo/.config/codex/hooks.json:stop:0:0"]
-trusted_hash = "sha256:3b8716ca9d2e7010af682045605242a01c83cc7ca06beabc4336cca5162db4ca"
+trusted_hash = "sha256:2eb13950b0b1d10d2c853e570b1864aa59b1e4be3cfffcc94d1d7e26782babea"
 
 [hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon12-final/.codex/hooks.json:session_end:0:0"]
 trusted_hash = "sha256:ad5a624f78a1441807711ffa7a12be77491cd1ffc89e7672ade842a722433d46"
@@ -243,13 +422,13 @@ trusted_hash = "sha256:961919a80c6888a1db26d36be74db172df17b8d71e42c21aae0f54f77
 trusted_hash = "sha256:f70cbf3ca556bd9070a99bea9e63883be24f693a9dab84b09d35e234aab2e4c2"
 
 [hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon-template/.codex/hooks.json:session_end:0:0"]
-trusted_hash = "sha256:ad5a624f78a1441807711ffa7a12be77491cd1ffc89e7672ade842a722433d46"
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
 
 [hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon-template/.codex/hooks.json:user_prompt_submit:0:0"]
 trusted_hash = "sha256:961919a80c6888a1db26d36be74db172df17b8d71e42c21aae0f54f7798d9707"
 
 [hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon-template/.codex/hooks.json:stop:0:0"]
-trusted_hash = "sha256:f70cbf3ca556bd9070a99bea9e63883be24f693a9dab84b09d35e234aab2e4c2"
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
 
 [hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon12-final-2/.codex/hooks.json:session_end:0:0"]
 trusted_hash = "sha256:ad5a624f78a1441807711ffa7a12be77491cd1ffc89e7672ade842a722433d46"
@@ -277,6 +456,318 @@ trusted_hash = "sha256:961919a80c6888a1db26d36be74db172df17b8d71e42c21aae0f54f77
 
 [hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-03/.codex/hooks.json:stop:0:0"]
 trusted_hash = "sha256:70072a8fbc455c59f920f417aed2ece21aa7bb4f8621aa1348a822a946ccee70"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:ad5a624f78a1441807711ffa7a12be77491cd1ffc89e7672ade842a722433d46"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:961919a80c6888a1db26d36be74db172df17b8d71e42c21aae0f54f7798d9707"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:70072a8fbc455c59f920f417aed2ece21aa7bb4f8621aa1348a822a946ccee70"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-02/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:ad5a624f78a1441807711ffa7a12be77491cd1ffc89e7672ade842a722433d46"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-02/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:961919a80c6888a1db26d36be74db172df17b8d71e42c21aae0f54f7798d9707"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-02/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:70072a8fbc455c59f920f417aed2ece21aa7bb4f8621aa1348a822a946ccee70"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-03/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:ad5a624f78a1441807711ffa7a12be77491cd1ffc89e7672ade842a722433d46"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-03/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:961919a80c6888a1db26d36be74db172df17b8d71e42c21aae0f54f7798d9707"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-03/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:70072a8fbc455c59f920f417aed2ece21aa7bb4f8621aa1348a822a946ccee70"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-04/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-04/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:961919a80c6888a1db26d36be74db172df17b8d71e42c21aae0f54f7798d9707"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-04/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-04/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-05/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-05/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-05/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-06/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-06/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-06/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-07/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-07/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-07/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-08/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-08/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-08/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-09/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-09/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-09/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-10/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-10/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-10/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon-template/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-11/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-11/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-11/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-12/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-12/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-12/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-13/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-13/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-13/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-14/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-14/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-14/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-15/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-15/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-15/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon12-qualify-01/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon12-qualify-01/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon12-qualify-01/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-04/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-04/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-04/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-05/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-05/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-05/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-06/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-06/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-06/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-07/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-07/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-07/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-08/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-08/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-08/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-09/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-09/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-09/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-10/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-10/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-10/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-11/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-11/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-11/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-12/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-12/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-12/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon-template-redesign/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon-template-redesign/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon-template-redesign/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-16/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-16/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-16/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-17/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-17/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-17/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-18/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-18/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-18/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-19/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-19/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-19/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-20/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-20/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-20/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-13/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-13/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon13-13/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-21/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-21/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon14-21/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon15/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:ee568f3d61fbb872f580e1ec43f4d694e24b0e2ec41511429c7fdc7eb591f031"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon15/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:dd6fcbf194503656385ccf1367146193ab9035a39a63817da2359e516d5be09a"
+
+[hooks.state."/Users/mineo/src/github.com/EkeMinusYou/isucon15/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:cfd8d69e42a4a82cbb5faabf4e818c05e04421ba96d4801f25024f9b974a488e"
 
 [[skills.config]]
 path = "/Users/mineo/.config/codex/skills/codex-primary-runtime/slides/SKILL.md"
