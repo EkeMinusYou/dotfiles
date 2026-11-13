@@ -98,7 +98,7 @@ agent = 20
 
 [agents.codex]
 mode = "agent"
-fast = true
+fast = false
 timeout = 3600
 
 [agents.claude]
