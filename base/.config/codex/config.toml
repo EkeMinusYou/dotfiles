@@ -97,8 +97,12 @@ cwd = "."
 enabled = false
 
 [mcp_servers.lazypencil]
+tool_input_schema_max_bytes = 16000
 command = "lazypencil"
 args = ["mcp"]
+
+[mcp_servers.lazypencil.tools.apply_operations]
+approval_mode = "approve"
 
 [projects."/Users/mineo/src/github.com/groove-x/cloud-ghost-key"]
 trust_level = "trusted"
